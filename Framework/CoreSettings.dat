@@ -1,0 +1,6 @@
+<Core>
+<IsConnectionEncripted>True</IsConnectionEncripted>
+<LogSplit>True</LogSplit>
+<LogSplitSize>10000</LogSplitSize>
+<LogType>Text</LogType>
+</Core>
