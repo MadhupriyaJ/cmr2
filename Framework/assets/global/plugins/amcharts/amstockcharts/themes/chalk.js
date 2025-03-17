@@ -1,28 +1,31 @@
-AmCharts.themes.black = {
+AmCharts.themes.chalk = {
 
-	themeName: "black",
+	themeName: "chalk",
 
 	AmChart: {
-		color: "#e7e7e7"
+		color: "#e7e7e7",
+		fontFamily: "Covered By Your Grace",
+		fontSize: 18,
+		handDrawn: true
 	},
 
 	AmCoordinateChart: {
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
-	},
-
-	AmStockChart: {
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#FFFFFF", "#e384a6", "#f4d499", "#4d90d6", "#c7e38c", "#9986c8", "#edf28c", "#ffd1d4", "#5ee1dc", "#b0eead", "#fef85a", "#8badd2"]
 	},
 
 	AmSlicedChart: {
 		outlineAlpha: 1,
-		outlineThickness: 2,
 		labelTickColor: "#FFFFFF",
 		labelTickAlpha: 0.3,
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#FFFFFF", "#e384a6", "#f4d499", "#4d90d6", "#c7e38c", "#9986c8", "#edf28c", "#ffd1d4", "#5ee1dc", "#b0eead", "#fef85a", "#8badd2"]
+	},
+
+	AmStockChart: {
+		colors: ["#FFFFFF", "#e384a6", "#f4d499", "#4d90d6", "#c7e38c", "#9986c8", "#edf28c", "#ffd1d4", "#5ee1dc", "#b0eead", "#fef85a", "#8badd2"]
 	},
 
 	AmRectangularChart: {
+
 		zoomOutButtonColor: '#FFFFFF',
 		zoomOutButtonRollOverAlpha: 0.15,
 		zoomOutButtonImage: "lensWhite.png"
@@ -30,44 +33,38 @@ AmCharts.themes.black = {
 
 	AxisBase: {
 		axisColor: "#FFFFFF",
-		axisAlpha: 0.3,
-		gridAlpha: 0.1,
-		gridColor: "#FFFFFF",
-		dashLength: 3
+		gridColor: "#FFFFFF"
 	},
 
 	ChartScrollbar: {
-		backgroundColor: "#000000",
+		backgroundColor: "#FFFFFF",
 		backgroundAlpha: 0.2,
-		graphFillAlpha: 0.2,
+		graphFillAlpha: 0.5,
 		graphLineAlpha: 0,
-		graphFillColor: "#FFFFFF",
-		selectedGraphFillColor: "#FFFFFF",
-		selectedGraphFillAlpha: 0.4,
-		selectedGraphLineColor: "#FFFFFF",
-		selectedBackgroundColor: "#FFFFFF",
-		selectedBackgroundAlpha: 0.09,
+		selectedBackgroundColor: "#000000",
+		selectedBackgroundAlpha: 0.25,
+		fontSize: 15,
 		gridAlpha: 0.15
 	},
 
 	ChartCursor: {
 		cursorColor: "#FFFFFF",
-		color: "#000000",
-		cursorAlpha: 0.5
+		color: "#000000"
 	},
 
 	AmLegend: {
-		color: "#e7e7e7"
+		color: "#e7e7e7",
+		markerSize: 20
 	},
 
 	AmGraph: {
-		lineAlpha: 0.9
+		lineAlpha: 0.8
 	},
 
 
 	GaugeArrow: {
 		color: "#FFFFFF",
-		alpha: 0.8,
+		alpha: 0.1,
 		nailAlpha: 0,
 		innerRadius: "40%",
 		nailRadius: 15,
@@ -78,13 +75,13 @@ AmCharts.themes.black = {
 
 	GaugeAxis: {
 		tickColor: "#FFFFFF",
-		tickAlpha: 1,
+		tickAlpha: 0.8,
 		tickLength: 15,
 		minorTickLength: 8,
 		axisThickness: 3,
 		axisColor: '#FFFFFF',
-		axisAlpha: 1,
-		bandAlpha: 0.8
+		axisAlpha: 0.8,
+		bandAlpha: 0.4
 	},
 
 	TrendLine: {
@@ -93,6 +90,10 @@ AmCharts.themes.black = {
 	},
 
 	// ammap
+	AmMap: {
+		handDrawn: false
+	},
+
 	AreasSettings: {
 		alpha: 0.8,
 		color: "#FFFFFF",
@@ -102,10 +103,10 @@ AmCharts.themes.black = {
 		outlineColor: "#000000",
 		outlineAlpha: 0.5,
 		outlineThickness: 0.5,
-		rollOverColor: "#3c5bdc",
+		rollOverColor: "#4d90d6",
 		rollOverOutlineColor: "#000000",
 		selectedOutlineColor: "#000000",
-		selectedColor: "#f15135",
+		selectedColor: "#e384a6",
 		unlistedAreasOutlineColor: "#000000",
 		unlistedAreasOutlineAlpha: 0.5
 	},
@@ -117,25 +118,19 @@ AmCharts.themes.black = {
 
 	ImagesSettings: {
 		alpha: 0.8,
+		labelFontSize: 16,
 		labelColor: "#FFFFFF",
 		color: "#FFFFFF",
-		labelRollOverColor: "#3c5bdc"
+		labelRollOverColor: "#4d90d6"
 	},
 
 	ZoomControl: {
-		buttonRollOverColor: "#3c5bdc",
-		buttonFillColor: "#738f58",
-		buttonBorderColor: "#738f58",
+		buttonRollOverColor: "#4d90d6",
+		buttonFillColor: "#e384a6",
 		buttonFillAlpha: 0.8,
+		buttonBorderColor: "#FFFFFF",
 		gridBackgroundColor: "#FFFFFF",
-		buttonBorderAlpha:0,
-		buttonCornerRadius:2,
-		gridAlpha:0.5,
-		gridBackgroundColor:"#FFFFFF",
-		homeIconFile:"homeIconWhite.gif",
-		buttonIconAlpha:0.6,
-		gridAlpha: 0.2,
-		buttonSize:20
+		gridAlpha: 0.8
 	},
 
 	SmallMap: {
@@ -147,13 +142,18 @@ AmCharts.themes.black = {
 		borderAlpha: 0.8
 	},
 
+
 	// the defaults below are set using CSS syntax, you can use any existing css property
 	// if you don't use Stock chart, you can delete lines below
 	PeriodSelector: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		color: "#e7e7e7"
 	},
 
 	PeriodButton: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		color: "#e7e7e7",
 		background: "transparent",
 		opacity: 0.7,
@@ -166,6 +166,8 @@ AmCharts.themes.black = {
 	},
 
 	PeriodButtonSelected: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		color: "#e7e7e7",
 		backgroundColor: "rgba(255, 255, 255, 0.1)",
 		border: "1px solid rgba(255, 255, 255, .3)",
@@ -178,6 +180,8 @@ AmCharts.themes.black = {
 	},
 
 	PeriodInputField: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		color: "#e7e7e7",
 		background: "transparent",
 		border: "1px solid rgba(255, 255, 255, .15)",
@@ -185,12 +189,16 @@ AmCharts.themes.black = {
 	},
 
 	DataSetSelector: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		color: "#e7e7e7",
 		selectedBackgroundColor: "rgba(255, 255, 255, .25)",
 		rollOverBackgroundColor: "rgba(255, 255, 255, .15)"
 	},
 
 	DataSetCompareList: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		color: "#e7e7e7",
 		lineHeight: "100%",
 		boxSizing: "initial",
@@ -199,6 +207,8 @@ AmCharts.themes.black = {
 	},
 
 	DataSetSelect: {
+		fontFamily: "Covered By Your Grace",
+		fontSize:"16px",
 		border: "1px solid rgba(255, 255, 255, .15)",
 		outline: "none"
 	}

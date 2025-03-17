@@ -1,72 +1,65 @@
-AmCharts.themes.black = {
+AmCharts.themes.light = {
 
-	themeName: "black",
+	themeName:"light",
 
 	AmChart: {
-		color: "#e7e7e7"
+		color: "#000000"
 	},
 
 	AmCoordinateChart: {
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#67b7dc", "#fdd400", "#84b761", "#cc4748", "#cd82ad", "#2f4074", "#448e4d", "#b7b83f", "#b9783f", "#b93e3d", "#913167"]
 	},
 
 	AmStockChart: {
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#67b7dc", "#fdd400", "#84b761", "#cc4748", "#cd82ad", "#2f4074", "#448e4d", "#b7b83f", "#b9783f", "#b93e3d", "#913167"]
 	},
 
 	AmSlicedChart: {
+		colors: ["#67b7dc", "#fdd400", "#84b761", "#cc4748", "#cd82ad", "#2f4074", "#448e4d", "#b7b83f", "#b9783f", "#b93e3d", "#913167"],
 		outlineAlpha: 1,
 		outlineThickness: 2,
-		labelTickColor: "#FFFFFF",
-		labelTickAlpha: 0.3,
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		labelTickColor: "#000000",
+		labelTickAlpha: 0.3
 	},
 
 	AmRectangularChart: {
-		zoomOutButtonColor: '#FFFFFF',
+		zoomOutButtonColor: '#000000',
 		zoomOutButtonRollOverAlpha: 0.15,
-		zoomOutButtonImage: "lensWhite.png"
+		zoomOutButtonImage: "lens.png"
 	},
 
 	AxisBase: {
-		axisColor: "#FFFFFF",
+		axisColor: "#000000",
 		axisAlpha: 0.3,
 		gridAlpha: 0.1,
-		gridColor: "#FFFFFF",
-		dashLength: 3
+		gridColor: "#000000"
 	},
 
 	ChartScrollbar: {
 		backgroundColor: "#000000",
-		backgroundAlpha: 0.2,
-		graphFillAlpha: 0.2,
+		backgroundAlpha: 0.12,
+		graphFillAlpha: 0.5,
 		graphLineAlpha: 0,
-		graphFillColor: "#FFFFFF",
-		selectedGraphFillColor: "#FFFFFF",
-		selectedGraphFillAlpha: 0.4,
-		selectedGraphLineColor: "#FFFFFF",
 		selectedBackgroundColor: "#FFFFFF",
-		selectedBackgroundAlpha: 0.09,
+		selectedBackgroundAlpha: 0.4,
 		gridAlpha: 0.15
 	},
 
 	ChartCursor: {
-		cursorColor: "#FFFFFF",
-		color: "#000000",
+		cursorColor: "#000000",
+		color: "#FFFFFF",
 		cursorAlpha: 0.5
 	},
 
 	AmLegend: {
-		color: "#e7e7e7"
+		color: "#000000"
 	},
 
 	AmGraph: {
 		lineAlpha: 0.9
 	},
-
-
 	GaugeArrow: {
-		color: "#FFFFFF",
+		color: "#000000",
 		alpha: 0.8,
 		nailAlpha: 0,
 		innerRadius: "40%",
@@ -77,12 +70,12 @@ AmCharts.themes.black = {
 	},
 
 	GaugeAxis: {
-		tickColor: "#FFFFFF",
+		tickColor: "#000000",
 		tickAlpha: 1,
 		tickLength: 15,
 		minorTickLength: 8,
 		axisThickness: 3,
-		axisColor: '#FFFFFF',
+		axisColor: '#000000',
 		axisAlpha: 1,
 		bandAlpha: 0.8
 	},
@@ -95,53 +88,52 @@ AmCharts.themes.black = {
 	// ammap
 	AreasSettings: {
 		alpha: 0.8,
-		color: "#FFFFFF",
-		colorSolid: "#000000",
+		color: "#67b7dc",
+		colorSolid: "#003767",
 		unlistedAreasAlpha: 0.4,
-		unlistedAreasColor: "#FFFFFF",
-		outlineColor: "#000000",
+		unlistedAreasColor: "#000000",
+		outlineColor: "#FFFFFF",
 		outlineAlpha: 0.5,
 		outlineThickness: 0.5,
 		rollOverColor: "#3c5bdc",
-		rollOverOutlineColor: "#000000",
-		selectedOutlineColor: "#000000",
+		rollOverOutlineColor: "#FFFFFF",
+		selectedOutlineColor: "#FFFFFF",
 		selectedColor: "#f15135",
-		unlistedAreasOutlineColor: "#000000",
+		unlistedAreasOutlineColor: "#FFFFFF",
 		unlistedAreasOutlineAlpha: 0.5
 	},
 
 	LinesSettings: {
-		color: "#FFFFFF",
+		color: "#000000",
 		alpha: 0.8
 	},
 
 	ImagesSettings: {
 		alpha: 0.8,
-		labelColor: "#FFFFFF",
-		color: "#FFFFFF",
+		labelColor: "#000000",
+		color: "#000000",
 		labelRollOverColor: "#3c5bdc"
 	},
 
 	ZoomControl: {
 		buttonRollOverColor: "#3c5bdc",
-		buttonFillColor: "#738f58",
-		buttonBorderColor: "#738f58",
+		buttonFillColor: "#3994e2",
+		buttonBorderColor: "#3994e2",
 		buttonFillAlpha: 0.8,
 		gridBackgroundColor: "#FFFFFF",
 		buttonBorderAlpha:0,
 		buttonCornerRadius:2,
-		gridAlpha:0.5,
-		gridBackgroundColor:"#FFFFFF",
-		homeIconFile:"homeIconWhite.gif",
+		gridColor:"#FFFFFF",
+		gridBackgroundColor:"#000000",
 		buttonIconAlpha:0.6,
-		gridAlpha: 0.2,
+		gridAlpha: 0.6,
 		buttonSize:20
 	},
 
 	SmallMap: {
-		mapColor: "#FFFFFF",
-		rectangleColor: "#FFFFFF",
-		backgroundColor: "#000000",
+		mapColor: "#000000",
+		rectangleColor: "#f15135",
+		backgroundColor: "#FFFFFF",
 		backgroundAlpha: 0.7,
 		borderThickness: 1,
 		borderAlpha: 0.8
@@ -150,14 +142,14 @@ AmCharts.themes.black = {
 	// the defaults below are set using CSS syntax, you can use any existing css property
 	// if you don't use Stock chart, you can delete lines below
 	PeriodSelector: {
-		color: "#e7e7e7"
+		color: "#000000"
 	},
 
 	PeriodButton: {
-		color: "#e7e7e7",
+		color: "#000000",
 		background: "transparent",
 		opacity: 0.7,
-		border: "1px solid rgba(255, 255, 255, .15)",
+		border: "1px solid rgba(0, 0, 0, .3)",
 		MozBorderRadius: "5px",
 		borderRadius: "5px",
 		margin: "1px",
@@ -166,9 +158,9 @@ AmCharts.themes.black = {
 	},
 
 	PeriodButtonSelected: {
-		color: "#e7e7e7",
-		backgroundColor: "rgba(255, 255, 255, 0.1)",
-		border: "1px solid rgba(255, 255, 255, .3)",
+		color: "#000000",
+		backgroundColor: "#b9cdf5",
+		border: "1px solid rgba(0, 0, 0, .3)",
 		MozBorderRadius: "5px",
 		borderRadius: "5px",
 		margin: "1px",
@@ -178,28 +170,29 @@ AmCharts.themes.black = {
 	},
 
 	PeriodInputField: {
-		color: "#e7e7e7",
+		color: "#000000",
 		background: "transparent",
-		border: "1px solid rgba(255, 255, 255, .15)",
+		border: "1px solid rgba(0, 0, 0, .3)",
 		outline: "none"
 	},
 
 	DataSetSelector: {
-		color: "#e7e7e7",
-		selectedBackgroundColor: "rgba(255, 255, 255, .25)",
-		rollOverBackgroundColor: "rgba(255, 255, 255, .15)"
+
+		color: "#000000",
+		selectedBackgroundColor: "#b9cdf5",
+		rollOverBackgroundColor: "#a8b0e4"
 	},
 
 	DataSetCompareList: {
-		color: "#e7e7e7",
+		color: "#000000",
 		lineHeight: "100%",
 		boxSizing: "initial",
 		webkitBoxSizing: "initial",
-		border: "1px solid rgba(255, 255, 255, .15)"
+		border: "1px solid rgba(0, 0, 0, .3)"
 	},
 
 	DataSetSelect: {
-		border: "1px solid rgba(255, 255, 255, .15)",
+		border: "1px solid rgba(0, 0, 0, .3)",
 		outline: "none"
 	}
 
