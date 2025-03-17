@@ -1,17 +1,17 @@
-AmCharts.themes.black = {
+AmCharts.themes.dark = {
 
-	themeName: "black",
+	themeName: "dark",
 
 	AmChart: {
-		color: "#e7e7e7", backgroundColor: "#222222"
+		color: "#e7e7e7", backgroundColor: "#282828"
 	},
 
 	AmCoordinateChart: {
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#ae85c9", "#aab9f7", "#b6d2ff", "#c9e6f2", "#c9f0e1", "#e8d685", "#e0ad63", "#d48652", "#d27362", "#495fba", "#7a629b", "#8881cc"]
 	},
 
 	AmStockChart: {
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#639dbd", "#e8d685", "#ae85c9", "#c9f0e1", "#d48652", "#629b6d", "#719dc3", "#719dc3"]
 	},
 
 	AmSlicedChart: {
@@ -19,7 +19,7 @@ AmCharts.themes.black = {
 		outlineThickness: 2,
 		labelTickColor: "#FFFFFF",
 		labelTickAlpha: 0.3,
-		colors: ["#de4c4f", "#d8854f", "#eea638", "#a7a737", "#86a965", "#8aabb0", "#69c8ff", "#cfd27e", "#9d9888", "#916b8a", "#724887", "#7256bc"]
+		colors: ["#495fba", "#e8d685", "#ae85c9", "#c9f0e1", "#d48652", "#629b6d", "#719dc3", "#719dc3"]
 	},
 
 	AmRectangularChart: {
@@ -124,8 +124,7 @@ AmCharts.themes.black = {
 
 	ZoomControl: {
 		buttonRollOverColor: "#3c5bdc",
-		buttonFillColor: "#738f58",
-		buttonBorderColor: "#738f58",
+		buttonFillColor: "#f15135",
 		buttonFillAlpha: 0.8,
 		gridBackgroundColor: "#FFFFFF",
 		buttonBorderAlpha:0,
