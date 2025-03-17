@@ -6,10 +6,10 @@
  */
 (function ($) {
   $.fn.selectpicker.defaults = {
-    noneSelectedText: 'Nic není vybráno',
-    noneResultsText: 'Žádné výsledky',
-    countSelectedText: 'Označeno {0} z {1}',
-    maxOptionsText: ['Limit překročen ({n} {var} max)', 'Limit skupiny překročen ({n} {var} max)', ['položek', 'položka']],
+    noneSelectedText: 'Hautapenik ez',
+    noneResultsText: 'Emaitzarik ez',
+    countSelectedText: '{1}(e)tik {0} hautatuta',
+    maxOptionsText: ['Mugara iritsita ({n} {var} gehienez)', 'Taldearen mugara iritsita ({n} {var} gehienez)', ['elementu', 'elementu']],
     multipleSeparator: ', '
   };
 }(jQuery));

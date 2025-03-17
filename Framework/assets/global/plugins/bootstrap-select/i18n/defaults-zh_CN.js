@@ -6,10 +6,10 @@
  */
 (function ($) {
   $.fn.selectpicker.defaults = {
-    noneSelectedText: 'Nic není vybráno',
-    noneResultsText: 'Žádné výsledky',
-    countSelectedText: 'Označeno {0} z {1}',
-    maxOptionsText: ['Limit překročen ({n} {var} max)', 'Limit skupiny překročen ({n} {var} max)', ['položek', 'položka']],
+    noneSelectedText: '没有选中任何项',
+    noneResultsText: '没有找到匹配项',
+    countSelectedText: '选中{1}中的{0}项',
+    maxOptionsText: ['超出限制 (最多选择{n}项)', '组选择超出限制(最多选择{n}组)'],
     multipleSeparator: ', '
   };
 }(jQuery));

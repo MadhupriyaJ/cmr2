@@ -6,10 +6,10 @@
  */
 (function ($) {
   $.fn.selectpicker.defaults = {
-    noneSelectedText: 'Nic není vybráno',
-    noneResultsText: 'Žádné výsledky',
-    countSelectedText: 'Označeno {0} z {1}',
-    maxOptionsText: ['Limit překročen ({n} {var} max)', 'Limit skupiny překročen ({n} {var} max)', ['položek', 'položka']],
+    noneSelectedText: 'Nessuna selezione',
+    noneResultsText: 'Nessun risultato',
+    countSelectedText: 'Selezionati {0} di {1}',
+    maxOptionsText: ['Limite raggiunto ({n} {var} max)', 'Limite del gruppo raggiunto ({n} {var} max)', ['elementi', 'elemento']],
     multipleSeparator: ', '
   };
 }(jQuery));
