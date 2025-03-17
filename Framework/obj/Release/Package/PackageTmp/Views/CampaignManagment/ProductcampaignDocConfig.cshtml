@@ -1,0 +1,171 @@
+﻿@using FramWork.Models;
+@using Core;
+@{
+    ViewBag.Title = "ProductcampaignDocConfig";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-share font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Portlet</span>
+            <span class="caption-helper">monthly stats...</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-cloud-upload"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-wrench"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-trash"></i>
+            </a>
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+                            Campaign
+                        </label>
+                        <div class="col-md-4">
+                            @Html.DropDownList("ddlcampaign", new SelectList(dc.Campaigns.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.CampaignName }), "Id", "Name"), "Select", new { @class = "form-control" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="proddivlist">
+                @Html.Action("ProductList", "CampaignManagment")
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section  Scripts{
+
+    <script>
+        $('#ddlcampaign').live('change', function () {
+            var dataRow =  { campaignId: $('#ddlcampaign option:selected').val() }
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Content("~")CampaignManagment/ProductList',
+                data: dataRow,
+                success: function (response) {
+                    $('#proddivlist').html(response);
+                }
+            });
+        });
+
+        //================================
+
+        $(document).ready(function () {
+
+            $(".btnadd").live('click', function () {
+                var btnid = $(this).attr("id");
+                btnid = btnid.replace("addButton", "");
+                var counter = $('#' + btnid + 'hdn').val();
+                var newTextBoxDiv = $(document.createElement('div')).attr("id", btnid + 'TextBoxDiv' + counter);
+                var $new = $('<div class="form-group"></div>');
+                $new.html(GetDynamicdropdown(counter, btnid))
+                newTextBoxDiv.after().html($new);
+                //newTextBoxDiv.appendTo("#TextBoxesGroup");
+                newTextBoxDiv.hide().appendTo("#" + btnid + "textboxesgroup").fadeIn(1000);
+                populatedropdown_doc(counter, btnid);
+                counter++;
+                $('#' + btnid + 'hdn').val(counter);
+            });
+            //====================Remove control======================================
+            $(".btnremove").live('click', function () {
+                var btnid = $(this).attr("id");
+                btnid = btnid.replace("removeButton", "");
+                var counter = $('#' + btnid + 'hdn').val();
+                if (counter == 1) {
+                    alert("No more textbox to remove");
+                    return false;
+                }
+                counter--;
+                $("#" + btnid + 'TextBoxDiv' + counter).remove();
+                $('#' + btnid + 'hdn').val(counter);
+            });
+            //=========================Save Begin===============================
+
+            $('.btnsave').live('click', function () {
+                var btnid = $(this).attr("id");
+                var name = btnid + 'txtdoc';
+                var values = [];
+                $("select[name=" + name + "]").each(function () {
+                    values.push($(this).val());
+                });
+                var dataRow = { CampaignProductId: btnid ,DocumentId:values};
+                var dataRow1 = { CampaignProductId: btnid };
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~")CampaignManagment/addproductdocument',
+                    data: dataRow,
+                    success: function (response) {
+                        if(response=='True')
+                        {
+                            bootbox.alert("Saved Successfully", function () {
+                                $.ajax({
+                                    type: 'GET',
+                                    url: '@Url.Content("~")CampaignManagment/ListOfdocs',
+                                    data: dataRow1,
+                                    success: function (response1) {
+                                        $('#' + btnid + 'docdivinside').html(response1);
+                                    }
+                                });
+                            });
+                        }
+                    }
+                });
+                return false;
+            });
+
+            
+
+            // =============================================
+            function GetDynamicdropdown(counter, btnid) {
+                var $element = 'document name ' + counter + '<select class="form-control" id="' + btnid + 'txtdoc' + counter + '" name="' + btnid + 'txtdoc"></select>';
+            return $element;
+            }
+            //==========================================================
+            function populatedropdown_doc(counter, btnid) {
+                // when the selection of some other drop down changes
+                // get the new value
+                var value = "";
+
+                // and send it as AJAX request to the newly created action
+                $.ajax({
+                    url: '@Url.Action("doclist", "CampaignManagment")',
+                    type: 'POST',
+                    data: { someValue: value },
+                    success: function (result) {
+                        // when the AJAX succeeds refresh the dropdown list with
+                        // the JSON values returned from the controller action
+                        var selectedDeviceModel = $('#' + btnid + 'txtdoc' + counter);
+                        selectedDeviceModel.empty();
+                        $.each(result, function (index, item) {
+                            selectedDeviceModel.append(
+                                $('<option/>', {
+                                    value: item.value,
+                                    text: item.text
+                                })
+                            );
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+}

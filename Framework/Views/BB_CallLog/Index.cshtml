@@ -1,0 +1,878 @@
+﻿@model PagedList.IPagedList<FramWork.Models.ABB_Company>
+@using PagedList.Mvc;
+@using FramWork.Models;
+@using Core;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+}
+
+<input type="hidden" id="hdnCompanyId" name="CompanyId" />
+<input type="hidden" id="hdCallLogId" name="hdCallLogId" />
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~")BB_Company/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "BB_Company")"> Company</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#"> Call Log</a>      
+    </li>
+ 
+</ul>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="caption">
+                    <i class="icon-pin font-yellow-lemon"></i>
+                    <span class="caption-subject bold font-yellow-lemon uppercase">
+                        Company : @item.EnglishName
+                    </span>
+                    <span class="caption-helper"></span>
+                </div>
+                <ul class="nav nav-tabs">
+
+                    <li>
+                        <a href="#@string.Format("{0}{1}", "portlet_tab2",item.Id)" data-toggle="tab">
+                            Company Details
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#@string.Format("{0}{1}", "portlet_tab1",item.Id)" data-toggle="tab">
+                            Call Log
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="portlet-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="@string.Format("{0}{1}", "portlet_tab1",item.Id)">
+                        <p>
+                            <a href="#" class="btn blue newcall" id="@item.Id">
+                                <i class="fa  fa-plus "></i> New Call
+                            </a>
+                        </p>
+                        <div id="@string.Format("{0}{1}",item.Id,"s")">
+                            @Html.Action("CallLoglist", "BB_CallLog", new { companyId = item.Id })
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="@string.Format("{0}{1}", "portlet_tab2",item.Id)" style="min-height:300px;">
+                        @Html.Action("Details", "BB_CallLog", new { id = item.Id })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+    <div id="contentPagerC">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    </div>
+
+
+</div>
+
+
+@* -----------------  New Call Modal Start ---------------------------------- *@
+<div class="modal fade" id="Newcallmodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+            </div>
+            <div class="modal-body">
+                <div class="portlet box blue" id="form_wizard_1">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-gift"></i> New Call -
+                            <span class="step-title">
+                                Step 1 of 4
+                            </span>
+                        </div>
+                        <div class="tools hidden-xs">
+                            <a href="javascript:;" class="collapse">
+                            </a>
+                            <a href="#portlet-config" data-toggle="modal" class="config">
+                            </a>
+                            <a href="javascript:;" class="reload">
+                            </a>
+                            <a href="javascript:;" class="remove">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body form">
+                        <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                            <div class="form-wizard">
+                                <div class="form-body">
+                                    <ul class="nav nav-pills nav-justified steps">
+                                        <li>
+                                            <a href="#tab1" data-toggle="tab" class="step">
+                                                <span class="number">
+                                                    1
+                                                </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Account Setup
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab2" data-toggle="tab" class="step">
+                                                <span class="number">
+                                                    2
+                                                </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Profile Setup
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab3" data-toggle="tab" class="step active">
+                                                <span class="number">
+                                                    3
+                                                </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Billing Setup
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#tab4" data-toggle="tab" class="step">
+                                                <span class="number">
+                                                    4
+                                                </span>
+                                                <span class="desc">
+                                                    <i class="fa fa-check"></i> Confirm
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="bar" class="progress progress-striped" role="progressbar">
+                                        <div class="progress-bar progress-bar-success">
+                                        </div>
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="alert alert-danger display-none">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            You have some form errors. Please check below.
+                                        </div>
+                                        <div class="alert alert-success display-none">
+                                            <button class="close" data-dismiss="alert"></button>
+                                            Your form validation is successful!
+                                        </div>
+                                        <div class="tab-pane active" id="tab1">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Subject <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control currenciesOnly" name="Subject" id="Subject" rows="2"></textarea>
+                                                    <span class="help-block">
+                                                        Provide your username
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Interaction Type <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    @Html.DropDownList("ddlInteractionTypeId", new SelectList(dc.ABB_InteractionType.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.Type }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                                    <span class="help-block">
+                                                        Provide  interaction type
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    MeetingDuration <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control timepicker-24" name="MeetingDuration" id="MeetingDuration" />
+                                                    <span class="help-block">
+                                                        Provide MeetingDuration
+                                                    </span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Place Of Meeting <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name="PlaceOfMeeting" id="PlaceOfMeeting" />
+                                                    <span class="help-block">
+                                                        Provide MeetingDuration
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab2">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    PlannedDate <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control date-picker" name="PlannedDate" id="PlannedDate" />
+                                                    <span class="help-block">
+                                                        Provide PlannedDate
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    PlannedTime <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control timepicker-24" name="PlannedTime" id="PlannedTime" />
+                                                    <span class="help-block">
+                                                        Provide PlannedTime
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    MeetingDate <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control date-picker" name="MeetingDate" id="MeetingDate" />
+                                                    <span class="help-block">
+                                                        Provide MeetingDate
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    MeetingTime <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control timepicker-24" name="MeetingTime" id="MeetingTime" />
+                                                    <span class="help-block">
+                                                        Provide your city or town
+                                                    </span>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="tab-pane" id="tab3">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Description <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" name="Description" id="Description" rows="2"></textarea>
+                                                    <span class="help-block">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Market Watch
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" name="MarketWatch" id="MarketWatch" rows="2"></textarea>
+
+                                                    <span class="help-block">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    New Business Opportunities
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" name="NewBusinessOpportunities" id="NewBusinessOpportunities" rows="2"></textarea>
+                                                    <span class="help-block">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Management News
+                                                </label>
+                                                <div class="col-md-8">
+                                                    <textarea class="form-control" name="ManagementNews" id="ManagementNews" rows="2"></textarea>
+                                                    <span class="help-block">
+                                                        Provide ManagementNews
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="tab-pane" id="tab4">
+                                            <h3 class="block">Confirm </h3>
+                                            @*<div class="form-group">
+                                                    <label class="control-label col-md-3">Username:</label>
+                                                    <div class="col-md-4">
+                                                        <p class="form-control-static" data-display="username">
+                                                        </p>
+                                                    </div>
+                                                </div>*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <a href="javascript:;" class="btn default button-previous">
+                                                <i class="m-icon-swapleft"></i> Back
+                                            </a>
+                                            <a href="javascript:;" class="btn blue button-next">
+                                                Continue <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn green button-submit">
+                                                Submit <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@* -----------------  New Call Modal End ---------------------------------- *@
+
+@* -----------------  Request Finance Modal Start ---------------------------------- *@
+<div class="modal fade" id="requestfinancemodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Request Finance</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btnrequestfinanceform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Purpose of Facility <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control currenciesOnly" name="Purpose" id="Purpose" rows="3"></textarea>
+                                        <span class="help-block">
+                                            Provide Purpose
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Product <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("ddlProductId", new SelectList(dc.ABB_Products.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.ProductName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            select Product
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Required On <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control date-picker" name="RequiredOn" id="RequiredOn" placeholder="dd/mm/yyyy" />
+                                        <span class="help-block">
+                                            Provide Required On
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Tenure<span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" name="Tenure" id="Tenure" placeholder="Year(s)" />
+                                        <span class="help-block">
+                                            Provide Tenure in year(s)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Finance Amount <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control currenciesOnly" name="Amount" id="Amount" style="text-align:right;" placeholder="100,000.00" />
+                                        <span class="help-block">
+                                            Provide Finance Amount
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Payment Details <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control" name="PaymentDetails" id="PaymentDetails" rows="3"></textarea>
+                                        <span class="help-block">
+                                            Provide Payment Details
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnrequestfinance" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@* -----------------  Request Finance Modal End ---------------------------------- *@
+
+@* ----------------- General Discussion Modal Start ---------------------------------- *@
+<div class="modal fade" id="generaldiscussionmodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">New General Discussion Point</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btgeneraldiscussionform">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-5">
+                                    Title <span class="required" aria-required="true">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control" name="GTitle" id="GTitle" />
+                                    <span class="help-block">
+                                        Provide  Title
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-5">
+                                    General Discussion<span class="required" aria-required="true">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <textarea class="form-control" name="GeneralDiscussion" id="GeneralDiscussion" rows="3"></textarea>
+                                    <span class="help-block">
+                                        Provide  General Discussion
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btngeneraldiscussion" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@* ----------------- General Discussion Modal End ---------------------------------- *@
+
+@* -----------------  Action Point Modal Start ---------------------------------- *@
+<div class="modal fade" id="actionpointmodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">New Action Point</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btnactionpointform">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-5">
+                                    Task Title <span class="required" aria-required="true">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control" name="TaskTitle" id="TaskTitle" />
+                                    <span class="help-block">
+                                        Provide Task Title
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-5">
+                                    Task Description<span class="required" aria-required="true">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <textarea class="form-control" name="Description" id="Description" rows="3"></textarea>
+                                    <span class="help-block">
+                                        Provide Task Description
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-5">
+                                    Due Date <span class="required" aria-required="true">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <input type="text" class="form-control date-picker" name="DueDate" id="DueDate" placeholder="dd/mm/yyyy" />
+                                    <span class="help-block">
+                                        Provide Due Date
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-5">
+                                    Tags<span class="required" aria-required="true">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-7">
+                                    <input id="Tags" type="text" class="form-control todo-taskbody-tags" placeholder="Tags..." data-ng-model="selectedAction.Tags" required>
+                                    <span class="help-block">
+                                        Provide Tags
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnactionpoints" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@* -----------------  Action Finance Modal End ---------------------------------- *@
+
+
+@section   Css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link href="@Url.Content("~")assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/select2/select2.min.js"></script>
+    <script src="@Url.Content("~")assets/Programmer/Scripts/BB_CallLog/form-wizard.js"></script>
+    <script src="@Url.Content("~")assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="@Url.Content("~")assets/Programmer/Scripts/BB_CallLog/CallLogValidations.js"></script>
+    <script>
+        //============================================
+        $(document).ready(function () {
+            FormWizard.init();
+            $('#form_wizard_1').find('.button-previous').hide();
+            //Call Log Save
+            $('#form_wizard_1 .button-submit').click(function () {
+                var dataRow = {
+                    CompanyId: $("#hdnCompanyId").val(),
+                    Subject: $("#Subject").val(),
+                    InteractionType: $("#ddlInteractionTypeId option:selected").val(),
+                    MeetingDuration: $("#MeetingDuration").val(),
+                    PlaceOfMeeting: $("#PlaceOfMeeting").val(),
+                    PlannedDate: $("#PlannedDate").val(),
+                    PlannedTime: $("#PlannedTime").val(),
+                    MeetingDate: $("#MeetingDate").val(),
+                    MeetingTime: $("#MeetingTime").val(),
+                    Description: $("#Description").val(),
+                    MarketWatch: $("#MarketWatch").val(),
+                    NewBusinessOpportunities: $("#NewBusinessOpportunities").val(),
+                    ManagementNews: $("#ManagementNews").val()
+                };
+                var dataRow1 = { CompanyId: $("#hdnCompanyId").val(), };
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Content("~")BB_CallLog/savecallcog',
+                    data: dataRow,
+                    success: function (response) {
+                        if (response != null) {
+                            $('#hdCallLogId').val(response);
+                            $.ajax({
+                                type: 'GET',
+                                url: '@Url.Content("~")BB_CallLog/CallLoglist',
+                                data: dataRow1,
+                                success: function (response1) {
+                                    $('#Newcallmodal').modal('hide');
+                                    $("#" + $("#hdnCompanyId").val() + "s").html(response1);
+                                }
+                            });
+
+
+                            bootbox.alert("CallLog Added Successfully!", function () {
+                                RequestFinanace();
+                            });
+
+                        }
+                        else {
+                            bootbox.alert("An Error Occured Please contact your administrator or Try again later!");
+                        }
+                    }
+                });
+            }).hide();
+
+            //Request Finanace Saving Modal and Calling General Discussion Modal
+            function RequestFinanace() {
+                bootbox.confirm("Do you want to Configure Request Finance", function (result) {
+                    if (result) {
+                        $('#requestfinancemodal').modal();
+
+                    } else {
+                        GeneralDiscuss();
+                    }
+                });
+            }
+            //General Discussion Saving Modal and invoking Action points modal
+            function GeneralDiscuss() {
+                bootbox.confirm("Do you want to Configure General Discussion", function (result) {
+                    if (result) {
+                        $('#generaldiscussionmodal').modal();
+                    } else {
+                        ActionPoints();
+                    }
+                });
+            }
+            //Action Points Saving Modal and Invoking Documents Modal
+            function ActionPoints() {
+                bootbox.confirm("Do you want to Configure Action Points", function (result) {
+                    if (result) {
+                        $('#actionpointmodal').modal();
+                    }
+                    else {
+                        Documents();
+                    }
+                });
+            }
+            //Document Saving Modal and redirect to Index
+            function Documents() {
+
+                bootbox.confirm("Do you want to Configure Documents", function (result) {
+                    if (result) {
+                        var company = $("#hdnCompanyId").val();
+                        window.location = "@Url.Content("~")BB_CallLog/DocumentIndex?id=" + company;
+                    }
+                    else {
+                        //close
+                    }
+                });
+
+            }
+
+            //Request Finanace Save
+            $('#btnrequestfinance').live('click', function () {
+                event.preventDefault();
+                var isValid = $("#btnrequestfinanceform").valid();
+                if (!isValid)
+                    return false;
+
+                var postdata = {
+                    CompanyId: $("#hdnCompanyId").val(),
+                    CallLogId: $('#hdCallLogId').val(),
+                    Purpose: $('#Purpose').val(),
+                    ProductId: $('#ddlProductId option:selected').val(),
+                    RequiredOn: $('#RequiredOn').val(),
+                    Tenure: $('#Tenure').val(),
+                    Amount: $('#Amount').val(),
+                    PaymentDetails: $('#PaymentDetails').val()
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_CallLog/addrequestfinance',
+                    data: postdata,
+                    success: function (response) {
+                        if (response == 'True') {
+
+                            $('#requestfinancemodal').modal('hide');
+                            bootbox.alert("Request Finanace Saved Successfully!", function () {
+                                GeneralDiscuss();
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+                return false;
+            });
+
+           
+            //Add General Discussion
+            $('#btngeneraldiscussion').live('click', function () {
+                event.preventDefault();
+                var isValid = $("#btgeneraldiscussionform").valid();
+                if (!isValid)
+                    return false;
+
+                var postdata = {
+                    CallLogId: $("#hdCallLogId").val(),
+                    Title: $('#GTitle').val(),
+                    GeneralDiscussion: $('#GeneralDiscussion').val()
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_CallLog/AddGeneralDiscussion',
+                    data: postdata,
+                    success: function (response) {
+                        if (response == 'True') {
+                            $('#generaldiscussionmodal').modal('hide');
+                            bootbox.alert("General Discussions are added Successfully!", function () {
+                                ActionPoints();
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+                return false;
+            });
+                      
+            //Add Action Points
+
+            $('#btnactionpoints').live('click', function () {
+                event.preventDefault();
+                var isValid = $("#btnactionpointform").valid();
+                if (!isValid)
+                    return false;
+
+                var postdata = {
+                    CallLogId: $("#hdCallLogId").val(),
+                    ActionTitle: $('#TaskTitle').val(),
+                    ActionDescription: $('#Description').val(),
+                    DueDate: $('#DueDate').val(),
+                    Tags: $('#Tags').val()
+                };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_CallLog/addactionpoints',
+                    data: postdata,
+                    success: function (response) {
+                        if (response == 'True') {
+                            $('#actionpointmodal').modal('hide');
+                            bootbox.alert("Action Points Configured Successfully!", function () {
+                                Documents();
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+                return false;
+            });
+
+        });
+        //============================================
+        $('.timepicker-24').timepicker({
+            autoclose: true,
+            minuteStep: 5,
+            showSeconds: false,
+            showMeridian: false
+        });
+        $('.date-picker').datepicker({
+            format: 'mm/dd/yyyy',
+            rtl: Metronic.isRTL(),
+            orientation: "left",
+            autoclose: true
+
+        });
+        //=============================================
+        $('.newcall').live('click', function () {
+            $('#Newcallmodal').modal();
+            $('#hdnCompanyId').val($(this).attr("id"));
+            return false;
+        });
+    </script>
+}

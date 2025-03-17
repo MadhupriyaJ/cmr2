@@ -1,0 +1,156 @@
+﻿@model FramWork.Models.ABB_Company
+
+@{
+    Layout = null;
+}
+
+<div class="col-md-6">
+    <div class="table-scrollable">
+
+        <table class="table table-striped table-bordered table-advance table-hover">
+            <tr>
+                <td>
+                    Company Name
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.EnglishName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CRNo)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CRNo)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.TradeLicense)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.TradeLicense)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.OpeningDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.OpeningDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.EnglishName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.EnglishName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ArabicName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ArabicName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Lattitude)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Lattitude)
+                </td>
+            </tr>
+           
+
+
+        </table>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="table-scrollable">
+
+        <table class="table table-striped table-bordered table-advance table-hover">
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.Longitude)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Longitude)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.OfficeAddress)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.OfficeAddress)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.TradeLicenseExpiry)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.TradeLicenseExpiry)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ModifiedDate)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ABB_BusinessSector.Sector)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ABB_BusinessSector.Sector)
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.ABB_TypeOfBusiness.TypeOfBusiness)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ABB_TypeOfBusiness.TypeOfBusiness)
+                </td>
+            </tr>
+            </table>
+        </div>
+    </div>
+
+
+
+

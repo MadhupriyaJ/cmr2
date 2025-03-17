@@ -1,0 +1,72 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="@Resources.Lang">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>@Resources.PermissionTitle</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    @Styles.Render("~/assets/css")
+    @{
+        if (Resources.IsLeft == "0")
+        {@Styles.Render("~/assets/rlayout")}
+        else
+        {@Styles.Render("~/assets/layout")}
+    }
+
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+
+    <div class="page-lock">
+
+        <div class="page-logo">
+            <a class="brand" href="@Url.Action("Index","")">
+                <img src="@Url.Content("~/")assets/admin/layout3/img/logo-default.png" alt="logo" />
+            </a>
+        </div>
+        <div class="page-body">
+            <div class="lock-head">
+               @Resources.PermissionTitle2
+            </div>
+            <div class="lock-body">
+                <div class="pull-left lock-avatar-block" style="margin-left:36%;">
+                   
+                </div>
+                <form class="lock-form pull-right" action="index.html" method="post">
+
+                    <div class="form-group">
+                        <label class="form-label text-warning">@Resources.PermissionBody</label>
+                    </div>
+
+                </form>
+            </div>
+            <div class="lock-bottom">
+                <div class="form-actions">
+                    <a href="@Url.Content("~/")" class="btn purple-plum"><i class="fa fa-link"></i> @Resources.PermissionTryAgainLaterBtn </a>
+                    <a href="@Url.Content("~/")Logout" class="btn btn blue"><i class="fa fa-user"></i>  @Resources.PermissionLogoutBtn </a>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer-custom">
+            @(DateTime.Now.Year) @(Resources.Footer)
+        </div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <script src="@(Url.Content("~/"))assets/global/plugins/respond.min.js"></script>
+    <script src="@(Url.Content("~/"))assets/global/plugins/excanvas.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/assets/js")
+    <script>
+        jQuery(document).ready(function () { Itachi.init(); Layout.init(); Demo.init(); });
+    </script>
+</body>
+</html>

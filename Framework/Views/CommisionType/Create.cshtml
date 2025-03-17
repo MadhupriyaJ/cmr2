@@ -1,0 +1,127 @@
+﻿@model FramWork.Models.Commision_CommisionType
+
+@{
+    ViewBag.Title = "Lead2Deal | Comission Type New";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Commission</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Commission Type Create</a> 
+    </li>
+  
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-wallet font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Commission Type Create</span>
+    
+        </div>
+        <div class="actions">
+           @Html.ActionLink("Back to List", "Index", null, new {@class="btn btn-primary" })
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen green" style="color:white;" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+
+       
+        @using (Html.BeginForm("Create", "CommisionType", FormMethod.Post,
+                            new { id = "mainForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+    <div class="form-horizontal">
+        <div class="form-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <label class="control-label">Commision Type<span class="required">*</span></label>
+                        </div>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.CommisionType, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CommisionType)
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <br />
+        <div class="form-actions" align="right">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <input type="button" id="btnreset" value="Reset" class="btn btn-default" />
+        </div>
+    </div>
+        }
+                </div>
+            </div>
+
+
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+
+    <script language="javascript">
+
+        $(document).ready(function () {
+
+            $('#mainForm').validate({
+                errorElement: 'span',
+                errorClass: 'help-block help-block-error',
+                rules: {
+                    CommisionType: "required"                 
+
+                },
+                highlight: function (element) {
+                    // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+                },
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+
+                submitHandler: function (form) {
+                    form.submit();
+                }
+
+            });
+
+            $('#btnreset').live('click', function () {
+                $('#mainForm')[0].reset();
+            });
+
+            $("#mainForm").submit(function (event) {
+                //disable the default form submission
+                event.preventDefault();
+
+                var isValid = $("#mainForm").valid();
+                if (!isValid)
+                    return false;
+            });
+
+        });
+    </script>
+}
+
+
+
+

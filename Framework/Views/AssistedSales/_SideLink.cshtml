@@ -1,0 +1,409 @@
+﻿<style type="text/css">
+    .sidecontentpullout {
+        font: 12px/14px Arial, Helvetica, sans-serif;
+        position: fixed;
+        top: 45%;
+        left: -49px;
+        z-index: 1000;
+        cursor: pointer;
+        background-color: #333;
+        color: #fff;
+        padding: 5px 0px;
+        width: 120px;
+        text-align: center;
+        -moz-border-radius-topleft: 1em;
+        -moz-border-radius-topright: 1em;
+        -webkit-border-top-right-radius: 1em;
+        -webkit-border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        border-top-left-radius: 1em;
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    .dropPulloutShadow {
+        -webkit-box-shadow: 7px -7px 5px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow: 7px -7px 5px 0px rgba(50, 50, 50, 0.75);
+        box-shadow: 7px -7px 5px 0px rgba(50, 50, 50, 0.75);
+    }
+
+    .sidecontentpullout:hover {
+        background-color: #444;
+        color: #fff;
+    }
+
+    .sidecontent {
+        background-color: #E7E4E4;
+        color: #000;
+        left: -430px;
+        width: 430px;
+        position: fixed;
+        overflow: auto;
+        top: 0;
+        z-index: 9999;
+    }
+
+    .dropShadow {
+        -webkit-box-shadow: 10px 0px 5px 0px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow: 10px 0px 5px 0px rgba(50, 50, 50, 0.75);
+        box-shadow: 10px 0px 5px 0px rgba(50, 50, 50, 0.75);
+    }
+
+    .sidecontent .side {
+        padding: 20px;
+        display: block;
+    }
+</style>
+
+<div class="sidecontent dropShadow" id="sidecontent" style="height: 100%; left: 0px;">
+    <div style="width: auto">
+        <div class="side">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_financial_position" id="role1">
+                        Statement of financial position
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_profit_or_loss">
+                        Statement of profit or loss (by function of expense)
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_comprehensive_income">
+                        Statement of comprehensive income (other comprehensive income components presented net of tax)
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_cash_flows">
+                        Statement of cash flows (direct method)
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_changes_in_equity">
+                        Statement of changes in equity
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_changes_in_net_assets_available_for_benefit">
+                        Statement of changes in net assets available for benefits
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+            </div>
+            <div style="margin-top:20px; font-size:17px;">Notes:</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <span class="roleNum">1.</span>
+                    <a href="#" class="addFirmParams roleLink" data-target="_general_ information">
+                        General information
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <span class="roleNum">2.</span>
+                    <a href="#" class="addFirmParams roleLink" data-target="_statement_of_IFRS_compliance">
+                        Statement of IFRS compliance
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <span class="roleNum">3.</span>
+                    <a href="#" class="addFirmParams roleLink" data-target="_first_time_IFRS_adoption">
+                        First time IFRS adoption[2014]
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                    <span class="roleNum">4.</span>
+                    <a href="#" class="addFirmParams roleLink" data-target="_accounting_policies">
+                        Accounting policies, estimates and errors
+                    </a>
+                    &nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col-md-12">
+                <span class="roleNum">5.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Separate financial statements
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">6.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Hyperinflationary reporting
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">7.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Business combinations
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">8.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Property, plant and equipment
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">9.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Intangible assets
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">10.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Investment property
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">11.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Biological assets
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+
+            <div class="col-md-12">
+                <span class="roleNum">12.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Exploration for and evaluation of mineral resources
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">13.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Interests in other entities
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">14.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Financial instruments
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">15.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Сash and cash equivalents, receivables and payables, net assets
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">16.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Inventories
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">17.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Non-current asset held for sale and discontinued operations
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+
+            <div class="col-md-12">
+                <span class="roleNum">18.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Fair value measurement
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">19.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Impairment of assets
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">20.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Analysis of income and expense
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">21.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Employee benefits
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">22.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Income taxes
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">23.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Share capital, reserves and other equity interest
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">24.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Earnings per share
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">25.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Share-based payment arrangements
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">26.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Borrowings and borrowing costs
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">27.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Other provisions, contingent liabilities and contingent assets
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">28.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Leases
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+
+            <div class="col-md-12">
+                <span class="roleNum">29.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Government grants
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">30.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Construction contracts
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">31.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Service concession arrangements
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">32.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Insurance contracts
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">33.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Operating segments
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">34.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Related party
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">35.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Events after reporting period
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            <div class="col-md-12">
+                <span class="roleNum">36.</span>
+                <a href="#" class="addFirmParams roleLink">
+                    Additional information
+                </a>
+                &nbsp;&nbsp;&nbsp;
+            </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="sidecontentpullout dropPulloutShadow" id="sidecontent_pullout" rel="0" style="left: 383px;" onclick="ToggleSlider()">Quick reference</div>
+</div>
+
+<script type="text/javascript">
+    showSlider = 0;
+    $(document).ready(function () {
+        @*$(".addFirmParams").click(function () {
+            alert("on side link clicked");
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                alert("fetched data");
+                $("#tab_IFRS").html(data);
+            })
+        });*@
+      
+        ToggleSlider();
+
+    });
+
+    function ToggleSlider() {
+        
+        if (showSlider) {
+           
+            $("#sidecontent").addClass('dropShadow').animate({ left: 0 }, 60);
+            $("#sidecontent_pullout").addClass('dropPulloutShadow').animate({ left: "383px" }, 60);
+        }
+        else {
+           
+            $("#sidecontent").animate({ left: '-430px' }, 60).removeClass('dropShadow');
+            $("#sidecontent_pullout").animate({ left: "-49px" }, 60).removeClass('dropPulloutShadow');
+        }
+        showSlider = 1 - showSlider;
+
+        return true;
+    };
+
+    $.fn.sidecontent = function () {
+
+        // Wrap the content in a slider and add a pullout, assign action
+        $(this).wrap('<div class="sidecontent" id="sidecontent"></div>').wrap('<div style="width: auto"></div>');
+        $("#sidecontent").append('<div class="sidecontentpullout" id="sidecontent_pullout" rel="0">Quick reference</div>');
+        $("#sidecontent_pullout").on("click", ToggleSlider);
+        $("#sidecontent").css('height', "100%");
+
+        return this;
+    };
+    // $(".side").sidecontent();
+
+
+</script>

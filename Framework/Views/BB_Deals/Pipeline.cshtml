@@ -1,0 +1,202 @@
+﻿@using FramWork.Models;
+@using Core;
+@{
+    ViewBag.Title = "Pipeline";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+    //var dealstages = dc.ABB_DealStages.Where(a => a.MarkAsDelete == false && a.OrgId == Login.OrganizationId && a.IsVisible==true);
+    var dealstages = dc.ABB_DealStages.Where(a => a.MarkAsDelete == false && a.IsVisible == true);
+    var stagewidth = 100 / dealstages.Count();
+    var dealstageid = Session["dealstageId"];
+    var redid = @Session["requestfinanceid"];
+    var info = dc.ABB_RequestFinance.AsEnumerable().Where(a => a.Id == Convert.ToInt64(@Session["requestfinanceid"])).FirstOrDefault();
+
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~")BB_Company/Index">My Customers</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Content("~")BB_Deals/Index">Deals</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">PipeLine</a>
+
+    </li>
+
+</ul>
+<input type="hidden" id="hdnrequestid" value="@Session["requestfinanceid"]" />
+<input type="hidden" id="hdndealstage" value="@dealstageid" />
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-sliders font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">@info.ABB_Company.EnglishName</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <button id="1" class="btn btn-success stage">Won</button>
+            <button id="2" class="btn btn-danger stage">Lost</button>
+            <button id="3" class="btn btn-warning stage">Dropped</button>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="container" style="width:100%">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-group btn-breadcrumb" style="width:100%;">
+                        @foreach (var item in dealstages)
+                        {
+                            <div id="@item.Id" class="btn btn-primary stage" style="width:@stagewidth%;">@item.Name</div>
+                        }
+
+
+                        @*<a href="#" class="btn btn-info" style="width:25%;">Snippets</a>*@
+
+                    </div>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portlet light bg-inverse">
+                        <div class="portlet-title">
+                            <div class="caption font-red-sunglo">
+                                <i class="icon-share font-red-sunglo"></i>
+                                <span class="caption-subject bold uppercase"> Company Info</span>
+                                <span class="caption-helper"></span>
+                            </div>
+                            <div class="actions">
+
+                            </div>
+                        </div>
+
+                        <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <tr>
+                                    <td><label>CRNo</label></td>
+                                    <td>@info.ABB_Company.CRNo</td>
+                                </tr>
+                                <tr>
+                                    <td>Trade Licience</td>
+                                    <td>@info.ABB_Company.TradeLicense</td>
+                                </tr>
+                                <tr>
+                                    <td>Trade License Expiry</td>
+                                    <td>@info.ABB_Company.TradeLicenseExpiry.ToShortDateString()</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="portlet light bordered">
+                        <div class="portlet-title">
+                            <div class="caption font-red-sunglo">
+                                <i class="fa fa-money font-red-sunglo"></i>
+                                <span class="caption-subject bold uppercase"> Finance  Information</span>
+                                <span class="caption-helper"></span>
+                            </div>
+                            <div class="actions">
+
+                            </div>
+                        </div>
+
+                        <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-advance table-hover">
+                                <tr>
+                                    <td><label>Product</label></td>
+                                    <td>@info.ABB_Products.ProductName</td>
+                                </tr>
+                                <tr>
+                                    <td>Purpose</td>
+                                    <td>@info.Purpose</td>
+                                </tr>
+                                <tr>
+                                    <td>Required On</td>
+                                    <td>@info.RequiredOn.ToShortDateString()</td>
+                                </tr>
+                                <tr>
+                                    <td>Tenure</td>
+                                    <td>@info.Tenure</td>
+                                </tr>
+                                <tr>
+                                    <td>Amount</td>
+                                    <td>@info.Amount</td>
+                                </tr>
+                                <tr>
+                                    <td>Payment Details</td>
+                                    <td>@info.PaymentDetails</td>
+                                </tr>
+                                <tr>
+                                    <td>Call Log</td>
+                                    <td>@info.CallLogId</td>
+                                </tr>
+                                @*<tr>
+                                        <td>Deal Stage</td>
+                                        <td>@info.ABB_DealStages.Name</td>
+                                    </tr>*@
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Css{
+    <link href="~/assets/Programmer/Css/BreadCrumb.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('.stage').each(function () {
+                if (this.id == $('#hdndealstage').val()) {
+                    $("#" + this.id).removeClass("btn-primary")
+                    $("#" + this.id).addClass("btn-info");
+                }
+
+            });
+            $('.stage').live('click', function () {
+                var dealid = this.id;
+                var postdata = { Id: $('#hdnrequestid').val(), DealstageId: this.id };
+                bootbox.confirm("Are you sure?", function (result) {
+                    if (result == true) {
+                        $('.stage').each(function () {
+                            $(".stage").removeClass("btn-info")
+                            $(".stage").addClass("btn-primary")
+                        });
+                        $("#" + dealid).removeClass("btn-primary")
+                        $("#" + dealid).addClass("btn-info");
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Content("~")BB_Deals/changedealstage',
+                            data: postdata,
+                            success: function (response) {
+                                if (response == 'True') {
+                                    bootbox.alert("Action completed successfully!");
+                                }
+                                else {
+                                    bootbox.alert("Action failed please try later or contact your administrator");
+                                }
+                            },
+                            traditional: true
+                        });
+                    }
+                    else {
+                    }
+                });
+
+            });
+        });
+
+
+
+    </script>
+}

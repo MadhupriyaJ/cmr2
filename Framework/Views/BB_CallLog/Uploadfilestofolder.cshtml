@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "Company";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+    string companyid = Request.Params["company"];
+    string folderid = Request.Params["fid"];
+    FramWork.Models.FrameworkEntities dc = new FramWork.Models.FrameworkEntities();
+    var companyname = dc.ABB_Company.AsEnumerable().Where(a => a.Id == Convert.ToInt64(companyid)).FirstOrDefault();
+    var foldername = dc.ABB_Company_Doc_folder.AsEnumerable().Where(a => a.Id == Convert.ToInt64(folderid)).FirstOrDefault();
+}
+@if (!string.IsNullOrEmpty(companyid) && !string.IsNullOrEmpty(folderid)) { 
+@section Css{
+<link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+<link href="@Url.Content("~/")assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" />
+    <style>
+        .CSSTableGenerator {
+	margin:0px;padding:0px;
+
+
+	width:100%;
+	border:1px solid #f7f4f4;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+    border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+    text-align:left;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+
+}.CSSTableGenerator tr:hover td{
+	
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#ffffff; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+	vertical-align:middle;
+	
+	border-left:1px solid #f7f4f4;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:11px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#351f1f;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #ffffff 5%, #fcf9f9 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #fcf9f9) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #fcf9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#fcf9f9");	background: -o-linear-gradient(top,#ffffff,fcf9f9);
+
+	background-color:#ffffff;
+	border:0px solid #f7f4f4;
+	text-align:left;
+	border-width:0px 0px 1px 1px;
+	font-size:9px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#9e9a9a;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #ffffff 5%, #fcf9f9 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #fcf9f9) );
+	background:-moz-linear-gradient( center top, #ffffff 5%, #fcf9f9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#fcf9f9");	background: -o-linear-gradient(top,#ffffff,fcf9f9);
+
+	background-color:#ffffff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+    </style>
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Action("Index", "Home")">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "bb_company")">Company</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "BB_CallLog")">Call Log</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Content("~")BB_CallLog/DocumentIndex?id=@companyname.Id">@companyname.EnglishName</a>
+    </li>
+    <li>
+        <a href="#">@foldername.FolderName</a>
+    </li>
+   
+
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Upload Files</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+       <div class="row">
+           <div class="col-md-8" id="filelistdiv">             
+
+              @Html.Action("listoffiles", "BB_Company_Doc_folder", new { company=companyid,fid=folderid })
+           </div>
+           <div class="col-md-4" style="border-left:solid 1px #ddd;">
+           
+            <form id="mainform" method="post" content-type="multipart/form-data">
+            
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">
+                            File Name <span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="txtfilename" >
+                            <span class="help-block">
+                                Provide filename
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4">
+                            select files <span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-8">
+                            <div id="multiple">
+                                <input type="file" class="multiple" name="files" >
+                            </div>
+                            <span class="help-block">
+                                Select files to upload
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4">
+                            Document Type <span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="txtdoctype" >
+                            <span class="help-block">
+                                Provide Document Type
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-4">
+                            Expiry <span class="required" aria-required="true">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control date-picker" name="txtexpiry" placeholder="MM/DD/YYYY" >
+                            <span class="help-block">
+                                Provide Expiry
+                            </span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">                             
+                                <input type="hidden" id="txtcompany" name="txtcompany" value="@companyid" />
+                                <input type="hidden" id="txtfolder" name="txtfolder" value="@folderid" />
+                                <button class="btn green button-submit">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+               </form>
+</div>
+       </div>
+    </div>
+</div>
+
+@section Scripts{
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+<script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.date-picker').datepicker({
+                format: 'mm/dd/yyyy',
+                rtl: Metronic.isRTL(),
+                orientation: "right",
+                autoclose: true
+            });
+
+        $("#mainform").validate({
+            errorElement: 'span',
+            errorClass: 'help-block help-block-error',
+            rules: {
+                txtfilename: "required",
+                files: "required",
+                txtdoctype: "required",
+                txtexpiry: "required"
+            },
+            highlight: function (element) {
+                // hightlight error inputs
+                $(element)
+                    .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+            },
+            unhighlight: function (element) { // revert the change done by hightlight
+                $(element)
+                    .closest('.form-group').removeClass('has-error'); // set error class to the control group
+            },
+            submitHandler: function (form) {
+                // form.submit();
+            }
+
+        });
+
+
+        //Program a custom submit function for the form
+        $("#mainform").submit(function (event) {
+            //disable the default form submission
+            event.preventDefault();
+
+            var isValid = $("#mainform").valid();
+            if (!isValid)
+                return false;
+            //grab all form data
+            var formData = new FormData($(this)[0]);       
+
+            $.ajax({
+                url: '@Url.Content("~/")BB_CallLog/Multiple',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response)
+                    {
+                       var postdata={company:'@companyid', fid:'@folderid' };
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Content("~/")BB_Company_Doc_folder/listoffiles',
+                            data:postdata,
+                            success: function (response) {                             
+                                $('#filelistdiv').html(response);
+                                bootbox.confirm("Document Added. Do you want to upload one more File?", function (result) {
+                                    if (result) {
+                                        $('#mainform')[0].reset();
+                                    }
+                                    else {
+                                        window.location.href = "@Url.Content("~")BB_CallLog/Index";
+                                    }
+                                });
+
+                            }
+                        });
+
+                    }
+
+                }
+            });
+
+            return false;
+        });
+
+
+
+    });
+    </script>
+}
+}

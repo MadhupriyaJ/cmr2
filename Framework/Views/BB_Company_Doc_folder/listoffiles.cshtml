@@ -1,0 +1,44 @@
+﻿@model PagedList.IPagedList<FramWork.Models.ABB_Company_Doc_folder_file>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="CSSTableGenerator">
+        <table>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Date
+                </td>
+                <td>Expiry</td>
+                <td>
+                    Type
+                </td>
+            </tr>
+            @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+            {
+                <tr>
+                    <td>
+                        <i class="@item.Data.IconClass" style="font-size:18px;"></i> <a  href="~/assets/Programmer/CompanyDocs/@item.Data.ABB_Company_Doc_folder.CompanyId/@item.Data.FolderId/@item.Data.Id@item.Data.FileType"> @item.Data.Name</a>
+                    </td>
+                    <td>
+                        @item.Data.ModifiedDate.ToShortDateString()
+                    </td>
+                    <td>
+                     @{ var expiry = Convert.ToDateTime(@item.Data.ExpiryDate).ToShortDateString();}
+                        @expiry
+                    </td>
+                    <td>
+                       @item.Data.FileType
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    
+</div>

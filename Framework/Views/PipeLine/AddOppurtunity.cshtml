@@ -1,0 +1,533 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | ADD OPPURTUNITY";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+}
+
+<h3 class="page-title">
+    opportunity <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Marketing</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Managment</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Opportunity</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+
+    </ul>
+    <div class="page-toolbar">
+      
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-9">
+        <div class="portlet light " id="form_wizard_1">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i> Oppurtunity Create Wizard - <span class="step-title">
+                        Step 1 of 4
+                    </span>
+                </div>
+                <div class="tools hidden-xs">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            1
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Basic Information
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            2
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>  Contact details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab3" data-toggle="tab" class="step active">
+                                        <span class="number">
+                                            3
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Account Setup
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab4" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            4
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Confirm
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">Provide your basic information</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            RP Number/Identity<span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="RPnumber" />
+                                            <span class="help-block">
+                                                Provide  RP Number /Identity
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Passport <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Passport" />
+                                            <span class="help-block">
+                                                Provide  Passport
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Is New  <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            @*@Html.DropDownList("ddlsaluation", new SelectList(obj.getsaluationList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  saluation
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Salutation <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            @*@Html.DropDownList("ddlsaluation", new SelectList(obj.getsaluationList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+
+                                            <span class="help-block">
+                                                Provide  saluation
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            First Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="FirstName" />
+                                            <span class="help-block">
+                                                Provide  First Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Middle Name
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="MiddleName" />
+                                            <span class="help-block">
+                                                Provide  Middle Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Last Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="MiddleName" />
+                                            <span class="help-block">
+                                                Provide Last Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Nick Name
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="NickName" />
+                                            <span class="help-block">
+                                                Provide Nick Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Gender
+                                        </label>
+                                        <div class="col-md-4">
+                                            @*@Html.DropDownList("ddlgender", new SelectList(obj.getgenderList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+
+                                            <span class="help-block">
+                                                Provide  Gender
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Date Of Birth
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Dob" />
+                                            <span class="help-block">
+                                                Provide  Date Of birth
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <h3 class="block">Profile Picture</h3>
+                                    <div class="form-group">
+                                        <div class="col-md-6 control-label">
+                                            <input id="uploadFile" class="form-control" placeholder="Choose File" disabled="disabled" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="fileUpload btn btn-primary">
+                                                <span>Click to select profile picture</span>
+                                                <input id="uploadBtn" type="file" class="upload" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <img id="blah" src="#" alt="your image" style="width:100%;display:none;" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <h3 class="block">Provide  contact details</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Email <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Email" />
+                                            <span class="help-block">
+                                                Provide Email
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Mobile <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Mobile" />
+                                            <span class="help-block">
+                                                Provide your Mobile number
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Phone
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Phone" />
+                                            <span class="help-block">
+                                                Provide your Phone number
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Nationality
+                                        </label>
+                                        <div class="col-md-4">
+                                            @* @Html.DropDownList("ddlcountry", new SelectList(obj.getcountryList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, CountyName = a.CountyName }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  Nationality
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Language
+                                        </label>
+                                        <div class="col-md-4">
+                                            @* @Html.DropDownList("ddlcountry", new SelectList(obj.getcountryList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, CountyName = a.CountyName }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  Language
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <h3 class="block">Provide  Address details</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Country
+                                        </label>
+                                        <div class="col-md-4">
+                                            @* @Html.DropDownList("ddlcountry", new SelectList(obj.getcountryList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, CountyName = a.CountyName }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  Country
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            State
+                                        </label>
+                                        <div class="col-md-4">
+                                            @* @Html.DropDownList("ddlstate", new SelectList(obj.getsaluationList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  state
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            City
+                                        </label>
+                                        <div class="col-md-4">
+                                            @* @Html.DropDownList("ddlcity", new SelectList(obj.getsaluationList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  City
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Location
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Location" />
+                                            <span class="help-block">
+                                                Provide  Location
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Zip / Postal code
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="ZipPostalcode" />
+                                            <span class="help-block">
+                                                Provide   Zip / Postal code
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="block">Other Details</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Occupation
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="ZipPostalcode" />
+                                            <span class="help-block">
+                                                Provide   Occupation
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Company
+                                        </label>
+                                        <div class="col-md-4">
+                                            @* @Html.DropDownList("ddlcity", new SelectList(obj.getsaluationList(Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })*@
+                                            <span class="help-block">
+                                                Provide  City
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            If Company Not Listed Please Enter.
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="ZipPostalcode" />
+                                            <span class="help-block">
+                                                Please enter Company
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="javascript:;" class="btn default button-previous">
+                                        <i class="m-icon-swapleft"></i> Back
+                                    </a>
+                                    <a href="javascript:;" class="btn blue button-next">
+                                        Continue <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                    <a href="javascript:;" class="btn green button-submit">
+                                        Submit <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3 blog-sidebar">
+        <div class="portlet light bg-inverse">
+
+            <div class="portlet-body">
+                <!-- CATEGORIES START -->
+                <h2 class="no-top-space">Managment</h2>
+                <ul class="nav sidebar-categories margin-bottom-40">
+                    <li> <a href="@Url.Action("AddOppurtunity", "PipeLine")" style="color:#000 !important;"><i class="fa fa-child"></i> Opportunity </a></li>
+                    <li><a href="@Url.Action("ProductComparision", "CampaignManagment")" style="color:#000 !important;"><i class="fa fa-cubes"></i> Product Comparison</a></li>
+                </ul>
+                <!-- CATEGORIES START -->
+                <h2 class="no-top-space">Campaigns</h2>
+                <ul class="nav sidebar-categories margin-bottom-40">
+                    <li> <a href="@Url.Action("CreateCampaign", "CampaignManagment")" style="color:#000 !important;"><i class="fa fa-plus"></i> Create Campaign </a></li>
+                    <li><a href="@Url.Action("CampaignList", "CampaignManagment")" style="color:#000 !important;"><i class="fa fa-list"></i> View Campaign</a></li>
+                    <li class="active"> <a href="@Url.Action("EmailCampaign", "CampaignManagment")" style="color:#000 !important;"><i class="fa fa-envelope"></i>Email Campaign</a></li>
+                    <li><a href="@Url.Action("SmsCampaign", "CampaignManagment")" style="color:#000 !important;"><i class="fa fa-phone"></i> SMS Campaign</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/select2/select2.css" />
+    <style>
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+    </style>
+}
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="@Url.Content("~")assets/Programmer/Scripts/Designation/formwizardcreate.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+        });
+    </script>
+    <script>
+        document.getElementById("uploadBtn").onchange = function () {
+            document.getElementById("uploadFile").value = this.value;
+        };
+
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                    $('#blah').show();
+                    //$('#profilepic').attr('src', e.target.result);
+                    //profilepic
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#uploadBtn").change(function () {
+            readURL(this);
+        });
+    </script>
+}

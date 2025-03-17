@@ -1,0 +1,65 @@
+﻿@using FramWork.HelloService;
+@model PagedList.IPagedList<CaseManagment_Note>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+@{
+    foreach (var item in Model)
+    {
+        var comments = client.GetNoteComments(Core.Login.OrganizationId, item.Id);
+        <div class="media">
+            <a href="#" class="pull-left">
+                <img src="@Url.Content("~")assets/frontend/pages/img/people/Default_man.png" alt="" class="media-object">
+            </a>
+            <div class="media-body">
+                
+                <p>@item.CaseNote </p>
+                <!-- Nested media object -->
+                @foreach (var c in comments)
+                {
+                    <div class="media">
+                        <a href="#" class="pull-left">
+                            <img src="@Url.Content("~")assets/frontend/pages/img/people/img2-small.jpg" alt="" class="media-object">
+                        </a>
+                        <div class="media-body">
+                            @*<h4 class="media-heading">Media heading <span>17 hours ago </span></h4>*@
+                            <p>@c.Comments </p>
+                        </div>
+                       
+                    </div>
+                <!--end media-->
+                }
+                <br />
+
+                <div class="media">
+                  <div class="row">
+                  <div class="col-md-12">
+                      <textarea rows="1" class="form-control" placeholder="Reply"></textarea>
+                  </div>
+                  </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn green" style="float:right;">Reply</button>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+               
+            </div>
+        </div>
+        <!--end media-->
+    }
+ 
+}
+<br />
+<div id="contentPagerC">
+   
+
+    @Html.PagedListPager(Model, page => Url.Action("GetListOfNotes", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>

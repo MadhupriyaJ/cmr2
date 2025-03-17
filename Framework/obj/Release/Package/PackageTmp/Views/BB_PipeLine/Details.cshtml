@@ -1,0 +1,67 @@
+﻿@model FramWork.Models.ABB_PipeLine
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ABB_PipeLine</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MarkAsDelete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MarkAsDelete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Organizations.Alias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Organizations.Alias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Users.Salutation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Users.Salutation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

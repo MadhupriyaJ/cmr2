@@ -1,0 +1,168 @@
+﻿@model FramWork.Models.Commision_SalesAgentRules
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Commission</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Delete Sales Agent Rules</a>
+    </li>
+
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-pin font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Delete Sales Agent Rules</span>
+
+        </div>
+        <div class="actions">
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen green" style="color:white;" data-original-title="" title=""></a>
+        </div>
+    </div>
+
+    <div class="portlet-body form">
+
+        <h3>Are you sure you want to delete this?</h3>
+        <!-- BEGIN FORM-->
+        @using (Html.BeginForm("Delete", "SalesAgentRules", FormMethod.Post,
+                            new { id = "mainForm" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+
+    <div class="form-horizontal">
+        <div class="form-body">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            @Html.DisplayNameFor(model => model.Organizations.Alias)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.Organizations.Alias)
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!--/row-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            @Html.DisplayNameFor(model => model.Teams.Name)
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.Teams.Name)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+       
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Product Name
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.CampaignProducts.ProductName)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Min Commision
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.MinCommision)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Max Commision
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.MaxCommision)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Create Date
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.CreateDate)
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="col-md-2">
+                            Modified Date
+                        </div>
+                        <div class="col-md-6">
+                            @Html.DisplayFor(model => model.ModifiedDate)
+                        </div>
+                    </div>
+
+                </div>
+            </div>       
+
+        </div>
+        <div class="form-actions right">
+
+            <input type="submit" value="Delete" class="btn btn-primary" />
+
+        </div>
+
+    </div>
+            <!-- END FORM-->
+        }
+    </div>
+
+
+
+</div>
+
+
+

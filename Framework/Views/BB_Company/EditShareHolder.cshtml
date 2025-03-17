@@ -1,0 +1,129 @@
+﻿@model FramWork.Models.ABB_CompanyShareHolders
+
+@{
+    Layout = null;
+}
+
+<div class="modal fade" id="modalEditshareholder" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Share Holder</h4>
+            </div>
+            <div class="modal-body">
+               @using (Html.BeginForm("EditShareHolder", "BB_Company", FormMethod.Post,
+                            new { id = "Editshareholderform" }))
+             {
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        First Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="FirstName" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide First Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Middle Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MiddleName" class="form-control" name="MiddleName">
+                                        <span class="help-block">
+                                            Provide Middle Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Last Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="LastName" class="form-control" name="LastName">
+                                        <span class="help-block">
+                                            Provide Last Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="RPNumber" class="form-control" name="RPNumber">
+                                        <span class="help-block">
+                                            Provide RP Number
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="RPExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="RPExpiary">
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="PassportNumber" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide Passport Number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="PassportExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="PassportExpiary">
+                                        <span class="help-block">
+                                            Provide Passport Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+               }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btneditsaveshareholder" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

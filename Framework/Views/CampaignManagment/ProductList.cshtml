@@ -1,0 +1,81 @@
+﻿@model PagedList.IPagedList<FramWork.Models.CampaignProducts>
+@using PagedList.Mvc;
+@using FramWork.Models;
+@using Core;
+@{
+    Layout = null;
+    FrameworkEntities dc = new FrameworkEntities();
+}
+
+<table class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+        <tr>
+            <th>
+                SINO
+            </th>
+            <th>
+                <i class="fa fa-money"></i> Product
+            </th>
+            <th>
+                <i class="fa fa-user"></i> Doc Config
+            </th>
+          
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+        {
+            var docs = dc.CampaignProductDocuments.Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false && a.CampaignProductId==item.Data.Id).Select(a=>a.Documents.Name);
+            <tr>
+                <td>@(item.Index + ((Model.PageNumber - 1) * Model.PageSize) + 1)</td>
+                <td>
+                    @item.Data.ProductName
+                </td>
+                <td>
+                    <strong>Required Documents</strong>
+                    <div id="@string.Format("{0}{1}", item.Data.Id, "docdivinside")">
+                        <table class="table table-bordered table-advance">
+                            <thead>
+                                <tr>
+                                    <th>Document Name</th>
+                                </tr>
+                            </thead>
+                            @foreach (var doc in docs)
+                            {
+                                <tr>
+                                    <td>
+                                        @doc
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                    <hr />
+                    <strong>
+                        Add New Required Documents
+                    </strong>
+                    <div id='@string.Format("{0}{1}", item.Data.Id, "textboxesgroup")'>
+                        <div id='@string.Format("{0}{1}", item.Data.Id, "TextBoxDiv1")'>
+                            <div class="form-group">
+                                document name 1
+                                @Html.DropDownList("ddldoc", new SelectList(dc.Documents.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), new { @class = "form-control", @id = string.Format("{0}{1}", item.Data.Id, "txtdoc1"), @Name = string.Format("{0}{1}", item.Data.Id, "txtdoc") })
+                                @*<input type="text" class="form-control" id='@string.Format("{0}{1}", item.Data.Id, "txtdoc1")' name="txtdoc1" />*@
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id='@string.Format("{0}{1}", item.Data.Id, "hdn")' value="2" />
+                    <div class="col-md-2 btnadd" style="font-size:15px;cursor:pointer;" id='@string.Format("{0}{1}", item.Data.Id, "addButton")'>
+                        <i class="fa fa-plus-square" style="font-size:15px;color:green;"></i>
+                    </div>
+                    <div class="col-md-2 btnremove" style="font-size:15px;cursor:pointer;" id='@string.Format("{0}{1}", item.Data.Id, "removeButton")' >
+                        <i class="fa fa-minus-square" style="font-size:15px;color:red;"></i>
+                    </div>
+                    <br />
+                    <hr />
+                     <a href="#" id="@item.Data.Id" class="btn btn-primary btnsave">Save</a>
+                </td>
+            </tr>
+            
+        }
+    </tbody>
+</table>

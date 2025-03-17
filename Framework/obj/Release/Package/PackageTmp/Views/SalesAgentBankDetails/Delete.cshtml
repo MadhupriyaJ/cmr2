@@ -1,0 +1,83 @@
+﻿@model ForDelete.Models.Commision_AgentBankDetails
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Commision_AgentBankDetails</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Organizations.Alias)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Organizations.Alias)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Teams.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Teams.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Users.Salutation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Users.Salutation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BankAccountNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BankAccountNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.bankiban)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.bankiban)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreateDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreateDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ModifiedDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ModifiedDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Users1.Salutation)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Users1.Salutation)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MarkAsDelete)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarkAsDelete)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

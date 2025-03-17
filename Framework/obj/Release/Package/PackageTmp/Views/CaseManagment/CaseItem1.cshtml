@@ -1,0 +1,263 @@
+﻿@using Core;
+@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Case Item";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<h3 class="page-title">
+    Case Item <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Case Item</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+        </div>
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<div class="row margin-bottom-40">
+    <!-- BEGIN CONTENT -->
+    <div class="col-md-12 col-sm-12">
+        <div class="content-page">
+            <div class="row">
+                <!-- BEGIN LEFT SIDEBAR -->
+                <div class="col-md-9 col-sm-9 blog-item">
+                    
+                    <h2><a href="#">Case Description</a></h2>
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui sint blanditiis prae sentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing condimentum eleifend enim a feugiat.</p>
+                    <blockquote>
+                        <p><b>CASE NOTE WILL COME HERE:-</b> Pellentesque ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante Integer posuere erat a ante.</p>
+                        <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </blockquote>
+                    
+                    <ul class="blog-info">
+                        <li><i class="fa fa-user"></i> By admin</li>
+                        <li><i class="fa fa-calendar"></i> 25/07/2013</li>
+                        <li><i class="fa fa-comments"></i> 17</li>
+                        <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>
+                    </ul>
+
+                    <h2>Notes</h2>
+                    <div class="comments" id="commentId">
+                        @Html.Action("GetListOfNotes", "CaseManagment", new { CaseId = Session["CaseId"] })
+                      
+                    </div>
+
+                    <div class="post-comment padding-top-40">
+                        <h3>Leave a Note</h3>
+                        <form role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" id="txtareanote" rows="8"></textarea>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label>Attach a file</label>
+                                    <input  type="file">
+                                </div>
+                                <div class="form-group">
+                                    <label>Attach Note To Employee</label>
+                                   @Html.DropDownList("CaseFollowers", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @Style = "width:30%;", @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>When did it happen?</label>
+                                    <input class="form-control date-picker" id="notedate" style="width:30%;" type="text" placeholder="mm/dd/yyyy">
+                                </div>
+                               
+
+                                <div class="form-group">
+                                    <label>Email this note to following employee<span class="color-red">*</span></label>
+                                  @Html.DropDownList("NoteFollowers", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new {@Style="width:30%;", @class = "form-control "})
+                                    <br />
+                                    <a id="addemailaudience" class="" href="#">
+                                        <i class="icon-plus"></i> Add Email Audience
+                                    </a>
+                                </div>
+                            </div>
+                            <p><button class="btn btn-primary" id="Addnote">Add this note</button></p>
+                        </form>
+                    </div>
+                </div>
+                <!-- END LEFT SIDEBAR -->
+                <!-- BEGIN RIGHT SIDEBAR -->
+                <div class="col-md-3 col-sm-3 blog-sidebar">
+                
+                    <!-- BEGIN RECENT NEWS -->
+                    <h2>Tasks</h2>
+                  
+                    <div class="recent-news margin-bottom-10">
+                     <div id="tasks">
+                      @Html.Action("GetListOfTasks", "CaseManagment", new { CaseId = Session["CaseId"] })
+                     </div>
+
+                      
+                       <hr />
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="#" id="showoption" style="float:right;"> <i id="shohideopt" class="icon-plus"></i> Task</a>
+                            </div>
+                        </div>
+                        <div class="Noteoptions" id="TaskAdd" style="display:none;">
+                            <div class="form-group">
+                                <label>Task Title</label>
+                                <input class="form-control" type="text" placeholder="mm/dd/yyyy">
+                            </div>
+                            <div class="form-group">
+                                <label>Who is Responsible</label>
+                                <select class="form-control"></select>
+                            </div>
+                            <div class="form-group">
+                                <label>Task Due Date</label>
+                                <input class="form-control" type="text" placeholder="mm/dd/yyyy">
+                            </div>
+                            <div class="form-group">
+                                <label>Task Categoty</label>
+                                <select class="form-control"></select>
+                            </div>
+                            <br />
+                            <p><button class="btn btn-primary" type="submit">Add A new Task</button></p>
+                        </div>
+                        
+                    </div>
+                    <!-- END RECENT NEWS -->
+                   <hr />
+                    <!-- BEGIN BLOG TAGS -->
+                    <div class="blog-tags margin-bottom-20">
+                        <h2>Case Followers</h2>
+                        <ul id="ulcasefollowers">
+                           
+                            @Html.Action("GetListOfFollowers", "CaseManagment", new { CaseId = Session["CaseId"] })
+                        </ul>
+                    </div>
+                <hr />
+                <div class="col-md-12">
+                    @Html.DropDownList("ddlCaseFollowers", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @class = "form-control " })
+                    <br />
+                    <p><button class="btn btn-primary" id="btncasefollowers" style="float:right;" type="button">Add A new case follower</button></p>
+                </div>
+                   
+                  
+                    <!-- END BLOG TAGS -->
+                </div>
+                <!-- END RIGHT SIDEBAR -->
+            </div>
+        </div>
+    </div>
+    <!-- END CONTENT -->
+
+    <input type="hidden" id="hdncaseId" value="@Session["caseid"]" />
+</div>
+@section Css{
+<link href="~/assets/frontend/layout/css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+<style>
+body.page-header-fixed
+{
+padding-top:0px !important;
+}
+</style>
+}
+
+
+@section Scripts{
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#Addnote').live('click', function () {
+            var TaskData = { CaseId: $('#hdncaseId').val(), Note: $('#txtareanote').val(), notedate: $('#notedate').val() };
+            var dataRow = { CaseId: $('#hdncaseId').val()};
+            $.ajax({
+                type: 'POST',
+                url: '../../CaseManagment/AddCMNote',
+                data: TaskData,
+                success: function (response) {
+                    if (response == 'True') {
+                        //get List of Note
+                        $.ajax({
+                            type: 'GET',
+                            url: '../../CaseManagment/GetListOfNotes',
+                            data: dataRow,
+                            success: function (response) {
+                                $('#commentId').html(response);
+                            }
+                        });
+                    }
+                    else {
+                        bootbox.alert("Error, could not complete the action!", function () {
+                           
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+        /**/
+        $('#btncasefollowers').live('click', function () {
+            var TaskData = { CaseId: $('#hdncaseId').val(), casefollowers: $('#ddlCaseFollowers option:selected').val() };
+            var dataRow = { CaseId: $('#hdncaseId').val() };
+            $.ajax({
+                type: 'POST',
+                url: '../../CaseManagment/AddCMFollowers',
+                data: TaskData,
+                success: function (response) {
+                    if (response == 'True') {
+                        //get List of Note
+                        $.ajax({
+                            type: 'GET',
+                            url: '../../CaseManagment/GetListOfFollowers',
+                            data: dataRow,
+                            success: function (response) {
+                                $('#ulcasefollowers').html(response);
+                            }
+                        });
+                    }
+                    else {
+                        bootbox.alert("Error, could not complete the action!", function () {
+
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+        $('body').on('click', 'a#showoption', function (e) {
+            var link = $(this).attr("href"); // "get" the intended link in a var
+            e.preventDefault();
+            $("#TaskAdd").slideToggle("slow");
+            $('#shohideopt').toggleClass('icon-plus  icon-close');
+        });
+        /*1) DATE PICKER START*/
+        $('.date-picker').datepicker({
+            format: 'mm/dd/yyyy',
+            rtl: Metronic.isRTL(),
+            orientation: "left",
+            autoclose: true
+        });
+        $(document).on("click", "#contentPagerC a", function () {
+            var dataRow = { CaseId: $('#hdncaseId').val() };
+            $.ajax({
+                url: $(this).attr("href"),
+                type: 'GET',
+                cache: false,
+                data: dataRow,
+                success: function (result) {
+                    $('#commentId').html(result);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+}

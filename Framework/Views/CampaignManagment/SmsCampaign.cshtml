@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | SMS Campaign";
+    //Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@section Css{
+
+    <style>
+        .shadow {
+            width: 100% !important;
+            -webkit-border-radius: 99px 10px 99px 10px;
+            -moz-border-radius: 99px 10px 99px 10px;
+            border-radius: 26px 26px 26px 26px !important;
+            border-width: 2px;
+            -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+            -moz-box-shadow: #B3B3B3 5px 5px 5px;
+            box-shadow: #B3B3B3 5px 5px 5px;
+        }
+
+        .forpadding {
+            margin-left: 10px;
+        }
+
+        .icon-btn {
+            min-width: 55px !important;
+            height: 50px;
+        }
+
+        .note-editable {
+            background-color: #FFF;
+        }
+    </style>
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Campaigns</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sms Campaign</a>
+
+    </li>
+
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">SMS Campaign</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body ">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal well">
+                    <div class="form-body">
+                        <h2>New SMS Template</h2>
+                        <hr style="border-color:#FFF;" />
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Template Name</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Description</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Subject</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Body</label>
+                                    <textarea class="form-control" style="height:200px;"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <hr style="border-color:#FFF;" />
+                    <div class="form-actions right" style="float:right;margin-right:2%;">
+                        <button type="submit" class="btn blue"><i class="fa fa-check"></i> Save</button>
+
+                    </div>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+</div>

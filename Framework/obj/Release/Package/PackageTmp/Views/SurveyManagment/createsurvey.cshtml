@@ -1,0 +1,201 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | Create Survey";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Survey</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Create Survey</a>
+    </li>
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Create Survey</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 blog-sidebar">
+                <div class="portlet light bg-inverse">
+
+                    <div class="portlet-body">
+                        <div class="panel-group accordion" id="accordion1">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a aria-expanded="false" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion1" href="#collapse_1">
+                                            Multiple Choice
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div style="" aria-expanded="false" id="collapse_1" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <p>
+                                            <b> MULTIPLE CHOICE</b>
+                                            <input type="hidden" value="@ViewBag.NestId" id="Surveymasterid" />
+                                            Ask your respondent to choose one answer (or multiple answers) from your list of answer choices.
+                                        </p>
+                                        <div style="cursor:pointer;" title="click to add" id="divradio">
+                                            <p>
+                                                Which flavor of ice cream is your favorite?
+                                                <ul style="  list-style-type: none;margin-left:-38px;">
+                                                    <li>
+                                                        <input type="radio" name="radioice" style="-webkit-appearance: radio !important; opacity: inherit !important;margin-left:-9px;" value="Chocolate" /> Chocolate
+
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" name="radioice" style="-webkit-appearance: radio !important; opacity: inherit !important;margin-left:-9px;" value="Vanilla" /> Vanilla
+
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" name="radioice" style="-webkit-appearance: radio !important; opacity: inherit !important;margin-left:-9px;" value="Strawberry" /> Strawberry
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                        </div>
+                                        <hr />
+                                        <a href="#" style="text-decoration:none;" title="click to add">
+                                            <p>
+                                                Which flavors of ice cream do you like?
+                                                <ul style="  list-style-type: none;margin-left:-38px;">
+                                                    <li>
+                                                        <input type="checkbox" name="radioice" style="-webkit-appearance: checkbox !important; opacity: inherit !important;margin-left:-2px;" value="Chocolate" /> Chocolate
+
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="radioice" style="-webkit-appearance: checkbox !important; opacity: inherit !important;margin-left:-2px;" value="Vanilla" /> Vanilla
+
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="radioice" style="-webkit-appearance: checkbox !important; opacity: inherit !important;margin-left:-2px;" value="Strawberry" /> Strawberry
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a aria-expanded="true" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapse_2">
+                                            Dropdown
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div style="height: 0px;" aria-expanded="false" id="collapse_2" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p style="text-align:justify;">
+                                            Provide a dropdown list of answer choices for respondents to choose from. Use the dropdown question when you need to ask a multiple choice, single answer question but want to save space.
+                                        </p>
+                                        <hr />
+                                        <a href="#" style="text-decoration:none;" title="click to add">
+                                            <p>
+                                                Which flavor of ice cream is your favorite?
+                                                <ul style="  list-style-type: none;margin-left:-38px;">
+                                                    <li>
+                                                        <select>
+                                                            <option>Chocolate</option>
+                                                            <option>Vanilla</option>
+                                                            <option>Strawberry</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-md-8">
+                <div>
+                    @Html.Action("surveyradio")
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">
+
+                    </label>
+                    <div class="col-md-4">
+                        <button class=" btn" id="btnaddsurveytitle">Save</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        var counter = 2;
+        $("#addButton").click(function () {
+            //if (counter > 10) {
+            //    alert("Only 10 textboxes allow");
+            //    return false;
+            //}
+            var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+            var $new = $('<input type="text" class="form-control" name="txtproduct" id="txtproduct' + counter + '" value=""  placeholder="Enter an answer Choice"/><br/>');
+            newTextBoxDiv.after().html($new);
+            //newTextBoxDiv.appendTo("#TextBoxesGroup");
+            newTextBoxDiv.hide().appendTo("#TextBoxesGroup").fadeIn(1000);
+            counter++;
+        });
+
+        $("#removeButton").click(function () {
+            if (counter == 1) {
+                alert("No more textbox to remove");
+                return false;
+            }
+            counter--;
+            $("#TextBoxDiv" + counter).fadeOut(1000, function () {
+                $("#TextBoxDiv" + counter).remove();
+            });
+        });
+
+        $("#getButtonValue").click(function () {
+            var msg = '';
+            for (i = 1; i < counter; i++) {
+                msg += "\n Textbox #" + i + " : " + $('#txtproduct' + i).val();
+            }
+            alert(msg);
+        });
+        $('#divradio').live('click', function () {
+            var values = [];
+            $("input[name=txtproduct]").each(function () {
+                // values += $(this).val() + "\n";
+                values.push($(this).val());
+            });
+        
+        });
+    });
+</script>
+}

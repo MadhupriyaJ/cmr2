@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+    
+}
+
+
+    <div class="col-md-10">
+        <div class="portlet light ">
+            <div class="portlet-title">
+
+                <div class="actions">
+                    <a class="btn btn-primary" href="#" id="btnfinance">
+                        <i class="fa fa-plus"></i> Finance
+                    </a>
+
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div id="divproductrequest">
+                    @Html.Action("Listofrequestfinance", "BB_Company")
+                </div>
+            </div>
+        </div>
+       
+    </div>
+

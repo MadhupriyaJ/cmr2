@@ -1,0 +1,12 @@
+﻿@model FramWork.HelloService.Employee
+@{
+    Layout = null;
+}
+
+<table class="table table-bordered table-striped ">
+    <tr>
+        <td>Name</td>
+        <td>@Model.FullName</td>
+    </tr>
+    <tr><td>Team</td><td>@Html.Raw(Model.Team!=null?Model.Team.Name:"Team Not Assigned")</td></tr>
+</table>

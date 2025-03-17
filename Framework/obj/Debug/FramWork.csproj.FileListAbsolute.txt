@@ -1,0 +1,198 @@
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\FramWork.dll.config
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\FramWork.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\FramWork.pdb
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\Antlr3.Runtime.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\EntityFramework.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\EntityFramework.SqlServer.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\Newtonsoft.Json.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Net.Http.Formatting.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Helpers.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Http.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Http.WebHost.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Mvc.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Optimization.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Razor.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.WebPages.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.WebPages.Razor.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\WebGrease.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\Antlr3.Runtime.pdb
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\EntityFramework.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\EntityFramework.SqlServer.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\Newtonsoft.Json.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Net.Http.Formatting.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Helpers.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Http.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Http.WebHost.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Mvc.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Optimization.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.Razor.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.WebPages.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\bin\System.Web.WebPages.Razor.xml
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\obj\Debug\FramWork.csprojResolveAssemblyReference.cache
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\obj\Debug\FramWork.dll
+C:\Users\Itachi\SkyDrive\Projects\FramWork\FramWork\obj\Debug\FramWork.pdb
+E:\works\WCF L 2 D\FramWork\FramWork\bin\FramWork.dll.config
+E:\works\WCF L 2 D\FramWork\FramWork\bin\FramWork.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\FramWork.pdb
+E:\works\WCF L 2 D\FramWork\FramWork\bin\Antlr3.Runtime.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\EntityFramework.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\EntityFramework.SqlServer.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\Microsoft.Web.Infrastructure.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\Newtonsoft.Json.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Net.Http.Formatting.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Helpers.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Http.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Http.WebHost.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Mvc.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Optimization.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Razor.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.WebPages.Deployment.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.WebPages.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.WebPages.Razor.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\WebGrease.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\Antlr3.Runtime.pdb
+E:\works\WCF L 2 D\FramWork\FramWork\bin\EntityFramework.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\EntityFramework.SqlServer.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\Newtonsoft.Json.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Net.Http.Formatting.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Helpers.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Http.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Http.WebHost.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Mvc.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Optimization.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.Razor.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.WebPages.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.WebPages.Deployment.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\System.Web.WebPages.Razor.xml
+E:\works\WCF L 2 D\FramWork\FramWork\obj\Debug\FramWork.dll
+E:\works\WCF L 2 D\FramWork\FramWork\obj\Debug\FramWork.pdb
+E:\works\WCF L 2 D\FramWork\FramWork\bin\GoogleMaps.LocationServices.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\PagedList.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\PagedList.Mvc.dll
+E:\works\WCF L 2 D\FramWork\FramWork\bin\PagedList.xml
+E:\works\WCF L 2 D\FramWork\FramWork\bin\PagedList.Mvc.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.dll.config
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.pdb
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Antlr3.Runtime.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.SqlServer.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\GoogleMaps.LocationServices.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Microsoft.Web.Infrastructure.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Newtonsoft.Json.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.Mvc.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Net.Http.Formatting.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Helpers.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.WebHost.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Mvc.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Optimization.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Razor.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Deployment.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Razor.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\WebGrease.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Antlr3.Runtime.pdb
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.SqlServer.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Newtonsoft.Json.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.Mvc.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Net.Http.Formatting.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Helpers.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.WebHost.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Mvc.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Optimization.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Razor.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Deployment.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Razor.xml
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.dll
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.pdb
+E:\Task_from_sherin\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.csprojResolveAssemblyReference.cache
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.pdb
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.dll.config
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.pdb
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Antlr3.Runtime.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.SqlServer.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\GoogleMaps.LocationServices.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Newtonsoft.Json.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.Mvc.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Net.Http.Formatting.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Helpers.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.WebHost.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Mvc.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Optimization.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Razor.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Deployment.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Razor.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\WebGrease.dll
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Antlr3.Runtime.pdb
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.SqlServer.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Newtonsoft.Json.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.Mvc.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Net.Http.Formatting.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Helpers.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.WebHost.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Mvc.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Optimization.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Razor.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Deployment.xml
+C:\Users\sherin.maliakkal\Downloads\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Razor.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.dll.config
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\FramWork.pdb
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Antlr3.Runtime.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.SqlServer.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\GoogleMaps.LocationServices.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Newtonsoft.Json.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.Mvc.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Net.Http.Formatting.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Helpers.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.WebHost.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Mvc.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Optimization.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Razor.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Razor.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\WebGrease.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Antlr3.Runtime.pdb
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\EntityFramework.SqlServer.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\Newtonsoft.Json.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\PagedList.Mvc.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Net.Http.Formatting.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Helpers.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Http.WebHost.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Mvc.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Optimization.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.Razor.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\bin\System.Web.WebPages.Razor.xml
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.dll
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.pdb
+E:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\obj\Debug\FramWork.csprojResolveAssemblyReference.cache

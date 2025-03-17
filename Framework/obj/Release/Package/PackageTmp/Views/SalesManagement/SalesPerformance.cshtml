@@ -1,0 +1,348 @@
+﻿@{
+    ViewBag.Title = "Lead 2 Deal | Sales Performance";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<h3>Sales Performance</h3>
+<div class="row">
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="Barchart_div1" style="width: 820px; height: 300px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="container" style="min-width: 310px; height: 300px; max-width: 600px; margin: 0 auto"></div>
+
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="Barchart_div2" style="width: 820px; height: 300px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="linechart_material" style="width: 820px; height: 300px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="chart_div" style="width: 600px; height: 300px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="map_div" style="height: 300px; width: 600px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>
+
+
+@section Css{
+    <style>
+   
+    </style>
+}
+
+
+@section Scripts{
+
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+
+    @*//pie Chart*@
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+    @*//google map*@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+@*//Material Dual Line Chart*@
+
+
+    @*//Tree Map*@
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['treemap']}]}"></script>
+<script type="text/javascript">
+
+    //Bar char--1
+
+    google.setOnLoadCallback(drawVisualization1);
+
+    function drawVisualization1() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Month', 'Won Revenue', 'Win Count'],
+         ['Jul..', 450, 614.6],
+         ['Aug..', 288, 682],
+         ['Sep..', 397, 623],
+         ['Oct..', 215, 609.4],
+         ['Nov..', 366, 569.6]
+        ]);
+
+        var options = {
+            title: 'Revenue and Oppurtunity Count Trend',
+            vAxis: { title: 'Won Revenue' },
+            hAxis: { title: 'Month' },
+            width: 500,
+            height: 300,
+            seriesType: 'bars',
+            series: { 1: { type: 'line' } }
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('Barchart_div1'));
+        chart.draw(data, options);
+    }
+
+    //Bar Chart 2
+
+    google.setOnLoadCallback(drawVisualization2);
+
+    function drawVisualization2() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+          ['Month', 'Average Deal Size', 'Average Deal Age'],
+         ['Jul..', 450, 614.6],
+         ['Aug..', 288, 682],
+         ['Sep..', 397, 623],
+         ['Oct..', 215, 609.4],
+         ['Nov..', 366, 569.6]
+        ]);
+        var options = {
+            title: 'Average Deal Size and Time to Close Trend',
+            vAxis: { title: 'Cups' },
+            hAxis: { title: 'Month' },
+            seriesType: 'bars',
+            width: 500,
+            height: 300,
+            series: { 1: { type: 'line' } }
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('Barchart_div2'));
+        chart.draw(data, options);
+    }
+
+
+
+    //Pie Chart-Column 2
+
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            width: 500,
+            height: 300,
+            type: 'pie'
+        },
+        title: {
+            text: 'Oppurtuity Count by Status'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: "Brands",
+            colorByPoint: true,
+            data: [{
+                name: "Lost",
+                y: 56.33
+            }, {
+                name: "Open",
+                y: 24.03,
+                sliced: true,
+                selected: true
+            }, {
+                name: "Won",
+                y: 10.38
+            }, {
+                name: "Dropped",
+                y: 4.77
+            }, {
+                name: "Reverted",
+                y: 0.91
+            }, {
+                name: "Forward",
+                y: 0.2
+            }]
+        }]
+    });
+
+    //Material dual line chart 4
+    google.load('visualization', '1.1', { packages: ['line'] });
+    google.setOnLoadCallback(LinedrawChart);
+
+    function LinedrawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('number', 'Month');
+        data.addColumn('number', 'Estimated Revenue');
+        data.addColumn('number', 'Won Revenue');
+
+        data.addRows([
+          [1, 37.8, 80.8],
+          [2, 30.9, 69.5],
+          [3, 25.4, 57],
+          [4, 11.7, 18.8],
+          [5, 11.9, 17.6],
+          [6, 8.8, 13.6],
+          [7, 7.6, 12.3],
+          [8, 12.3, 29.2],
+          [9, 16.9, 42.9],
+          [10, 12.8, 30.9],
+          [11, 5.3, 7.9],
+          [12, 6.6, 8.4],
+          [13, 4.8, 6.3],
+          [14, 4.2, 6.2]
+        ]);
+
+        var options = {
+            chart: {
+                title: 'Estimated vs Actual Revenue Trend',
+                subtitle: 'in millions of dollars (USD)'
+            },
+            width: 500,
+            height: 300
+        };
+
+        var chart = new google.charts.Line(document.getElementById('linechart_material'));
+        chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    //Google Map
+    google.load('visualization', '1.1', { packages: ['map'] });
+    google.setOnLoadCallback(drawMap);
+
+    function drawMap() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Address');
+        data.addColumn('string', 'Location');
+        data.addColumn('string', 'Marker')
+
+        data.addRows([
+          ['Doha, Qatar', 'Doha', 'blue']
+         
+        ]);
+        var url = 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/';
+
+        var options = {
+            zoomLevel: 5,
+            showTip: true,
+            useMapTypeControl: true,
+            width: 200,
+            height: 300,
+            icons: {
+                blue: {
+                    normal: url + 'Map-Marker-Ball-Azure-icon.png',
+                    selected: url + 'Map-Marker-Ball-Right-Azure-icon.png'
+                },
+                green: {
+                    normal: url + 'Map-Marker-Push-Pin-1-Chartreuse-icon.png',
+                    selected: url + 'Map-Marker-Push-Pin-1-Right-Chartreuse-icon.png'
+                },
+                pink: {
+                    normal: url + 'Map-Marker-Ball-Pink-icon.png',
+                    selected: url + 'Map-Marker-Ball-Right-Pink-icon.png'
+                }
+            }
+        };
+        var map = new google.visualization.Map(document.getElementById('map_div'));
+
+        map.draw(data, options);
+    }
+
+
+    //Tree Map Chart
+
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
+          ['Global', null, 0, 0],
+          ['America', 'Global', 0, 0],
+          ['Europe', 'Global', 0, 0],
+          ['Asia', 'Global', 0, 0],
+          ['Australia', 'Global', 0, 0],
+          ['Africa', 'Global', 0, 0],
+          ['Brazil', 'America', 11, 10],
+          ['USA', 'America', 52, 31],
+          ['Mexico', 'America', 24, 12],
+          ['Canada', 'America', 16, -23],
+          ['France', 'Europe', 42, -11],
+          ['Germany', 'Europe', 31, -2],
+          ['Sweden', 'Europe', 22, -13],
+          ['Italy', 'Europe', 17, 4],
+          ['UK', 'Europe', 21, -5],
+          ['China', 'Asia', 36, 4],
+          ['Japan', 'Asia', 20, -12],
+          ['India', 'Asia', 40, 63],
+          ['Laos', 'Asia', 4, 34],
+          ['Mongolia', 'Asia', 1, -5],
+          ['Israel', 'Asia', 12, 24],
+          ['Iran', 'Asia', 18, 13],
+          ['Pakistan', 'Asia', 11, -52],
+          ['Egypt', 'Africa', 21, 0],
+          ['S. Africa', 'Africa', 30, 43],
+          ['Sudan', 'Africa', 12, 2],
+          ['Congo', 'Africa', 10, 12],
+          ['Zaire', 'Africa', 8, 10]
+        ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+
+        tree.draw(data, {
+            minColor: '#f00',
+            midColor: '#ddd',
+            maxColor: '#0d0',
+            headerHeight: 15,
+            fontColor: 'black',
+            showScale: true,
+            'options': { 'title': 'Population Density (people/km^2)', 'legend': 'none', 'width': '200', 'height': '200' }
+        });
+
+
+    }
+</script>
+}
+

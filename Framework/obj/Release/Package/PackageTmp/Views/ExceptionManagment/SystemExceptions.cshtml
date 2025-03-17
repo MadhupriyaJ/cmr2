@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | System Exceptions";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Exceptions</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">System Exceptions</a>
+    </li>
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">System Exceptions</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-12">
+                @{
+
+                    FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+                    var lst = client.Getexception(Core.Login.OrganizationId);
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Person Lead</th>
+                                <th>Exception</th>
+                            </tr>
+                        </thead>
+                        @foreach (var item in lst)
+                        {
+                            <tr>
+                                <td> @item.PersonLeadName </td>
+                                <td> @item.Ans </td>
+                            </tr>
+                        }
+                    </table>
+                }
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+
+
+
+

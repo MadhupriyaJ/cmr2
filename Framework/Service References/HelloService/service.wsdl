@@ -1,0 +1,1012 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://PragimTech.com/ServiceVersion1" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HelloService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://PragimTech.com/ServiceVersion1" location="" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IHelloService" type="i0:IHelloService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDeptLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetDeptLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetDesignLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenderLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetGenderLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetLanguageLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetLocLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSalutLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetSalutLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetTeamLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetEmployeeLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetUserLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonModeLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonModeLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCompany">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyMode">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCompanyMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDealStageLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetDealStageLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLstPerson">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetLstPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLstCampaign">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetLstCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignProductLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignProductLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDSQuesModeLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesModeLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePerson">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetOnePerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignPersonLead">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AssignPersonLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCMTask">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCMFollowers">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMFollowers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCMNote">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCMNoteFollowers">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMNoteFollowers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMFollowers">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMFollowers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMTaskCategory">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMTaskCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMTaskLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMTaskLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMNoteLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMNoteLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNoteComments">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetNoteComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseMnagementLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseMnagementLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCaseOrginLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseOrginLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCasePriorityLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCasePriorityLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCaseStatusLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseStatusLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCaseTypeLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseTypeLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonLeadLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonLeadLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCase">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfOpenOppurtunities">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfOpenOppurtunities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePersonLead">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetOnePersonLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPerson">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/EditPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfProductsByLead">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfProductsByLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfProductsdoc">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfProductsdoc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadNote">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddLeadNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WonStage">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/WonStage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Lost_Revert_Drop">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/Lost_Revert_Drop" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQueueLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetEmployeeQueueLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddemployeeQueue">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddemployeeQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditemployeeQueue">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/EditemployeeQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAssignedToPersonLead">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/SaveAssignedToPersonLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganization">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddOrganization" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Addemployee">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/Addemployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Addrole">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/Addrole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListRoles">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/ListRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="role">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignRoleTo_User">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AssignRoleTo_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listofusers">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/Listofusers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleList">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetModuleList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignModuleTo_Role">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AssignModuleTo_Role" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddModule">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddModule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleIdBasedOnRole">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetModuleIdBasedOnRole" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStageName">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStageQuestions">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStageQuestionsText_Values">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageQuestionsText_Values" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDYnamicQuestions_answer">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDYnamicQuestions_answer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStagePersonLead">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStagePersonLead" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MovetoNextDealStage">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/MovetoNextDealStage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MovetoPreviousDealStage">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/MovetoPreviousDealStage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="won_lost_dropped_Revert">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/won_lost_dropped_Revert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCampaignBankType">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/ListCampaignBankType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListCampaignType">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/ListCampaignType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMediasourceList">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetMediasourceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCampaign">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCampaignProduct">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCampaignMedia">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignMedia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignList">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignProductList">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignMediaList">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignMediaList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getcampaignappoinments">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/getcampaignappoinments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getexception">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/Getexception" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPersonLead_ONA">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfPersonLead_ONA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonleaddetails">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonleaddetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getemployeedetails">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/Getemployeedetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getempbasedonteam">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/getempbasedonteam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AssignLeadToEmployee">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AssignLeadToEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddsurveyMaster">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddsurveyMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseManagmentStageList">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseManagmentStageList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDetails">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeCaseManagmentStage">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/changeCaseManagmentStage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddPerson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartment">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDepartment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDesignation">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDesignation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddGender">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddGender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLocation">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddLocation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSalutation">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddSalutation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCountry">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCountryLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddState">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStateLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetStateLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDSQuesLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDSQuesTypeLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesTypeLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHtmlControlNameLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetHtmlControlNameLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCity">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPersonCompany">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddPersonCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDealStageName">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDealStageName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDSQuesMode">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDSQuesMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPipeLine">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddPipeLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDealStageQuestions">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDealStageQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDSQuestionValues">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/AddDSQuestionValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPipeLineLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetPipeLineLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCityLst">
+      <soap:operation soapAction="http://PragimTech.com/ServiceVersion1/IHelloService/GetCityLst" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HelloService">
+    <wsdl:port name="BasicHttpBinding_IHelloService" binding="tns:BasicHttpBinding_IHelloService">
+      <soap:address location="http://localhost:8080/HelloService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

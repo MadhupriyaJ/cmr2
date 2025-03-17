@@ -1,0 +1,438 @@
+﻿@model FramWork.HelloService.DealStageQuestion
+@using Core;
+@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Pipeline";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";        
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+    var DealstageId = ViewBag.Id;
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Administrator</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Pipeline", "DealStageManagement")">DealStage</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Stages</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Questions</a>
+    </li>
+</ul>
+<div class="row">  
+    <div class="col-md-7">
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption ">
+                    <i class="icon-share"></i>
+                    <span class="caption-subject bold uppercase"> List Of  Deal Stages Questions</span>
+                    <span class="caption-helper"></span>
+                </div>
+                <div class="actions">
+
+                </div>
+            </div>
+            <div class="portlet-body">
+              
+                    @{ int i = 1;}
+
+
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>Question No</th>
+                            <th>Title</th>
+                            <th>Question</th>
+
+                            @foreach (var p in ViewBag.DealStageObj)
+                            {
+                            <tr>
+                                <td>@Html.Raw(i++)</td>
+                                <td>@p.Title</td>
+                                <td>@p.Question</td>
+                            </tr>
+                            }
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+    <div class="col-md-5">
+        <div class="portlet light bg-inverse">
+            <div class="portlet-title">
+                <div class="caption font-red-sunglo">
+                    <i class="icon-share font-red-sunglo"></i>
+                    <span class="caption-subject bold uppercase"> Add Stages</span>
+                    <span class="caption-helper"></span>
+                </div>
+                <div class="actions">
+
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="form-horizontal">   
+                    <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Title<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    <input type="text" id="Title" class="form-control" name="Title" />
+                                    <span class="help-block">
+                                      Provide Title
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Sort Order<span class="required"> *</span></label>
+                                <div class="col-md-5">
+                                    <input type="text" id="SortOrder" class="form-control" name="SortOrder" />
+                                    <span class="help-block">
+                                        Provide Sort Order
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Question<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    <textarea rows="4" id="Question" class="form-control" cols="50" name="Question"></textarea>
+                                    <span class="help-block">
+                                       Prove Question
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Control Type<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.ControlTypeId, new SelectList(client.GetHtmlControlNameLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "ControlTypeId", @name = "ControlTypeId" })
+                                    <span class="help-block">
+                                        Provide Control Type
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="SelectInput" class="row" style="display:none;">
+                                <div class="col-md-12">
+                                    <div class="portlet light bordered">
+                                        <div class="portlet-title">
+
+                                            <div class="actions">
+                                                <div id="addButton" class="btn btn-circle btn-default btn-sm">
+                                                    <i class="fa fa-plus"></i>
+                                                </div>
+                                                <div id="removeButton" class="btn btn-circle btn-default btn-sm">
+                                                    <i class="fa fa-minus"></i>
+                                                </div>
+                                                @*<input type='button' value='Get TextBox Value' id='getButtonValue'>*@
+                                            </div>
+                                        </div>
+                                        <div class="portlet-body">
+                                            <div id='TextBoxesGroup'>
+                                                <div id="TextBoxDiv1">
+                                                    <input type="hidden" id="hdncounter" />
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 ">
+                                                            Sort order
+                                                        </label>
+                                                        <div class="col-md-4 ">
+                                                            <input type="text" class="form-control" id="selectsortorder1" name="selectsortorder1" />
+                                                        </div>
+                                                        <label class="control-label col-md-2">
+                                                            value
+                                                        </label>
+                                                        <div class="col-md-4 ">
+                                                            <input type="text" class="form-control" id="selectvalue1" name="selectvalue1" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-4 ">
+                                                            Text
+                                                        </label>
+                                                        <div class="col-md-8">
+                                                            <input type="text" class="form-control" id="selecttext1" name="selecttext1" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Question Type<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.QuestionTypeId, new SelectList(client.GetDSQuesTypeLst(Login.OrganizationId).Select(a => new { Id = a.Id, questionTypeName = a.questionTypeName }), "Id", "questionTypeName"), "Select", new { @class = "form-control validate[required]", @id = "QuestionTypeId", @name = "QuestionTypeId" })
+                                    <span class="help-block">
+                                       Provide Question Type
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Question Mode<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.DealstageQuestionModeId, new SelectList(client.GetDSQuesModeLst(Login.OrganizationId).Select(a => new { Id = a.Id, QuestonMode = a.QuestonMode }), "Id", "QuestonMode"), "Select", new { @class = "form-control validate[required]", @id = "DealstageQuestionModeId", @name = "DealstageQuestionModeId" })
+                                    <span class="help-block">
+                                       Provide Question Mode
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Control Id<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    <input type="text" id="ControlId" class="form-control" name="ControlId" />
+                                    <span class="help-block">
+                                     Provide Control Id
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Control Name<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    <input type="text" id="ControlName" class="form-control" name="ControlName" />
+                                    <span class="help-block">
+                                      rovide Control Name
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4  control-label">Is mandatory<span class="required"> *</span></label>
+                                <div class="col-md-8">
+                                    @Html.DropDownListFor(model => model.Ismandatory, new SelectList(
+                                                            new List<SelectListItem>
+                                                            {
+                                                                new SelectListItem { Text = "Yes", Value = true.ToString()},
+                                                                new SelectListItem { Text = "No", Value = false.ToString()},
+                                                            }, "Value", "Text"), "Select", new { @class = "form-control validate[required]", @id = "Ismandatory", @name = "Ismandatory" })
+                                    <span class="help-block">
+                                      
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="form-actions ">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button type="button" id="btndsquestionsave" class="btn green">Save</button>
+                                        <button type="button" id="btnclear" class="btn default">Clear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Css
+{
+    <link href="../../assets/global/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
+}
+
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/select2/select2.min.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-ui/jquery-ui.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit_form").validate({
+            errorElement: 'span',
+            errorClass: 'help-block help-block-error',
+            rules: {
+                Title: "required",
+                Question: "required",
+                ControlTypeId: "required",
+                ControlId: "required",
+                ControlName: "required",
+                Ismandatory: "required",
+                SortOrder: "required",
+                QuestionTypeId: "required",
+                DealstageQuestionModeId: "required"
+            },
+            highlight: function (element) { // hightlight error inputs
+                $(element)
+                    .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+            },
+
+            submitHandler: function (form) {
+                form.submit();
+            }
+
+        });
+
+
+
+        $('#SelectInput').hide();
+
+        $('#ControlTypeId').change(function () {
+
+            var ControlTypeId = $('[id*=ControlTypeId] option:selected').text();
+            if (ControlTypeId == 'select') {
+                $('#SelectInput').show();
+            }
+
+            else {
+                $('#SelectInput').hide();
+
+            }
+        });
+
+
+        var Id = '@ViewBag.Id';
+
+        $(".sortingitems").sortable({
+            items: '.item'
+        });
+
+
+        $(".item").click(function () {
+            var ID = $(this).attr("id");
+            var url = "/DealStageManagement/DealStageAnswers?DealQuestionId=" + ID;
+            window.location.href = url;
+        });
+
+        $('#btndsquestionsave').click(function () {
+            var isValid = $("#submit_form").valid();
+            if (!isValid)
+                return;
+            var DSquestion = {
+                'DealStageNameId': '@ViewBag.Id',
+                'Title': $('#Title').val(),
+                'Question': $('#Question').val(),
+                'ControlTypeId': $('select[name="ControlTypeId"] OPTION:selected').val(),
+                'ControlId': $('#ControlId').val(),
+                'ControlName': $('#ControlName').val(),
+                'Ismandatory': $('select[name="Ismandatory"] OPTION:selected').val(),
+                'SortOrder': $('#SortOrder').val(),
+                'QuestionTypeId': $('select[name="QuestionTypeId"] OPTION:selected').val(),
+                'DealstageQuestionModeId': $('select[name="DealstageQuestionModeId"] OPTION:selected').val()
+            };
+            var dataRow = ({ DSQuestiontbl: DSquestion });
+
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/")' + "DealStageManagement/AddDealStageQuestions",
+                data: dataRow,
+                success: function (response) {
+                    if (response != null) {
+                        for (var i = 1; i < $('#hdncounter').val() ; i++) {
+
+                            var dataval = {
+                                'DealStageQuestionsId': response["ID"],
+                                'SortOrder': $('#selectsortorder' + i).val(),
+                                'Value': $('#selectvalue' + i).val(), 'Text': $('#selecttext' + i).val()
+                            };
+
+                            var dataRow = ({ DSQuestionValuetbl: dataval });
+
+                            $.ajax({
+                                type: 'POST',
+                                url: '@Url.Content("~/")' + "DealStageManagement/AddDSQuestionValues",
+                                data: dataRow,
+                                success: function (response) {
+                                }
+                            });
+                        }
+
+                        bootbox.alert("Deal stage Questions are Added Successfully!", function () {
+                            window.location.reload();
+                    });
+                }
+            else {
+                    bootbox.alert("Error, could not complete the action!", function () {
+                        window.location.reload();
+                    });
+        }
+
+        }
+    });
+
+    });
+
+    $('#btnclear').click(function () {
+        $(':input').val('');
+    });
+
+    });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            var counter = 2;
+            $('#hdncounter').val(counter);
+            $("#addButton").click(function () {
+                //if (counter > 10) {
+                //    alert("Only 10 textboxes allow");
+                //    return false;
+                //}
+                var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+                var $new = $('<div class="form-group">' +
+                '<label class="control-label col-md-4 ">'+
+                'Sort order' + counter +
+                '</label>'+
+                '<div class="col-md-4 ">'+
+                '<input type="text" class="form-control" id="selectsortorder' + counter + '" name="selectsortorder' + counter + '" />' +
+                '</div>'+
+                '<label class="control-label col-md-2">'+
+                'value' + counter +
+                '</label>'+
+                '<div class="col-md-4 ">'+
+                '<input type="text" class="form-control" id="selectvalue' + counter + '" name="selectvalue' + counter + '" />' +
+                '</div>'+
+                '</div>'+
+                '<div class="form-group">'+
+                '<label class="control-label col-md-4 ">'+
+                'Text' + counter +
+                '</label>'+
+                '<div class="col-md-8">'+
+                '<input type="text" class="form-control" id="selecttext' + counter + '" name="selecttext' + counter + '" />' +
+                '</div>'+
+                '</div>');
+
+
+                newTextBoxDiv.after().html($new);
+                //newTextBoxDiv.appendTo("#TextBoxesGroup");
+                newTextBoxDiv.hide().appendTo("#TextBoxesGroup").fadeIn(1000);                
+                counter++;
+                $('#hdncounter').val(counter);
+                
+            });
+
+            $("#removeButton").click(function () {
+                if (counter == 1) {
+                    alert("No more textbox to remove");
+                    return false;
+                }
+                counter--;
+                $("#TextBoxDiv" + counter).fadeOut(1000, function () {
+                    $("#TextBoxDiv" + counter).remove();
+                });
+            });
+
+            $("#getButtonValue").click(function () {
+                var msg = '';
+                for (i = 1; i < counter; i++) {
+                    msg += "\n Textbox #" + i + " : " + $('#txtproduct' + i).val();
+                }
+                alert(msg);
+            });
+        });
+    </script>
+}

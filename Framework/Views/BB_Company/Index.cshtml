@@ -1,0 +1,2558 @@
+﻿@model PagedList.IPagedList<FramWork.Models.ABB_Company>
+@using PagedList.Mvc;
+@using FramWork.Models;
+@using Core;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+}
+
+<input type="hidden" id="CompanyId" name="CompanyId" />
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")BB_Company/Index">My Customers</a>
+        <i class="fa fa-circle"></i>
+    </li>
+ 
+    <li>
+        <a href="@Url.Content("~/")BB_Company/Index">List View</a>
+
+    </li>
+
+</ul>
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-12">
+            <!-- BEGIN Portlet PORTLET-->
+            <div class="@item.Portletclass.portletTitleclass" style="min-height:500px;">
+                <div class="portlet-title">
+                    <div class="@item.Portletclass.CaptionFontclass">
+                        <i class="@item.Portletclass.captionIconClass"></i>
+                        <span class="@item.Portletclass.CaptionSubjectclass"> @item.EnglishName</span>
+                        <span class="@item.Portletclass.CaptionHelperClass"> @item.ArabicName</span>
+                    </div>
+                    <div class="actions">
+                        <a href="@Url.Action("Create", "BB_Company")" class="btn blue">
+                            <i class="fa  fa-plus"></i> Add
+                        </a>
+
+                        <a href="#" id="@string.Format("{0}{1}", item.Id, "a_threesixty")" class="btn blue a_threesixty">
+                            <i class="icon-screen-desktop"></i> 360 View
+                        </a>
+                        <a href="#" id="@string.Format("{0}{1}",item.Id,"staff")" class="btn btn purple a_managestaff">
+                            <i class="fa fa-child"></i> Manage Staff
+                        </a>
+                        <a href="#" id="@string.Format("{0}{1}", item.Id, "a_managemandate")" class="btn red a_managemandate">
+                            <i class="fa  fa-cube"></i> Manage Mandates
+                        </a>
+                        <a href="#" id="@string.Format("{0}{1}", item.Id, "a_requestfinance")" class="btn green a_requestfinance">
+                            <i class="fa fa-money"></i> Request Finance
+                        </a>
+                        <a href="#" id="@string.Format("{0}{1}", item.Id, "a_relationshipwithother")" class="btn red a_relationshipwithother">
+                            <i class="fa fa-bank"></i>  Relationship with other Banks
+
+                        </a>
+
+                        <a href="#" class="btn btn-primary btn-default btn-icon-only fullscreen" style="color:#FFF;" data-original-title="" title=""></a>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div id="@item.Id" >  <img src="@Url.Content("~")assets/Programmer/CompanyLogos/@item.Id/@string.Format("{0}{1}",item.Id,".png")" style="width:100%;height:auto;" /></div>
+                        </div>
+
+                        <div  id="@string.Format("{0}{1}",item.Id,"s")">
+                            @Html.Action("Details", "BB_Company", new { id = item.Id })
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- END Portlet PORTLET-->
+        </div>
+    }
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+</div>
+@* ----------------- Share Hoder Start ---------------------------------- *@
+@* Add Share Holder*@
+    <div class="modal fade" id="modalshareholder" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Share Holder</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="btnaddshareholderform">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            First Name  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="FirstName" class="form-control" name="FirstName">
+                                            <span class="help-block">
+                                                Provide First Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Middle Name  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="MiddleName" class="form-control" name="MiddleName">
+                                            <span class="help-block">
+                                                Provide Middle Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Last Name  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="LastName" class="form-control" name="LastName">
+                                            <span class="help-block">
+                                                Provide Last Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            RP Number  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="RPNumber" class="form-control" name="RPNumber">
+                                            <span class="help-block">
+                                                Provide RP Number
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            RP Expiary  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="RPExpiary"  placeholder="yyyy/mm/dd" class="form-control date-picker" name="RPExpiary">
+                                            <span class="help-block">
+                                                Provide RP Expiary
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Passport Number  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="PassportNumber" class="form-control" name="FirstName">
+                                            <span class="help-block">
+                                                Provide Passport Number
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Passport Expiary  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="PassportExpiary" placeholder="yyyy/mm/dd"  class="form-control date-picker" name="PassportExpiary">
+                                            <span class="help-block">
+                                                Provide Passport Expiary
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnaddshareholder" class="btn blue">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+   @* Edit Share Holder*@
+    <div class="modal fade" id="modalEditshareholder" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Share Holder</h4>
+                </div>
+                <div class="modal-body">
+                  
+                           <form id = "Editshareholderform">                   
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            First Name  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SEFirstName" class="form-control" name="FirstName" value="@Request["FirstName"]">
+                                            <span class="help-block">
+                                                Provide First Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Middle Name  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SEMiddleName" class="form-control" name="MiddleName" value="@Request["MiddleName"]">
+                                            <span class="help-block">
+                                                Provide Middle Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Last Name  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SELastName" class="form-control" name="LastName" value="@Request["LastName"]">
+                                            <span class="help-block">
+                                                Provide Last Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            RP Number  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SERPNumber" class="form-control" name="RPNumber" value="@Request["RPNumber"]">
+                                            <span class="help-block">
+                                                Provide RP Number
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            RP Expiary  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SERPExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="RPExpiary" value="@Request["RPExpiary"]">
+                                            <span class="help-block">
+                                                Provide RP Expiary
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Passport Number  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SEPassportNumber" class="form-control" name="FirstName" value="@Request["PassportNumber"]">
+                                            <span class="help-block">
+                                                Provide Passport Number
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Passport Expiary  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="SEPassportExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="PassportExpiary" value="@Request["PassportExpiary"]">
+                                            <span class="help-block">
+                                                Provide Passport Expiary
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                   </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btneditsaveshareholder" class="btn blue">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+  @* ----------------- Share Hoder End ---------------------------------- *@
+
+@* -----------------  Board Members Start ---------------------------------- *@
+@*Add Board Member*@
+<div class="modal fade" id="modalboardmembers" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Board Member</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btnaddboardmembersform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        First Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BFirstName" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide First Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Middle Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BMiddleName" class="form-control" name="MiddleName">
+                                        <span class="help-block">
+                                            Provide Middle Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Last Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BLastName" class="form-control" name="LastName">
+                                        <span class="help-block">
+                                            Provide Last Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BRPNumber" class="form-control" name="RPNumber">
+                                        <span class="help-block">
+                                            Provide RP Number
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BRPExpiary" placeholder="yyyy/mm/dd"  class="form-control date-picker" name="RPExpiary">
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BPassportNumber" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide Passport Number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BPassportExpiary" placeholder="yyyy/mm/dd"  class="form-control date-picker" name="PassportExpiary">
+                                        <span class="help-block">
+                                            Provide Passport Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnaddboardmembers" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@* Edit Board Member*@
+<div class="modal fade" id="modalEditBoardMember" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Board Member</h4>
+            </div>
+            <div class="modal-body">
+
+                <form id="EditBoardMemberform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        First Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BEFirstName" class="form-control" name="FirstName" value="@Request["FirstName"]">
+                                        <span class="help-block">
+                                            Provide First Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Middle Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BEMiddleName" class="form-control" name="MiddleName" value="@Request["MiddleName"]">
+                                        <span class="help-block">
+                                            Provide Middle Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Last Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BELastName" class="form-control" name="LastName" value="@Request["LastName"]">
+                                        <span class="help-block">
+                                            Provide Last Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BERPNumber" class="form-control" name="RPNumber" value="@Request["RPNumber"]">
+                                        <span class="help-block">
+                                            Provide RP Number
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BERPExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="RPExpiary" value="@Request["RPExpiary"]">
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BEPassportNumber" class="form-control" name="FirstName" value="@Request["PassportNumber"]">
+                                        <span class="help-block">
+                                            Provide Passport Number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="BEPassportExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="PassportExpiary" value="@Request["PassportExpiary"]">
+                                        <span class="help-block">
+                                            Provide Passport Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btneditsaveboardmember" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@* -----------------  Board Members End ---------------------------------- *@
+
+@* -----------------  Staff Start ---------------------------------- *@
+<div class="modal fade" id="modalstaff" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Manage Staff</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btnaddstaffform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-5">
+                                        First Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SFirstName" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide First Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Middle Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SMiddleName" class="form-control" name="MiddleName">
+                                        <span class="help-block">
+                                            Provide Middle Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Last Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SLastName" class="form-control" name="LastName">
+                                        <span class="help-block">
+                                            Provide Last Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SRPNumber" class="form-control" name="RPNumber">
+                                        <span class="help-block">
+                                            Provide RP Number
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Job Title <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("ddljobtitle", new SelectList(dc.ABB_JobTitle.Where(A => A.OrgId == Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Title }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SRPExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="RPExpiary">
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SPassportNumber" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide Passport Number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="SPassportExpiary" placeholder="yyyy/mm/dd"  class="form-control date-picker" name="PassportExpiary">
+                                        <span class="help-block">
+                                            Provide Passport Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnaddstaff" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal fade" id="modalEditManagementTeam" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Manage Staff</h4>
+            </div>
+            <div class="modal-body">
+                <form id="EditManagementTeamform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label class="control-label col-md-5">
+                                        First Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MEFirstName" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide First Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Middle Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MEMiddleName" class="form-control" name="MiddleName">
+                                        <span class="help-block">
+                                            Provide Middle Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Last Name  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MELastName" class="form-control" name="LastName">
+                                        <span class="help-block">
+                                            Provide Last Name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MERPNumber" class="form-control" name="RPNumber">
+                                        <span class="help-block">
+                                            Provide RP Number
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Job Title <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("MEJobTitleId", new SelectList(dc.ABB_JobTitle.Where(A => A.OrgId == Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Title }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        RP Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MERPExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="RPExpiary">
+                                        <span class="help-block">
+                                            Provide RP Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Number  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MEPassportNumber" class="form-control" name="FirstName">
+                                        <span class="help-block">
+                                            Provide Passport Number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Passport Expiary  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="MEPassportExpiary" placeholder="yyyy/mm/dd" class="form-control date-picker" name="PassportExpiary">
+                                        <span class="help-block">
+                                            Provide Passport Expiary
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btneditsavemanagementteam" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@* -----------------  Staff End ---------------------------------- *@
+
+@* -----------------  ManDate Assigin Modal Start ---------------------------------- *@
+    @*Add Mandate*@
+    <div class="modal fade" id="mandateassiginmodal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog" style="width:70%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Add Mandate</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="btnaddmandateform">
+                        <div class="form-horizontal">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Account <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <select class="form-control" id="ddlAccountId"></select>
+                                            <span class="help-block">
+                                                Provide Account
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Staff <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <select class="form-control" id="ddlStaffId"></select>
+                                            <span class="help-block">
+                                                Select staff
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Asset  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            @Html.DropDownList("ddlAssetId", new SelectList(dc.ABB_CompanyAssets.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.AssetName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                            <span class="help-block">
+                                                Provide Asset
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Channel <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            @Html.DropDownList("ddlChannelId", new SelectList(dc.ABB_MandateChannel.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.ChannelName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                            <span class="help-block">
+                                                Provide Channel
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            From Date  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="FromDate" placeholder="yyyy/mm/dd" class="form-control date-picker" name="FromDate">
+                                            <span class="help-block">
+                                                Provide From Date
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            To Date  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="ToDate" placeholder="yyyy/mm/dd" class="form-control date-picker" name="ToDate">
+                                            <span class="help-block">
+                                                Provide TO Date
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            From Value  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="FromValue" class="form-control currenciesOnly" name="FromValue">
+                                            <span class="help-block">
+                                                Provide From Value
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            To Value  <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            <input type="text" id="ToValue" class="form-control currenciesOnly" name="ToValue">
+                                            <span class="help-block">
+                                                Provide To Value
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Join Type <span class="required" aria-required="true">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-7">
+                                            @Html.DropDownList("ddlJoinTypeId", new SelectList(dc.ABB_JoinType.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.Type }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                            <span class="help-block">
+                                                Provide Join Type Id
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnaddmandate" class="btn blue">Save changes</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+@*Edit Mandate*@
+<div class="modal fade" id="mandateeditmodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Edit Mandate</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btneditmandateform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Account <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" id="EMDAccountId"></select>
+                                        <span class="help-block">
+                                            Provide Account
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Staff <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <select class="form-control" id="EMDStaffId"></select>
+                                        <span class="help-block">
+                                            Select staff
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Asset  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("EMDAssetId", new SelectList(dc.ABB_CompanyAssets.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.AssetName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            Provide Asset
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Channel <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("EMDChannelId", new SelectList(dc.ABB_MandateChannel.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.ChannelName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            Provide Channel
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        From Date  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="EMDFromDate" placeholder="yyyy/mm/dd" class="form-control date-picker" name="EMDFromDate">
+                                        <span class="help-block">
+                                            Provide From Date
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        To Date  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="EMDToDate" placeholder="yyyy/mm/dd" class="form-control date-picker" name="EMDToDate">
+                                        <span class="help-block">
+                                            Provide TO Date
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        From Value  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="EMDFromValue" class="form-control currenciesOnly" name="EMDFromValue">
+                                        <span class="help-block">
+                                            Provide From Value
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        To Value  <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" id="EMDToValue" class="form-control currenciesOnly" name="EMDToValue">
+                                        <span class="help-block">
+                                            Provide To Value
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Join Type <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("EMDJoinTypeId", new SelectList(dc.ABB_JoinType.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.Type }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            Provide Join Type Id
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btneditmandate" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+@* -----------------  Request Finance Modal Start ---------------------------------- *@
+<div class="modal fade" id="requestfinancemodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Request Finance</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btnrequestfinanceform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Purpose of Facility <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control currenciesOnly" name="Purpose" id="Purpose" rows="3"></textarea>
+                                        <span class="help-block">
+                                            Provide Purpose
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Product <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("ddlProductId", new SelectList(dc.ABB_Products.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.ProductName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+                                            select Product
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Required On <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control date-picker" name="RequiredOn" id="RequiredOn" placeholder="yyyy/mm/dd" />
+                                        <span class="help-block">
+                                            Provide Required On
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Tenure<span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" name="Tenure" id="Tenure" placeholder="Year(s)" />
+                                        <span class="help-block">
+                                            Provide Tenure in year(s)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Finance Amount <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control currenciesOnly" name="Amount" id="Amount" style="text-align:right;" placeholder="100,000.00" />
+                                        <span class="help-block">
+                                            Provide Finance Amount
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Payment Details <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control" name="PaymentDetails" id="PaymentDetails" rows="3"></textarea>
+                                        <span class="help-block">
+                                            Provide Payment Details
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnrequestfinance" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@*Edit Request Finanace*@
+<div class="modal fade" id="editrequestfinancemodal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Edit Request Finance</h4>
+            </div>
+            <div class="modal-body">
+                <form id="btneditrequestfinanceform">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Purpose of Facility <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control currenciesOnly" name="ERPurpose" id="ERPurpose" rows="3"></textarea>
+                                        <span class="help-block">
+                                            Provide Purpose
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Product <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        @Html.DropDownList("ERProductId", new SelectList(dc.ABB_Products.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.ProductName }), "Id", "Name"), new { @class = "form-control" })
+                                        <span class="help-block">
+                                            select Product
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Required On <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control date-picker" name="ERRequiredOn" id="ERRequiredOn" placeholder="yyyy/mm/dd" />
+                                        <span class="help-block">
+                                            Provide Required On
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Tenure<span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control" name="ERTenure" id="ERTenure" placeholder="Year(s)" />
+                                        <span class="help-block">
+                                            Provide Tenure in year(s)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Finance Amount <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <input type="text" class="form-control currenciesOnly" name="ERAmount" id="ERAmount" style="text-align:right;" placeholder="100,000.00" />
+                                        <span class="help-block">
+                                            Provide Finance Amount
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-5">
+                                        Payment Details <span class="required" aria-required="true">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-7">
+                                        <textarea class="form-control" name="ERPaymentDetails" id="ERPaymentDetails" rows="3"></textarea>
+                                        <span class="help-block">
+                                            Provide Payment Details
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                <button type="button" id="btneditrequestfinance" class="btn blue">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@* -----------------  Request Finance Modal End ---------------------------------- *@
+@section Css{
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+}
+
+@section Scripts{
+<script src="@Url.Content("~")assets/Programmer/Scripts/Common/currency.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.date-picker').datepicker({
+                format: 'yyyy/mm/dd',
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true
+            });
+           
+            $("input[type=text].currenciesOnly").live('keydown', currenciesOnly)
+                                     .live('blur', function () { $(this).formatCurrency(); });
+        });
+        /*Get 360 degree View */
+        $('.a_threesixty').live('click', function () {
+            var atid = $(this).attr('id');
+            atid = atid.replace("a_threesixty", "");
+            $('#CompanyId').val(atid);
+            $.ajax({
+                url: '@Url.Content("~")/BB_Company/get360view',
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#' + atid + 's').html(result);
+                }
+            });
+            return false;
+        });
+        /*Get manageStaff View */
+        $('.a_managestaff').live('click', function () {
+            var atid = $(this).attr('id');
+            atid = atid.replace("staff", "");
+            $('#CompanyId').val(atid);
+            $.ajax({
+                url: '@Url.Content("~")/BB_Company/manageStaff',
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#' + atid + 's').html(result);
+                }
+            });
+
+         
+            return false;
+        });
+        /*Get manageManDate View */
+        $('.a_managemandate').live('click', function () {
+            var atid = $(this).attr('id');
+            atid = atid.replace("a_managemandate", "");          
+            $('#CompanyId').val(atid);
+            $.ajax({
+                url: '@Url.Content("~")/BB_Company/manageManDate',
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#' + atid + 's').html(result);
+                }
+            });
+            return false;
+        });
+        /*Get RequestFinance View */
+        $('.a_requestfinance').live('click', function () {
+            var atid = $(this).attr('id');
+            atid = atid.replace("a_requestfinance", "");
+            $('#CompanyId').val(atid);
+            var postdata = { companyid: $('#CompanyId').val() };
+            $.ajax({
+                url: '@Url.Content("~")/BB_Company/RequestFinance',
+                type: 'GET',
+                data:postdata,
+                cache: false,
+                success: function (result) {
+                    $('#' + atid + 's').html(result);
+                }
+            });
+            return false;
+        });
+        /*Get RelationshipwithotherBanks View */
+        $('.a_relationshipwithother').live('click', function () {
+            var atid = $(this).attr('id');
+            atid = atid.replace("a_relationshipwithother", "");
+            $('#CompanyId').val(atid);
+            $.ajax({
+                url: '@Url.Content("~")/BB_Company/RelationshipwithotherBanks',
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#' + atid + 's').html(result);
+                }
+            });
+            return false;
+        });
+
+
+      
+    </script>
+
+    <script>
+    //Add Share Holder
+    $('#addshareholder').live('click', function () {
+        $('#modalshareholder').modal();
+        return false;
+    });
+
+
+    $('#btnaddshareholderform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            FirstName: "required",
+            MiddleName: "required",
+            LastName: "required",
+            RPNumber: "required",
+            RPExpiary: "required",
+            PassportNumber: "required",
+            PassportExpiary: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+
+    /*-------------------*/
+    $('#btnaddshareholder').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btnaddshareholderform").valid();
+        if (!isValid)
+            return false;
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            FirstName: $('#FirstName').val(),
+            MiddleName: $('#MiddleName').val(),
+            LastName: $('#LastName').val(),
+            RPNumber: $('#RPNumber').val(),
+            RPExpiary: $('#RPExpiary').val(),
+            PassportNumber: $('#PassportNumber').val(),
+            PassportExpiary: $('#PassportExpiary').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/AddShareholder',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#modalshareholder').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/ListofShareHolders',                       
+                        success: function (response) {
+                            $('#divlistofshareholder').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+    //Edit Share Holder
+
+    $('.EditShareHolder').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~/")' + "BB_Company/EditShareHolder",
+            data: { ID: $(this).attr("id") },
+            dataType: "json",
+            success: function (data) {
+                var passex = new Date(data.PassportExpiary);
+                $("#SEFirstName").val(data.FirstName);
+                $("#SEMiddleName").val(data.MiddleName);
+                $("#SELastName").val(data.LastName);
+                $("#SERPNumber").val(data.RPNumber);
+                $("#SEPassportNumber").val(data.PassportNumber);
+                $("#SEPassportExpiary").datepicker("update", new Date(data.PassportExpiary)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $("#SERPExpiary").datepicker("update", new Date(data.RPExpiary)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $("#modalEditshareholder").modal();
+            },
+            error: function (xhr, exc) {
+                alert('an error occured!!');
+            }
+        });
+    });
+
+
+    $('#Editshareholderform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            FirstName: "required",
+            MiddleName: "required",
+            LastName: "required",
+            RPNumber: "required",
+            RPExpiary: "required",
+            PassportNumber: "required",
+            PassportExpiary: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    $('#btneditsaveshareholder').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#Editshareholderform").valid();
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            FirstName: $('#SEFirstName').val(),
+            MiddleName: $('#SEMiddleName').val(),
+            LastName: $('#SELastName').val(),
+            RPNumber: $('#SERPNumber').val(),
+            RPExpiary: $('#SERPExpiary').val(),
+            PassportNumber: $('#SEPassportNumber').val(),
+            PassportExpiary: $('#SEPassportExpiary').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/EditShareHolderPost',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#modalEditshareholder').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/ListofShareHolders',                     
+                        success: function (response) {
+                            $('#divlistofshareholder').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    $('.DeleteShareHolder').live('click', function () {
+        var datarow = { id: $(this).attr('value') };
+        bootbox.confirm("Are you sure to delete this?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_Company/DeleteShareHolderPost',
+                    data: datarow,
+                    success: function (response) {
+                        if (response) {
+                            $.ajax({
+                                type: "GET",
+                                url: '@Url.Content("~")BB_Company/ListofShareHolders',
+                                success: function (response) {
+                                    $('#divlistofshareholder').html(response);
+                                },
+                                traditional: true
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+            }
+        });
+
+    });
+    //=======================================================
+    $('#btnBoardMember').live('click', function () {
+        $('#modalboardmembers').modal();
+        return false;
+    });
+
+    $('#btnaddboardmembersform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            FirstName: "required",
+            MiddleName: "required",
+            LastName: "required",
+            RPNumber: "required",
+            RPExpiary: "required",
+            PassportNumber: "required",
+            PassportExpiary: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+
+
+    /*-------------------*/
+    $('#btnaddboardmembers').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btnaddboardmembersform").valid();
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            FirstName: $('#BFirstName').val(),
+            MiddleName: $('#BMiddleName').val(),
+            LastName: $('#BLastName').val(),
+            RPNumber: $('#BRPNumber').val(),
+            RPExpiary: $('#BRPExpiary').val(),
+            PassportNumber: $('#BPassportNumber').val(),
+            PassportExpiary: $('#BPassportExpiary').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/AddBoardMember',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#modalboardmembers').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/Listofboardmembers',                   
+                        success: function (response) {
+                            $('#divlistofboardmembersr').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+    //Edit Board Member
+
+    $('.EditBoardMember').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~/")' + "BB_Company/EditBoardMember",
+            data: { ID: $(this).attr("id") },
+            dataType: "json",
+            success: function (data) {
+                $("#BEFirstName").val(data.FirstName);
+                $("#BEMiddleName").val(data.MiddleName);
+                $("#BELastName").val(data.LastName);
+                $("#BERPNumber").val(data.RPNumber);
+                $("#BEPassportNumber").val(data.PassportNumber);
+                $("#BEPassportExpiary").datepicker("update", new Date(data.PassportExpiary)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $("#BERPExpiary").datepicker("update", new Date(data.RPExpiary)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $("#modalEditBoardMember").modal();
+            },
+            error: function (xhr, exc) {
+                alert('an error occured!!');
+            }
+        });
+    });
+
+
+    $('#EditBoardMemberform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            FirstName: "required",
+            MiddleName: "required",
+            LastName: "required",
+            RPNumber: "required",
+            RPExpiary: "required",
+            PassportNumber: "required",
+            PassportExpiary: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    $('#btneditsaveboardmember').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#EditBoardMemberform").valid();
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            FirstName: $('#BEFirstName').val(),
+            MiddleName: $('#BEMiddleName').val(),
+            LastName: $('#BELastName').val(),
+            RPNumber: $('#BERPNumber').val(),
+            RPExpiary: $('#BERPExpiary').val(),
+            PassportNumber: $('#BEPassportNumber').val(),
+            PassportExpiary: $('#BEPassportExpiary').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/EditBoardMemberPost',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#modalEditBoardMember').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/Listofboardmembers',                   
+                        success: function (response) {
+                            $('#divlistofboardmembersr').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    $('.DeleteBoardMember').live('click', function () {
+        var datarow = { id: $(this).attr('value') };
+        bootbox.confirm("Are you sure to delete this?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_Company/DeleteBoardMemberPost',
+                    data: datarow,
+                    success: function (response) {
+                        if (response) {
+                            $.ajax({
+                                type: "GET",
+                                url: '@Url.Content("~")BB_Company/Listofboardmembers',
+                                success: function (response) {
+                                    $('#divlistofboardmembersr').html(response);
+                                },
+                                traditional: true
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+            }
+        });
+
+    });
+
+    //=======================================================
+    $('#btnstaff').live('click', function () {
+        $('#modalstaff').modal();
+        return false;
+    });
+    $('#btnaddstaffform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            FirstName: "required",
+            MiddleName: "required",
+            LastName: "required",
+            JobTitleId: "required",
+            RPNumber: "required",
+            RPExpiary: "required",
+            PassportNumber: "required",
+            PassportExpiary: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    /*-------------------*/
+    $('#btnaddstaff').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btnaddstaffform").valid();
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            FirstName: $('#SFirstName').val(),
+            MiddleName: $('#SMiddleName').val(),
+            LastName: $('#SLastName').val(),
+            JobTitleId: $('#ddljobtitle option:selected').val(),
+            RPNumber: $('#SRPNumber').val(),
+            RPExpiary: $('#SRPExpiary').val(),
+            PassportNumber: $('#SPassportNumber').val(),
+            PassportExpiary: $('#SPassportExpiary').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/AddStaff',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#modalstaff').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/Listofstaff',                    
+                        success: function (response) {
+                            $('#divlistofstaffs').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+    //Edit Board Member
+
+    $('.EditManagementTeam').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~/")' + "BB_Company/EditManagementTeam",
+            data: { ID: $(this).attr("id") },
+            dataType: "json",
+            success: function (data) {              
+                $("#MEFirstName").val(data.FirstName);
+                $("#MEMiddleName").val(data.MiddleName);
+                $("#MELastName").val(data.LastName);
+                $("#MERPNumber").val(data.RPNumber);
+                $("#MEPassportNumber").val(data.PassportNumber);
+                $("#MEJobTitleId").val(data.JobTitleId);
+                $("#MEPassportExpiary").datepicker("update", new Date(data.PassportExpiary)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $("#MERPExpiary").datepicker("update", new Date(data.RPExpiary)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $("#modalEditManagementTeam").modal();
+            },
+            error: function (xhr, exc) {
+                alert('an error occured!!');
+            }
+        });
+    });
+
+
+    $('#EditManagementTeamform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            FirstName: "required",
+            MiddleName: "required",
+            LastName: "required",
+            RPNumber: "required",
+            RPExpiary: "required",
+            PassportNumber: "required",
+            PassportExpiary: "required",
+            JobTitleId: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    $('#btneditsavemanagementteam').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#EditManagementTeamform").valid();
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            FirstName: $('#MEFirstName').val(),
+            MiddleName: $('#MEMiddleName').val(),
+            LastName: $('#MELastName').val(),
+            RPNumber: $('#MERPNumber').val(),
+            RPExpiary: $('#MERPExpiary').val(),
+            PassportNumber: $('#MEPassportNumber').val(),
+            PassportExpiary: $('#MEPassportExpiary').val(),
+            JobTitleId: $('#MEJobTitleId').val()
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/EditManagementTeamPost',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#modalEditManagementTeam').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/Listofstaff',                     
+                        success: function (response) {
+                            $('#divlistofstaffs').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    $('.DeleteManagementTeam').live('click', function () {
+        var datarow = { id: $(this).attr('value') };
+        bootbox.confirm("Are you sure to delete this?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_Company/DeleteManagementTeamPost',
+                    data: datarow,
+                    success: function (response) {
+                        if (response) {
+                            $.ajax({
+                                type: "GET",
+                                url: '@Url.Content("~")BB_Company/Listofstaff',
+                                success: function (response) {
+                                    $('#divlistofstaffs').html(response);
+                                },
+                                traditional: true
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+            }
+        });
+
+    });
+
+
+
+    //=======================================================
+    $('#btnmandate').live('click', function () {
+        loaddropdowns();
+        $('#mandateassiginmodal').modal();
+        return false;
+    });
+
+    $('#btnaddmandateform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            ddlAccountId: "required",
+            ddlStaffId: "required",
+            ddlAssetId: "required",
+            ddlChannelId: "required",
+            FromDate: "required",
+            ToDate: "required",
+            FromValue: "required",
+            ToValue: "required",
+            JoinTypeId: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    //----------------------------------------------
+
+    $('#btnaddmandate').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btnaddmandateform").valid();
+        if (!isValid)
+            return false;
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            AccountId: $('#ddlAccountId option:selected').val(),
+            StaffId: $('#ddlStaffId option:selected').val(),
+            AssetId: $('#ddlAssetId option:selected').val(),
+            ChannelId: $('#ddlChannelId option:selected').val(),
+            FromDate: $('#FromDate').val(),
+            ToDate: $('#ToDate').val(),
+            FromValue: $('#FromValue').val(),
+            ToValue: $('#ToValue').val(),
+            JoinTypeId: $('#ddlJoinTypeId option:selected').val()
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/AddMandate',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#mandateassiginmodal').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/ListofMandates',                   
+                        success: function (response) {
+                            $('#divmandate').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    //Edit Mandate
+
+    $('.EditMandates').live('click', function () {
+        loaddropdowns();
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~/")' + "BB_Company/EditMandates",
+            data: { ID: $(this).attr("id") },
+            dataType: "json",
+            success: function (data) {
+                $('#EMDAccountId').val(data.AccountId);
+                $('#EMDStaffId').val(data.StaffId);
+                $('#EMDAssetId').val(data.AssetId);
+                $('#EMDChannelId').val(data.ChannelId);
+                $('#EMDFromDate').datepicker("update", new Date(data.FromDate)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $('#EMDToDate').datepicker("update", new Date(data.ToDate)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                $('#EMDFromValue').val(data.FromValue);
+                $('#EMDToValue').val(data.ToValue);
+                $('#EMDJoinTypeId').val(data.JoinTypeId);
+                $('#mandateeditmodal').modal();
+            },
+            error: function (xhr, exc) {
+                alert('an error occured!!');
+            }
+        });
+    });
+
+
+
+    $('#btneditmandateform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            EMDAccountId: "required",
+            EMDStaffId: "required",
+            EMDAssetId: "required",
+            EMDChannelId: "required",
+            EMDFromDate: "required",
+            EMDToDate: "required",
+            EMDFromValue: "required",
+            EMDToValue: "required",
+            EMDJoinTypeId: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    $('#btneditmandate').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btneditmandateform").valid();     
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            AccountId: $('#EMDAccountId').val(),
+            StaffId: $('#EMDStaffId').val(),
+            AssetId: $('#EMDAssetId').val(),
+            ChannelId: $('#EMDChannelId').val(),
+            FromDate: $('#EMDFromDate').val(),
+            ToDate: $('#EMDToDate').val(),
+            FromValue: $('#EMDFromValue').val(),
+            ToValue: $('#EMDToValue').val(),
+            JoinTypeId: $('#EMDJoinTypeId').val()
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/EditMandatesPost',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#mandateeditmodal').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/ListofMandates',
+                        success: function (response) {
+                            $('#divmandate').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    $('.DeleteMandates').live('click', function () {
+        var datarow = { id: $(this).attr('value') };
+        bootbox.confirm("Are you sure to delete this?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_Company/DeleteMandatePost',
+                    data: datarow,
+                    success: function (response) {
+                        if (response) {
+                            $.ajax({
+                                type: "GET",
+                                url: '@Url.Content("~")BB_Company/ListofMandates',
+                                success: function (response) {
+                                    $('#divmandate').html(response);
+                                },
+                                traditional: true
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+            }
+        });
+
+    });
+
+
+    //------------------------------------------
+    function loaddropdowns() {
+        var postdata = { CompanyId: $("#CompanyId").val() }
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~")Dropdownpop/LoadCompanyAccount',
+            data: postdata,
+            success: function (data) {
+                $("#ddlAccountId").empty();
+                $("#ddlAccountId").append("<option value=\"\">Select</option>");
+                $.each(data, function (key, val) {
+                    $("#ddlAccountId").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                });
+                $("#EMDAccountId").empty();
+                $("#EMDAccountId").append("<option value=\"\">Select</option>");
+                $.each(data, function (key, val) {
+                    $("#EMDAccountId").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                });
+            },
+            traditional: true
+        });
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~")Dropdownpop/Loadstaff',
+            data: postdata,
+            success: function (data) {
+                $("#ddlStaffId").empty();
+                $("#ddlStaffId").append("<option value=\"\">Select</option>");
+                $.each(data, function (key, val) {
+                    $("#ddlStaffId").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                });
+                $("#EMDStaffId").empty();
+                $("#EMDStaffId").append("<option value=\"\">Select</option>");
+                $.each(data, function (key, val) {
+                    $("#EMDStaffId").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                });
+            },
+            traditional: true
+        });
+    }
+    //=====================================================================================
+
+    $('#btnfinance').live('click', function () {
+        $('#requestfinancemodal').modal();
+        return false;
+    });
+
+    $('#btnrequestfinanceform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            Purpose: "required",
+            ddlProductId: "required",
+            RequiredOn: "required",
+            Tenure: "required",
+            Amount: "required",
+            PaymentDetails: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    //--------------------------------------------------------------------------
+
+    $('#btnrequestfinance').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btnrequestfinanceform").valid();
+        if (!isValid)
+            return false;
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            Purpose: $('#Purpose').val(),
+            ProductId: $('#ddlProductId option:selected').val(),
+            RequiredOn: $('#RequiredOn').val(),
+            Tenure: $('#Tenure').val(),
+            Amount: $('#Amount').val(),
+            PaymentDetails: $('#PaymentDetails').val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/addrequestfinance',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#requestfinancemodal').modal('hide');
+                    var postdata = { companyid: $('#CompanyId').val() };
+                    $.ajax({
+                        type: "GET",
+                        data:postdata,
+                        url: '@Url.Content("~")BB_Company/Listofrequestfinance',                     
+                        success: function (response) {
+                            $('#divproductrequest').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    //Edit Request Finance
+
+    $('.EditRequest').live('click', function () {
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~/")' + "BB_Company/EditRequestFinance",
+            data: { ID: $(this).attr("id") },
+            dataType: "json",
+            success: function (data) {          
+                CompanyId = $('#ERCompanyId').val(data.CompanyId);
+                Purpose = $('#ERPurpose').val(data.Purpose);
+                ProductId = $('#ERProductId option:selected').val(data.ProductId);               
+                RequiredOn = $('#ERRequiredOn').datepicker("update", new Date(data.RequiredOn)).on('changeDate', function (ev) { $(".date-picker").datepicker('hide'); });
+                Tenure = $('#ERTenure').val(data.Tenure);
+                Amount = $('#ERAmount').val(data.Amount);
+                PaymentDetails = $('#ERPaymentDetails').val(data.PaymentDetails);
+                $("#editrequestfinancemodal").modal();
+            },
+            error: function (xhr, exc) {
+                alert('an error occured!!');
+            }
+        });
+    });
+
+
+    $('#btneditrequestfinanceform').validate({
+        errorElement: 'span',
+        errorClass: 'help-block help-block-error',
+        rules: {
+            ERPurpose: "required",
+            ERProductId: "required",
+            ERRequiredOn: "required",
+            ERTenure: "required",
+            ERAmount: "required",
+            ERPaymentDetails: "required"
+        },
+        highlight: function (element) {
+            // hightlight error inputs
+            $(element)
+                .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+        },
+        unhighlight: function (element) { // revert the change done by hightlight
+            $(element)
+                .closest('.form-group').removeClass('has-error'); // set error class to the control group
+        },
+        submitHandler: function (form) {
+            form.submit();
+        }
+
+    });
+    $('#btneditrequestfinance').live('click', function () {
+        event.preventDefault();
+        var isValid = $("#btneditrequestfinanceform").valid();
+        if (!isValid)
+            return false;
+
+        var postdata = {
+            CompanyId: $('#CompanyId').val(),
+            Purpose: $('#ERPurpose').val(),
+            ProductId: $('#ERProductId option:selected').val(),
+            RequiredOn: $('#ERRequiredOn').val(),
+            Tenure: $('#ERTenure').val(),
+            Amount: $('#ERAmount').val(),
+            PaymentDetails: $('#ERPaymentDetails').val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: '@Url.Content("~")BB_Company/EditRequestFinancePost',
+            data: postdata,
+            success: function (response) {
+                if (response == 'True') {
+                    $('#editrequestfinancemodal').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: '@Url.Content("~")BB_Company/Listofrequestfinance',                    
+                        success: function (response) {
+                            $('#divproductrequest').html(response);
+                        },
+                        traditional: true
+                    });
+                }
+                else {
+                    alert('An error occured please try later or contact system administrator!')
+                }
+            },
+            traditional: true
+        });
+        return false;
+    });
+
+
+    $('.DeleteRequest').live('click', function () {
+        var datarow = { id: $(this).attr('value') };
+        bootbox.confirm("Are you sure to delete this?", function (result) {
+            if (result) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~")BB_Company/DeleteRequestFinancePost',
+                    data: datarow,
+                    success: function (response) {
+                        if (response) {
+                            $.ajax({
+                                type: "GET",
+                                url: '@Url.Content("~")BB_Company/Listofrequestfinance',                               
+                                success: function (response) {
+                                    $('#divproductrequest').html(response);
+                                },
+                                traditional: true
+                            });
+                        }
+                        else {
+                            alert('An error occured please try later or contact system administrator!')
+                        }
+                    },
+                    traditional: true
+                });
+            }
+        });
+
+    });
+
+
+    //======================================================================================
+    </script>
+}
+
+
+
+
+

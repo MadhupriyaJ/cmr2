@@ -1,0 +1,9 @@
+﻿@model List<FramWork.HelloService.CaseManagment_Followers>
+@{
+    Layout = null;
+}
+@foreach (var item in Model)
+{
+    <li><a href="#"><i class="fa fa-tags"></i>@item.Employee.User.FirstName @item.Employee.User.LastName</a></li>
+}
+@*<li><a href="#"><i class="fa fa-tags"></i>item.Employee.User.FirstName item.Employee.User.LastName</a></li>*@

@@ -1,0 +1,906 @@
+﻿@using Core;
+@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Case Item";
+    Layout = "~/Views/Shared/_LayoutServices.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+    var dealstage = client.GetCaseManagmentStageList(Login.OrganizationId);
+    var stagewidths = 100 / dealstage.Count();
+    var caseids = ViewBag.PatientId.ToString();
+    var details = new CaseManagment();
+    if (!String.IsNullOrEmpty(caseids)) { 
+         details=client.GetCaseDetails(Login.OrganizationId,new Guid(caseids));
+    }
+}
+@section Css{
+<link href="../../assets/admin/pages/css/timeline.css" rel="stylesheet" type="text/css" />
+<link href="~/assets/frontend/layout/css/style.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+<style>
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#breadcrumbs-one{
+  /*background: #eee;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #f5f5f5 #e5e5e5 #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0,0,0,.2);*/
+  overflow: hidden;
+  width: 100%;
+}
+
+#breadcrumbs-one li{
+  float: left;
+  /*width:25%;*/
+}
+
+#breadcrumbs-one a{
+  padding: .7em 1em .7em 2em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  position: relative;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  background-color: #ddd;
+  background-image: linear-gradient(to right, #f5f5f5, #444);  
+  width:100%;
+}
+
+#breadcrumbs-one li:first-child a{
+  padding-left: 1em;
+  border-radius: 5px 0 0 5px;
+}
+
+#breadcrumbs-one a:hover{
+  background: #000;
+  color:#fff;
+}
+
+#breadcrumbs-one a::after,
+#breadcrumbs-one a::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -1.5em;   
+  border-top: 1.5em solid transparent;
+  border-bottom: 1.5em solid transparent;
+  border-left: 1em solid;
+  right: -1em;
+}
+
+#breadcrumbs-one a::after{ 
+  z-index: 2;
+  border-left-color: #444;  
+}
+
+#breadcrumbs-one a::before{
+  border-left-color: #ccc;  
+  right: -1.1em;
+  z-index: 1; 
+}
+
+#breadcrumbs-one a:hover::after{
+  border-left-color: #000;
+}
+
+#breadcrumbs-one .current,
+#breadcrumbs-one .current:hover{
+  font-weight: bold;
+  background: none;
+}
+
+#breadcrumbs-one .current::after,
+#breadcrumbs-one .current::before{
+  content: normal;  
+}
+legend{
+font-size:12px;
+}
+.content-page {
+   background: #fff; 
+   padding: 0px; 
+   margin-right: 0px; 
+}
+body.page-header-fixed{
+    padding-top:0px !important; 
+}
+blockquote{
+font-size:12px;
+}
+</style>
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Case Item <small>@if (details != null)
+            { @Html.Raw(details.Title)}</small></span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <a href="#" class="btn  red btn-sm">
+                <i class="fa fa-trash"></i> Rotten
+            </a>
+            <a href="#" class="btn green btn-sm">
+                <i class="fa fa-train"></i> Resolved
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        
+        <ul id="breadcrumbs-one">
+            @foreach (var item in dealstage)
+            {
+                <li><a href="" class="stage" id="@item.Id"><i class="fa fa-check-square-o"></i> @item.Name</a></li>
+            }
+
+
+            @*<li><a href="" class="current">Resolve</a></li>*@
+        </ul>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                <blockquote>
+                    <b>Title:</b>@details.Title
+                </blockquote>
+                <fieldset>
+                    <legend>Case Details</legend>
+                    @if (details != null)
+                    {
+                        <table class="table table-bordered table-striped">
+
+                            <tr>
+                                <td>Customer : </td>
+                                <td> @details.PersonName</td>
+                            </tr>
+                            <tr>
+                                <td>Account No : </td>
+                                <td> @details.AccountNumber</td>
+                            </tr>
+                        </table>
+
+                    }
+                </fieldset>
+
+                <fieldset>
+                    <legend>Case Orgin</legend>
+                    @if (details != null)
+                    {
+                        <table class="table table-bordered">
+                            <tr>
+
+                                <td> @details.C_Orgin</td>
+                            </tr>
+
+                        </table>
+
+                    }
+                </fieldset>
+
+                <fieldset>
+                    <legend>Case Priority</legend>
+                    @if (details != null)
+                    {
+                        <table class="table table-bordered">
+                            <tr>
+
+                                <td> @details.C_Priority</td>
+                            </tr>
+
+                        </table>
+
+                    }
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <div class="tabbable-line">
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a aria-expanded="false" href="#tab_15_1" data-toggle="tab">
+                                Notes
+                            </a>
+                        </li>
+                        <li>
+                            <a aria-expanded="true" href="#tab_15_2" data-toggle="tab">
+                                Activity
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_15_3" data-toggle="tab">
+                                Follow Up
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_15_4" data-toggle="tab">
+                                Time Line
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_15_5" data-toggle="tab">
+                                Attachment
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_15_1">
+                            <div class="row margin-bottom-40">
+                                <input type="hidden" id="hdncaseId" value="@Session["caseid"]" />
+                                <!-- BEGIN CONTENT -->
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="content-page">
+                                        <div class="row">
+                                            <!-- BEGIN LEFT SIDEBAR -->
+                                            <div class="col-md-12 col-sm-12 blog-item">
+
+                                                <h6><a href="#">Case Description</a></h6>
+                                                <p>
+                                                    @if (details != null)
+                                                    { @Html.Raw(details.Description)}
+                                            </p>
+
+
+                                            <ul class="blog-info">
+                                                <li><i class="fa fa-user"></i> @details.User.FirstName</li>
+                                                <li><i class="fa fa-calendar"></i> @details.CreateDate.ToString("dd MM yyyy")</li>
+                                                @*<li><i class="fa fa-comments"></i> 17</li>
+                                                <li><i class="fa fa-tags"></i> Metronic, Keenthemes, UI Design</li>*@
+                                            </ul>
+
+                                            <h2>Notes</h2>
+                                            <div class="comments" id="commentId">
+                                                @Html.Action("GetListOfNotes", "CaseManagment", new { CaseId = Session["CaseId"] })
+
+                                            </div>
+
+                                            <div class="post-comment padding-top-40">
+                                                <h3>Leave a Note</h3>
+                                                <form role="form">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control" id="txtareanote" rows="8"></textarea>
+                                                    </div>
+                                                    <div>
+
+                                                        <div class="form-group">
+                                                            <label>Attach Note To Employee</label>
+                                                            @Html.DropDownList("CaseFollowers", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @Style = "width:30%;", @class = "form-control" })
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>When did it happen?</label>
+                                                            <input class="form-control date-picker" id="notedate" style="width:30%;" type="text" placeholder="mm/dd/yyyy">
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <label>Email this note to following employee<span class="color-red">*</span></label>
+                                                            @Html.DropDownList("NoteFollowers", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @Style = "width:30%;", @class = "form-control " })
+                                                            <br />
+                                                            <a id="addemailaudience" class="" href="#">
+                                                                <i class="icon-plus"></i> Add Email Audience
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <p><button class="btn btn-primary" id="Addnote">Add this note</button></p>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <!-- END LEFT SIDEBAR -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END CONTENT -->
+
+                            <input type="hidden" id="hdncaseId" value="@Session["caseid"]" />
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="tab_15_2">
+                        <!-- BEGIN RECENT NEWS -->
+                        <div class="recent-news margin-bottom-10">
+                            <div id="tasks">
+                                @Html.Action("GetListOfTasks", "CaseManagment", new { CaseId = Session["CaseId"] })
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="#" id="showoption" style="float:right;"> <i id="shohideopt" class="icon-plus"></i> Task</a>
+                                </div>
+                            </div>
+                            <div class="Noteoptions" id="TaskAdd" style="display:none;">
+                                <div class="form-group">
+                                    <label>Task Title</label>
+                                    <input class="form-control" id="txttasktitle" type="text" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Who is Responsible</label>
+                                    @Html.DropDownList("ddltaskowner", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @Style = "width:50%;", @class = "form-control " })
+                                </div>
+                                <div class="form-group">
+                                    <label>Task Due Date</label>
+                                    <input class="form-control date-picker" id="txttaskdate" style="width:50%;" type="text" placeholder="mm/dd/yyyy">
+                                </div>
+                                <div class="form-group">
+                                    <label>Task Categoty</label>
+                                    @Html.DropDownList("ddltaskcategory", new SelectList(client.GetCMTaskCategory(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @Style = "width:50%;", @class = "form-control " })
+                                </div>
+                                <br />
+                                <p><button class="btn btn-primary" type="button" id="btnaddtask">Add A new Task</button></p>
+                            </div>
+
+                        </div>
+                        <!-- END RECENT NEWS -->
+                    </div>
+                    <div class="tab-pane" id="tab_15_3">
+                        <p>
+                            Lead Followers
+                        </p>
+                        <br />
+                        <div class="blog-tags margin-bottom-20">
+
+                            <ul id="ulcasefollowers">
+                                @Html.Action("GetListOfFollowers", "CaseManagment", new { CaseId = Session["CaseId"] })
+                            </ul>
+                        </div>
+                        <hr />
+                        <div class="col-md-6">
+                            @Html.DropDownList("ddlCaseFollowers", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @class = "form-control " })
+                            <br />
+                            <p><button class="btn btn-primary" id="btncasefollowers" style="float:right;" type="button">Add A new case follower</button></p>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab_15_4">
+                        <!-- BEGIN PAGE CONTENT-->
+                        <div class="timeline">
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_1.jpg">
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a href="#" class="timeline-body-title font-blue-madison">Andres Iniesta</a>
+                                            <span class="timeline-body-time font-grey-cascade">Replied at 7:45 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group">
+                                                <button class="btn btn-circle green-haze btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    Actions <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li>
+                                                        <a href="#">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Something else here </a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_2.jpg">
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a href="#" class="timeline-body-title font-blue-madison">Vanessa Bond</a>
+                                            <span class="timeline-body-time font-grey-cascade">Posted new post at 5:10 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            <p>
+                                                <img class="timeline-body-img pull-right" src="../../assets/admin/pages/media/blog/4.jpg" alt="">
+                                                Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard.
+                                            </p>
+                                            <p>
+                                                Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                            </p>
+                                            <p>
+                                                <img class="timeline-body-img pull-left" src="../../assets/admin/pages/media/blog/6.jpg" alt=""> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil.
+                                            </p>
+                                            <p>
+                                                Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                            </p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM WITH GOOGLE MAP -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_3.jpg">
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a href="#" class="timeline-body-title font-blue-madison">Carles Puyol</a>
+                                            <span class="timeline-body-time font-grey-cascade">Added office location at 2:50 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group">
+                                                <button class="btn btn-circle btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    Actions <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li>
+                                                        <a href="#">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Something else here </a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <div id="gmap_polygons" class="gmaps">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM WITH GOOGLE MAP -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <div class="timeline-icon">
+                                        <i class="icon-user-following font-green-haze"></i>
+                                    </div>
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <span class="timeline-body-alerttitle font-red-intense">You have new follower</span>
+                                            <span class="timeline-body-time font-grey-cascade">at 11:00 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group">
+                                                <button class="btn btn-circle grey-salsa btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    Actions <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li>
+                                                        <a href="#">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Something else here </a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            You have new follower <a href="#">Ivan Rakitic</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_1.jpg">
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a href="#" class="timeline-body-title font-blue-madison">Andres Iniesta</a>
+                                            <span class="timeline-body-time font-grey-cascade">Replied at 7:45 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <img class="timeline-badge-userpic img-circle" src="../../assets/admin/pages/media/users/avatar80_2.jpg">
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <a href="#" class="timeline-body-title font-blue-madison">Vanessa Bond</a>
+                                            <span class="timeline-body-time font-grey-cascade">Posted new post at 5:10 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            <p>
+                                                <img class="timeline-body-img pull-right" src="../../assets/admin/pages/media/blog/4.jpg" alt="">
+                                                Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard.
+                                            </p>
+                                            <p>
+                                                Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                            </p>
+                                            <p>
+                                                <img class="timeline-body-img pull-left" src="../../assets/admin/pages/media/blog/6.jpg" alt=""> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil.
+                                            </p>
+                                            <p>
+                                                Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                            </p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                            <!-- TIMELINE ITEM -->
+                            <div class="timeline-item">
+                                <div class="timeline-badge">
+                                    <div class="timeline-icon">
+                                        <i class="icon-docs font-red-intense"></i>
+                                    </div>
+                                </div>
+                                <div class="timeline-body">
+                                    <div class="timeline-body-arrow">
+                                    </div>
+                                    <div class="timeline-body-head">
+                                        <div class="timeline-body-head-caption">
+                                            <span class="timeline-body-alerttitle font-green-haze">Server Report</span>
+                                            <span class="timeline-body-time font-grey-cascade">Yesterday at 11:00 PM</span>
+                                        </div>
+                                        <div class="timeline-body-head-actions">
+                                            <div class="btn-group dropup">
+                                                <button class="btn btn-circle green-haze btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                    Actions <i class="fa fa-angle-down"></i>
+                                                </button>
+                                                <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li>
+                                                        <a href="#">Action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Another action </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Something else here </a>
+                                                    </li>
+                                                    <li class="divider">
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">Separated link </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body-content">
+                                        <span class="font-grey-cascade">
+                                            Lorem ipsum dolore sit amet <a href="#">Ispect</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END TIMELINE ITEM -->
+                        </div>
+                        <!-- END PAGE CONTENT-->
+                    </div>
+
+                    <div class="tab-pane" id="tab_15_5">
+                        <p>
+                            Here  you can attach Files related to case.
+                        </p>
+                        <form role="form">
+
+                            <div>
+                                <div class="form-group">
+                                    <label>Attach a file</label>
+                                    <input type="file">
+                                </div>
+
+                            </div>
+                            <p><button class="btn btn-primary" id="Addnote">Attach Files</button></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <br />
+            <fieldset>
+                <legend>Applicable SLA</legend>
+                <table class="table table-bordered">
+                    <tr>
+                        <td>First Response Due</td>
+                        <td>10h 48m 26s</td>
+                    </tr>
+
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Customer Details</legend>
+                @if (details != null)
+                {
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>
+                                Phone:
+                            </td>
+                            <td>@details.PhoneNumber</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>@details.EmailAddress</td>
+                        </tr>
+                    </table>
+
+                }
+            </fieldset>
+            <fieldset>
+                <legend>Case Owner</legend>
+                @if (details != null)
+                {
+                    <table class="table table-bordered">
+                        <tr>
+                            <td> @details.C_Owner</td>
+                        </tr>
+
+                    </table>
+
+                }
+            </fieldset>
+            @*<fieldset>
+                <legend>Case Status</legend>
+                @if (details != null)
+                {
+                    <table class="table table-bordered">
+                        <tr>
+
+                            <td> @details.C_status</td>
+                        </tr>
+
+                    </table>
+
+                }
+            </fieldset>*@
+            <input type="hidden" id="hdnstageid" value="@details.CaseManagmentStageName.Id" />
+        </div>
+    </div>
+    <input type="hidden" id="hdnstagewidth" value="@stagewidths" />
+    <input type="hidden" id="hdncaseidfrmviewbag" value="@caseids" />
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script>
+    
+    $(document).ready(function () {
+       /* On page load set color of stage*/
+        $("#" + $('#hdnstageid').val()).css("background-image", "linear-gradient(to right, #000,#000)");
+        $("#" + $('#hdnstageid').val()).css("background-color", "#FFF");
+        $("#" + $('#hdnstageid').val()).css("color", "#FFF");
+        //var ss = $("#" + $('#hdnstageid').val()).text();
+        //$("#" + $('#hdnstageid').val()).html("<i class=\"fa fa-check-square-o\"></i> " + ss + " (Active)");
+        /* On page load set Width of stage*/
+        $("#breadcrumbs-one li").width($('#hdnstagewidth').val() + "%");
+  
+
+        $('.stage').live('click', function () {
+            var dta = {  caseId: $("#hdncaseidfrmviewbag").val(),stageId: $(this).attr("id") };
+            var id = $(this).attr("id");
+            //#breadcrumbs-one a
+            $("#breadcrumbs-one a").css("background-image", "linear-gradient(to right, #f5f5f5, #ddd)");
+            $("#breadcrumbs-one a").css("background-color", "#ddd");
+            $("#breadcrumbs-one a").css("color", "#000");
+            //
+            $('#'+id).css("background-image", "linear-gradient(to right, #000, #000)");
+            $('#' + id).css("background-color", "#000");
+            $("#" + id).css("color", "#FFF");
+            //var ss = $("#" + id).text();
+            //$("#" + id).html("<i class=\"fa fa-check-square-o\"></i> " + ss + " (Active)");
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/")' + 'CaseManagment/Changestage',
+                data: dta,
+                success: function (response) {
+                    if (response == 'True') {
+                      
+                    }
+                    else {
+                       
+
+                    }
+                }
+            });
+            return false;
+        });
+    });
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#Addnote').live('click', function () {
+            var TaskData = { CaseId: $('#hdncaseidfrmviewbag').val(), Note: $('#txtareanote').val(), notedate: $('#notedate').val() };
+            var dataRow = { CaseId: $('#hdncaseidfrmviewbag').val() };
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/")' + 'CaseManagment/AddCMNote',
+                data: TaskData,
+                success: function (response) {
+                    if (response == 'True') {
+                        //get List of Note
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Content("~/")' + 'CaseManagment/GetListOfNotes',
+                            data: dataRow,
+                            success: function (response) {
+                                $('#commentId').html(response);
+                                $('#notedate,#txtareanote').val('')
+                            }
+                        });
+                    }
+                    else {
+                        bootbox.alert("Error, could not complete the action!", function () {
+
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+        /**/
+        $('#btncasefollowers').live('click', function () {
+            var TaskData = { CaseId: $('#hdncaseId').val(), casefollowers: $('#ddlCaseFollowers option:selected').val() };
+            var dataRow = { CaseId: $('#hdncaseId').val() };
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/")' + 'CaseManagment/AddCMFollowers',
+                data: TaskData,
+                success: function (response) {
+                    if (response == 'True') {
+                        //get List of Note
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Content("~/")' + 'CaseManagment/GetListOfFollowers',
+                            data: dataRow,
+                            success: function (response) {
+                                $('#ulcasefollowers').html(response);
+                            }
+                        });
+                    }
+                    else {
+                        bootbox.alert("Error, could not complete the action!", function () {
+
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+        /**/
+        $('body').on('click', 'a#showoption', function (e) {
+            var link = $(this).attr("href"); // "get" the intended link in a var
+            e.preventDefault();
+            $("#TaskAdd").slideToggle("slow");
+            $('#shohideopt').toggleClass('icon-plus  icon-close');
+        });
+
+        /*Add Task*/
+
+        $('#btnaddtask').live('click', function () {
+
+            var datarow = {
+                Title: $('#txttasktitle').val(),
+                Owner: $('#ddltaskowner option:selected').val(),
+                Date: $('#txttaskdate').val(),
+                Category: $('#ddltaskcategory').val(),
+                CaseId: $('#hdncaseidfrmviewbag').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Content("~/")' +'CaseManagment/AddCMTask',
+                data: datarow,
+                success: function (response) {
+                    if (response == 'True') {
+                        //get List of Note
+                        $.ajax({
+                            type: 'GET',
+                            url: '@Url.Content("~/")' +'CaseManagment/GetListOfTasks',
+                            data: { CaseId: $('#hdncaseidfrmviewbag').val() },
+                            success: function (response) {
+                                $('#txttasktitle,#ddltaskowner,#txttaskdate,#ddltaskcategory').val('');
+                                $('#tasks').html(response);
+                            }
+                        });
+                    }
+                    else {
+                        bootbox.alert("Error, could not complete the action!", function () {
+                            console.log()
+                        });
+                    }
+                }
+        });
+        return false;
+    });
+        /*DATE PICKER START*/
+        $('.date-picker').datepicker({
+            format: 'mm/dd/yyyy',
+            rtl: Metronic.isRTL(),
+            orientation: "left",
+            autoclose: true
+        });
+        $(document).on("click", "#contentPagerC a", function () {
+            var dataRow = { CaseId: $('#hdncaseId').val() };
+            $.ajax({
+                url: $(this).attr("href"),
+                type: 'GET',
+                cache: false,
+                data: dataRow,
+                success: function (result) {
+                    $('#commentId').html(result);
+                }
+            });
+            return false;
+        });
+        });
+</script>
+
+}

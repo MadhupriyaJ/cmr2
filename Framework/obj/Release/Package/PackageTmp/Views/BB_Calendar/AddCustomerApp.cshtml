@@ -1,0 +1,455 @@
+﻿@using FramWork.Models;
+@{
+    ViewBag.Title = "AddCustomerApp";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+    FrameworkEntities Db = new FrameworkEntities();
+}
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+
+    <div class="portlet light" id="form_wizard_1">
+        <div class="portlet-title">
+            <div class="caption caption-subject bold uppercase font-red-sunglo">
+                <i class="fa fa-plus-circle bold uppercase font-red-sunglo"></i>
+                Create Appoinment - <span class="step-title">
+                    Step 1 of 2
+                </span>
+            </div>
+            <div class="actions">
+                <a href="@Url.Content("~/")BB_Calendar/Index" class="btn blue ">
+                    <i class="fa fa-list"></i> List
+                </a>
+            </div>
+        </div>
+        <div class="portlet-body form">
+            <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                <div class="form-wizard">
+                    <div class="form-body">
+                        <ul class="nav nav-pills nav-justified steps">
+                            <li>
+                                <a href="#tab1" data-toggle="tab" class="step">
+                                    <span class="number">
+                                        1
+                                    </span>
+                                    <span class="desc">
+                                        <i class="fa fa-check"></i> Appoinment Info
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#tab2" data-toggle="tab" class="step">
+                                    <span class="number">
+                                        2
+                                    </span>
+                                    <span class="desc">
+                                        <i class="fa fa-check"></i> Confirm
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="bar" class="progress progress-striped" role="progressbar">
+                            <div class="progress-bar progress-bar-success">
+                            </div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="alert alert-danger display-none">
+                                <button class="close" data-dismiss="alert"></button>
+                                You have some form errors. Please check below.
+                            </div>
+                            <div class="alert alert-success display-none">
+                                <button class="close" data-dismiss="alert"></button>
+                                Your form validation is successful!
+                            </div>
+                            <div class="tab-pane active" id="tab1">
+                                <h3 class="block">Provide Appoinment Diary information</h3>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Title <span class="required">
+                                            *
+                                        </span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="txttitle" name="txttitle" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Activity Type <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("ddlType", new SelectList(Db.ABB_ActivityTypes.Where(A => A.OrgId == Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.ActivityName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        
+                                    </label>
+                                    <div class="col-md-4">
+                                        <label>All Day</label>
+                                        <input type="checkbox" id="chkallday" class="checkbox-list" />
+                                        <label>Repeat</label>
+                                        <input type="checkbox" id="chkrepeat" class="checkbox-list" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        From Date <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="txtfromdate" name="txtfromdate" type="text" class="form-control date-picker">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Time <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="txtfromtime" name="txtfromtime" type="text" class="form-control timepicker-24">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                      
+                                    </label>
+                                    <div class="col-md-4">
+                                        TO
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Time <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="txttotime" name="txttotime" type="text" class="form-control timepicker-24">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        To Date <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="txttodate" name="txttodate" type="text" class="form-control date-picker">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Where <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="txtlocation" name="txtlocation" type="text" placeholder="Enter a location" class="form-control">
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Event Color <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        <div class="input-group color colorpicker-default" data-color="#3865a8" data-color-format="rgba">
+                                            <input id="txtcolor" name="txtcolor" class="form-control" value="#3865a8" readonly="" type="text">
+                                            <span class="input-group-btn">
+                                                <button class="btn default" type="button"><i style="background-color: rgb(102, 133, 178);"></i>&nbsp;</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Do you Want to add attachment?
+                                    </label>
+                                    <div class="col-md-4">
+                                        <input id="In_upload" dirname="In_upload" type="file" name="my_file[]" multiple><span style="color:#d1caca;">multiple select</span> 
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Description 
+                                    </label>
+                                    <div class="col-md-4">
+                                        <textarea id="txtdescription" name="txtdescription" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Owner <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("ddlappoinmentOwner", new SelectList(Db.Users.Where(A => A.MarkAsDelete == false && A.OrgId == Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.FirstName + " " + a.LastName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        Assigned To <span class="required"> *</span>
+                                    </label>
+                                    <div class="col-md-4">
+                                       @Html.DropDownList("ddlassignedto", new SelectList(Db.Users.Where(A => A.MarkAsDelete == false && A.OrgId == Core.Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.FirstName + " " + a.LastName }), "Id", "Name"), "Select", new { @class = "form-control" })
+                                        <span class="help-block">
+
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="tab2">
+                                <h3 class="block">Confirm</h3>
+                                @*<div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        State
+                                    </label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="State">
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">
+                                        City
+                                    </label>
+                                    <div class="col-md-4">
+                                        <p class="form-control-static" data-display="City">
+                                        </p>
+                                    </div>
+                                </div>*@
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <a href="javascript:;" class="btn default button-previous">
+                                    <i class="m-icon-swapleft"></i> Back
+                                </a>
+                                <a href="javascript:;" class="btn blue button-next">
+                                    Continue <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                                <a href="javascript:;" class="btn green button-submit">
+                                    Submit <i class="m-icon-swapright m-icon-white"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+<div class="modal fade" id="DateRepeatingModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog" style="">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title"><b>Repeat</b></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Repeat on:</label>
+                            <div class="col-md-9">
+                                <input id="sunday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> S
+                                <input id="monday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> M
+                                <input id="tuesday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> T
+                                <input id="wednesday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> W
+                                <input id="thursday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> Th
+                                <input id="friday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> F
+                                <input id="Saturday" style="-webkit-appearance: checkbox !important; opacity: inherit !important; " type="checkbox" class="checkbox-list" name="products" value="Saturday" /> Sat
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" style="display:none;">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">StartsOn</label>
+                            <div class="col-md-5">
+                                <input value="@DateTime.Now.ToShortDateString()" class="date-picker form-control" placeholder="mm/dd/yyyy" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="row" style="display:none;">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Ends</label>
+                            <div class="col-md-9">
+                                <input type="radio" id="rdonever" name="skill" value="1" checked> Never <br />
+                                <input type="radio" id="rdoon" name="skill" value="1"> On <input id="rdotxtenddate" class="date-picker form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" id="btndowcancel" class="btn btn-default backward">Cancel</button>
+                        <button type="button" id="btnadddow" class="btn blue">Save changes</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/select2/select2.css" />
+<style>
+    .radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+        position: relative;
+        margin-left: 0px;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+
+}
+
+@section Scripts{
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+<script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/")assets/admin/pages/scripts/ui-alert-dialog-api.js"></script>
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootbox/bootbox.min.js"></script>
+<script src="@Url.Content("~")assets/Programmer/Scripts/Appoinment/formwizardAppoinment.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            /*--------------------------------------------------------------------------*/
+
+            $('#chkrepeat').live('click', function () {
+                $('#DateRepeatingModal').modal();
+            });
+            /*Add Repeat dow*/
+            $('#btnadddow').live('click', function () {
+                $('#DateRepeatingModal').modal('hide');
+            });
+
+            /*cancel repeat dow*/
+            $('#btndowcancel').live('click', function () {
+                $('#chkrepeat').parent().removeClass('checked');
+                $('#chkrepeat').prop('checked', false);
+                $('#DateRepeatingModal').modal('hide');
+            });
+
+            /*------------------*/
+            $('.colorpicker-default').colorpicker({
+                format: 'hex'
+            });
+            //
+            $('#addanewAppoinment').live('click', function () {
+                $('#AppionmentModal').modal();
+            });
+
+            $('.date-picker').datepicker({
+                format: 'mm/dd/yyyy',
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true
+
+            });
+            $('.timepicker-24').timepicker({
+                autoclose: true,
+                minuteStep: 5,
+                showSeconds: false,
+                showMeridian: false
+            });
+
+            /*_____________________________________________*/
+            $('#form_wizard_1').find('.button-previous').hide();
+            $('#form_wizard_1 .button-submit').click(function () {
+                var sunday = $('#sunday').is(":checked") ? true : false;
+                var monday = $('#monday').is(":checked") ? true : false;
+                var tuesday = $('#tuesday').is(":checked") ? true : false;
+                var wednesday = $('#wednesday').is(":checked") ? true : false;
+                var thursday = $('#thursday').is(":checked") ? true : false;
+                var friday = $('#friday').is(":checked") ? true : false;
+                var Saturday = $('#Saturday').is(":checked") ? true : false;
+
+                var noenddate = $('#rdonever').is(":checked") ? true : false;
+                var onthisenddate = $('#rdoon').is(":checked") ? true : false;
+
+                //pending:- "Time zone" Not added
+                var dataRow = {
+                    Title: $('#txttitle').val(), Type: $('#ddlType option:selected').val(), FromDate: $('#txtfromdate').val(),
+                    FromTime: $('#txtfromtime').val(), ToDate: $('#txttodate').val(), ToTime: $('#txttotime').val(),
+                    Allday: $('#chkallday').is(':checked'), Repeat: $('#chkrepeat').is(':checked'), Location: $('#txtlocation').val(),
+                    EventColor: $('#txtcolor').val(), Description: $('#txtdescription').val(), Owner: $('#ddlappoinmentOwner option:selected').val(),
+                    AssignedTo: $('#ddlassignedto option:selected').val(), sunday: sunday, monday: monday, tuesday: tuesday, wednesday: wednesday, thursday: thursday,
+                    friday: friday, Saturday: Saturday, noenddate: noenddate, onthisenddate: onthisenddate
+                };
+                alert($('#chkrepeat').is(':checked'));
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Content("~/")BB_Calendar/Addappoinment',
+                        data: dataRow,
+                        success: function (response) {
+                            if (response == 'True') {
+                                bootbox.alert(" Action completed Successfully!", function () {
+                                    window.location.href = '@Url.Content("~/")BB_Calendar/Index';
+                                });
+                            }
+                            else {
+                                bootbox.alert("Error!!, Please contact your administrator", function () {
+                                    //  window.location.reload();
+                                });
+                            }
+                        }
+                    });
+                
+               
+            }).hide();
+        });
+    </script>
+}

@@ -1,0 +1,610 @@
+﻿@using FramWork.HelloService;
+@using Core;
+@{
+    ViewBag.Title = "Lead2Deal | Create Campaign";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    //Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Campaigns</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Add Campaigns</a>    
+    </li>
+  
+</ul>
+
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered" id="form_wizard_1">
+            <div class="portlet-title">
+                <div class="caption caption-subject bold uppercase font-red-sunglo">
+                    <i class="fa fa-plus-square font-red-sunglo"></i> Add Campaign - <span class="step-title">
+                        Step 1 of 4
+                    </span>
+                </div>
+
+                <div class="actions">
+                    @*<a href="@Url.Action("ListModules", "ModuleManagment")" title="show all list of modules" class="btn btn-circle  btn-default">
+                        <i class="fa fa-list"></i> List Of Campaigns
+                    </a>*@
+
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            1
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Basic Information
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            2
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Products
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab3" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            3
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Media
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab4" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            4
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Confirm
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">Provide basic information</h3>
+                                    <input type="hidden" class="form-control" name="hdnCounter" id="hdnCounter" />
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Bank Type <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-2">
+                                            @Html.DropDownList("ddlbanktype", new SelectList(client.ListCampaignBankType(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })
+                                            <span class="help-block">
+                                                Provide  Bank Type
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Campaign Type <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-2">
+                                            @Html.DropDownList("ddlcampaignType", new SelectList(client.ListCampaignType(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })
+                                            <span class="help-block">
+                                                Provide  saluation
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control" name="Campaign_Name" id="Campaign_Name" />
+                                            <span class="help-block">
+                                                Provide  Campaign Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Budget <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control currenciesOnly" name="Budget" id="Budget" />
+                                            <span class="help-block">
+                                                Provide  Budget
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Campaign Owner <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            @Html.DropDownList("ddlCampaignOwner", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.FullName }), "Id", "FullName"), "Select", new { @class = "form-control " })
+
+                                            <span class="help-block">
+                                                Provide  saluation
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Start Date <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control date-picker" name="startdate" id="startdate" />
+                                            <span class="help-block">
+                                                Provide  Start Date
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            End Date <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control date-picker" name="enddate" id="enddate" />
+                                            <span class="help-block">
+                                                Provide  End Date
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Description <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <textarea id="txtareadescription" class="form-control" name="txtareadescription"></textarea>
+                                            <span class="help-block">
+                                                Provide   Description
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tab2">
+                                    <h3 class="block">Add Product</h3>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+
+                                        </div>
+                                        <div class="col-md-2" style="font-size:30px;cursor:pointer;" id='addButton'>
+                                            <i class="fa fa-plus-square" style="font-size:30px;color:green;"></i> Products
+                                        </div>
+                                        <div class="col-md-2" style="font-size:30px;cursor:pointer;" id='removeButton'>
+                                            <i class="fa fa-minus-square" style="font-size:30px;color:red;"></i> Products
+                                        </div>
+
+                                        <input type='button' value='Get TextBox Value' id='getButtonValue'>
+                                    </div>
+                                    <div id='TextBoxesGroup'>
+                                        <div id="TextBoxDiv1">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">
+                                                    Product 1
+                                                </label>
+                                                <div class="col-md-2">
+                                                    <input type="text" class="form-control" id='txtproduct1' name="txtproduct" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane" id="tab3">
+                                    <h3 class="block">Add Media</h3>
+                                    <div class="row" id='TextBoxesGroupMedia' style="padding-left:3%;padding-right:3%;">
+                                        <div id="TextBoxDivMedia">
+                                            <div class="form-group">
+                                                <div class="col-md-3">
+                                                    <label class="control-label">
+                                                        Media Name
+                                                    </label>
+                                                    <input type="text" class="form-control" id='txtmedia1' name="txtmedia1" />
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label">
+                                                        Source
+                                                    </label>
+                                                    @Html.DropDownList("ddlmediasource1", new SelectList(client.GetMediasourceList(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control " })
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label">
+                                                        Cost
+                                                    </label>
+                                                    <input type="text" class="form-control currenciesOnly" id='txtcost1' name="txtcost1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9">
+                                                    <label class="control-label">
+                                                        Narration
+                                                    </label>
+                                                    <textarea class="form-control" id='narration1' name="narration1" rows="4"></textarea>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="control-label"></label>
+                                                    <input type="file" id='fileupload1' name="fileupload1" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-2" style="font-size:30px;cursor:pointer;" id='addButtonmedia'>
+                                            <i class="fa fa-plus-square" style="font-size:30px;color:green;"></i> Media
+                                        </div>
+                                        <div class="col-md-2" style="font-size:30px;cursor:pointer;" id='removeButtonmedia'>
+                                            <i class="fa fa-minus-square" style="font-size:30px;color:red;"></i> Media
+                                        </div>
+                                        <input type='button' value='Get TextBox Value' id='getButtonValue'>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab4">
+                                    <h3 class="block">Please Check And Confirm</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="javascript:;" class="btn default button-previous">
+                                        <i class="m-icon-swapleft"></i> Back
+                                    </a>
+                                    <a href="javascript:;" class="btn blue button-next">
+                                        Continue <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                    <a href="javascript:;" class="btn green button-submit">
+                                        Submit <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/select2/select2.css" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+}
+
+@section Scripts{
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="@Url.Content("~/")assets/Programmer/Scripts/Campaign/formwizardcreate.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")assets/admin/pages/scripts/ui-alert-dialog-api.js"></script>
+<script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+            //DATE PICKER START
+            $('.date-picker').datepicker({
+                format: 'mm/dd/yyyy',
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true
+            });
+        });
+    </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var counter = 2;
+        $("#addButton").click(function () {
+            //if (counter > 10) {
+            //    alert("Only 10 textboxes allow");
+            //    return false;
+            //}
+            var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDiv' + counter);
+            var $new = $('<div class="form-group">' +
+                          '<label class="control-label col-md-3">' +
+                          'Product' + counter +
+                          '</label>' +
+                          '<div class="col-md-2">' +
+                          '<input type="text" class="form-control" name="txtproduct" id="txtproduct' + counter + '" value=""/>' +
+                          '</div></div>');
+            newTextBoxDiv.after().html($new);
+            //newTextBoxDiv.appendTo("#TextBoxesGroup");
+            newTextBoxDiv.hide().appendTo("#TextBoxesGroup").fadeIn(1000);
+            counter++;
+        });
+
+        $("#removeButton").click(function () {
+            if (counter == 1) {
+                alert("No more textbox to remove");
+                return false;
+            }
+            counter--;
+            $("#TextBoxDiv" + counter).remove();
+        });
+
+        $("#getButtonValue").click(function () {
+            var msg = '';
+            for (i = 1; i < counter; i++) {
+                msg += "\n Textbox #" + i + " : " + $('#txtproduct' + i).val();
+            }
+            alert(msg);
+        });
+        /*---------------------------*/
+        var counters = 2;
+        $('#hdnCounter').val(counters);
+        $("#addButtonmedia").click(function () {
+            //if (counters > 10) {
+            //    alert("Only 10 textboxes allow");
+            //    return false;
+            //}
+            var newTextBoxDiv = $(document.createElement('div')).attr("id", 'TextBoxDivMedia' + counters);
+
+            var $new = $('<div class="form-group"> <div class="col-md-3"> <label class="control-label"> Media Name </label> <input type="text" class="form-control" name="txtmedia' + counters + '" id="txtmedia' + counters + '" /> </div> <div class="col-md-3"> <label class="control-label"> Source </label> <select name="ddlmediasource' + counters + '" id="ddlmediasource' + counters + '" class="form-control"></select> </div>' +
+            ' <div class="col-md-3"> <label class="control-label"> Cost </label> <input type="text" class="form-control currenciesOnly" name="txtcost' + counters + '" id="txtcost' + counters + '" /> </div> </div> <div class="form-group"> <div class="col-md-9"> <label class="control-label"> Narration </label> <textarea class="form-control" name="narration' + counters + '" id="narration' + counters + '" rows="4"></textarea> </div>' +
+            ' <div class="col-md-3"> <label class="control-label"> </label> <input type="file" name="fileupload' + counters + '" id="fileupload' + counters + '"/> </div> </div>');
+            newTextBoxDiv.after().html($new);
+            //newTextBoxDiv.appendTo("#TextBoxesGroup");
+            newTextBoxDiv.hide().appendTo("#TextBoxesGroupMedia").fadeIn(1000);
+            Callingemp(counters);
+            counters++;
+            $('#hdnCounter').val(counters);
+        });
+
+        $("#removeButtonmedia").click(function () {
+            if (counters == 1) {
+                alert("No more textbox to remove");
+                return false;
+            }
+            counters--;
+            $("#TextBoxDivMedia" + counters).fadeOut(1000, function () {
+                $("#TextBoxDivMedia" + counters).remove();
+            });
+            //$("#TextBoxDivMedia" + counters).remove();
+        });
+
+        $("#getButtonValue").click(function () {
+            var msg = '';
+            for (i = 1; i < counters; i++) {
+                msg += "\n Textbox #" + i + " : " + $('#textbox' + i).val();
+            }
+            alert(msg);
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+    });
+    function Callingemp(counters) {
+        // when the selection of some other drop down changes
+        // get the new value
+        var value = "";
+
+        // and send it as AJAX request to the newly created action
+        $.ajax({
+            url: '@Url.Action("getmediasource", "CampaignManagment")',
+            type: 'POST',
+            data: { someValue: value },
+            success: function (result) {
+                // when the AJAX succeeds refresh the dropdown list with
+                // the JSON values returned from the controller action
+                var selectedDeviceModel = $('#ddlmediasource' + counters);
+                selectedDeviceModel.empty();
+                selectedDeviceModel.append(
+                       $('<option/>', {
+                           value:"",
+                           text:"Select"
+                       })
+                   );
+                $.each(result, function (index, item) {
+                    selectedDeviceModel.append(
+                        $('<option/>', {
+                            value: item.value,
+                            text: item.text
+                        })
+                    );
+                });
+            }
+        });
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("input[type=text].currenciesOnly").live('keydown', currenciesOnly)
+                                 .live('blur', function () { $(this).formatCurrency(); });
+    });
+
+
+    // JavaScript I wrote to limit what types of input are allowed to be keyed into a textbox
+    var allowedSpecialCharKeyCodes = [46, 8, 37, 39, 35, 36, 9];
+    var numberKeyCodes = [44, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105];
+    var commaKeyCode = [188];
+    var decimalKeyCode = [190, 110];
+
+    function numbersOnly(event) {
+        var legalKeyCode =
+            (!event.shiftKey && !event.ctrlKey && !event.altKey)
+                &&
+            (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, numberKeyCodes) >= 0);
+
+        if (legalKeyCode === false)
+            event.preventDefault();
+    }
+
+    function numbersAndCommasOnly(event) {
+        var legalKeyCode =
+            (!event.shiftKey && !event.ctrlKey && !event.altKey)
+                &&
+            (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, commaKeyCode) >= 0);
+
+        if (legalKeyCode === false)
+            event.preventDefault();
+    }
+
+    function decimalsOnly(event) {
+        var legalKeyCode =
+            (!event.shiftKey && !event.ctrlKey && !event.altKey)
+                &&
+            (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, commaKeyCode) >= 0
+                ||
+            jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
+
+        if (legalKeyCode === false)
+            event.preventDefault();
+    }
+
+    function currenciesOnly(event) {
+        var legalKeyCode =
+            (!event.shiftKey && !event.ctrlKey && !event.altKey)
+                &&
+            (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                ||
+            jQuery.inArray(event.keyCode, commaKeyCode) >= 0
+                ||
+            jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
+
+        // Allow for $
+        if (!legalKeyCode && event.shiftKey && event.keyCode == 52)
+            legalKeyCode = true;
+
+        if (legalKeyCode === false)
+            event.preventDefault();
+    }
+
+
+    // jQuery formatCurrency plugin... see http://code.google.com/p/jquery-formatcurrency/
+    (function ($) {
+        $.formatCurrency = {}; $.formatCurrency.regions = []; $.formatCurrency.regions[""] = { symbol: "QAR ", positiveFormat: "%s%n", negativeFormat: "(%s%n)", decimalSymbol: ".", digitGroupSymbol: ",", groupDigits: true };
+        $.fn.formatCurrency = function (destination, settings) {
+            if (arguments.length == 1 && typeof destination !== "string") {
+                settings = destination; destination = false
+            } var defaults = { name: "formatCurrency", colorize: false, region: "", global: true, roundToDecimalPlace: 2, eventOnDecimalsEntered: false }; defaults = $.extend(defaults, $.formatCurrency.regions[""]);
+            settings = $.extend(defaults, settings); if (settings.region.length > 0) { settings = $.extend(settings, getRegionOrCulture(settings.region)) } settings.regex = generateRegex(settings);
+            return this.each(function () {
+                $this = $(this); var num = "0"; num = $this[$this.is("input, select, textarea") ? "val" : "html"](); if (num.search("\\(") >= 0) {
+                    num = "-" + num
+                } if (num === "" || (num === "-" && settings.roundToDecimalPlace === -1)) { return } if (isNaN(num)) {
+                    num = num.replace(settings.regex, ""); if (num === "" || (num === "-" && settings.roundToDecimalPlace === -1)) {
+                        return
+                    } if (settings.decimalSymbol != ".") { num = num.replace(settings.decimalSymbol, ".") } if (isNaN(num)) { num = "0" }
+                } var numParts = String(num).split("."); var isPositive = (num == Math.abs(num));
+                var hasDecimals = (numParts.length > 1); var decimals = (hasDecimals ? numParts[1].toString() : "0"); var originalDecimals = decimals; num = Math.abs(numParts[0]);
+                num = isNaN(num) ? 0 : num; if (settings.roundToDecimalPlace >= 0) {
+                    decimals = parseFloat("1." + decimals); decimals = decimals.toFixed(settings.roundToDecimalPlace);
+                    if (decimals.substring(0, 1) == "2") { num = Number(num) + 1 } decimals = decimals.substring(2)
+                } num = String(num); if (settings.groupDigits) {
+                    for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3) ;
+                    i++) { num = num.substring(0, num.length - (4 * i + 3)) + settings.digitGroupSymbol + num.substring(num.length - (4 * i + 3)) }
+                } if ((hasDecimals && settings.roundToDecimalPlace == -1) || settings.roundToDecimalPlace > 0) {
+                    num += settings.decimalSymbol + decimals
+                } var format = isPositive ? settings.positiveFormat : settings.negativeFormat; var money = format.replace(/%s/g, settings.symbol); money = money.replace(/%n/g, num);
+                var $destination = $([]); if (!destination) { $destination = $this } else { $destination = $(destination) } $destination[$destination.is("input, select, textarea") ? "val" : "html"](money);
+                if (hasDecimals && settings.eventOnDecimalsEntered && originalDecimals.length > settings.roundToDecimalPlace) {
+                    $destination.trigger("decimalsEntered", originalDecimals)
+                } if (settings.colorize) { $destination.css("color", isPositive ? "black" : "red") }
+            })
+        }; $.fn.toNumber = function (settings) {
+            var defaults = $.extend({ name: "toNumber", region: "", global: true }, $.formatCurrency.regions[""]);
+            settings = jQuery.extend(defaults, settings); if (settings.region.length > 0) { settings = $.extend(settings, getRegionOrCulture(settings.region)) } settings.regex = generateRegex(settings);
+            return this.each(function () {
+                var method = $(this).is("input, select, textarea") ? "val" : "html"; $(this)[method]($(this)[method]().replace("(", "(-").replace(settings.regex, ""))
+            })
+        }; $.fn.asNumber = function (settings) {
+            var defaults = $.extend({ name: "asNumber", region: "", parse: true, parseType: "Float", global: true }, $.formatCurrency.regions[""]);
+            settings = jQuery.extend(defaults, settings); if (settings.region.length > 0) { settings = $.extend(settings, getRegionOrCulture(settings.region)) } settings.regex = generateRegex(settings);
+            settings.parseType = validateParseType(settings.parseType); var method = $(this).is("input, select, textarea") ? "val" : "html"; var num = $(this)[method]();
+            num = num ? num : ""; num = num.replace("(", "(-"); num = num.replace(settings.regex, ""); if (!settings.parse) { return num } if (num.length == 0) { num = "0" } if (settings.decimalSymbol != ".") {
+                num = num.replace(settings.decimalSymbol, ".")
+            } return window["parse" + settings.parseType](num)
+        }; function getRegionOrCulture(region) {
+            var regionInfo = $.formatCurrency.regions[region]; if (regionInfo) {
+                return regionInfo
+            } else { if (/(\w+)-(\w+)/g.test(region)) { var culture = region.replace(/(\w+)-(\w+)/g, "$1"); return $.formatCurrency.regions[culture] } } return null
+        } function validateParseType(parseType) {
+            switch (parseType.toLowerCase()) {
+                case "int": return "Int";
+                case "float": return "Float"; default: throw "invalid parseType"
+            }
+        } function generateRegex(settings) {
+            if (settings.symbol === "") {
+                return new RegExp("[^\\d" + settings.decimalSymbol + "-]", "g")
+            } else { var symbol = settings.symbol.replace("$", "\\$").replace(".", "\\."); return new RegExp(symbol + "|[^\\d" + settings.decimalSymbol + "-]", "g") }
+        }
+    })(jQuery);
+</script>
+}

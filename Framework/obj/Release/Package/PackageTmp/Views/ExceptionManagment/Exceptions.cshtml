@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal |  Exceptions";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h3 class="page-title">
+    Exceptions <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Sales</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="#">Exception Management</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Exceptions</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+
+        </div>
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-9">
+        @{
+
+            FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+            var lst = client.Getexception(Core.Login.OrganizationId);
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Person Lead</th>
+                        <th>Exception</th>
+                        <th> Type</th>
+                    </tr>
+                </thead>
+                @foreach (var item in lst)
+                {
+                    <tr>
+                        <td> @item.PersonLeadName </td>
+                        <td> @item.Ans </td>
+                    </tr>
+                }
+            </table>
+        }
+    </div>
+    <div class="col-md-3 col-sm-3 blog-sidebar">
+        <div class="portlet light bg-inverse">
+
+            <div class="portlet-body">
+                @Html.Partial("~/Views/Shared/_PartialPageSalesMenu.cshtml")
+            </div>
+        </div>
+
+
+    </div>
+</div>

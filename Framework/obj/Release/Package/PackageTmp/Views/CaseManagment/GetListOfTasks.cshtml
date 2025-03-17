@@ -1,0 +1,30 @@
+﻿@model List<FramWork.HelloService.CaseManagment_Task>
+@{
+    Layout = null;
+    var cnt = 1;
+}
+
+
+    @foreach (var item in Model)
+    {
+       <fieldset>
+       <label>Task @Html.Raw(cnt++)</label>
+           <table class="table table-bordered">
+
+               <tr>
+                   <td>Title</td>
+                   <td>@item.TaskTitle</td>
+               </tr>
+               <tr>
+                   <td>Category</td>
+                   <td>@item.CaseManagment_TaskCategory.Name</td>
+               </tr>
+           </table>
+       </fieldset>
+        
+        
+
+    }
+
+ 
+

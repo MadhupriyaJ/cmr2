@@ -1,0 +1,159 @@
+﻿@model PagedList.IPagedList<FramWork.Models.Campaigns>
+@using PagedList.Mvc;
+@using FramWork.Models;
+@using Core;
+@{
+    ViewBag.Title = "Lead2Deal | Sales Script";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Assisted Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Required Documents</a>
+    </li>
+
+</ul>
+
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Required Documents</span>
+            <span class="caption-helper"></span>
+        </div>
+
+    </div>
+
+    <div class="portlet-body ">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- BEGIN Portlet PORTLET-->
+                <div class="portlet light forpadding">
+
+                    <div class="portlet-body">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <table class="table table-striped table-bordered  table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Campaign
+                                            </th>
+
+                                            <th> Product(s)</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @{
+
+                                            foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>@item.CampaignName</td>
+                                                    @{var products = client.GetCampaignProductList(Login.OrganizationId, @item.Id).ToList();
+                                                    }
+
+                                                    <td>
+                                                        <table class="table table-bordered " style="min-height:0 !important;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Product</th>
+
+                                                                    <th>
+                                                                        Document Details
+                                                                    </th>
+
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                                                                @foreach (var val in products)
+                                                                {
+                                                                    var campaigndocument = client.GetListOfProductsdoc(Login.OrganizationId, @val.Id).ToList();
+                                                                    <tr>
+                                                                        <td>@val.ProductName</td>
+
+                                                                        @if (campaigndocument.Count() == 0)
+                                                                        {
+                                                                            <td>
+                                                                                <table class="table table-bordered " style="min-height:0 !important;">
+                                                                                    <tbody>
+                                                                                        <tr>
+                                                                                            <td>Documents Not added</td>
+                                                                                        </tr>
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </td>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <td>
+                                                                                <table class="table table-bordered " style="min-height:0 !important;">
+                                                                                    <thead>
+                                                                                        <tr>
+                                                                                            <th>Document</th>
+                                                                                            <th>Is Mandatary</th>
+                                                                                        </tr>
+                                                                                    </thead>
+                                                                                    @foreach (var doc in campaigndocument)
+                                                                                    {
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td>@doc.DocumentName</td>
+                                                                                                <td>@Html.Raw(@doc.Ismandatory == true ? "Mandatary" : "Optional")</td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    }
+                                                                                </table>
+
+
+                                                                            </td>
+                                                                        }
+                                                                    </tr>
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+
+                                                </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                                <div id="contentongoingdeals">
+                                    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                                    @Html.PagedListPager(Model, page => Url.Action("RequiredDocs", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Portlet PORTLET-->
+
+            </div>
+        </div>
+
+    </div>
+</div>

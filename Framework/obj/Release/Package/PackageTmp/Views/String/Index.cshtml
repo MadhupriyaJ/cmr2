@@ -1,0 +1,206 @@
+﻿
+@{
+    Layout = null;
+}
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="@Resources.Lang">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <title>Encryption</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    @Styles.Render("~/assets/css")
+    @{
+        if (Resources.IsLeft == "0")
+        {@Styles.Render("~/assets/rlayout")}
+        else
+        {@Styles.Render("~/assets/layout")}
+    }
+
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="portlet box green">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-gift"></i>String Encryption
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+
+                    @{
+                        if ((ViewBag.Error != null))
+                        {
+
+                            <div id="alert" class="alert alert-block alert-danger fade in">
+                                <button data-dismiss="alert" class="close" type="button"></button>
+                                <h4 class="alert alert-heading">Error!</h4>
+                                <p>
+                                    <text> @ViewBag.Error</text>
+                                </p>
+                            </div>
+                        }
+                    }
+
+
+
+                    @using (Html.BeginForm("Index", "String", FormMethod.Post, new { @Class = "form-horizontal", @enctype = "multipart/form-data" }))
+                    {
+                        <div class="form-body">
+                            <h3 class="form-section">Connection Info</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Server Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" name="txtServer" class="form-control" placeholder="Server1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Database Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="txtDb" placeholder="Core Database">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Authentication Mode</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" name="selAuthMode" id="selAuthMode">
+                                                <option value="0" selected="selected">--Select Any Option--</option>
+                                                <option value="1">Database Authentication</option>
+                                                <option value="2">Windows Authentication</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--/row-->
+
+                            <div id="DivSqlCredintials" class="row" style="display:none;">
+                                <div class=" col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">User Name</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="txtUserName" placeholder="Sa">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Password</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="txtPassword" placeholder="Strong Password">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--/span-->
+                            </div>
+                            <!--/row-->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Action</label>
+                                        <div class="col-md-9">
+                                            <div class="radio-list">
+                                                <label class="radio-inline">
+                                                    <div class="radio"></div>
+                                                    <input type="radio" name="optionsRadios2" value="E">
+                                                    Encryption Mode
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <div class="radio"> </div>
+                                                    <input type="radio" name="optionsRadios2" value="N" checked="">
+                                                    Non Encryption Mode
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">User Identity</label>
+                                        <div class="col-md-9">
+                                            <pre>@Html.Raw(ViewBag.Msgs)</pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-1" style="margin-left: 56px;">Result</label>
+                                        <div class="col-md-10">
+                                            <textarea class="form-control" readonly style="min-height: 217px; min-width: 1133px;" onclick="this.focus();this.select()">@ViewBag.Msg</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button type="submit" class="btn green">Generate</button>
+                                            <button type="reset" class="btn default">Clear</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div> </div>
+        <!--[if lt IE 9]>
+        <script src="@(Url.Content("~/"))assets/global/plugins/respond.min.js"></script>
+        <script src="@(Url.Content("~/"))assets/global/plugins/excanvas.min.js"></script>
+        <![endif]-->
+        @Scripts.Render("~/assets/js")
+        <script>
+            jQuery(document).ready(function () {
+                Itachi.init(); Layout.init(); Demo.init(); $('#selAuthMode').change(function () {
+                    if ($('#selAuthMode').val() == "1") {
+                        document.getElementById('DivSqlCredintials').style.display = "block";
+                    }
+                    else {
+                        document.getElementById('DivSqlCredintials').style.display = "none";
+                    }
+
+                });
+            });
+        </script>
+</body>
+</html>

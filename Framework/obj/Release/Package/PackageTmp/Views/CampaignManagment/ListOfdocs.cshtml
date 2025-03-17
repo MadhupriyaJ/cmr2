@@ -1,0 +1,22 @@
+﻿@model PagedList.IPagedList<FramWork.Models.CampaignProductDocuments>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+<table class="table table-bordered table-advance">
+    <thead>
+        <tr>
+            <th>Document Name</th>
+        </tr>
+    </thead>
+    @foreach (var doc in Model)
+    {
+        <tr>
+            <td>
+                @doc.Documents.Name
+            </td>
+        </tr>
+    }
+</table>
+

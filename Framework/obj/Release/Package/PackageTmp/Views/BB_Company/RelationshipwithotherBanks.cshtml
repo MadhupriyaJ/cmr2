@@ -1,0 +1,107 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+    <div class="col-md-10">
+        <div class="row">
+
+            <div class="portlet-body">
+
+                <h3>Deposit Accounts (Other Bank)</h3>
+                <hr>
+                <table class="table table-striped table-hover" style="min-height:0px !important;">
+                    <thead class="thead-cls">
+                        <tr>
+                            <th class="hidden-480">Bank Name</th>
+                            <th class="hidden-480">Account Name</th>
+                            <th class="hidden-480">Account Type</th>
+                            <th class="hidden-480">Currency</th>
+                            <th class="hidden-480">Available Balance (QAR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ngRepeat: account in lstDepositAccounts -->
+                        <tr data-ng-show="showDeposit" class="">
+                            <td colspan="6" style="text-align:center"><strong>(No Deposit Accounts)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h3>
+
+                    Islamic Financing Accounts
+
+                </h3>
+                <hr>
+                <table class="table table-striped table-hover" style="min-height:0px !important;">
+                    <thead>
+                        <tr>
+                            <th class="hidden-480">Bank Name</th>
+                            <th class="hidden-480">Account Name</th>
+                            <th class="hidden-480">Account Type</th>
+                            <th class="hidden-480">Currency</th>
+                            <th class="hidden-480">Finance Amount</th>
+                            <th class="hidden-480">Outstanding Balance (QAR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ngRepeat: account in lstIslamicAccounts -->
+                        <tr data-ng-show="showFinance" class="">
+                            <td colspan="6" style="text-align:center"><strong>(No Finance Accounts)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>
+
+                    Cards
+
+                </h3>
+                <hr>
+                <table class="table table-striped table-hover" style="min-height:0px !important;">
+                    <thead>
+                        <tr>
+                            <th class="hidden-480">Card No/Name</th>
+                            <th class="hidden-480">Card Type</th>
+                            <th class="hidden-480">Cover Amount (QAR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ngRepeat: card in lstCard -->
+                        <tr data-ng-show="showCards" class="">
+                            <td colspan="3" style="text-align:center"><strong>(No Cards)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+                <h3>
+                    Transfers
+
+                </h3>
+                <table class="table table-striped table-hover" style="min-height:0px !important;">
+                    <thead>
+                        <tr>
+                            <th class="hidden-480">Date</th>
+                            <th class="hidden-480">From Account</th>
+                            <th class="hidden-480">To Account</th>
+                            <th class="hidden-480">Type</th>
+                            <th class="hidden-480">Frequency</th>
+                            <th class="hidden-480">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ngRepeat: transfer in lstTransfers -->
+                        <tr data-ng-show="showTrans" class="">
+                            <td colspan="6" style="text-align:center"><strong>(No pending transfers)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+

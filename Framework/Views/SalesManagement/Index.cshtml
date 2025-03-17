@@ -1,0 +1,313 @@
+﻿@{
+    ViewBag.Title = "Lead 2 Deal | Sales Management";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<h3>Sales Management</h3>
+<div class="row">
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">          
+            <div class="portlet-body">       
+                <div id="Funnelchartdiv"></div>
+                <div class="container-fluid">                    
+                    <div class="row text-center" style="overflow:hidden;">
+                        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+                            <label class="text-left">Angle:</label>
+                            <input class="chart-input" data-property="angle" type="range" min="0" max="60" value="40" step="1" />
+                        </div>
+
+                        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+                            <label class="text-left">Depth:</label>
+                            <input class="chart-input" data-property="depth3D" type="range" min="1" max="120" value="100" step="1" />
+                        </div>
+                    </div>
+                </div>	
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-6">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">            
+               @*3D Bar Chart /*@
+                <div id="chartdiv"></div>
+                <div class="container-fluid">
+                    <div class="row text-center" style="overflow:hidden;">
+                        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+                            <label class="text-left">Angle:</label>
+                            <input class="chart-input" data-property="angle" type="range" min="0" max="89" value="30" step="1" />
+                        </div>
+
+                        <div class="col-sm-3" style="float: none !important;display: inline-block;">
+                            <label class="text-left">Depth:</label>
+                            <input class="chart-input" data-property="depth3D" type="range" min="1" max="120" value="20" step="1" />
+                        </div>
+                    </div>
+                </div>																
+
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>
+
+<div class="row"><div class="col-md-6">
+    <!-- BEGIN Portlet PORTLET-->
+    <div class="portlet light bordered">
+        <div class="portlet-body">
+            <canvas id="my-chart" style="min-width: 310px; height: 400px; margin: 0 auto"></canvas>
+        </div>
+    </div>
+    <!-- END Portlet PORTLET-->
+</div><div class="col-md-6">
+    <!-- BEGIN Portlet PORTLET-->
+    <div class="portlet light bordered">
+        <div class="portlet-body">
+            @*Line Chart with data labels --http://www.highcharts.com/demo/line-labels*@
+            <div id="container" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+
+
+
+        </div>
+    </div>
+    <!-- END Portlet PORTLET-->
+</div></div>
+
+@section Css{
+    <style>
+        #chartdiv {
+	width		: 100%;
+	height		: 300px;
+	font-size	: 11px;
+}	
+ #Funnelchartdiv {
+	width		: 100%;
+	height		: 300px;
+	font-size	: 11px;
+}	
+
+    </style>
+}
+
+
+@section Scripts{
+@*//Line Chart with data labels
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    //3D Bar Chart
+    <script src="http://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+    //vertical bar chart
+    <script src="~/assets/global/plugins/Chart.js"></script>
+    //Funnel Chart
+      <script src="http://www.amcharts.com/lib/3/funnel.js"></script>
+*@
+
+<script src="~/assets/global/plugins/highcharts.js"></script> 
+<script src="~/assets/global/plugins/exporting.js"></script>
+<script src="~/assets/global/plugins/amcharts.js"></script>
+<script src="~/assets/global/plugins/serial.js"></script>
+<script src="~/assets/global/plugins/light.js"></script>
+<script src="~/assets/global/plugins/Chart.js"></script>
+<script src="~/assets/global/plugins/funnel.js"></script>
+    <script>
+            jQuery(document).ready(function () {
+            
+                //Line Chart with data labels 
+                $('#container').highcharts({
+                    chart: {
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'Actual Revenue By Month'
+                    },                   
+                    xAxis: {
+                        title: {
+                            text: 'Month'
+                        },
+                        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Actual Revenue'
+                        }
+                    },
+                    plotOptions: {
+                        line: {
+                            dataLabels: {
+                                enabled: true
+                            },
+                            enableMouseTracking: false
+                        }
+                    },
+                    series: [{
+                        name: 'Alpha',
+                        data: [70000.0, 60000.9, 900000.5, 1400000.5, 1800000.4, 210000.5, 250000.2, 260000.5, 2300000.3, 180000.3, 130000.9, 900000.6]
+                    }, {
+                        name: 'Beta',
+                        data: [5000.9, 400000.2, 50000.7, 8000.5, 1100000.9, 150000.2, 170000.0, 16000.6, 140000.2, 1000000.3, 60000000.6, 400000000000.8]
+                    }]
+                });
+
+
+
+                // 3D bAR Chart--http://www.amcharts.com/demos/3d-bar-chart
+
+                var chart = AmCharts.makeChart("chartdiv", {
+                    "theme": "light",
+                    "type": "serial",
+                    "titles": [{ "text": "Sales Leader Board","size": 13}],
+                    "dataProvider": [{
+                        "year": "Shemeer Akbar",
+                        "income": 43000000000.5
+                    }, {
+                        "year": "Akbar Ali",
+                        "income": 730000000000.2
+                    }, {
+                        "year": "Khizar Ahmed",
+                        "income": 300000000000.1
+                    }, {
+                        "year": "Abdullah Sidiq",
+                        "income": 29000000000.5
+                    }, {
+                        "year": "Sadiq Ummer",
+                        "income": 20000004.6
+                    }],
+                    //"valueAxes": [{
+                    //    "title": "Income in millions, USD"
+                    //}],
+                    "graphs": [{
+                        "title":"dsfdsfdsfdsfdsf",
+                        "balloonText": "Income in [[category]]:[[value]]",
+                        "fillAlphas": 1,
+                        "lineAlpha": 0.2,
+                        "title": "Income",
+                        "type": "column",
+                        "valueField": "income"
+                    }],
+                    "depth3D": 20,
+                    "angle": 30,
+                    "rotate": true,
+                    "categoryField": "year",
+                    "categoryAxis": {
+                        "gridPosition": "start",
+                        "fillAlpha": 0.05,
+                        "position": "left"
+                    },
+                    "export": {
+                        "enabled": true
+                    }
+                });
+                jQuery('.chart-input').off().on('input change', function () {
+                    var property = jQuery(this).data('property');
+                    var target = chart;
+                    chart.startDuration = 0;
+
+                    if (property == 'topRadius') {
+                        target = chart.graphs[0];
+                        if (this.value == 0) {
+                            this.value = undefined;
+                        }
+                    }
+
+                    target[property] = this.value;
+                    chart.validateNow();
+                });
+
+                //vertical bar chart ..https://raw.githubusercontent.com/nnnick/Chart.js/master/Chart.js
+
+                var ctx = $('#my-chart').get(0).getContext('2d');
+                var data = {
+                    labels: [
+                      'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'
+                    ],
+                    datasets: [
+                      {
+                          label: 'Months',
+                          //fillColor: 'rgba(4,151,179,0.5)',
+                          fillColor: 'rgba(0,0,255,0.3)',
+                          //fillColor: "rgba(0,60,100,1)",
+                          strokeColor: "black",
+                          highlightFill: 'rgba(0,163,124,0.5)',
+                          data: [280000, 480000, 4000000, 190000, 860000, 270000, 90000, 45000, 340000]
+                      }
+                    ]
+                };
+                var options = {
+                    barStrokeWidth: 1,
+                    titles: { text: "Sales Leader Board" },
+                    responsive: true,
+                    animation: false,
+                    barShowStroke: false
+                };
+
+                new Chart(ctx).Bar(data, options);
+
+                //Funnel Chart--http://www.amcharts.com/demos/3d-funnel-chart/#theme-light
+             
+
+                var chart = AmCharts.makeChart("Funnelchartdiv", {
+                    "type": "funnel",
+                    "theme": "light",
+                    "titles": [{ "text": "PipeLine by Sales Stage", "size": 13 }],
+                    "titleField": "title",
+                    "label": "HELLO",
+                    "dataProvider": [{
+                        "title": "Fulfillment",
+                        "value": 200
+                    }, {
+                        "title": "Coordinator",
+                        "value": 123
+                    }, {
+                        "title": "Manager Approval",
+                        "value": 98
+                    }, {
+                        "title": "Leads Qualification",
+                        "value": 72
+                    }, {
+                        "title": "Lead",
+                        "value": 35                    
+                    }],
+                    "balloon": {
+                        "fixedPosition": true
+                    },
+                    "valueField": "value",
+                    "titleField": "title",
+                    "marginRight": 240,
+                    "marginLeft": 50,
+                    "startX": -100,
+                    "depth3D": 25,
+                    "angle": 40,
+                    "outlineAlpha": 1,
+                    "outlineColor": "#FFFFFF",
+                    "outlineThickness": 2,
+                    "labelPosition": "right",
+                    "balloonText": "[[title]]: [[value]]n[[description]]",
+                    "export": {
+                        "enabled": true
+                    }
+                   
+                });              
+                jQuery('.chart-input').off().on('input change', function () {                   
+                    var property = jQuery(this).data('property');
+                    var target = chart;
+                    var value = Number(this.value);
+                    chart.startDuration = 0;
+
+                    if (property == 'innerRadius') {
+                        value += "%";
+                    }
+
+                    target[property] = value;
+                    chart.validateNow();                   
+                });
+
+            });
+
+
+    </script>
+}
+

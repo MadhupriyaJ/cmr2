@@ -1,0 +1,73 @@
+﻿@model IEnumerable<FramWork.Models.Occupation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMarketing.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-list font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Occupation List</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+          
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+            <a href="@Url.Action("Create")" class="btn btn-circle red-sunglo btn-sm">
+                <i class="fa fa-plus"></i> Add
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered  table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </th>
+                <th>
+                    Active
+                </th>
+              
+              
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedDate)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Users.FirstName+ " "+item.Users.LastName)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MarkAsDelete)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+

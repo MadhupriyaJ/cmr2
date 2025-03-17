@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | Product Comparision";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    //Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+@section Css{
+  
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Management</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Product Comparison</a>
+
+    </li>
+</ul>
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-share font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Product Comparision</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+        
+        </div>
+    </div>
+    <div class="portlet-body" >
+        <iframe id="target-div" src="http://compareit4me.qa/" style="width:100%; min-height:1200px;  border:none;margin:0;padding:0;overflow:hidden;">
+        </iframe>
+     
+    </div>
+</div>
+
+@section Scripts{
+ <script type="text/javascript">
+    $(document).ready(function () {
+       
+    });
+    parent.childGetElementById = function (id) { return document.getElementById(id); }
+    parent.childLoaded();
+    function childLoaded() {
+        var dom = childGetElementById('v3-home-qa-468x90');
+        //alert(dom);}
+     //var cssLink = document.createElement("~/assets/Programmer/Css/StyleSheet1.css")
+     //cssLink.href = "style.css";
+     //cssLink.rel = "stylesheet";
+     //cssLink.type = "text/css";
+     //frames['frame1'].document.body.appendChild(cssLink);
+     //var someIframe = document.getElementById("target-div");
+     //someIframe.contents().find(".site-branding").css("display", "none");
+</script>
+}
+

@@ -1,0 +1,18 @@
+function name: Authorize_onAuthorization_42
+Date: 11/16/2015 12:57:38 PM
+Short message:
+Login Please
+long message:
+System.Web.HttpException (0x80004005): Login Please
+   at Core.LoginAuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext) in e:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\Core\Authorize.cs:line 34
+
+
+function name: Authorize_onAuthorization_42
+Date: 11/16/2015 12:58:28 PM
+Short message:
+Login Please
+long message:
+System.Web.HttpException (0x80004005): Login Please
+   at Core.LoginAuthorizeAttribute.OnAuthorization(AuthorizationContext filterContext) in e:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\Core\Authorize.cs:line 34
+
+

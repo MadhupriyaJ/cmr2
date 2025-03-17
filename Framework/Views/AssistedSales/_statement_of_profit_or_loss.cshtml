@@ -1,0 +1,473 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">Statement of profit or loss</span>
+    </h4>
+    <div class="portlet-body">
+        <div>
+            <div id="movablebar" style="position: relative; top: auto; width: auto;">
+                <aside id="small-toolbar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+
+                    <ul class="pag-breadcrumb">
+                        <!-- st-(small-toolbar) -->
+                        <li class="st-save first-child">
+                            <a href="#" id="saveButton">Save</a>
+                        </li>
+                        <li class="st-monitor">
+                            <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a>
+                        </li>
+                        <li class="st-return-standart">
+                            <a href="javascript:reloadList()">Reload</a>
+                        </li>
+                        <li>
+                            <span class="asideTitle">Currency:</span>
+                            <select id="report_currency" style="vertical-align:midle; width:140px">
+                                <option value="RUB" selected="selected">Russian Ruble</option>
+                                <option value="0">[Add new exchange rate]</option>
+                            </select>
+                        </li>
+                        <li class="st-print">
+                            <div class="drop-action-box">
+                                <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <h4 class="bold" align="center">Statement of profit or loss</h4>
+            <h5 class="bold" align="center">(by function of expense)</h5>
+                <br />
+</div>
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Profit(loss)</span>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_1" class="table table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="Revenue" class="conceptbox vert_cell  hie_leaf col0" data-id="s122" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-2">
+                                <span style="color:green;font-weight:normal">
+                                    Revenue
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="Revenue__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CostOfSales" class="conceptbox vert_cell  hie_leaf col0" data-id="s123" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-13">
+                                <span style="color:red;font-weight:normal">
+                                    Cost of sales
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CostOfSales__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="GrossProfit" class="conceptbox vert_cell  hie_leaf col0" data-id="s124" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-14">
+                                <span style="color:green;font-weight:bold">
+                                    Total gross profit
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GrossProfit__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherIncome" class="conceptbox vert_cell  hie_leaf col0" data-id="s125" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-15">
+                                <span style="color:green;font-weight:normal">
+                                    Other income
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherIncome__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DistributionCosts" class="conceptbox vert_cell  hie_leaf col0" data-id="s126" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-16">
+                                <span style="color:red;font-weight:normal">
+                                    Distribution costs
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DistributionCosts__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="AdministrativeExpense" class="conceptbox vert_cell  hie_leaf col0" data-id="s127" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-17">
+                                <span style="color:red;font-weight:normal">
+                                    Administrative expenses
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AdministrativeExpense__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherExpenseByFunction" class="conceptbox vert_cell  hie_leaf col0" data-id="s128" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-18">
+                                <span style="color:red;font-weight:normal">
+                                    Other expense, by function
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherExpenseByFunction__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherGainsLosses" class="conceptbox vert_cell  hie_leaf col0" data-id="s129" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-19">
+                                <span style="color:green;font-weight:normal">
+                                    Other gains (losses)
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherGainsLosses__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLossFromOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s130" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-20">
+                                <span style="color:green;font-weight:bold">
+                                    Total profit (loss) from operating activities
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLossFromOperatingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DifferenceBetweenCarryingAmountOfDividendsPayableAndCarryingAmountOfNoncashAssetsDistributed" class="conceptbox vert_cell  hie_leaf col0" data-id="s131" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-21">
+                                <span style="color:green;font-weight:normal">
+                                    Difference between carrying amount of dividends payable and carrying amount of non-cash assets distributed
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DifferenceBetweenCarryingAmountOfDividendsPayableAndCarryingAmountOfNoncashAssetsDistributed__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="GainsLossesOnNetMonetaryPosition" class="conceptbox vert_cell  hie_leaf col0" data-id="s132" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-22">
+                                <span style="color:green;font-weight:normal">
+                                    Gains (losses) on net monetary position
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainsLossesOnNetMonetaryPosition__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="GainLossArisingFromDerecognitionOfFinancialAssetsMeasuredAtAmortisedCost" class="conceptbox vert_cell  hie_leaf col0" data-id="s133" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-23">
+                                <span style="color:green;font-weight:normal">
+                                    Gain (loss) arising from derecognition of financial assets measured at amortised cost
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainLossArisingFromDerecognitionOfFinancialAssetsMeasuredAtAmortisedCost__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="FinanceIncome" class="conceptbox vert_cell  hie_leaf col0" data-id="s134" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-24">
+                                <span style="color:green;font-weight:normal">
+                                    Finance income
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="FinanceIncome__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="FinanceCosts" class="conceptbox vert_cell  hie_leaf col0" data-id="s135" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-25">
+                                <span style="color:red;font-weight:normal">
+                                    Finance costs
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="FinanceCosts__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethod" class="conceptbox vert_cell  hie_leaf col0" data-id="s136" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-26">
+                                <span style="color:green;font-weight:normal">
+                                    Share of profit (loss) of associates and joint ventures accounted for using equity method
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ShareOfProfitLossOfAssociatesAndJointVenturesAccountedForUsingEquityMethod__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherIncomeExpenseFromSubsidiariesJointlyControlledEntitiesAndAssociates" class="conceptbox vert_cell  hie_leaf col0" data-id="s137" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-27">
+                                <span style="color:green;font-weight:normal">
+                                    Other income (expense) from subsidiaries, jointly controlled entities and associates
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherIncomeExpenseFromSubsidiariesJointlyControlledEntitiesAndAssociates__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="GainsLossesArisingFromDifferenceBetweenPreviousCarryingAmountAndFairValueOfFinancialAssetsReclassifiedAsMeasuredAtFairValue" class="conceptbox vert_cell  hie_leaf col0" data-id="s138" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-28">
+                                <span style="color:green;font-weight:normal">
+                                    Gains (losses) arising from difference between previous carrying amount and fair value of financial assets reclassified as measured at fair value
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainsLossesArisingFromDifferenceBetweenPreviousCarryingAmountAndFairValueOfFinancialAssetsReclassifiedAsMeasuredAtFairValue__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLossBeforeTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s139" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-29">
+                                <span style="color:green;font-weight:bold">
+                                    Total profit (loss) before tax
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLossBeforeTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="IncomeTaxExpenseContinuingOperations" class="conceptbox vert_cell  hie_leaf col0" data-id="s140" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-30">
+                                <span style="color:red;font-weight:normal">
+                                    Tax expense (income) from continuing operations
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncomeTaxExpenseContinuingOperations__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLossFromContinuingOperations" class="conceptbox vert_cell  hie_leaf col0" data-id="s141" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-31">
+                                <span style="color:green;font-weight:bold">
+                                    Total profit (loss) from continuing operations
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLossFromContinuingOperations__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLossFromDiscontinuedOperations" class="conceptbox vert_cell  hie_leaf col0" data-id="s142" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-32">
+                                <span style="color:green;font-weight:normal">
+                                    Profit (loss) from discontinued operations
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLossFromDiscontinuedOperations__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLoss" class="conceptbox vert_cell   col0" data-id="s143" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-33">
+                                <span style="color:green;font-weight:bold">
+                                    Total profit (loss)
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLoss__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLossAttributableToOwnersOfParent" class="conceptbox vert_cell  hie_leaf col0" data-id="s145" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-34">
+                                <span style="color:green;font-weight:normal">
+                                    profit (loss) attributable to owners of parent
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLossAttributableToOwnersOfParent__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLossAttributableToNoncontrollingInterests" class="conceptbox vert_cell  hie_leaf col0" data-id="s146" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-35">
+                                <span style="color:green;font-weight:normal">
+                                    profit (loss) attributable to non-controlling interests
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLossAttributableToNoncontrollingInterests__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                   
+                </table>
+            </div>
+
+        </div>
+        <br>
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Earnings per share</span>
+            </h4>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_2" style="margin: 20px 0px 5px 0px" class="table table-bordered tbl_editable">
+                    <tbody>
+                        <tr>
+                            <td width="75%" class="header_table conceptbox col0" style="background-color: #E7E4E4" rowspan="2">&nbsp;</td>
+                            <td class="header_table conceptbox hor_cell   col1" data-id="s149" data-concept-type="string" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="ClassesOfOrdinarySharesAxis" rowspan="1" colspan="1" id="ui-id-36">
+                                Classes of ordinary shares
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col1" data-id="s6770" data-concept-type="monetary" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="ClassesOfOrdinarySharesDetailed" rowspan="1" colspan="1" id="ui-id-37">
+                                &lt;Class of ordinary shares&gt; - Your variant
+                            </td>
+                        </tr>
+                        <tr style="background-color: #E7E4E4;">
+                            <td style="font-weight:bold" class="col0">
+                                For year 2015:
+                            </td>
+                            <td colspan="1" class="col1"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell   col0" data-id="s152" data-concept-type="string" title="BasicEarningsPerShareAbstract" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-38">
+                                Basic earnings per share
+                            </td>
+                            <td style="background-color: #E7E4E4" colspan="1" class="col1"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s153" data-concept-type="perShare" title="BasicEarningsLossPerShareFromContinuingOperations" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-39">
+                                Basic earnings (loss) per share from continuing operations
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="BasicEarningsLossPerShareFromContinuingOperations_ClassesOfOrdinarySharesDetailed_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s154" data-concept-type="perShare" title="BasicEarningsLossPerShareFromDiscontinuedOperations" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-40">
+                                Basic earnings (loss) per share from discontinued operations
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="BasicEarningsLossPerShareFromDiscontinuedOperations_ClassesOfOrdinarySharesDetailed_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s155" data-concept-type="perShare" title="BasicEarningsLossPerShare" style="color:green;font-weight:bold;padding-left: 15px;background-color: #E7E4E4" id="ui-id-41">
+                                Total basic earnings (loss) per share
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="BasicEarningsLossPerShare_ClassesOfOrdinarySharesDetailed_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell   col0" data-id="s156" data-concept-type="string" title="DilutedEarningsPerShareAbstract" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-42">
+                                Diluted earnings per share
+                            </td>
+                            <td style="background-color: #E7E4E4" colspan="1" class="col1"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s157" data-concept-type="perShare" title="DilutedEarningsLossPerShareFromContinuingOperations" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-43">
+                                Diluted earnings (loss) per share from continuing operations
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ClassesOfOrdinarySharesDetailed_DilutedEarningsLossPerShareFromContinuingOperations_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s158" data-concept-type="perShare" title="DilutedEarningsLossPerShareFromDiscontinuedOperations" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-44">
+                                Diluted earnings (loss) per share from discontinued operations
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ClassesOfOrdinarySharesDetailed_DilutedEarningsLossPerShareFromDiscontinuedOperations_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s159" data-concept-type="perShare" title="DilutedEarningsLossPerShare" style="color:green;font-weight:bold;padding-left: 15px;background-color: #E7E4E4" id="ui-id-45">
+                                Total diluted earnings (loss) per share
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ClassesOfOrdinarySharesDetailed_DilutedEarningsLossPerShare_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+  
+    $(document).ready(function () {
+     
+        $(".addFirmParams").click(function () {
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+            })
+        });
+      
+    });
+
+
+</script>

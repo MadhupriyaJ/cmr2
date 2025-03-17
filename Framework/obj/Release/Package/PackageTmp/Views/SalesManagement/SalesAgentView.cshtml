@@ -1,0 +1,568 @@
+﻿@{
+    ViewBag.Title = "Lead 2 Deal | Sales Agent View";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">PipeLine</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales Agent View</a>
+    </li>
+   
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-user-secret font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Sales Agent View</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-body">
+                                <div id="container1" style="min-width:400px; height: 250px;"></div>
+                            </div>
+                        </div>
+                        <!-- END Portlet PORTLET-->
+                    </div>
+
+                    <div class="col-md-12">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-body">
+                                <div id="container4" style="min-width:400px; height: 250px; margin: 0 auto"></div>
+                               
+                            </div>
+                        </div>
+                        <!-- END Portlet PORTLET-->
+                    </div>
+
+                    <<div class="col-md-12">
+    <!-- BEGIN Portlet PORTLET-->
+    <div class="portlet light bordered">
+        <div class="portlet-body">
+
+            <div id="container3" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+        </div>
+    </div>
+    <!-- END Portlet PORTLET-->
+</div>
+
+                    <div class="col-md-12">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-body">
+                                <div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                            </div>
+                        </div>
+                        <!-- END Portlet PORTLET-->
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-5">
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-users"></i>My Open Leads
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+                        <div id="listofpersonleaddiv">
+                            @Html.Action("ListOfPersonLead", "SalesManagement")
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portlet">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-child"></i> My Open Opportunities
+                        </div>
+                        <div class="actions">
+                            <a href="~/SalesManagement/CreatePerson" id="addicon" class="btn btn-circle red-sunglo ">
+                                <i class="fa fa-plus"></i> Add
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="listofpersondiv">
+                            @Html.Action("ListOfPerson", "SalesManagement")
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Css{
+    <style>
+    </style>
+}
+
+
+@section Scripts{
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    @*//Bar Chart Row2 Col1*@
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    
+
+    <script>
+
+
+        //Chart Start Here
+
+        //Stacked colun bar column 1
+        google.load("visualization", "1", { packages: ["corechart"] });
+
+
+        // The first chart
+
+        $('#container1').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: ' SLA Status Over Week(All)'
+            },
+            xAxis: {
+                categories: ['8/09/2014', '8/10/2014', '8/11/2014', '8/12/2014', '8/1/2015']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Count All '
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+            series: [{
+                name: 'Alpha',
+                data: [5, 3, 4, 7, 2]
+            }, {
+                name: 'Beta',
+                data: [2, 2, 3, 2, 1]
+            }, {
+                name: 'Gamma',
+                data: [3, 4, 4, 2, 5]
+            }]
+        });
+
+
+
+
+
+        //Pie chart--column 2
+        $('#container2').highcharts({
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: ' Mix by Origin'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['Email', 45.0],
+                    ['Call', 8.5],
+                    ['Letter', 6.2]
+                ]
+            }]
+        });
+
+        //Bar Chart row2 col1
+
+
+        $('#container3').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: ' Mixby Priority'
+            },
+            xAxis: {
+                categories: ['8/21/2014', '9/21/2014', '10/21/2014', '11/21/2014', '12/21/2014']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: ''
+                },
+                stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    }
+                }
+            },
+            legend: {
+                align: 'right',
+                x: -30,
+                verticalAlign: 'top',
+                y: 25,
+                floating: true,
+                backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                borderColor: '#CCC',
+                borderWidth: 1,
+                shadow: false
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.x + '</b><br/>' +
+                        this.series.name + ': ' + this.y + '<br/>' +
+                        'Total: ' + this.point.stackTotal;
+                }
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+
+                }
+            },
+            series: [{
+                name: 'Alpha',
+                data: [5, 3, 4, 7, 2]
+            }, {
+                name: 'Beta',
+                data: [2, 2, 3, 2, 1]
+            }, {
+                name: 'Gama',
+                data: [3, 4, 4, 2, 5]
+            }]
+        });
+
+        //Row2 Col2 Bar Chart
+
+        $('#container4').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Quartely  Resolution Trend'
+            },
+            subtitle: {
+                text: ' Active '
+            },
+            xAxis: {
+                type: ' Status'
+            },
+            yAxis: {
+                title: {
+                    text: 'Average Days'
+                }
+
+            },
+            legend: {
+                enabled: false
+            },
+            plotOptions: {
+                series: {
+                    borderWidth: 0,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.y:.1f}%'
+                    }
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+            },
+
+            series: [{
+                name: "Lead",
+                colorByPoint: true,
+                data: [{
+                    name: "Succeeded",
+                    y: 56.33,
+                    drilldown: "Succeeded"
+                }, {
+                    name: "In Progress",
+                    y: 24.03,
+                    drilldown: "In Progress"
+                }, {
+                    name: "Nearing Noncompliance",
+                    y: 10.38,
+                    drilldown: "Nearing Noncompliance"
+                }, {
+                    name: "Closed",
+                    y: 4.77,
+                    drilldown: "Closed"
+                }, {
+                    name: "Blank",
+                    y: 0.91,
+                    drilldown: null
+                }]
+            }],
+            drilldown: {
+                series: [{
+                    name: "Succeeded",
+                    id: "Succeeded",
+                    data: [
+                        [
+                            "v11.0",
+                            24.13
+                        ],
+                        [
+                            "v8.0",
+                            17.2
+                        ],
+                        [
+                            "v9.0",
+                            8.11
+                        ],
+                        [
+                            "v10.0",
+                            5.33
+                        ],
+                        [
+                            "v6.0",
+                            1.06
+                        ],
+                        [
+                            "v7.0",
+                            0.5
+                        ]
+                    ]
+                }, {
+                    name: "In Progress",
+                    id: "In Progress",
+                    data: [
+                        [
+                            "v40.0",
+                            5
+                        ],
+                        [
+                            "v41.0",
+                            4.32
+                        ],
+                        [
+                            "v42.0",
+                            3.68
+                        ],
+                        [
+                            "v39.0",
+                            2.96
+                        ],
+                        [
+                            "v36.0",
+                            2.53
+                        ],
+                        [
+                            "v43.0",
+                            1.45
+                        ],
+                        [
+                            "v31.0",
+                            1.24
+                        ],
+                        [
+                            "v35.0",
+                            0.85
+                        ],
+                        [
+                            "v38.0",
+                            0.6
+                        ],
+                        [
+                            "v32.0",
+                            0.55
+                        ],
+                        [
+                            "v37.0",
+                            0.38
+                        ],
+                        [
+                            "v33.0",
+                            0.19
+                        ],
+                        [
+                            "v34.0",
+                            0.14
+                        ],
+                        [
+                            "v30.0",
+                            0.14
+                        ]
+                    ]
+                }, {
+                    name: "Nearing Noncompliance",
+                    id: "Nearing Noncompliance",
+                    data: [
+                        [
+                            "v35",
+                            2.76
+                        ],
+                        [
+                            "v36",
+                            2.32
+                        ],
+                        [
+                            "v37",
+                            2.31
+                        ],
+                        [
+                            "v34",
+                            1.27
+                        ],
+                        [
+                            "v38",
+                            1.02
+                        ],
+                        [
+                            "v31",
+                            0.33
+                        ],
+                        [
+                            "v33",
+                            0.22
+                        ],
+                        [
+                            "v32",
+                            0.15
+                        ]
+                    ]
+                }, {
+                    name: "Closed",
+                    id: "Closed",
+                    data: [
+                        [
+                            "v8.0",
+                            2.56
+                        ],
+                        [
+                            "v7.1",
+                            0.77
+                        ],
+                        [
+                            "v5.1",
+                            0.42
+                        ],
+                        [
+                            "v5.0",
+                            0.3
+                        ],
+                        [
+                            "v6.1",
+                            0.29
+                        ],
+                        [
+                            "v7.0",
+                            0.26
+                        ],
+                        [
+                            "v6.2",
+                            0.17
+                        ]
+                    ]
+                }, {
+                    name: "Blank",
+                    id: "Blank",
+                    data: [
+                        [
+                            "v12.x",
+                            0.34
+                        ],
+                        [
+                            "v28",
+                            0.24
+                        ],
+                        [
+                            "v27",
+                            0.17
+                        ],
+                        [
+                            "v29",
+                            0.16
+                        ]
+                    ]
+                }]
+            }
+        });
+
+
+    </script>
+    <script>
+        /*----------------------- PAGINATION LIST OF PERSON-------------------------------*/
+        $(document).on("click", "#lstpersonpager1 a", function () {
+            $.ajax({
+                url: $(this).attr("href"),
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#listofpersonleaddiv').html(result);
+                }
+            });
+            return false;
+        });
+        /*----------------------- PAGINATION LIST OF PERSON-------------------------------*/
+        $(document).on("click", "#listofpersonviewtable a", function () {
+            $.ajax({
+                url: $(this).attr("href"),
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#listofpersondiv').html(result);
+                }
+            });
+            return false;
+        });
+    </script>
+}
+

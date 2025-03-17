@@ -1,0 +1,368 @@
+﻿<div class="hor-menu hidden-sm hidden-xs">
+    <ul class="nav navbar-nav">
+        <!-- DOC: Remove data-hover="megadropdown" and data-close-others="true" attributes below to disable the horizontal opening on mouse hover -->
+        <li class="classic-menu-dropdown active">
+            <a href="#">
+                Home <span class="selected">
+                </span>
+            </a>
+        </li>
+        <li class="mega-menu-dropdown">
+            <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                Marketing <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu" style="min-width:400px;">
+                <li>
+                    <!-- Content container to add padding -->
+                    <div class="mega-menu-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="mega-menu-submenu">
+                                    <li>
+                                        <h3>MANAGEMENT</h3>
+                                    </li>
+                                    <li> <a href="@Url.Action("CreatePerson", "SalesManagement")"><i class="fa fa-child"></i> Opportunity </a></li>
+                                    <li><a href="@Url.Action("ProductComparision", "CampaignManagment")"><i class="fa fa-cubes"></i> Product Comparison</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mega-menu-submenu">
+
+                                    <li>
+                                        <h3>CAMPAIGNS</h3>
+                                    </li>
+                                    <li> <a href="@Url.Action("CreateCampaign", "CampaignManagment")"><i class="fa fa-plus"></i> Create Campaign </a></li>
+                                    <li><a href="@Url.Action("CampaignList", "CampaignManagment")"><i class="fa fa-list"></i> View Campaign</a></li>
+                                    <li> <a href="@Url.Action("EmailCampaign", "CampaignManagment")"><i class="fa fa-envelope"></i>Email Campaign</a></li>
+                                    <li><a href="@Url.Action("SmsCampaign", "CampaignManagment")"><i class="fa fa-phone"></i> SMS Campaign</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="mega-menu-dropdown mega-menu-full">
+            <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                Sales <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <!-- Content container to add padding -->
+                    <div class="mega-menu-content">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="mega-menu-submenu">
+                                    <li>
+                                        <h3>ASSIGNMENT</h3>
+                                    </li>
+                                    <li> <a href="@Url.Action("SingleLeadAssignment", "AssignmentManagment")"><i class="fa fa-child"></i> Single Lead Assignment </a></li>
+                                    <li><a href="@Url.Action("BulkLeadAssignment", "AssignmentManagment")"><i class="fa fa-cubes"></i> Bulk Lead Assignment</a></li>
+                                    <li><a href="@Url.Action("AutomatedLeadAssignment", "AssignmentManagment")"><i class="fa fa-cubes"></i> Automated Lead Assignment</a></li>
+                                    <li><a href="@Url.Action("AutonomationLeadAssignment", "AssignmentManagment")"><i class="fa fa-cubes"></i> Autonomation Lead Assignment</a></li>
+
+                                    <li>
+                                        <h3>EXCEPTION MANAGEMENT</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-deviantart"></i>  System Exceptions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Document Exceptions
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <h3>BUSINESS LIST</h3>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="mega-menu-submenu">
+                                    <li>
+                                        <h3>GOAL </h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-deviantart"></i>  Goals
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Goal Rule Configuration
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Goals DashBoard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <h3>COMMISSION</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Reward Rules
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Reward Processing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <h3>OTHER</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-deviantart"></i>  Survey
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Sales Notional Cost Measurement
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="mega-menu-submenu">
+                                    <li>
+                                        <h3>LEAD</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Lead Managment
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <h3>PIPELINE</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Pipline Managment
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="mega-menu-submenu">
+                                    <li>
+                                        <h3>ASSISTED SALES</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-deviantart"></i>  Product -doc-requirement
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("salesliterature", "AssistedSales")">
+
+                                            <i class="fa fa-cubes"></i> Sales Literature
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("WhatIfCalculator", "AssistedSales")">
+                                            <i class="fa fa-cubes"></i> What if calculator
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("EligibilityCalculator", "AssistedSales")">
+                                            <i class="fa fa-cubes"></i> Eligibility Calculator
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("SalesScript", "AssistedSales")">
+                                            <i class="fa fa-cubes"></i> Sales Script
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("FinancialAnalysis", "AssistedSales")">
+                                            <i class="fa fa-cubes"></i> Financial Analysis
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("FAQ", "AssistedSales")">
+                                            <i class="fa fa-cubes"></i> FAQ
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="mega-menu-dropdown">
+            <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                Services <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu" style="min-width:600px;">
+                <li>
+                    <!-- Content container to add padding -->
+                    <div class="mega-menu-content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="mega-menu-submenu">
+                                    <li>
+                                        <h3>Activity</h3>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("AddOppurtunity", "PipeLine")">
+                                            <i class="fa fa-deviantart"></i>  Email
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-cubes"></i> Meeting
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mega-menu-submenu">
+
+                                    <li>
+                                        <h3>CASE MANAGEMENT</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-list-alt"></i> Show All Cases
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-plus"></i> Add A New Case
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <h3>APPOINTMENT</h3>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="fa fa-list-alt"></i> Calendar Appointments
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="classic-menu-dropdown">
+            <a data-toggle="dropdown" href="javascript:;">
+                Dashboard <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu pull-left">
+                <li>
+                    <a href="#">
+                        <i class="fa fa-bookmark-o"></i> Sales Turn Over
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-user"></i> Sales piple line
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-puzzle-piece"></i> Commision Report
+                    </a>
+                </li>
+
+
+            </ul>
+        </li>
+        <li class="mega-menu-dropdown mega-menu-full">
+            <a data-toggle="dropdown" href="javascript:;" class="dropdown-toggle">
+                Administrator <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <!-- Content container to add padding -->
+                    <div class="mega-menu-content ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <ul class="mega-menu-submenu">
+                                            <li>
+                                                <h3>ADMINISTRATOR</h3>
+                                            </li>
+                                            <li><a href="@Url.Content("~/")CityManagement/Index"><i class="fa fa-circle-o-notch"></i>City</a></li>                                    
+                                            <li><a href="@Url.Content("~/")countrymanagment/Index"><i class="fa fa-circle-o-notch"></i>Country</a></li>
+                                            <li><a href="@Url.Content("~/")DepartmentManagement/Index"><i class="fa fa-circle-o-notch"></i>Department</a></li>
+                                            <li><a href="@Url.Content("~/")DesignationManagement/Index"><i class="fa fa-circle-o-notch"></i>Designation</a></li>
+                                            <li><a href="@Url.Content("~/")Employee/Index"><i class="fa fa-circle-o-notch"></i>Employee</a></li>
+                                            <li><a href="@Url.Content("~/")GenderManagement/Index"><i class="fa fa-circle-o-notch"></i>Gender</a></li>
+                                            <li><a href="@Url.Content("~/")LanguageManagement/Index"><i class="fa fa-circle-o-notch"></i>Language</a></li>
+                                            <li><a href="@Url.Content("~/")LocationManagement/Index"><i class="fa fa-circle-o-notch"></i>Location</a></li>
+                                            <li><a href="@Url.Content("~/")PersonManagment/Index"><i class="fa fa-circle-o-notch"></i>Person</a></li>
+                                            <li><a href="@Url.Content("~/")PersonCompany/Index"><i class="fa fa-circle-o-notch"></i>PersonCompany</a></li>
+                                            <li><a href="@Url.Content("~/")SalutationManagement/Index"><i class="fa fa-circle-o-notch"></i>Salutation</a></li>
+                                            <li><a href="@Url.Content("~/")StateManagement/Index"><i class="fa fa-circle-o-notch"></i>State</a></li>
+                                            <li><a href="@Url.Content("~/")TeamManagement/Index"><i class="fa fa-circle-o-notch"></i>Team</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <ul class="mega-menu-submenu">
+                                            <li>
+                                                <h3>PRODUCT CONFIGURATION</h3>
+                                            </li>
+                                            <li><a href="@Url.Action("Index", "Product")"><i class="fa fa-circle-o-notch"></i>Products</a></li>
+                                            <li><a href="@Url.Action("Index", "ProductConfiguration")"><i class="fa fa-circle-o-notch"></i>Product Configuration</a></li>
+                                            <li><a href="@Url.Action("Index", "Salesaffliates")"><i class="fa fa-circle-o-notch"></i>sales Affiliates</a></li>
+                                            <li><a href="@Url.Action("Index", "LeadSource")"><i class="fa fa-circle-o-notch"></i>Lead Source</a></li>
+                                            <li><a href="@Url.Action("Index", "ScriptDetails")"><i class="fa fa-circle-o-notch"></i>script Details</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <ul class="mega-menu-submenu">
+                                            <li>
+                                                <h3>PRODUCT CONFIGURATION</h3>
+                                            </li>
+                                            <li><a href="@Url.Action("Index", "Product")"><i class="fa fa-circle-o-notch"></i>Products</a></li>
+                                            <li><a href="@Url.Action("Index", "ProductConfiguration")"><i class="fa fa-circle-o-notch"></i>Product Configuration</a></li>
+                                            <li><a href="@Url.Action("Index", "Salesaffliates")"><i class="fa fa-circle-o-notch"></i>sales Affiliates</a></li>
+                                            <li><a href="@Url.Action("Index", "LeadSource")"><i class="fa fa-circle-o-notch"></i>Lead Source</a></li>
+                                            <li><a href="@Url.Action("Index", "ScriptDetails")"><i class="fa fa-circle-o-notch"></i>script Details</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <ul class="mega-menu-submenu">
+                                            <li>
+                                                <h3>MORE</h3>
+                                            </li>
+                                            <li><a href="@Url.Action("Index", "HallOfFame")"><i class="fa fa-users"></i>Hall Of Fame</a></li>
+                                            <li><a href="@Url.Action("Index", "ExpertTalk")"><i class="fa fa-users"></i>Expert Talk</a></li>
+                                            <li>
+                                                <h3>USER MANAGMENT</h3>
+                                            </li>
+                                            <li><a href="@Url.Action("CreateEmployee", "Employee")"><i class="fa fa-plus"></i>User</a></li>
+                                            <li><a href="@Url.Action("Roles", "UserManagment")"><i class="fa fa-plus"></i>Roles</a></li>
+                                            <li><a href="@Url.Action("AssignRolesTouser", "UserManagment")"><i class="fa fa-plus"></i>Assign Roles To User</a></li>
+                                            <li><a href="@Url.Action("Create", "ModuleManagment")"><i class="fa fa-plus"></i>Module</a></li>
+                                            <li><a href="@Url.Action("RoleAssignedModuleAction", "ModuleManagment")"><i class="fa fa-plus"></i>Role assigned to module</a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>

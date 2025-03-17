@@ -1,0 +1,542 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">Statement of IFRS compliance</span>
+    </h4>
+    <div class="portlet-body">
+
+        <div>
+            <div id="movablebar" style="position: relative; top: auto; width: auto;">
+                <aside id="small-toolbar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+
+                    <ul class="pag-breadcrumb">
+                        <!-- st-(small-toolbar) -->
+                        <li class="st-save first-child">
+                            <a href="#" id="saveButton">Save</a>
+                        </li>
+                        <li class="st-monitor">
+                            <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a>
+                        </li>
+                        <li class="st-return-standart">
+                            <a href="javascript:reloadList()">Reload</a>
+                        </li>
+                        <li>
+                            <span class="asideTitle">Currency:</span>
+                            <select id="report_currency" style="vertical-align:midle; width:140px">
+                                <option value="RUB" selected="selected">Russian Ruble</option>
+                                <option value="0">[Add new exchange rate]</option>
+                            </select>
+                        </li>
+                        <li class="st-print">
+                            <div class="drop-action-box">
+                                <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <h4 class="bold" align="center">Statement of IFRS compliance</h4>
+
+            <br />
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div id="sblock_1" style="margin-left: 0px">
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="StatementOfIFRSCompliance" data-id="s4809">
+                            Statement of IFRS compliance
+                        </span>
+                    </div>
+                    <div id="StatementOfIFRSCompliance_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ManagementConclusionOnFairPresentationAsConsequenceOfDeparture" data-id="s4810">
+                            Management conclusion on fair presentation as consequence of departure
+                        </span>
+                    </div>
+                    <div id="ManagementConclusionOnFairPresentationAsConsequenceOfDeparture_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ExplanationOfDepartureFromIFRS" data-id="s4811">
+                            Explanation of departure from IFRS
+                        </span>
+                    </div>
+                    <div id="ExplanationOfDepartureFromIFRS_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ExplanationOfFinancialEffectOfDepartureFromIFRS" data-id="s4812">
+                            Explanation of financial effect of departure from IFRS
+                        </span>
+                    </div>
+                    <div id="ExplanationOfFinancialEffectOfDepartureFromIFRS_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ExplanationOfNatureOfRequirementInIFRSAndConclusionWhyRequirementIsInConflictWithFairPresentation" data-id="s4813">
+                            Explanation of nature of requirement in IFRS and conclusion why requirement is in conflict with objective of financial statements set out in Framework
+                        </span>
+                    </div>
+                    <div id="ExplanationOfNatureOfRequirementInIFRSAndConclusionWhyRequirementIsInConflictWithFairPresentation_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ExplanationOfAdjustmentsThatWouldBeNecessaryToAchieveFairPresentation" data-id="s4814">
+                            Explanation of adjustments that would be necessary to achieve fair presentation
+                        </span>
+                    </div>
+                    <div id="ExplanationOfAdjustmentsThatWouldBeNecessaryToAchieveFairPresentation_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfUncertaintiesOfEntitysAbilityToContinueAsGoingConcern" data-id="s4815">
+                            Disclosure of uncertainties of entity's ability to continue as going concern
+                        </span>
+                    </div>
+                    <div id="DescriptionOfUncertaintiesOfEntitysAbilityToContinueAsGoingConcern_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ExplanationOfFactAndBasisForPreparationOfFinancialStatementsWhenNotGoingConcernBasis" data-id="s4816">
+                            Explanation of fact and basis for preparation of financial statements when not going concern basis
+                        </span>
+                    </div>
+                    <div id="ExplanationOfFactAndBasisForPreparationOfFinancialStatementsWhenNotGoingConcernBasis_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="ExplanationWhyFinancialStatementsNotPreparedOnGoingConcernBasis" data-id="s4817">
+                            Explanation of why entity not regarded as going concern
+                        </span>
+                    </div>
+                    <div id="ExplanationWhyFinancialStatementsNotPreparedOnGoingConcernBasis_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfReasonForUsingLongerOrShorterReportingPeriod" data-id="s4818">
+                            Reason for using longer or shorter reporting period
+                        </span>
+                    </div>
+                    <div id="DescriptionOfReasonForUsingLongerOrShorterReportingPeriod_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 0px" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfReasonWhyFinancialStatementsAreNotEntirelyComparable" data-id="s4819">
+                            Fact that amounts presented in financial statements are not entirely comparable
+                        </span>
+                    </div>
+                    <div id="DescriptionOfReasonWhyFinancialStatementsAreNotEntirelyComparable_data" class="editableTextItemData"></div>
+                </div>
+            </div>
+            <br />
+        </div>
+        <br />
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Reclassifications or changes in presentation</span>
+            </h4>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_1" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr>
+                            <td width="75%" class="header_table conceptbox col0" style="background-color: #E7E4E4" rowspan="2">&nbsp;</td>
+                            <td class="header_table conceptbox hor_cell   col1" data-id="s1125" data-concept-type="string" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="ReclassifiedItemsAxis" rowspan="1" colspan="1" id="ui-id-2">
+                                Reclassified items
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col1" data-id="s6772" data-concept-type="monetary" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="ReclassifiedItemsDetailed" rowspan="1" colspan="1" id="ui-id-13">
+                                &lt;Reclassified item&gt; - Your variant
+                            </td>
+                        </tr>
+                        <tr style="background-color: #E7E4E4;">
+                            <td style="font-weight:bold" class="col0">
+                                For year 2015:
+                            </td>
+                            <td colspan="1" class="col1"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s1129" data-concept-type="monetary" title="AmountOfReclassificationsOrChangesInPresentation" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-14">
+                                Amount of reclassifications or changes in presentation
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AmountOfReclassificationsOrChangesInPresentation_ReclassifiedItemsDetailed_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <br />
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_4" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="AverageForeignExchangeRate" class="conceptbox vert_cell  hie_leaf col0" data-id="s6697" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-15">
+                                <span style="color:black;font-weight:normal">
+                                    Average foreign exchange rate
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AverageForeignExchangeRate__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <div id="sblock_2">
+                    <span>About reclassified items:</span>
+                    <br>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfNatureOfReclassificationOrChangesInPresentation" data-id="s4790">
+                            Nature of reclassifications or changes in presentation
+                        </span>
+                    </div>
+                    <div id="DescriptionOfNatureOfReclassificationOrChangesInPresentation_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfReasonForReclassificationOrChangesInPresentation" data-id="s4791">
+                            Reason for reclassifications or changes in presentation
+                        </span>
+                    </div>
+                    <div id="DescriptionOfReasonForReclassificationOrChangesInPresentation_data" class="editableTextItemData"></div>
+                    <br/>
+                    <div style="margin-left: 10px" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfReasonWhyReclassificationOfComparativeAmountsIsImpracticable" data-id="s4820">
+                            Reason why reclassification of comparative amounts is impracticable
+                        </span>
+                    </div>
+                    <div id="DescriptionOfReasonWhyReclassificationOfComparativeAmountsIsImpracticable_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfNatureOfNecessaryAdjustmentToProvideComparativeInformation" data-id="s4821">
+                            Nature of necessary adjustments to provide comparative information
+                        </span>
+                    </div>
+                    <div id="DescriptionOfNatureOfNecessaryAdjustmentToProvideComparativeInformation_data" class="editableTextItemData"></div>
+                </div>
+                </div>
+
+            </div>
+        <br />
+       
+        <br />
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Assets and liabilities with significant risk of material adjustment</span>
+            </h4>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_2" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr>
+                            <td width="75%" class="header_table conceptbox col0" style="background-color: #E7E4E4" rowspan="2">&nbsp;</td>
+                            <td class="header_table conceptbox hor_cell   col1" data-id="s1152" data-concept-type="string" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="AssetsAndLiabilitiesAxis" rowspan="1" colspan="1" id="ui-id-15">
+                                Assets and liabilities
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col1" data-id="s6773" data-concept-type="monetary" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="AssetsAndLiabilitiesDetailed" rowspan="1" colspan="1" id="ui-id-16">
+                                &lt;Asset or liability&gt; - Your variant
+                            </td>
+                        </tr>
+                        <tr style="background-color: #E7E4E4;">
+                            <td style="font-weight:bold" class="col0">
+                                At 31.12.2015:
+                            </td>
+                            <td colspan="1" class="col1"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s1157" data-concept-type="monetary" title="AssetsWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-17">
+                                Assets with significant risk of material adjustments within next financial year
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AssetsAndLiabilitiesDetailed_AssetsWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear_1_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s1158" data-concept-type="monetary" title="LiabilitiesWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-18">
+                                Liabilities with significant risk of material adjustments within next financial year
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AssetsAndLiabilitiesDetailed_LiabilitiesWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear_1_0_0" data-type="monetary" data-weight="plus" style="min-width: 306px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div id="sblock_4">
+                    <span>About assets and liabilities:</span>
+                    <br>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfNatureOfAssetsWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear" data-id="s4792">
+                            Nature of assets with significant risk of material adjustments within next financial year
+                        </span>
+                    </div>
+                    <div id="DescriptionOfNatureOfAssetsWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfNatureOfLiabilitiesWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear" data-id="s4793">
+                            Nature of liabilities with significant risk of material adjustments within next financial year
+                        </span>
+                    </div>
+                    <div id="DescriptionOfNatureOfLiabilitiesWithSignificantRiskOfMaterialAdjustmentsWithinNextFinancialYear_data" class="editableTextItemData"></div>
+                </div>
+            </div>
+
+           
+            
+        </div>
+        <br />
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Objectives, policies and processes for managing capital</span>
+            </h4>
+        </div>
+     
+        <div class="row">
+            <div class="col-md-12">
+                <div id="sblock_5">
+                    <span>Capital requirements:</span>
+                    <br>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="QualitativeInformationAboutEntitysObjectivesPoliciesAndProcessesForManagingCapital" data-id="s4794">
+                            Qualitative information about entity's objectives, policies and processes for managing capital
+                        </span>
+                    </div>
+                    <div id="QualitativeInformationAboutEntitysObjectivesPoliciesAndProcessesForManagingCapital_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="SummaryOfQuantitativeDataAboutWhatEntityManagesAsCapital" data-id="s4795">
+                            Summary quantitative data about what entity manages as capital
+                        </span>
+                    </div>
+                    <div id="SummaryOfQuantitativeDataAboutWhatEntityManagesAsCapital_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="DescriptionOfChangesInEntitysObjectivesPoliciesAndProcessesForManagingCapitalAndWhatEntityManagesAsCapital" data-id="s4796">
+                            Description of changes in entity's objectives, policies and processes for managing capital and what entity manages as capital
+                        </span>
+                    </div>
+                    <div id="DescriptionOfChangesInEntitysObjectivesPoliciesAndProcessesForManagingCapitalAndWhatEntityManagesAsCapital_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="InformationWhetherEntityCompliedWithAnyExternallyImposedCapitalRequirements" data-id="s4797">
+                            Information whether entity complied with any externally imposed capital requirements
+                        </span>
+                    </div>
+                    <div id="InformationWhetherEntityCompliedWithAnyExternallyImposedCapitalRequirements_data" class="editableTextItemData"></div>
+                    <div style="margin-left: 10px;" class="editableTextBox">
+                        <span class="editableTextItem" id="InformationAboutConsequencesOfNoncomplianceWithExternallyImposedCapitalRequirements" data-id="s4798">
+                            Information about consequences of non-compliance with externally imposed capital requirements
+                        </span>
+                    </div>
+                    <div id="InformationAboutConsequencesOfNoncomplianceWithExternallyImposedCapitalRequirements_data" class="editableTextItemData"></div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Dividends</span>
+            </h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_2" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsRecognisedAsDistributionsToOwnersPerShare" class="conceptbox vert_cell  hie_leaf col0" data-id="s1170" data-concept-type="perShare" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-19">
+                                <span style="color:black;font-weight:normal">
+                                    Dividends recognised as distributions to owners per share
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsRecognisedAsDistributionsToOwnersPerShare__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsProposedOrDeclaredBeforeFinancialStatementsAuthorisedForIssueButNotRecognisedAsDistributionToOwners" class="conceptbox vert_cell  hie_leaf col0" data-id="s1171" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-20">
+                                <span style="color:black;font-weight:normal">
+                                    Dividends proposed or declared before financial statements authorised for issue but not recognised as distribution to owners
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsProposedOrDeclaredBeforeFinancialStatementsAuthorisedForIssueButNotRecognisedAsDistributionToOwners__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsProposedOrDeclaredBeforeFinancialStatementsAuthorisedForIssueButNotRecognisedAsDistributionToOwnersPerShare" class="conceptbox vert_cell  hie_leaf col0" data-id="s1172" data-concept-type="perShare" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-21">
+                                <span style="color:black;font-weight:normal">
+                                    Dividends proposed or declared before financial statements authorised for issue but not recognised as distribution to owners per share
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsProposedOrDeclaredBeforeFinancialStatementsAuthorisedForIssueButNotRecognisedAsDistributionToOwnersPerShare__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CumulativePreferenceDividendsNotRecognised" class="conceptbox vert_cell  hie_leaf col0" data-id="s1173" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-22">
+                                <span style="color:black;font-weight:normal">
+                                    Cumulative preference dividends not recognised
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CumulativePreferenceDividendsNotRecognised__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsPayableThroughChangeInFairValueOfNoncashAssetsHeldForDistributionToOwners" class="conceptbox vert_cell  hie_leaf col0" data-id="s1179" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-23">
+                                <span style="color:black;font-weight:normal">
+                                    Increase (decrease) in dividends payable through change in fair value of non-cash assets held for distribution to owners
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPayableThroughChangeInFairValueOfNoncashAssetsHeldForDistributionToOwners__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="EquityReclassifiedIntoFinancialLiabilities" class="conceptbox vert_cell  hie_leaf col0" data-id="s1180" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-24">
+                                <span style="color:black;font-weight:normal">
+                                    Equity reclassified into financial liabilities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="EquityReclassifiedIntoFinancialLiabilities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="FinancialLiabilitiesReclassifiedIntoEquity" class="conceptbox vert_cell  hie_leaf col0" data-id="s1181" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-25">
+                                <span style="color:black;font-weight:normal">
+                                    Financial liabilities reclassified into equity
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="FinancialLiabilitiesReclassifiedIntoEquity__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="sblock_6" style="margin-left: 10px">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfNatureOfNoncashAssetsHeldForDistributionToOwnersDeclaredBeforeFinancialStatementsAuthorisedForIssue" data-id="s4826">
+                        Nature of non-cash assets held for distribution to owners declared before financial statements authorised for issue
+                    </span>
+                </div>
+                <div id="DescriptionOfNatureOfNoncashAssetsHeldForDistributionToOwnersDeclaredBeforeFinancialStatementsAuthorisedForIssue_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfMethodsUsedToMeasureFairValueOfNoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssue" data-id="s4827">
+                        Methods used to measure fair value of non-cash assets declared for distribution to owners before financial statements authorised for issue
+                    </span>
+                </div>
+                <div id="DescriptionOfMethodsUsedToMeasureFairValueOfNoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssue_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfTimingAndReasonOfReclassificationBetweenFinancialLiabilitiesAndEquity" data-id="s4828">
+                        Timing and reason of reclassification between financial liabilities and equity
+                    </span>
+                </div>
+                <div id="DescriptionOfTimingAndReasonOfReclassificationBetweenFinancialLiabilitiesAndEquity_data" class="editableTextItemData"></div>
+            </div><br>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_2" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">At 31.12.2015</td>
+                            <td style="text-align: center" class="col2">At 31.12.2014</td>
+                        </tr>
+                        <tr>
+                            <td title="NoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssue" class="conceptbox vert_cell  hie_leaf col0" data-id="s6237" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-26">
+                                <span style="color:black;font-weight:normal">
+                                    Non-cash assets declared for distribution to owners before financial statements authorised for issue
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssue__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="NoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssue__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="NoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssueAtFairValue" class="conceptbox vert_cell  hie_leaf col0" data-id="s6238" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-27">
+                                <span style="color:black;font-weight:normal">
+                                    Non-cash assets declared for distribution to owners before financial statements authorised for issue, at fair value
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssueAtFairValue__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="NoncashAssetsDeclaredForDistributionToOwnersBeforeFinancialStatementsAuthorisedForIssueAtFairValue__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsPayable" class="conceptbox vert_cell  hie_leaf col0" data-id="s6239" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-28">
+                                <span style="color:black;font-weight:normal">
+                                    Dividends payable, non-cash assets distributions
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPayable__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="DividendsPayable__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".addFirmParams").click(function () {
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+            })
+        });
+        $(".editableCell div").empty();
+        $(".editableCell div").append("<input type='text' />")
+
+    });
+
+
+
+</script>

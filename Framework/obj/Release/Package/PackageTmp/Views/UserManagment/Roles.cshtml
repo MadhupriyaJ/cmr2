@@ -1,0 +1,216 @@
+﻿@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Create Role";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h3 class="page-title">
+    Create Role <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Create Role</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+    </ul>
+
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet box blue" id="form_wizard_1">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-gift"></i> Create Role Wizard - <span class="step-title">
+                        Step 1 of 2
+                    </span>
+                </div><div class="actions">
+    <a class="btn btn-circle  btn-default" href="@Url.Action("ListRoles", "UserManagment")">
+        <i class="fa fa-list"></i> List Of Roles
+    </a>
+
+</div>
+                @*<div class="tools hidden-xs">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
+                </div>*@
+            </div>
+            <div class="portlet-body form">
+                <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            1
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Basic Information
+                                        </span>
+                                    </a>
+                                </li>
+                              
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number">
+                                           2
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Confirm
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">Provide basic information</h3>
+                                  
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Role Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-4">
+                                            <input type="text" id="Rolename" class="form-control" name="Rolename" />
+                                            <span class="help-block">
+                                                Provide  Role Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                           Description
+                                        </label>
+                                        <div class="col-md-4">
+                                            <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+                                           
+                                            <span class="help-block">
+                                              Description
+                                            </span>
+                                        </div>
+                                    </div>
+                                 
+                                  
+                                </div>
+                                
+                                <div class="tab-pane" id="tab2">
+                                    <h3 class="block">Basic information</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Role Name
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="Rolename">
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">
+                                            Description
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="description">
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="javascript:;" class="btn default button-previous">
+                                        <i class="m-icon-swapleft"></i> Back
+                                    </a>
+                                    <a href="javascript:;" class="btn blue button-next">
+                                        Continue <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                    <a href="javascript:;" class="btn green button-submit">
+                                        Submit <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css" />
+    <style>
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+    </style>
+}
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+    
+<script src="../../assets/Programmer/Scripts/Role/formwizardcreate.js"></script>
+
+<script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+<script src="@Url.Content("~/")assets/admin/pages/scripts/ui-alert-dialog-api.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+        });
+    </script>
+}

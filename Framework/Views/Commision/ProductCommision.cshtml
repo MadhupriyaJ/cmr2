@@ -1,0 +1,129 @@
+﻿
+@{
+    ViewBag.Title = "ProductCommision";
+    Layout = "~/Views/Shared/_LayoutSales.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-share font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase">Add Reward Processing </span>
+            <span class="caption-helper">Product Commision</span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-cloud-upload"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-wrench"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-trash"></i>
+            </a>
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="CampaignId">Campaign</label>
+                <div class="col-md-3">
+                    <select class="form-control validate[required]" id="CampaignId" name="CampaignId">
+                        <option value="">Select</option>
+                        <option value="1022">General Campaign</option>
+                        <option value="1031">New To Qatar</option>
+                        <option value="1037">New To Qatar</option>
+                        <option value="1038">Doha bank campaign</option>
+                        <option value="1043">Qatari campaign</option>
+                        <option value="1044">The new qatari campaign</option>
+                        <option value="1045">credit card campaign</option>
+                    </select>
+                    <span class="field-validation-valid" data-valmsg-for="CampaignId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="ProductId">Product</label>
+                <div class="col-md-2">
+                    <select class="form-control validate[required]" id="ProductId" name="ProductId"></select>
+                    <span class="field-validation-valid" data-valmsg-for="ProductId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="TeamId">Team</label>
+                <div class="col-md-2">
+                    <select class="form-control validate[required]" id="TeamId" name="TeamId">
+                        <option value="">Select</option>
+                        <option value="1">Team Beta</option>
+                        <option value="2">Team Alpha</option>
+                        <option value="3">Alpha</option>
+                    </select>
+                    <span class="field-validation-valid" data-valmsg-for="TeamId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="FromDate">From Date</label>
+                <div class="col-md-2">
+                    <input class="form-control date-picker validate[required]" data-val="true" data-val-date="The field FromDate must be a date." data-val-required="The FromDate field is required." id="FromDate" name="FromDate" placeholder="MM/DD/YYYY" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="FromDate" data-valmsg-replace="true"></span>
+                </div>
+                <label class="control-label col-sm-2" style="text-align:left;width:25px">-</label>
+                <label class="control-label col-sm-2" for="ToDate" style="text-align:left;width:45px">To</label>
+                <div class="col-md-2">
+                    <input class="form-control date-picker validate[required]" data-val="true" data-val-date="The field ToDate must be a date." data-val-required="The ToDate field is required." id="ToDate" name="ToDate" placeholder="MM/DD/YYYY" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="ToDate" data-valmsg-replace="true"></span>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="MinValue">Min Value</label>
+                <div class="col-md-2">
+                    <input placeholder="(e.g:- QAR 2,334.00)" class="form-control validate[required],custom[number]" data-val="true" data-val-number="The field MinValue must be a number." data-val-required="The MinValue field is required." id="MinValue" name="MinValue" style="text-align:right" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="MinValue" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="FromValue">From</label>
+                <div class="col-md-2">
+                    <input placeholder="(e.g:- QAR 2,334.00)" class="form-control validate[required],custom[number]" data-val="true" data-val-number="The field FromValue must be a number." data-val-required="The FromValue field is required." id="FromValue" name="FromValue" style="text-align:right" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="FromValue" data-valmsg-replace="true"></span>
+                </div>
+                <label class="control-label col-sm-2" style="text-align:left;width:25px">-</label>
+                <label class="control-label col-sm-2" for="ToValue" style="text-align:left;width:45px">To</label>
+                <div class="col-md-2" style="text-align:left">
+                    <input placeholder="(e.g:- QAR 2,334.00)" class="form-control validate[required],custom[number]" data-val="true" data-val-number="The field ToValue must be a number." data-val-required="The ToValue field is required." id="ToValue" name="ToValue" style="text-align:right" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="ToValue" data-valmsg-replace="true"></span>
+                </div>
+                <div class="col-md-2" style="text-align:left">
+                    <label id="lblInfinity"><div class="checker" id="uniform-chkInfinity"><span><input data-val="true" data-val-required="The ToInfinity field is required." id="chkInfinity" name="ToInfinity" text="infinity" type="checkbox" value="true"></span></div><input name="ToInfinity" type="hidden" value="false">infinity</label>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="CommisionTypeId">Commision Type</label>
+                <div class="col-md-2">
+                    <select class="form-control validate[required]" id="CommisionTypeId" name="CommisionTypeId">
+                        <option value="">Select</option>
+                    </select>
+                    <span class="field-validation-valid" data-valmsg-for="CommisionTypeId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="Commision">Commision</label>
+                <div class="col-md-2">
+                    <input placeholder="(e.g:- QAR 2,334.00)" class="form-control validate[required],custom[number]" data-val="true" data-val-number="The field Commision must be a number." data-val-required="The Commision field is required." id="Commision" name="Commision" style="text-align:right" type="text" value="">
+                    <span class="field-validation-valid" data-valmsg-for="Commision" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-1 col-md-10">
+                    <input id="btnSubmit" type="submit" value="Save" class="btn btn-primary">
+                    <input type="button" value="Cancel" onclick="window.location.href='/LeadManagment/Commision';" class="btn btn-default">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

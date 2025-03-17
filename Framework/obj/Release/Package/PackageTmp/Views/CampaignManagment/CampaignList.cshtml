@@ -1,0 +1,443 @@
+﻿@using FramWork.HelloService;
+@using Core;
+@{
+    ViewBag.Title = "CampaignList";
+    //Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+    client.GetCampaignList(Login.OrganizationId);
+    FramWork.Models.FrameworkEntities db = new FramWork.Models.FrameworkEntities();
+    var Loginuser = db.Users.Where(a => a.Id == Login.Id).FirstOrDefault();
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Campaigns</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Campaigns List</a>
+    </li>
+
+</ul>
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="@Url.Content("~")assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                    @*<img src="@Url.Content("~")assets/frontend/pages/img/people/Default_man.png" alt="" class="media-object">*@
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        @Loginuser.FirstName @Loginuser.LastName
+                    </div>
+                    @*<div class="profile-usertitle-job">
+                        Developer
+                    </div>*@
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    @*<button type="button" class="btn btn-circle green-haze btn-sm">Follow</button>
+                        <button type="button" class="btn btn-circle btn-danger btn-sm">Message</button>*@
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <div class="portlet light">
+                <!-- STAT -->
+                <div class="row list-separated profile-stat">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            37
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Projects
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            51
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Tasks
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            61
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Uploads
+                        </div>
+                    </div>
+                </div>
+                <!-- END STAT -->
+                <div>
+                    <h4 class="profile-desc-title">About Marcus Doe</h4>
+                    <div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+                </div>
+            </div>
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase">Info</span>
+                            </div>
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_1_1" data-toggle="tab">Calendar</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_2" data-toggle="tab">List</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="tab-content">
+                                <!-- GENERAL QUESTION TAB -->
+                                <div class="tab-pane active" id="tab_1_1">
+                                    <div class="row margin-bottom-40" style="padding:20px;">
+                                        <div id='top'>
+                                            Language:
+                                            <select id='lang-selector'></select>
+                                        </div>
+                                        <br />
+                                        <div id='calendar'></div>
+                                    </div>
+                                </div>
+                                <!-- END GENERAL QUESTION TAB -->
+                                <!-- MEMBERSHIP TAB -->
+                                <div class="tab-pane" id="tab_1_2">
+                                    <div>
+                                        <table id="campaigntable" class="tablesorter table  table-bordered  " style="min-height:0px !important;">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        #
+                                                    </th>
+                                                    <th>
+                                                        <i class="fa fa-codepen"></i> Details
+                                                    </th>
+                                                    <th><i class="fa fa-codepen"></i> Media Details</th>
+                                                    <th></th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+                                                    foreach (var item in ViewBag.campaignList)
+                                                    {
+                                                        var st = Convert.ToDateTime(item.StartDate);
+                                                        var et = Convert.ToDateTime(item.EndDate);
+                                                        var products = client.GetCampaignProductList(Login.OrganizationId, new Guid(Convert.ToString(item.Id)));
+                                                        var medias = client.GetCampaignMediaList(Login.OrganizationId, new Guid(Convert.ToString(item.Id)));
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>
+
+                                                                <table class="table table-bordered" style="min-height:0px !important;">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-deviantart "></i> Name</td>
+                                                                            <td>@item.CampaignName</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa  fa-delicious"></i> Bank? </td>
+                                                                            <td>@item.CampaignBankType.Name</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa fa-cube"></i> Campaign Type</td>
+                                                                            <td>@item.CampaignType.Name</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa  fa-money"></i> Budget </td>
+                                                                            <td style="text-align:right;"> @string.Format("{0:C}", item.Budget).Replace("$", "QAR ")</td>
+
+                                                                        </tr>
+                                                                        <tr><td><i class="fa  fa-calendar-o"></i> Start Date</td><td>@Html.Raw(String.Format("{0}/{1}/{2}", Convert.ToDateTime(st).Day, Convert.ToDateTime(st).Month, Convert.ToDateTime(st).Year))</td></tr>
+                                                                        <tr>
+                                                                            <td><i class="fa  fa-calendar"></i> EndDate</td>
+                                                                            <td>
+                                                                                @Html.Raw(String.Format("{0}/{1}/{2}", Convert.ToDateTime(et).Day, Convert.ToDateTime(et).Month, Convert.ToDateTime(et).Year))
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td><i class="fa  fa-child"></i> Owner</td>
+                                                                            <td>
+                                                                               @if (item.Employee.User != null)
+                                                                               { 
+                                                                                @item.Employee.User.FirstName @item.Employee.User.LastName
+                                                                               }
+                                                                                @*@if (item.Data.CampaignOwner != null)
+                                                                                    {
+                                                                                        @item.Data.Employee1.FirstName   @item.Data.Employee1.LastName
+                                                                                    }*@
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                                <table class="table table-bordered " style="min-height:0px !important;">
+                                                                    <thead>
+                                                                        <tr><th><i class="fa  fa-qrcode"></i> Products</th></tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var prod in products)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    @prod.ProductName
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    </tbody>
+                                                                </table>
+
+                                                            </td>
+
+                                                            <td>
+                                                                <table class="table table-bordered " style="min-height:0px !important;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th><i class="fa  fa-film"></i> Media</th>
+                                                                            <th><i class="fa  fa-share-alt"></i> Source</th>
+                                                                            <th><i class="fa  fa-quote-right"></i> Narration</th>
+                                                                            <th><i class="fa  fa-money"></i> Cost</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        @foreach (var m in medias)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>
+                                                                                    @m.MediaName
+                                                                                </td>
+                                                                                <td>@m.MediaSource.Name</td>
+                                                                                <td>
+                                                                                    @m.Narration
+                                                                                </td>
+                                                                                <td style="text-align:right;">@string.Format("{0:C}", @m.Cost).Replace("$", "QAR ")</td>
+                                                                            </tr>
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                                <hr />
+                                                                <b>Description</b>
+                                                                <br />
+                                                                <p>@item.Description</p>
+
+                                                            </td>
+                                                            <td style="text-align:center;"><a href="#" class="pedit btn btn-circle btn-icon-only btn-default"><i class="icon-pencil"></i></a><a href="#" class="btndelete btn btn-circle btn-icon-only btn-default" )"><i class="icon-trash"></i></a></td>
+                                                        </tr>
+                                                    }
+                                                }
+
+
+                                            </tbody>
+                                        </table>
+                                        <div id="pager" style="position: none;">
+                                            <form>
+                                                <img src="@Url.Content("~/assets/Programmer/Image/first.png")" class="first" />
+                                                <img src="@Url.Content("~/assets/Programmer/Image/prev.png")" class="prev" />
+                                                <input type="text" class="pagedisplay" />
+                                                <img src="@Url.Content("~/assets/Programmer/Image/next.png")" class="next" />
+                                                <img src="@Url.Content("~/assets/Programmer/Image/last.png")" class="last" />
+                                                <select class="pagesize">
+                                                    <option selected="selected" value="5">5</option>
+                                                    <option value="10">10</option>
+                                                    <option value="20">20</option>
+                                                    <option value="30">30</option>
+                                                    <option value="40">40</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END MEMBERSHIP TAB -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PROFILE CONTENT -->
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+@section Scripts{
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.js"></script>
+    <script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.pager.js"></script>
+
+    <script src="~/assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/lib/moment.min.js"></script>
+    <script src="~/assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/fullcalendar.min.js"></script>
+    <script src="~/assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/lang-all.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var currentLangCode = 'en';
+            // build the language selector's options
+            $.each($.fullCalendar.langs, function (langCode) {
+                $('#lang-selector').append(
+                    $('<option/>')
+                        .attr('value', langCode)
+                        .prop('selected', langCode == currentLangCode)
+                        .text(langCode)
+                );
+            });
+
+            // rerender the calendar when the selected option changes
+            $('#lang-selector').on('change', function () {
+                if (this.value) {
+                    currentLangCode = this.value;
+                    $('#calendar').fullCalendar('destroy');
+                    renderCalendar();
+                }
+            });
+
+            //var repeatingEvents = [];
+
+            var repeatingEvents = [
+                 {
+                     id: 7,
+                     title: 'All day',
+                     start: '2015-07-16',
+                     dow: null,
+                     ranges: "NO",
+                 }
+            ];
+            $.get('@Url.Content("~/CampaignManagment/getcampaignappoinments/")', function (data, status) {
+                $.each(data, function (index, item) {
+                    repeatingEvents.push({
+                        title: item.title,
+                        id: item.id,
+                        start: item.start,
+                        end: (item.repeating == true && item.start == item.end ? item.end + 1 : item.end),
+                        color: item.color,
+                        dow: (item.repeating == true ? item.dow : null),
+                        ranges: (item.repeating == true ? [{ start: item.ranges.start, end: item.ranges.end, }] : 'NO'),
+                    })
+                })
+                $('#calendar').fullCalendar('refetchEvents');
+                console.log(repeatingEvents);
+            });
+
+            function renderCalendar() {
+                $('#calendar').fullCalendar({
+                    defaultDate: moment(),
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: ''
+                    },
+                    defaultView: 'month',
+                    eventRender: function (event, element, view) {
+                        //alert(event.ranges);
+                        if (event.ranges != 'NO' && event.ranges != null && event.ranges != "" && event.start != null && event.end != null) {
+                            return (event.ranges.filter(function (range) {
+                                return (event.start.isBefore(range.end) &&
+                                        event.end.isAfter(range.start));
+                            }).length) > 0;
+                        }
+                    },
+                    events: function (start, end, timezone, callback) {
+                        var events = repeatingEvents; // getEvents(start, end); //this should be a JSON request
+                        callback(events);
+                    },
+                });
+            }
+            renderCalendar();
+        });
+
+    </script>
+    <script>
+        $(function () {
+
+            $(document).ready(function () {
+
+                // Build the chart
+                $('#container').highcharts({
+                    chart: {
+                        plotBackgroundColor: null,
+                        plotBorderWidth: null,
+                        plotShadow: false,
+                        type: 'pie'
+                    },
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: false
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: "Brands",
+                        colorByPoint: true,
+                        data: [{
+                            name: "Microsoft Internet Explorer",
+                            y: 56.33
+                        }, {
+                            name: "Chrome",
+                            y: 24.03,
+                            sliced: true,
+                            selected: true
+                        }, {
+                            name: "Firefox",
+                            y: 10.38
+                        }, {
+                            name: "Safari",
+                            y: 4.77
+                        }, {
+                            name: "Opera",
+                            y: 0.91
+                        }, {
+                            name: "Proprietary or Undetectable",
+                            y: 0.2
+                        }]
+                    }]
+                });
+            });
+        });
+    </script>
+
+}
+@section Css{
+    <link href="~/assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/fullcalendar.min.css" rel="stylesheet" />
+    <link href="@Url.Content("~")assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~")assets/admin/pages/css/profile.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~")assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css" />
+}

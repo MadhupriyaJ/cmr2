@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+<div>
+    <table class="tablesorter table table-bordered table-striped">
+        <thead>
+            <tr>
+            <th><input type="checkbox" class="checkbox-list" name="module"  /></th>
+                <th>Name</th>
+                <th>Controller /Method  Name, Action and Mode</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var p in ViewBag.Module)
+                {
+                    <tr>
+                        <td><input type="checkbox"  class="checkbox-list" name="module" value="@p.Id" /></td>
+                    @*<td><input type="checkbox" @(p.Id==1?"checked":"") class="checkbox-list" name="module" value="@p.Id" /></td>*@
+                        <td>@p.Name</td>
+                        <td>@p.Code</td>
+                        <td>@p.Status</td>
+                    </tr>
+                }
+            }
+        </tbody>
+ 
+    </table>
+    <div id="pager" style="position: none;">
+        <form>
+            <img src="@Url.Content("~/assets/Programmer/Image/first.png")" class="first" />
+            <img src="@Url.Content("~/assets/Programmer/Image/prev.png")" class="prev" />
+            <input type="text" class="pagedisplay" />
+            <img src="@Url.Content("~/assets/Programmer/Image/next.png")" class="next" />
+            <img src="@Url.Content("~/assets/Programmer/Image/last.png")" class="last" />
+            <select class="pagesize">
+                <option selected="selected" value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+            </select>
+        </form>
+    </div>
+</div>

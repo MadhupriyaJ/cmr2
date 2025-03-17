@@ -1,0 +1,468 @@
+﻿@{
+    ViewBag.Title = "Lead 2 Deal | Contact";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    
+}
+
+<h3 class="page-title">
+    Person Managment <small>Oppurtunity/ Contact</small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Oppurtunity/ Contact</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <a class="btn grey-salsa" href="/PersonManagment/CreatePerson">
+                <i class="fa fa-plus"></i> Create Oppurtunity
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-3 col-sm-3 blog-sidebar">
+        <div class="portlet light bg-inverse">
+
+            <div class="portlet-body">
+                @Html.Partial("~/Views/Shared/_PartialPageAdminMenu.cshtml")
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-6">
+        <div class="portlet light">
+            <div class="portlet-title">
+                <div class="caption caption-md">
+                    <i class="icon-bar-chart theme-font hide"></i>
+                    <span class="caption-subject font-blue-madison bold uppercase">Contact Or Oppurtunity</span>
+                    <span class="caption-helper">105 Count </span>
+                </div>
+                <div class="inputs">
+                    <div class="portlet-input input-inline input-small ">
+                        <div class="input-icon right">
+                            <i class="icon-magnifier"></i>
+                            <input class="form-control form-control-solid" placeholder="search..." type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div style="position: relative; width: auto;" class="slimScrollDiv">
+                    <div class="scroller" style=" ">
+                        <div class="general-item-list">
+
+
+                                                        @{
+                                                            foreach (var p in ViewBag.PersonLst)
+                                                            {
+
+
+                                                                <div class="item" id="@p.Id">
+                                                                    <div class="item-head">
+                                                                        <div class="item-details">
+                                                                            <img class="item-pic" src="../../assets/admin/layout3/img/avatar3.jpg">
+                                                                            <a href="" class="item-name primary-link">@p.NickName</a>
+                                                                            <span class="item-label">5 hrs ago</span>
+                                                                        </div>
+                                                                        <span class="item-status"><span class="badge badge-empty badge-warning"></span> Pending</span>
+                                                                        <br /><span class="item-status"><span class="badge badge-empty badge-warning"></span> Pending</span>
+                                                                    </div>
+                                                                    <div class="item-body">
+                                                                        <input type="hidden" id="PersonId" value=@p.Id />
+                                                                        <table>
+
+                                                                            <tr><td>RP Number :</td><td>@p.Passport </td></tr>
+                                                                            <marcus doetr><td>Passport Number :</td><td> @p.RPnumber</td></marcus>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+
+                                                            }
+                                                        }
+                        </div>
+                        <hr />
+                        <div id="pager" style="position: none;">
+                            <form>
+                                <img src="@Url.Content("~/assets/Programmer/Image/first.png")" class="first" />
+                                <img src="@Url.Content("~/assets/Programmer/Image/prev.png")" class="prev" />
+                                <input type="text" class="pagedisplay" />
+                                <img src="@Url.Content("~/assets/Programmer/Image/next.png")" class="next" />
+                                <img src="@Url.Content("~/assets/Programmer/Image/last.png")" class="last" />
+                                <select class="pagesize">
+                                    <option selected="selected" value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                </select>
+                            </form>
+
+                        </div>
+                    </div>
+                    <div style="background: none repeat scroll 0% 0% rgb(215, 220, 226); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 122.401px;" class="slimScrollBar"></div><div style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;" class="slimScrollRail"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);">
+        <div class="profile-sidebar" style="width:100%;">
+            <!-- PORTLET MAIN -->
+        @{
+            FramWork.HelloService.Person ps = ViewBag.PersonSpecLst;
+            <div class="portlet light profile-sidebar-portlet">
+           
+
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="../../assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                       @ps.FirstName
+                    </div>
+                    <div class="profile-usertitle-job">
+                      
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" id="MakeLead" class="btn btn-circle green-haze btn-sm">Make Lead</button>
+                    <button type="button" class="btn btn-circle btn-danger btn-sm">Message</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+
+
+            </div>
+            <!-- END PORTLET MAIN -->
+            <div class="panel-group accordion" id="accordion3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a aria-expanded="false" class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1">
+                                <i class="icon-home"></i>
+                                Overview
+                            </a>
+                        </h4>
+                    </div>
+                    <div style="height: 0px;" aria-expanded="true" id="collapse_3_1" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>@ps.FirstName</td>
+                                </tr>
+                                <tr>
+                                    <td>Middle Name</td>
+                                    <td>@ps.MiddleName</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>@ps.LastName</td>
+                                </tr>
+                                <tr>
+                                    <td>Nick Name</td>
+                                    <td>@ps.NickName</td>
+                                </tr>
+                                <tr>
+                                    <td>DOB</td>
+                                    <td>@ps.Dob</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a aria-expanded="false" class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_2">
+                                <i class="icon-settings"></i>
+                                Account Settings
+                            </a>
+                        </h4>
+                    </div>
+                    <div style="" aria-expanded="true" id="collapse_3_2" class="panel-collapse collapse in">
+                        <div class="panel-body" style="height:200px; overflow-y:auto;">
+                        <table>
+                            <tr>
+                                <td>
+                                    Salary
+                                </td>
+                                <td>
+                                    QAR 6,000 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Current Liability</td>
+                                <td>QAR 20,00000</td>
+                            </tr>
+
+                            <tr>
+                                <td>Monthly Installment</td>
+                                <td>QAR 5,000</td>
+                            </tr>
+
+
+                            <tr>
+                                <td>Expected Financial</td>
+                                <td>QAR 80,000</td>
+                            </tr>
+
+                            <tr>
+                                <td>Assign Lead to Team</td>
+                                <td>Team Alpha</td>
+                            </tr>
+
+                            <tr>
+                                <td>Assign Lead To</td>
+                                <td>Akbar Ali</td>
+                            </tr>
+
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a aria-expanded="false" class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_3">
+                                <i class="icon-settings"></i>
+                                Contact
+                            </a>
+                        </h4>
+                    </div>
+                    <div style="" aria-expanded="true" id="collapse_3_3" class="panel-collapse collapse in">
+                        <div class="panel-body" style="height:200px; overflow-y:auto;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Mobile
+                                    </td>
+                                    <td>
+                                        @ps.Mobile
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Phone</td>
+                                    <td>@ps.Phone/td>
+                                </tr>
+
+                                <tr>
+                                    <td>Email</td>
+                                    <td>@ps.Email</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Street</td>
+                                    <td>@ps.Street</td>
+                                </tr>
+
+                               
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a aria-expanded="false" class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_4">
+                                <i class="icon-check"></i>
+                                Tasks
+                            </a>
+                        </h4>
+                    </div>
+                    <div aria-expanded="false" id="collapse_3_4" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Title
+                                    </td>
+                                    <td>
+                                       Home Loan
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Date</td>
+                                    <td>7/28/2015</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Time</td>
+                                    <td>14.00 PM</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Duration</td>
+                                    <td>30 min</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Type</td>
+                                    <td>Email</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Action</td>
+                                    <td class="label btn-circle label-sm label-warning">Info</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a aria-expanded="false" class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_5">
+                                <i class="icon-info"></i>
+                                Help
+                            </a>
+                        </h4>
+                    </div>
+                    <div aria-expanded="false" id="collapse_3_5" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <h3>User Guide</h3>
+                            <p>Gain in-depth knowledge of the features, customization, security and implementation procedures with the User Guide.</p>
+                            <a href="">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PORTLET MAIN -->
+            <div class="portlet light">
+                <!-- STAT -->
+                <div class="row list-separated profile-stat">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            37
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Projects
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            51
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Tasks
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            61
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Uploads
+                        </div>
+                    </div>
+                </div>
+                <!-- END STAT -->
+               
+            </div>
+            <!-- END PORTLET MAIN -->
+}
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+@section Css{
+    <link href="../../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/admin/pages/css/profile.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css" />
+    <style>
+        .item {
+            cursor: pointer;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.js"></script>
+    <script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.pager.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+          
+            $(".item").click(function () {
+                var datarow = { ID: $(this).attr("id") };
+                alert($(this).attr("id"));
+                $.ajax({
+                    type: 'POST',
+                    url: '../../PersonManagment/GetPersonSpecific',
+                    data: datarow,
+                    success: function (response) {
+                        if (response == 'True') {
+                            alert("true");
+                            window.location.href = '/PersonManagment/Index';
+                        }
+                        else {
+                            bootbox.alert("Error, could not complete the action!", function () {
+                                window.location.reload();
+                            });
+                        }
+                    }
+                });
+
+            });
+
+
+            $("#MakeLead").click(function () {
+                var ID = $('.item').attr("id");
+                var url = "/PersonManagment/MakeLead?ID=" + ID;
+                window.location.href = url;
+             
+
+             
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+        $("table.tablesorter").tablesorter({ widthFixed: true, sortList: [[0, 0]] })
+        .tablesorterPager({ container: $("#pager"), size: $(".pagesize option:selected").val() });
+    });
+
+
+    </script>
+}
+

@@ -1,0 +1,840 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">Statement of changes in equity</span>
+    </h4>
+    <div class="portlet-body">
+        <div>
+            <div id="movablebar" style="position: relative; top: auto; width: auto;">
+                <aside id="small-toolbar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+
+                    <ul class="pag-breadcrumb">
+                        <!-- st-(small-toolbar) -->
+                        <li class="st-save first-child">
+                            <a href="#" id="saveButton">Save</a>
+                        </li>
+                        <li class="st-monitor">
+                            <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a>
+                        </li>
+                        <li class="st-return-standart">
+                            <a href="javascript:reloadList()">Reload</a>
+                        </li>
+                        <li>
+                            <span class="asideTitle">Currency:</span>
+                            <select id="report_currency" style="vertical-align:midle; width:140px">
+                                <option value="RUB" selected="selected">Russian Ruble</option>
+                                <option value="0">[Add new exchange rate]</option>
+                            </select>
+                        </li>
+                        <li class="st-print">
+                            <div class="drop-action-box">
+                                <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+
+        <div class="portlet-title">
+            <h4 class="bold" align="center">Statement of changes in equity</h4>
+           
+            <br />
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_1" class="table table-bordered tbl_editable">
+                    <tbody>
+                        <tr>
+                            <td width="75%" class="header_table conceptbox col0" style="background-color: #E7E4E4" rowspan="3">&nbsp;</td>
+                            <td class="header_table conceptbox hor_cell   col1 col2 col3 col4 col5 col6 col7 col8 col9" data-id="s289" data-concept-type="string" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="ComponentsOfEquityAxis" rowspan="1" colspan="9" id="ui-id-2">
+                                Components of equity
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="header_table conceptbox hor_cell   col1 col2 col3 col4 col5 col6 col7" data-id="s291" data-concept-type="string" style="color:black;font-weight:normal;background-color: #E7E4E4;" title="EquityAttributableToOwnersOfParentAbstract" rowspan="1" colspan="7" id="ui-id-13">
+                                Equity attributable to owners of parent
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col8" data-id="s310" data-concept-type="monetary" style="color:green;font-weight:normal;background-color: #E7E4E4;" title="NoncontrollingInterests" rowspan="2" colspan="1" id="ui-id-14">
+                                Non-controlling interests
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col9" data-id="s4495" data-concept-type="monetary" style="color:green;font-weight:bold;background-color: #E7E4E4;" title="Equity" rowspan="2" colspan="1" id="ui-id-15">
+                                Total equity
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col1" data-id="s292" data-concept-type="monetary" style="color:green;font-weight:normal;background-color: #E7E4E4;" title="IssuedCapital" rowspan="1" colspan="1" id="ui-id-16">
+                                Issued capital
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col2" data-id="s293" data-concept-type="monetary" style="color:green;font-weight:normal;background-color: #E7E4E4;" title="SharePremium" rowspan="1" colspan="1" id="ui-id-17">
+                                Share premium
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col3" data-id="s294" data-concept-type="monetary" style="color:red;font-weight:normal;background-color: #E7E4E4;" title="TreasuryShares" rowspan="1" colspan="1" id="ui-id-18">
+                                Treasury shares
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col4" data-id="s295" data-concept-type="monetary" style="color:green;font-weight:normal;background-color: #E7E4E4;" title="OtherEquityInterest" rowspan="1" colspan="1" id="ui-id-19">
+                                Other equity interest
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col5" data-id="s4497" data-concept-type="monetary" style="color:green;font-weight:normal;background-color: #E7E4E4;" title="OtherReserves" rowspan="1" colspan="1" id="ui-id-20">
+                                Other reserves
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col6" data-id="s309" data-concept-type="monetary" style="color:green;font-weight:normal;background-color: #E7E4E4;" title="RetainedEarnings" rowspan="1" colspan="1" id="ui-id-21">
+                                Retained earnings
+                            </td>
+                            <td class="header_table conceptbox hor_cell  hie_leaf col7" data-id="s4496" data-concept-type="monetary" style="color:green;font-weight:bold;background-color: #E7E4E4;" title="EquityAttributableToOwnersOfParent" rowspan="1" colspan="1" id="ui-id-22">
+                                Total equity attributable to owners of parent
+                            </td>
+                        </tr>
+                        <tr style="background-color: #E7E4E4;">
+                            <td style="font-weight:bold" class="col0">
+                                For year 2015:
+                            </td>
+                            <td colspan="9" class="col1 col2 col3 col4 col5 col6 col7 col8 col9"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s313" data-concept-type="monetary" title="PreviouslyStatedEquity" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-23">
+                                Previously stated equity
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IssuedCapital_PreviouslyStatedEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="PreviouslyStatedEquity_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="PreviouslyStatedEquity_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="OtherEquityInterest_PreviouslyStatedEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="OtherReserves_PreviouslyStatedEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="PreviouslyStatedEquity_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_PreviouslyStatedEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="NoncontrollingInterests_PreviouslyStatedEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="Equity_PreviouslyStatedEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s316" data-concept-type="monetary" title="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-24">
+                                Increase (decrease) due to changes in accounting policy required by IFRSs
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="Equity_IncreaseDecreaseDueToChangesInAccountingPolicyRequiredByIFRSs_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s317" data-concept-type="monetary" title="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-25">
+                                Increase (decrease) due to voluntary changes in accounting policy
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="Equity_IncreaseDecreaseDueToVoluntaryChangesInAccountingPolicy_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s318" data-concept-type="monetary" title="FinancialEffectOfCorrectionsOfAccountingErrors" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-26">
+                                Increase (decrease) due to corrections of prior period errors
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_FinancialEffectOfCorrectionsOfAccountingErrors_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="FinancialEffectOfCorrectionsOfAccountingErrors_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="Equity_FinancialEffectOfCorrectionsOfAccountingErrors_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s320" data-concept-type="monetary" title="Equity" style="color:green;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-27">
+                                Equity at beginning of period
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col1" id="IssuedCapital__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="SharePremium__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col3" id="TreasuryShares__1_1_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>( )</div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col4" id="OtherEquityInterest__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col5" id="OtherReserves__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col6" id="RetainedEarnings__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell inactiveCell  col7" id="EquityAttributableToOwnersOfParent__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col8" id="NoncontrollingInterests__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell inactiveCell  col9" id="Equity__1_1_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell   col0" data-id="s321" data-concept-type="string" title="ChangesInEquityAbstract" style="color:black;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-28">
+                                Changes in equity
+                            </td>
+                            <td style="background-color: #E7E4E4" colspan="9" class="col1 col2 col3 col4 col5 col6 col7 col8 col9"></td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s323" data-concept-type="monetary" title="ProfitLoss" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-29">
+                                Profit (loss)
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IssuedCapital_ProfitLoss_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLoss_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLoss_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="OtherEquityInterest_ProfitLoss_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="OtherReserves_ProfitLoss_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLoss_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_ProfitLoss_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="NoncontrollingInterests_ProfitLoss_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLoss__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s324" data-concept-type="monetary" title="OtherComprehensiveIncome" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-30">
+                                Other comprehensive income
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IssuedCapital_OtherComprehensiveIncome_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_OtherComprehensiveIncome_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="NoncontrollingInterests_OtherComprehensiveIncome_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s325" data-concept-type="monetary" title="ComprehensiveIncome" style="color:green;font-weight:bold;padding-left: 15px;background-color: #E7E4E4" id="ui-id-31">
+                                Total comprehensive income
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>( )</div>
+                            </td>
+                            <td class="totalCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_EquityAttributableToOwnersOfParent_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s326" data-concept-type="monetary" title="IssueOfEquity" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-32">
+                                Issue of equity
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IssueOfEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IssueOfEquity__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s327" data-concept-type="monetary" title="DividendsPaid" style="color:red;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-33">
+                                Dividends recognised as distributions to owners
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_IssuedCapital_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 35px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_SharePremium_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_TreasuryShares_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 39px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_OtherReserves_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 46px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_RetainedEarnings_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 49px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_EquityAttributableToOwnersOfParent_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 64px;">
+                                <div>( )</div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 56px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaid__0_0_0" data-type="monetary" data-weight="minus" style="min-width: 34px;">
+                                <div>( )</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s328" data-concept-type="monetary" title="IncreaseDecreaseThroughOtherContributionsByOwners" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-34">
+                                Increase through other contributions by owners
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseThroughOtherContributionsByOwners_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherContributionsByOwners__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s329" data-concept-type="monetary" title="IncreaseDecreaseThroughOtherDistributionsToOwners" style="color:red;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-35">
+                                Decrease through other distributions to owners
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_IssuedCapital_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 35px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_SharePremium_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_TreasuryShares_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 39px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_OtherReserves_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 46px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_RetainedEarnings_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 49px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseThroughOtherDistributionsToOwners_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 64px;">
+                                <div>( )</div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 56px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughOtherDistributionsToOwners__0_0_0" data-type="monetary" data-weight="minus" style="min-width: 34px;">
+                                <div>( )</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s331" data-concept-type="monetary" title="IncreaseDecreaseThroughTreasuryShareTransactions" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-36">
+                                Increase (decrease) through treasury share transactions
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseThroughTreasuryShareTransactions_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTreasuryShareTransactions__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s332" data-concept-type="monetary" title="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-37">
+                                Increase (decrease) through changes in ownership interests in subsidiaries that do not result in loss of control
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughChangesInOwnershipInterestsInSubsidiariesThatDoNotResultInLossOfControl__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s333" data-concept-type="monetary" title="IncreaseDecreaseThroughSharebasedPaymentTransactions" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-38">
+                                Increase (decrease) through share-based payment transactions
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseThroughSharebasedPaymentTransactions_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughSharebasedPaymentTransactions__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s330" data-concept-type="monetary" title="IncreaseDecreaseThroughTransfersAndOtherChangesEquity" style="color:green;font-weight:normal;padding-left: 15px;background-color: #E7E4E4" id="ui-id-39">
+                                Increase (decrease) through other changes
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_IssuedCapital_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_SharePremium_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_TreasuryShares_0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_OtherEquityInterest_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_OtherReserves_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_RetainedEarnings_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent_IncreaseDecreaseThroughTransfersAndOtherChangesEquity_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity_NoncontrollingInterests_0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div>
+                                </div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="IncreaseDecreaseThroughTransfersAndOtherChangesEquity__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s334" data-concept-type="monetary" title="Equity" style="color:green;font-weight:bold;padding-left: 15px;background-color: #E7E4E4" id="ui-id-40">
+                                Total increase (decrease) in equity
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IssuedCapital__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="SharePremium__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="TreasuryShares__0_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>( )</div>
+                            </td>
+                            <td class="totalCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="OtherEquityInterest__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="OtherReserves__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="RetainedEarnings__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="NoncontrollingInterests__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="Equity__0_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="conceptbox vert_cell  hie_leaf col0" data-id="s335" data-concept-type="monetary" title="Equity" style="color:green;font-weight:normal;padding-left: 5px;background-color: #E7E4E4" id="ui-id-41">
+                                Equity at end of period
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IssuedCapital__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 35px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col2 ui-droppable ui-draggable ui-draggable-handle" id="SharePremium__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 47px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col3 ui-droppable ui-draggable ui-draggable-handle" id="TreasuryShares__1_0_0" data-type="monetary" data-weight="minus" style="min-width: 47px;">
+                                <div>( )</div>
+                            </td>
+                            <td class="simpleCell editableCell  col4 ui-droppable ui-draggable ui-draggable-handle" id="OtherEquityInterest__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 39px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col5 ui-droppable ui-draggable ui-draggable-handle" id="OtherReserves__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 46px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col6 ui-droppable ui-draggable ui-draggable-handle" id="RetainedEarnings__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 49px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col7 ui-droppable ui-draggable ui-draggable-handle" id="EquityAttributableToOwnersOfParent__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 64px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell  col8 ui-droppable ui-draggable ui-draggable-handle" id="NoncontrollingInterests__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 56px;">
+                                <div></div>
+                            </td>
+                            <td class="totalCell  col9 ui-droppable ui-draggable ui-draggable-handle" id="Equity__1_0_0" data-type="monetary" data-weight="plus" style="min-width: 34px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".addFirmParams").click(function () {
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+            })
+        });
+        $(".editableCell div").empty();
+        $(".editableCell div").append("<input type='text' />")
+    });
+
+
+</script>

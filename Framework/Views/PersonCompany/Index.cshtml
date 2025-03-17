@@ -1,0 +1,214 @@
+﻿@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Index Person Company";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Company</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">List</a>
+    </li>
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-list font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Company List</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="portlet box blue" id="form_wizard_1">
+            <div class="portlet-title">
+                <div class="caption">
+                    Company
+                </div>
+                <div class="tools hidden-xs">
+                    <a href="javascript:;" class="collapse">
+                    </a>
+                    <a href="#portlet-config" data-toggle="modal" class="config">
+                    </a>
+                    <a href="javascript:;" class="reload">
+                    </a>
+                    <a href="javascript:;" class="remove">
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body form">
+
+                <div class="form-wizard">
+                    <div class="form-body">
+
+                        <div class="portlet-body">
+                            <table class="table table-striped table-bordered table-hover" style="min-height:0px !important;" id="CoreTable">
+                                <thead>
+                                    <tr>
+                                        <th>SlNo</th>
+                                        <th>Company</th>
+                                        <th>City</th>
+                                        <th>
+                                            Created Date
+                                        </th>
+                                        <th>
+                                            Modified Date
+                                        </th>
+
+                                        <th>
+                                            Options
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/select2/select2.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/datatables/extensions/Scroller/css/dataTables.scroller.min.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/datatables/extensions/ColReorder/css/dataTables.colReorder.min.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css" />
+<style>
+    .tabletools-dropdown-on-portlet {
+        margin-top: -50px;
+        margin-right: 5px;
+    }
+
+    .form-control.select2-container {
+        margin-left: 10px;
+    }
+
+    div.dataTables_info {
+        margin-left: 10px;
+    }
+</style>
+}
+
+
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/Programmer/Scripts/PersonCompany/formwizardpersoncompany.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/datatables/extensions/ColReorder/js/dataTables.colReorder.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/datatables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+
+            var table = $('#CoreTable');
+            $.extend(true, $.fn.DataTable.TableTools.classes, {
+                "container": "btn-group tabletools-dropdown-on-portlet",
+                "buttons": {
+                    "normal": "btn btn-sm default",
+                    "disabled": "btn btn-sm default disabled"
+                },
+                "collection": {
+                    "container": "DTTT_dropdown dropdown-menu tabletools-dropdown-menu"
+                }
+            });
+
+            var oTable = table.dataTable({
+
+
+                "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [0] }],
+                "order": [
+                    [0, 'dsc']
+                ],
+                "lengthMenu": [
+                    [5, 15, 20, -1],
+                    [5, 15, 20, "All"] // change per page values here
+                ],
+                "processing": true,
+                "serverSide": true,
+                columnDefs: [{ orderable: false, "targets": -1 }],
+                "ajax": "@(Request.Url.OriginalString.ToString())/../TableData",
+                // set the initial value
+                "pageLength": 10,
+                "dom": "<'row' <'col-md-11'T>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>", // horizobtal scrollable datatable
+                "tableTools": {
+                    "sSwfPath": "@Url.Content("~/")assets/global/plugins/datatables/swf/copy_csv_xls_pdf.swf",
+            aButtons: [
+                   {
+                       sExtends: 'collection',
+                       sButtonText: 'Tools <span class="caret" />',
+                       aButtons: [
+                                {
+                                    "sExtends": "pdf",
+                                    "sButtonText": "PDF"
+                                }, {
+                                    "sExtends": "csv",
+                                    "sButtonText": "CSV"
+                                }, {
+                                    "sExtends": "xls",
+                                    "sButtonText": "Excel"
+                                }, {
+                                    "sExtends": "print",
+                                    "sButtonText": "Print",
+                                    "sInfo": 'Please press "CTR+P" to print or "ESC" to quit'
+                                },
+                                'select_all',
+                                'select_none'
+                       ]
+                   },
+            ],
+            },
+        "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+            try {
+
+                $("td:first", nRow).html(iDisplayIndex + 1);
+                if (aData[4] == 'True') {
+                    $("td:nth-child(5)", nRow).html("<span class=\"badge badge-primary\">ACTIVE</span>");
+                }
+                else if (aData[4] == 'False') {
+                    $("td:nth-child(5)", nRow).html("<span class=\"badge badge-danger\">NOT ACTIVE</span>");
+                }
+                else {
+                    $(nRow).css('background-color', 'white');
+                }
+            } catch (ex) {
+                alert("fnRowCallback exception:");
+            }
+            return nRow;
+        }
+        });
+        var tableWrapper = $('#CoreTable_wrapper'); // datatable creates the table wrapper by adding with id {your_table_jd}_wrapper
+        tableWrapper.find('.dataTables_length select').select2(); // initialize select2 dropdown
+
+
+        });
+    </script>
+}
+
+

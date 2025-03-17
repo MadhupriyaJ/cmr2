@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | Sales Literature";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Assisted Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales Literature</a>
+    </li>
+
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Sales Literature</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-12">                
+                <table class="table table-striped table-bordered table-advance table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                #
+                            </th>
+                            <th>
+                                Product
+                            </th>
+                            <th>
+                                Document Type
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <th>Credit Card</th>
+                            <th>Brochure</th>
+                            <th><a href="@Url.Content("~/")assets/Programmer/AssistedSales/Brochure/CreditCard.pdf" target="_blank">Show</a></th>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <th>Car Loan</th>
+                            <th>Brochure</th>
+                            <th><a href="@Url.Content("~/")assets/Programmer/AssistedSales/Brochure/CarLoan.pdf" target="_blank">Show</a></th>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <th>Home Finance</th>
+                            <th>Brochure</th>
+                            <th><a href="@Url.Content("~/")assets/Programmer/AssistedSales/Brochure/HomeLoan.pdf" target="_blank">Show</a></th>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <th>Personal Finance</th>
+                            <th>Brochure</th>
+                            <th><a href="@Url.Content("~/")assets/Programmer/AssistedSales/Brochure/PersonalFinances.pdf" target="_blank">Show</a></th>
+                        </tr>
+
+
+                    </tbody>
+                </table>             
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

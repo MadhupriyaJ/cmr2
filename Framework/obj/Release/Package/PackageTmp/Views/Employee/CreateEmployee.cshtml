@@ -1,0 +1,937 @@
+﻿@using FramWork.HelloService;
+@using Core;
+@{
+    ViewBag.Title = "Lead 2 Deal | Create New Oppurtunity/ Contact";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Employee</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">New</a>
+    </li>
+</ul>
+
+<div class="portlet light" id="form_wizard_1">
+    <div class="portlet-title">
+        <div class="caption caption-subject bold uppercase font-red-sunglo">
+            <i class="fa fa-plus-circle bold uppercase font-red-sunglo"></i>
+            Contact Create Wizard - <span class="step-title">
+                Step 1 of 4
+            </span>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="#" class="form-horizontal" id="submit_form" method="POST">
+            <div class="form-wizard">
+                <div class="form-body">
+                    <ul class="nav nav-pills nav-justified steps">
+                        <li>
+                            <a href="#tab1" data-toggle="tab" class="step">
+                                <span class="number">
+                                    1
+                                </span>
+                                <span class="desc">
+                                    <i class="fa fa-check"></i> Basic Information
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab2" data-toggle="tab" class="step">
+                                <span class="number">
+                                    2
+                                </span>
+                                <span class="desc">
+                                    <i class="fa fa-check"></i>  Contact details
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab3" data-toggle="tab" class="step active">
+                                <span class="number">
+                                    3
+                                </span>
+                                <span class="desc">
+                                    <i class="fa fa-check"></i> Account Setup
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab4" data-toggle="tab" class="step">
+                                <span class="number">
+                                    4
+                                </span>
+                                <span class="desc">
+                                    <i class="fa fa-check"></i> Confirm
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="bar" class="progress progress-striped" role="progressbar">
+                        <div class="progress-bar progress-bar-success">
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="alert alert-danger display-none">
+                            <button class="close" data-dismiss="alert"></button>
+                            You have some form errors. Please check below.
+                        </div>
+                        <div class="alert alert-success display-none">
+                            <button class="close" data-dismiss="alert"></button>
+                            Your form validation is successful!
+                        </div>
+                        <div class="tab-pane active" id="tab1">
+                            <h3 class="block">Provide your basic information</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Salutation <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Salutation", new SelectList(client.GetSalutLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Salutation", @name = "Salutation" })
+
+                                            <span class="help-block">
+                                                Provide  salutation
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            First Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="FirstName" id="FirstName" />
+                                            <span class="help-block">
+                                                Provide  First Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Middle Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="MiddleName" id="MiddleName" />
+                                            <span class="help-block">
+                                                Provide  Middle Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Last Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="LastName" id="LastName" />
+                                            <span class="help-block">
+                                                Provide Last Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Nick Name
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="NickName" id="NickName" />
+                                            <span class="help-block">
+                                                Provide Nick Name
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Gender
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Gender", new SelectList(client.GetGenderLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Gender", @name = "Gender" })
+
+                                            <span class="help-block">
+                                                Provide  Gender
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            DOB
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control date-picker" name="DOB" id="DOB" />
+                                            <span class="help-block">
+                                                Provide DOB
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <h3 class="block">Profile Picture</h3>
+                            <div class="form-group">
+                                <div class="control-label col-md-4">
+                                    <input id="uploadFile" class="form-control" placeholder="Choose File" disabled="disabled" />
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="fileUpload btn btn-primary">
+                                        <span>Click to select profile picture</span>
+                                        <input id="uploadBtn" type="file" class="upload" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-6">
+                                    <img id="blah" src="#" alt="your image" style="width:100%;display:none;" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <h3 class="block">Provide  contact details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Email <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="Email" id="Email" />
+                                            <span class="help-block">
+                                                Provide Email
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Office Email <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="OfficeEmail" id="OfficeEmail" />
+                                            <span class="help-block">
+                                                Provide Email
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Mobile <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="Mobile" id="Mobile" />
+                                            <span class="help-block">
+                                                Provide your Mobile number
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Phone
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="Phone" id="Phone" />
+                                            <span class="help-block">
+                                                Provide your Phone number
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="block">Provide  Address details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Country
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Country", new SelectList(client.GetCountryLst(Login.OrganizationId).Select(a => new { Id = a.Id, CountyName = a.CountyName }), "Id", "CountyName"), "Select", new { @class = "form-control validate[required]", @id = "Country", @name = "Country" })
+
+                                            <span class="help-block">
+                                                Provide  Country
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            State
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("State", new SelectList(Enumerable.Empty<SelectListItem>()), "Select", new { @class = "form-control validate[required]", @id = "State", @name = "State" })
+                                            <span class="help-block">
+                                                Provide  state
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            City
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("City", new SelectList(Enumerable.Empty<SelectListItem>()), "Select", new { @class = "form-control validate[required]", @id = "City", @name = "City" })
+                                            <span class="help-block">
+                                                Provide  City
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Location
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Location", new SelectList(client.GetLocLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Location", @name = "Location" })
+                                            <span class="help-block">
+                                                Provide  Location
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Street
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="Street" id="Street" />
+                                            <span class="help-block">
+                                                Provide  Street
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Zip / Postal code
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="ZipPostalcode" id="ZipPostalcode" />
+                                            <span class="help-block">
+                                                Provide   Zip / Postal code
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="tab3">
+                            <h3 class="block">Account Details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            UserName
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="UserName" id="UserName" />
+                                            <span class="help-block">
+                                                Provide  UserName
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Password
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="password" class="form-control" name="Password" id="Password" />
+                                            <span class="help-block">
+                                                Provide  Password
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Confirm  Password
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="password" class="form-control" name="confpassword" id="confpassword" />
+                                            <span class="help-block">
+                                                Confirm  Password
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Max No Of Attempts
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="Attempts" id="Attempts" />
+                                            <span class="help-block">
+                                                Max No Of Attempts
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Password Expiry
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" class="form-control" name="Passwordexpiry" id="Passwordexpiry" />
+                                            <span class="help-block">
+                                                Password Expiry
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="block">Other details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Department
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Department", new SelectList(client.GetDeptLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Department", @name = "Department" })
+                                            <span class="help-block">
+                                                Provide  Department
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Designation
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Designation", new SelectList(client.GetDesignLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Designation", @name = "Designation" })
+                                            <span class="help-block">
+                                                Provide  Designation
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Language
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Language", new SelectList(client.GetLanguageLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Language", @name = "Language" })
+                                            <span class="help-block">
+                                                Provide  Language
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Parent Employee
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("ParentEmployee", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, UserId = a.UserId }), "Id", "UserId"), "Select", new { @class = "form-control validate[required]", @id = "ParentEmployee", @name = "ParentEmployee" })
+                                            <span class="help-block">
+                                                Provide  Parent Employee
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Team
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Team", new SelectList(client.GetTeamLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Team", @name = "Team" })
+                                            <span class="help-block">
+                                                Provide Team
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab4">
+                            <h3 class="block">Basic information</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Salutation
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Salutation">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            First Name
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="FirstName">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Middle Name
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="MiddleName">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Last Name
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="LastName">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Nick Name
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="NickName">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Gender
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Gender">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            DOB
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="DOB">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <img id="profilepic" src="#" alt="your image" style="width:200px;" />
+                            </div>
+
+
+
+
+                            <h3 class="block">Provide  contact details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Email
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Email">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Office Email
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="OfficeEmail">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Mobile
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Mobile">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Phone
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Phone">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="block">Provide  Address details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Country
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Country">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            State
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="State">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            City
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="City">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Location
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Location">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Street
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Street">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Zip / Postal code
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="ZipPostalcode">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h3 class="block">Account Details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            UserName
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="UserName">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="block">Other details</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Department
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Department">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Designation
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Designation">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Language
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Language">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Parent Employee
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="ParentEmployee">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Team
+                                        </label>
+                                        <div class="col-md-5">
+                                            <p class="form-control-static" data-display="Team">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                            <a href="javascript:;" class="btn default button-previous">
+                                <i class="m-icon-swapleft"></i> Back
+                            </a>
+                            <a href="javascript:;" class="btn blue button-next">
+                                Continue <i class="m-icon-swapright m-icon-white"></i>
+                            </a>
+                            <a href="javascript:;" class="btn green button-submit">
+                                Submit <i class="m-icon-swapright m-icon-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+@section Css{
+
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+<style>
+    .fileUpload {
+        position: relative;
+        overflow: hidden;
+        margin: 10px;
+    }
+
+        .fileUpload input.upload {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+</style>
+
+}
+
+<!-- END PAGE CONTENT-->
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/select2/select2.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script type="text/javascript" src="@Url.Content("~/")assets/Programmer/Scripts/Employee/formwizardemployee.js"></script>
+<script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+
+            $('.date-picker').datepicker({
+                format: 'yyyy/mm/dd',
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true
+
+            });
+
+            $("#Country").change(function () {
+
+                var postdata = { ID: $("#Country option:selected").val() }              
+                $.ajax({
+                    type: "GET",
+                    url: '../Employee/LoadState',
+                    data: postdata,
+                    success: function (data) {
+                        $("#State").empty();
+                        $("#State").append("<option value=\"\">Select</option>");
+                        $.each(data, function (key, val) {
+                            $("#State").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                        });
+                    },
+                    traditional: true
+                });
+            });
+
+            $("#State").change(function () {
+
+                var postdata = { ID: $("#State option:selected").val() }              
+                $.ajax({
+                    type: "GET",
+                    url: '../Employee/LoadCity',
+                    data: postdata,
+                    success: function (data) {
+                        $("#City").empty();
+                        $("#City").append("<option value=\"\">Select</option>");
+                        $.each(data, function (key, val) {
+                            $("#City").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                        });
+                    },
+                    traditional: true
+                });
+            });
+
+
+
+        });
+    </script>
+}
+

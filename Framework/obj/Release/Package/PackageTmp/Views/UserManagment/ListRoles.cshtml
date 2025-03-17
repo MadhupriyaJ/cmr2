@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "ListRoles";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h3 class="page-title">
+    List Of Role <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">List Of Role</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+    </ul>
+
+</div>
+<!-- END PAGE HEADER-->
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN BORDERED TABLE PORTLET-->
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption font-yellow-crusta">
+                    <i class="icon-share font-yellow-crusta"></i>
+                    <span class="caption-subject bold uppercase"> List of ROles</span>
+                    <span class="caption-helper"></span>
+                </div>
+                <div class="actions">
+                    <a class="btn btn-circle  btn-default" href="@Url.Action("Roles", "UserManagment")">
+                        <i class="fa fa-plus"></i> Role
+                    </a>
+
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                <div>
+                    <table class="tablesorter table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                    foreach (var p in ViewBag.Roles)
+                                    {
+                                <tr>
+                                    <td></td>
+                                    <td>@p.Name</td>
+                                    <td><p> @p.Description </p></td>
+                                </tr>
+                                    }
+                            }
+                        </tbody>
+
+                    </table>
+                    <div id="pager" style="position: none;">
+                        <form>
+                            <img src="@Url.Content("~/assets/Programmer/Image/first.png")" class="first" />
+                            <img src="@Url.Content("~/assets/Programmer/Image/prev.png")" class="prev" />
+                            <input type="text" class="pagedisplay" />
+                            <img src="@Url.Content("~/assets/Programmer/Image/next.png")" class="next" />
+                            <img src="@Url.Content("~/assets/Programmer/Image/last.png")" class="last" />
+                            <select class="pagesize">
+                                <option selected="selected" value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- END BORDERED TABLE PORTLET-->
+    </div>
+</div>
+@section Css{
+    <style>
+          table.tablesorter thead tr .header {
+              background-image: url(../../assets/Programmer/Image/bg.png);
+              background-repeat: no-repeat;
+              background-position: center right;
+              cursor: pointer;
+          }
+
+          table.tablesorter tbody td {
+          }
+
+          table.tablesorter tbody tr.odd td {
+              /*background-color: #F0F0F6;*/
+          }
+
+          table.tablesorter thead tr .headerSortUp {
+              background-image: url(../../assets/Programmer/Image/asc.gif);
+          }
+
+          table.tablesorter thead tr .headerSortDown {
+              background-image: url(../../assets/Programmer/Image/desc.png);
+          }
+
+          table th {
+              /*width: 150px;
+        border: 1px outset gray;
+        background-color: #3C78B5;
+        color: White;
+        cursor: pointer;*/
+          }
+
+          table thead th:hover {
+              /*background-color: gray;
+        color: Black;*/
+          }
+
+          table td {
+              /*width: 150px;
+        border: 1px solid gray;*/
+          }
+    </style>
+}
+@section Scripts{
+    <script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.js"></script>
+    <script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.pager.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $("table.tablesorter").tablesorter({ widthFixed: true, sortList: [[0, 0]] })
+        .tablesorterPager({ container: $("#pager"), size: $(".pagesize option:selected").val() });
+    });
+    </script>
+}

@@ -1,0 +1,211 @@
+﻿@using FramWork.HelloService;
+@using Core;
+@{
+    ViewBag.Title = "Lead2Deal | Bulk Lead Assignment";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+    var team = client.GetTeamLst(Login.OrganizationId);
+    var emp = client.GetEmployeeLst(Login.OrganizationId);
+    
+}
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Assignment</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Bulk Lead Assignment</a>
+    </li>
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Bulk Lead Assignment</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+
+            <div class="col-md-8">
+                <form action="#" method="post" id="f2">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Team</label>
+                                @Html.DropDownList("ddlTeam", new SelectList(client.GetTeamLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "--Select  --", new { @Name = "field", @id = "ddlTeam", @class = "form-control" })
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">Employee</label>
+                                <select id="DDLEMP" class="form-control validate[required]"></select>
+                                @*@Html.DropDownList("DDLEMP", new SelectList(db.Employees.Where(a => a.OrgId == CoreFunctions.Login.OrganizationId && a.Status == true).Select(a => new { Id = a.Id, Name = a.FirstName + " " + a.LastName }), "Id", "Name"), "--Select  --", new { @Name = "field", @class = " form-control" })*@
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label">&nbsp;</label>
+                                <button type="button" id="btnassignlead" class="btn yellow-crusta" style="margin-top:26px;">  Assign <i class="fa fa-child"></i></button>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.Action("getLeadList", "AssignmentManagment")
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-yellow-crusta">
+                            <i class="icon-users  font-yellow-crusta"></i>
+                            <span class="caption-subject bold uppercase">Team View</span>
+                            @*<span class="caption-helper"> view team/employee report</span>*@
+                        </div>
+                        <div class="actions">
+
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul>
+                            @foreach (var item in team)
+                            {
+
+                                <li title="Bookmarks" class="isFolder">
+                                    <a href="@Url.Content("~/")AssignmentManagment/getteamviewreport/?teamid=@item.Id" class="TeamNode">
+                                        @item.Name
+                                    </a>
+                                    <ul>
+                                        @foreach (var items in emp)
+                                        {
+                                            if (items.TeamId == item.Id)
+                                            {
+                                                var cnt = client.GetListOfOpenOppurtunities(Login.OrganizationId).Count();
+                                                <a href="@Url.Content("~/")AssignmentManagment/getemployeeviewreport/?Empid=@items.Id" class="EmployeeNode">
+                                                    <li class="isFolder " id="@items.Id">@*<img src="~/Rem/EasyTree/skin-lion/1425137581_43626.ico" />*@ @items.FullName @Html.Raw("(" + cnt + ")")</li>
+                                                </a>
+                                            }
+                                        }
+                                    </ul>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{ 
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    
+       <script>
+    /*-----Assign Leal click functionality*/
+    $(document).ready(function () {
+
+        $('#ddlTeam').live('change', function () {
+            LoadInfo();
+        });
+
+
+
+        $('#btnassignlead').live('click', function () {
+            var favorites = [];
+            $.each($("input[name='case']:checked"), function () {
+                favorites.push($(this).val());
+            });
+            var datarow = { Empid: $('#DDLEMP option:selected').val(), LeadId: favorites };
+
+            if ($('#f2').valid('validate')) {
+                if (favorites.length <= 0) {
+                    bootbox.alert("Please check at-least one Lead !");
+                    return false;
+                }
+                $.ajax({
+                    url: '@Url.Content("~/")' + "/AssignmentManagment/AssignLead_toemployee",
+                        type: 'POST',
+                        data: datarow,
+                        cache: false,
+                        success: function (result) {
+                            if (result != null) {
+
+                                bootbox.alert(result, function () {
+                                    window.location.href = '@Url.Content("~/")' + "SalesManagement/SalesAgentView";
+                                });
+
+                            }
+                            else {
+                                bootbox.alert("Error, could not complete the action!", function () {
+                                    window.location.reload();
+                                });
+                            }
+                        }
+                    });
+                }
+                return false;
+            });
+            /*Load Employee Based on team*/
+
+
+
+
+            function LoadInfo() {
+                var datarows = { teamid: $('#ddlTeam option:selected').val() };
+                $.getJSON("@Url.Action("LoadEmployeedropdown", "AssignmentManagment")", datarows,
+            function (data) {
+                $("#DDLEMP").empty();
+                $("#DDLEMP").append('<option value="0" >Select</option>');
+                $.each(data, function () {
+                    $("#DDLEMP").append($("<option />").val(this.Id).text(this.Name));
+                });
+            });
+        }
+    });
+    </script>
+    <script language="javascript">
+        $(function () {
+            $("#selectall").live('click', function () {
+                $('.case').prop('checked', this.checked);
+            });
+            $(".case").live('click', function () {
+                if ($(".case").length == $(".case:checked").length) {
+                    $("#selectall").prop("checked", "checked");
+                }
+                else {
+                    $("#selectall").removeAttr("checked");
+                }
+            });
+        });
+    </script>
+}
+

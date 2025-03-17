@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FramWork.Models.ABB_Company_Doc_folder>
+@using FramWork.Models;
+@using Core;
+@{
+    Layout = null;
+    FrameworkEntities dc = new FrameworkEntities();
+    var folders = dc.ABB_Company_Doc_folder.AsEnumerable().Where(a => a.MarkAsDelete == false && a.OrgId == Login.OrganizationId && a.CompanyId == Convert.ToInt64(Session["companyid"]));
+}
+
+<div class="row" id="folderlist">
+            @{
+                if (folders.Count() != 0)
+                {
+                    foreach (var item in folders)
+                    {
+                        <a href="@Url.Content("~")BB_CallLog/Uploadfilestofolder/?company=@item.CompanyId&fid=@item.Id" id="clickfolder" value="@item.Id">
+                            <div class="col-md-1">
+                                <div class="folder">
+
+                                </div>
+                                <br />
+                                <center><p class="folder-name" style="word-wrap: break-word;">@item.FolderName</p></center>
+                            </div>
+                        </a>
+                    }
+                }
+                else
+                {
+            <h2>No Folders Created</h2>
+        }
+    }
+
+
+
+</div>

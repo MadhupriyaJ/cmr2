@@ -1,0 +1,121 @@
+﻿@model FramWork.Models.ABB_CallLog
+
+@{
+    Layout = null;
+}
+<div class="row">
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-1" style="float:right;">
+            <a href="#" id="EditCallLog"value="@Model.Id" class="btn btn-circle btn-sm red">
+                Edit <i class="fa fa-edit"></i>
+            </a>
+        </div>
+    </div>
+  
+    <div class="table-scrollable">
+
+        <table class="table table-striped table-bordered table-advance table-hover">
+            <tr>
+                <td>
+                    Company Name
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ABB_Company.EnglishName)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Subject)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Interaction Type
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.ABB_InteractionType.Type)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Meeting Duration
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.MeetingDuration)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Place Of Meeting
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.PlaceOfMeeting)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Planned Date
+                </td>
+
+                <td>
+                 @{var Pdate= Convert.ToDateTime(Model.PlannedDate).ToShortDateString();}
+                    @Pdate
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Planned Time
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.PlannedTime)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Meeting Date
+                </td>
+
+                <td>
+                    @{var Mdate = Convert.ToDateTime(Model.MeetingDate).ToShortDateString();}
+                    @Mdate
+                   
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Meeting Time
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.MeetingTime)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Description
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.Description)
+                </td>
+            </tr>
+            
+        </table>
+    </div>
+</div>
+    </div>
+
+
+
+
+

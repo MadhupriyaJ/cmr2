@@ -1,0 +1,318 @@
+﻿@model FramWork.Models.ABB_Company
+
+@{
+    ViewBag.Title = "Lead2Deal | Add  Customer";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+}
+@section    Css{
+    <style>
+        #imageCanvas {
+            width: 250px;
+            height: 250px;
+            background: #cacaca;
+        }
+       .starreq {
+      color:#E26A6A;
+      float:left;
+      margin-top:10px;
+      }
+    </style>
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")BB_Company/Index">My Customers</a>
+        <i class="fa fa-circle"></i>
+    </li>
+
+    <li>
+        <a href="@Url.Content("~/")BB_Company/Create">Add New Company</a>
+
+    </li>
+
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-plus-circle font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Add New Customer</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    </div>
+    <div class="portlet-body">
+       @using (Html.BeginForm("Create", "BB_Company", FormMethod.Post,
+                            new { id = "mainForm" }))
+       {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CRNo,"CR No", htmlAttributes: new { @class = "control-label col-md-4" })  
+                            <span class="starreq">*</span>
+                          
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.CRNo, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.CRNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TradeLicense, "Trade License", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.TradeLicense, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TradeLicense, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OpeningDate, "Opening Date ", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.OpeningDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OpeningDate, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.EnglishName, "English Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.EnglishName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EnglishName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ArabicName,"Arabic Name", htmlAttributes: new { @class = "control-label col-md-4" })                       
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.ArabicName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ArabicName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Lattitude, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Lattitude, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Lattitude, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Longitude, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Longitude, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Longitude, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.OfficeAddress, "Office Address", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.OfficeAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.OfficeAddress, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BusinessTypeId, "Business Type", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.DropDownList("BusinessTypeId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BusinessTypeId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BusinessSectorId, "Business Sector", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.DropDownList("BusinessSectorId", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BusinessSectorId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TradeLicenseExpiry, "Trade License Expiry", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <span class="starreq">*</span>
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.TradeLicenseExpiry, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TradeLicenseExpiry, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ImageName, "Image Name", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.HiddenFor(model => model.ImageName)
+                                    @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
+
+
+
+                                <input type="file" id="imageLoader" name="imageLoader" />
+                                <br />
+                                <canvas id="imageCanvas"></canvas>
+                                <div id="log"></div>
+                                <script>
+                                    var imageLoader = document.getElementById('imageLoader');
+                                    imageLoader.addEventListener('change', handleImage, false);
+                                    var canvas = document.getElementById('imageCanvas');
+                                    canvas.width = 250;
+                                    canvas.height = 250;
+                                    var ctx = canvas.getContext('2d');
+
+                                    function handleImage(e) {
+                                        var reader = new FileReader();
+                                        reader.onload = function (event) {
+                                            var img = new Image();
+                                            img.onload = function () {
+                                                var w = this.width;
+                                                h = this.height,
+                                                cw = canvas.width,
+                                                ch = canvas.height,
+                                                nx = 0,
+                                                ny = 0,
+                                                r = h / w;
+                                                if (h < w) {
+                                                    //horizontal
+                                                    r = w / h;
+                                                    nh = 250,
+                                                    nw = r * 250;
+                                                    nx = -(nw - 250) / 2;
+
+                                                } else {
+                                                    //vertical
+                                                    nw = 250,
+                                                    nh = r * 250;
+                                                    ny = -(nh - 250) / 2;
+                                                }
+
+
+                                                console.log('<b>img w:</b>' + w + '</br><b>img h:</b>' + h + '</br><b>ratio:</b>' + r + '</br><b>img nh:</b>' + nh + '</br><b>img nw:</b>' + nw + '</br><b>nx</b>:' + nx + '</br><b>ny:</b>' + ny);
+                                                ctx.drawImage(img, nx, ny, nw, nh);
+
+                                            }
+                                            img.src = event.target.result;
+                                            var logoimage = document.getElementById("imageCanvas").toDataURL("image/png");
+                                            logoimage = logoimage.replace('data:image/png;base64,', '');
+                                            var elem = document.getElementById("ImageName");
+                                            elem.value = logoimage;
+                                            //alert(logoimage);
+                                        }
+                                        reader.readAsDataURL(e.target.files[0]);
+                                    }
+
+
+                                    (function () {
+                                        var old = console.log;
+                                        var logger = document.getElementById('log');
+
+                                        console.log = function (message) {
+                                            if (typeof message == 'object') {
+                                                logger.innerHTML = ' ';
+                                                logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+                                            } else {
+                                                logger.innerHTML = ' ';
+                                                logger.innerHTML += message + '<br />';
+                                            }
+                                        }
+                                    })();
+
+
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <hr />
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-8 col-md-12">
+                            <input type="submit" value="Create" class="btn green button-submit" />
+                            <input type="button" id="btnreset" value="Reset" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <br />
+
+            </div>
+        }
+
+        <div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+
+    <script language="javascript">
+
+        $(document).ready(function () {
+
+            $('#mainForm').validate({
+                errorElement: 'span',
+                errorClass: 'help-block help-block-error',
+                rules: {
+                    CRNo: "number required",
+                    TradeLicense: "required",
+                    OpeningDate: "required",
+                    EnglishName: "required",
+                    OfficeAddress: "required",
+                    BusinessTypeId: "required",
+                    BusinessSectorId: "required",
+                    TradeLicenseExpiry: "required"
+
+                },
+                highlight: function (element) {
+                    // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+                },
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+                submitHandler: function (form) {
+                    form.submit();
+
+                }
+
+            });
+
+            $('#btnreset').live('click', function () {
+                $('#mainForm')[0].reset();
+            });
+
+            $("#mainForm").submit(function (event) {
+                //disable the default form submission
+                event.preventDefault();
+
+                var isValid = $("#mainForm").valid();               
+                if (!isValid)
+                    return false;
+            });
+
+        });
+    </script>
+}

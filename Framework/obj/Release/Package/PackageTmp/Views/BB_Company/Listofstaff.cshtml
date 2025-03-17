@@ -1,0 +1,52 @@
+﻿@model PagedList.IPagedList<FramWork.Models.ABB_CompanyManagmentTeam_Staff>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<table class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+        <tr>
+            <th>
+                SINO
+            </th>
+            <th>
+                <i class="fa fa-user"></i> Name
+            </th>
+            <th class="hidden-xs">
+                <i class="fa fa-delicious"></i> Job Title
+            </th>
+            <th class="hidden-xs">
+                <i class="fa fa-anchor"></i> Passport Number
+            </th>
+
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+        {
+            <tr>
+                <td>@(item.Index + ((Model.PageNumber - 1) * Model.PageSize) + 1)</td>
+                <td>
+                    <a href="#">
+                        @item.Data.FIrstName @item.Data.LastName
+                    </a>
+                </td>
+                <td>@item.Data.ABB_JobTitle.Title </td>
+                <td class="hidden-xs">
+                    @item.Data.PassportNumber
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="#">
+                        <i class="fa fa-pencil"></i> Edit
+                    </a>
+                    <a class="btn btn-primary red" href="#">
+                        <i class="fa fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

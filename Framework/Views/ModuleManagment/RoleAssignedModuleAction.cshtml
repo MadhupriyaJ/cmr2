@@ -1,0 +1,173 @@
+﻿@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Assign Module To Role";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<h3 class="page-title">
+    Create Role <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#"> Assign Role To User</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-yellow-crusta">
+
+                    <span class="caption-subject bold uppercase"> </span>
+                    <span class="caption-helper"><i class="fa fa-share"></i>  Select a user and assign role to the  selected user.</span>
+                </div>
+                <div class="actions">
+               
+
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="row">
+                
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h3>Role</h3>
+                            @Html.DropDownList("ddlrole", new SelectList(client.role(Core.Login.OrganizationId).AsEnumerable().Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control  validate[required]" })
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3>Modules</h3>
+                        @Html.Action("Lisofmodules", "ModuleManagment")
+                    </div>
+               
+                </div>
+                <hr />
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-9">
+                           
+                            <a style="display: inline-block;" href="javascript:;" id="btnassignmodule" class="btn green button-submit">
+                                Submit <i class="m-icon-swapright m-icon-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="~/assets/Programmer/Image/asc.gif" />
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+<style>
+    table.tablesorter thead tr .header {
+        background-image: url(../../assets/Programmer/Image/bg.png);
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    table.tablesorter tbody td {
+    
+    }
+
+    table.tablesorter tbody tr.odd td {
+        /*background-color: #F0F0F6;*/
+    }
+
+    table.tablesorter thead tr .headerSortUp {
+        background-image: url(../../assets/Programmer/Image/asc.gif);
+    }
+
+    table.tablesorter thead tr .headerSortDown {
+        background-image: url(../../assets/Programmer/Image/desc.png);
+    }
+
+    table th {
+        /*width: 150px;
+        border: 1px outset gray;
+        background-color: #3C78B5;
+        color: White;
+        cursor: pointer;*/
+    }
+
+    table thead th:hover {
+        /*background-color: gray;
+        color: Black;*/
+    }
+
+    table td {
+        /*width: 150px;
+        border: 1px solid gray;*/
+    }
+</style>
+}
+
+@section Scripts{
+<script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.js"></script>
+<script src="~/assets/Programmer/Scripts/Pagination/jquery.tablesorter.pager.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("table.tablesorter").tablesorter({ widthFixed: true, sortList: [[0, 0]] })
+        .tablesorterPager({ container: $("#pager"), size: $(".pagesize option:selected").val() });
+    });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#btnassignmodule').live('click', function () {
+
+                roleassigned_checked();
+        });
+    });
+
+    function  roleassigned_checked()
+    {
+        var Modules = [];
+        $.each($("input[name='module']:checked"), function () {
+            Modules.push($(this).val());
+        });
+        var dataRow = { RoleId: $('#ddlrole option:selected').val(), modules: Modules };
+        //validation
+        if ($('#ddlrole option:selected').val() == "") {
+            alert("Please Select A role")
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '../../ModuleManagment/Add_modules_to_theRole',
+            data: dataRow,
+            success: function (response) {
+                if (response == 'True') {
+                    bootbox.alert(" Activity Deleted Successfully!", function () {
+                        window.location.reload();
+                    });
+                }
+                else {
+                    bootbox.alert("Error, could not complete the action!", function () {
+                        window.location.reload();
+                    });
+
+                }
+            }
+        });
+    }
+</script>
+
+}

@@ -1,0 +1,135 @@
+﻿@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Assign Role To User";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<h3 class="page-title">
+    Create Role <small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#"> Assign Role To User</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+      
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+<div class="col-md-12">
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption font-yellow-crusta">
+                
+                <span class="caption-subject bold uppercase"> </span>
+                <span class="caption-helper"><i class="fa fa-share"></i>  Select a user and assign role to the  selected user.</span>
+            </div>
+            <div class="actions">
+                <a href="#" class="btn btn-circle red-sunglo btn-sm">
+                    <i class="fa fa-plus"></i> List
+                </a>
+              
+            </div>
+        </div>
+        <div class="portlet-body">
+           <div class="row">
+               
+                   <div class="col-md-4">
+                       <div class="form-group">
+                           <h3>User</h3>
+                           @Html.DropDownList("ddluser", new SelectList(client.Listofusers(Core.Login.OrganizationId).AsEnumerable().Select(a => new { Id = a.Id, Name = a.NickName }), "Id", "Name"), "Select", new { @class = "form-control  validate[required]" })
+                       </div>
+                   </div>
+               <div class="col-md-4">
+                   <h3>Roles</h3>
+                   <table class="table table-bordered">
+                       @foreach (var item in client.role(Core.Login.OrganizationId))
+                       {
+                           <tr>
+                               <td> <input type="checkbox" class="checkbox-list" name="Roles" value="@item.Id" /> @item.Name </td>
+                           </tr>
+                       }
+
+                   </table>
+               </div>
+               <div class="col-md-4" style="border-left:solid 1px gray;">
+               </div>
+               </div>
+            <hr />
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+
+                        <a style="display: inline-block;" href="javascript:;" id="btnassignRoletouser" class="btn green button-submit">
+                            Submit <i class="m-icon-swapright m-icon-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    
+}
+
+@section Scripts{
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#btnassignRoletouser').live('click', function () {
+
+                roleassigned_checked();
+        });
+    });
+
+    function  roleassigned_checked()
+    {
+        var Roles = [];
+        $.each($("input[name='Roles']:checked"), function () {
+            Roles.push($(this).val());
+        });
+        var dataRow = { UserId: $('#ddluser option:selected').val(), roles: Roles };
+        //validation
+        if ($('#ddluser option:selected').val() == "") {
+            alert("Please Select A User")
+            return false;
+        }
+        $.ajax({
+            type: 'POST',
+            url: '../../UserManagment/Assign_Role_to_User',
+            data: dataRow,
+            success: function (response) {
+                if (response == 'success') {
+                    bootbox.alert(" Action Completed Successfully!", function () {
+                        window.location.reload();
+                    });
+                }
+                else {
+                    bootbox.alert("Error, could not complete the action!", function () {
+                        window.location.reload();
+                    });
+
+                }
+            }
+        });
+    }
+</script>
+}

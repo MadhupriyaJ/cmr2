@@ -1,0 +1,1631 @@
+﻿@using Core;
+@using FramWork.HelloService;
+@model FramWork.HelloService.PersonLead
+@{
+    ViewBag.Title = "Lead2Deal |Person Lead Stage";
+    Layout = "~/Views/Shared/_LayoutSales.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+    var DealStages = client.GetListOfDealStageName(Login.OrganizationId, new Guid("a1b4d99d-f89c-466b-9fd0-3c2fa5d9f3da"));
+    var stagewidth = 100 / DealStages.Count();
+    var i = 0;
+}
+@section Css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link href="@Url.Content("~")assets/admin/pages/css/timeline.css" rel="stylesheet" type="text/css" />
+    <style>
+
+           @@import url(http://weloveiconfonts.com/api/?family=fontawesome|iconicstroke|typicons);
+
+           /* fontawesome */
+
+           [class*="fontawesome-"]:before {
+
+            font-family: 'FontAwesome', sans-serif;
+
+          }
+
+          /* iconicstroke */
+
+          [class*="iconicstroke-"]:before {
+
+            font-family: 'IconicStroke', sans-serif;
+
+          }
+
+          /* typicons */
+
+          [class*="typicons-"]:before {
+
+            font-family: 'Typicons', sans-serif;
+
+          }
+
+          body{
+
+            font-family:arial,sans-serif;
+
+          }
+
+          .chat-container {
+
+            width: 300px;
+
+            margin: 20px auto;
+
+          }
+
+          .top-header {
+
+            background: #666;
+
+            color: white;
+
+            padding: 0.2rem;
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-bottom: 4px solid #35ac19;
+
+          }
+
+          .top-header:hover {
+
+            background-color:#35ac19;
+
+          }
+
+          .top-header-tit {
+
+            display: inline;
+
+            font-size: 14px;
+
+          }
+
+          .top-header .typicons-message {
+
+            display: inline-block;
+
+            padding: 2px 5px 2px 5px;
+
+            font-size: 20px;
+
+            position: relative;
+
+            top: 5px;
+
+          }
+
+          .top-header .typicons-minus {
+
+            position: relative;
+
+            top: 3px;
+
+            font-size: 15px;
+
+            cursor:pointer;
+
+          }
+
+          .top-header .typicons-times{
+
+            position: relative;
+
+            top: 3px;
+
+            font-size: 15px;
+
+            cursor:pointer;
+
+          }
+
+          .top-header .left {
+
+            float: left;
+
+          }
+
+          .top-header .right {
+
+            float: right;
+
+            padding-top: 5px;
+
+          }
+
+          .top-header > * {
+
+            position: relative;
+
+          }
+
+          .top-header::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: -100%;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: -100%;
+
+            opacity: 0.25;
+
+            background-color: #404040
+
+          }
+
+          .chat-box {
+
+            list-style: none;
+
+            background: #e5e5e5;
+
+            margin: 0;
+
+            padding: 0 0 50px 0;
+
+            height: 280px;
+
+            overflow-y: auto;
+
+          }
+
+          .chat-box li {
+
+            padding: 0.5rem;
+
+            overflow: hidden;
+
+            display: flex;
+
+          }
+
+          .chat-box .avatar-icon {
+
+            width: 40px;
+
+            position: relative;
+
+          }
+
+          .chat-box .avatar-icon img {
+
+            display: block;
+
+            width: 100%;
+
+            background-color:#1469A6;
+
+          }
+
+          .another .avatar-icon:after {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            right: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border: 5px solid white;
+
+            border-left-color: transparent;
+
+            border-bottom-color: transparent;
+
+          }
+
+          .me {
+
+            justify-content: flex-end;
+
+            align-items: flex-end;
+
+          }
+
+          .me .messages {
+
+            order: 1;
+
+            border-bottom-right-radius: 0;
+
+          }
+
+          .me .avatar-icon {
+
+            order: 2;
+
+          }
+
+          .me .avatar-icon:after {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border: 5px solid white;
+
+            border-right-color: transparent;
+
+            border-top-color: transparent;
+
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+          }
+
+          .messages {
+
+            background: white;
+
+            padding: 10px;
+
+            border-radius: 2px;
+
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+          }
+
+          .messages p {
+
+            font-size: 0.8rem;
+
+            margin: 0 0 0.2rem 0;
+
+          }
+
+          .messages time {
+
+            font-size: 0.7rem;
+
+            color: #ccc;
+
+          }
+
+          .setting{
+
+            background-color: #e5e5e5;
+
+            height: 32px;
+
+            padding-top: 2px;
+
+            border-bottom: 1px solid rgba(0,0,0,.1);
+
+          }
+
+          .setting .left {
+
+            float: left;
+
+          }
+
+          .setting .right {
+
+            float: right;
+
+          }
+
+          .iconicstroke-user{
+
+           font-size: 22px;
+
+           position: relative;
+
+           top: 4px;
+
+           left: 10px;
+
+           color: #414141;
+
+           cursor:pointer;
+
+         }
+
+         .typicons-cog{
+
+           font-size: 23px;
+
+           position: relative;
+
+           top: 7px;
+
+           right: 4px;
+
+           color: #414141;
+
+           cursor:pointer;
+
+         }
+
+         .fontawesome-facetime-video{
+
+           font-size: 18px;
+
+           position: relative;
+
+           top: 3px;
+
+           color: #414141;
+
+           left: 5px;
+
+           cursor:pointer;
+
+         }
+
+         .iconicstroke-user:hover, .typicons-cog:hover,.fontawesome-facetime-video:hover{
+
+          color:#000000;
+
+        }
+
+        ::-webkit-scrollbar{height:14px;width:10px;background:#eee;border-left:1px solid #ddd}
+
+        ::-webkit-scrollbar-thumb{background:#ddd;border:1px solid #cfcfcf}
+
+        ::-webkit-scrollbar-thumb:hover{background:#b2b2b2;border:1px solid #b2b2b2}
+
+        ::-webkit-scrollbar-thumb:active{background:#b2b2b2;border:1px solid #b2b2b2}
+
+        @@-webkit-keyframes pulse {
+
+          from {
+
+            opacity: 0;
+
+          }
+
+          to {
+
+            opacity: 0.5;
+
+          }
+
+        }
+
+    </style>
+    <style>
+
+            #Won,#revertlead,#Lost,#dropped{
+            cursor:pointer;
+            }
+
+                    .vr {
+                display: inline;
+                height: 100%;
+                width: 1px;
+                border: 1px inset;
+                margin: 5px;
+            }
+
+                .tab {
+                    margin-left: 120px;
+                }
+              .tabend {
+                    margin-left: 190px;
+                }
+
+          .disabled{
+            pointer-events:none;
+            opacity:0.4;
+        }
+
+            #breadcrumbs-one  li.active > a {
+             background: #000;
+              color: #f5f5f5;
+        }
+
+                 ul{
+         margin: 0;
+         padding: 0;
+         list-style: none;
+        }
+        #breadcrumbs-one{
+         /*background: #eee;
+         border-width: 1px;
+         border-style: solid;
+         border-color: #f5f5f5  #e5e5e5  #ccc;
+         border-radius: 5px;
+         box-shadow: 0 0 2px rgba(0,0,0,.2);*/
+         overflow: hidden;
+         width: 100%;
+        }
+
+        #breadcrumbs-one li{
+         float: left;
+         /*width:25%;*/
+        }
+
+        #breadcrumbs-one a{
+         padding: .7em 1em .7em 2em;
+         float: left;
+         text-decoration: none;
+         color: #444;
+         position: relative;
+         text-shadow: 0 1px 0 rgba(255,255,255,.5);
+         background-color: #ddd;
+         background-image: linear-gradient(to right, #f5f5f5 , #ddd);
+         width:100%;
+        }
+
+        #breadcrumbs-one li:first-child a{
+         padding-left: 1em;
+         border-radius: 5px 0 0 5px;
+        }
+
+        #breadcrumbs-one a:hover{
+         background: #000;
+         color:#fff;
+        }
+
+        #breadcrumbs-one a::after,
+        #breadcrumbs-one a::before{
+         content: "";
+         position: absolute;
+         top: 50%;
+         margin-top: -1.5em;
+         border-top: 1.5em solid transparent;
+         border-bottom: 1.5em solid transparent;
+         border-left: 1em solid;
+         right: -1em;
+        }
+
+        #breadcrumbs-one a::after{
+         z-index: 2;
+         border-left-color: #ddd;
+        }
+
+        #breadcrumbs-one a::before{
+         border-left-color: #ccc;
+         right: -1.1em;
+         z-index: 1;
+        }
+
+        #breadcrumbs-one a:hover::after{
+         border-left-color: #000;
+        }
+
+        #breadcrumbs-one .current,
+        #breadcrumbs-one .current:hover{
+         font-weight: bold;
+         background: none;
+        }
+
+        #breadcrumbs-one .current::after,
+        #breadcrumbs-one .current::before{
+         content: normal;
+        }
+                legend {
+                    font-size: 12px;
+                }
+    </style>
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">PipeLine</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("SalesAgentView", "SalesManagement")">Sales Agent View</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Lead Stage</a>
+    </li>
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo"> Person Management</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+
+        <input type="hidden" class="CurrentDealStage" value=@Model.DealStageNameId id="@Model.DealStageNameId" />
+
+        <input type="hidden" class="CurrentSortOrder" value=@Model.SortOrder id="@Model.SortOrder" />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-1">
+
+
+                    <img src="@Url.Content("~/")assets/admin/pages/media/profile/avatar1.jpg" class="img-responsive" alt="">
+
+                </div>
+                <div class="col-md-3">
+                    <h4>@Html.DisplayFor(model => model.Person.FirstName) @Html.DisplayFor(model => model.Person.LastName)</h4>
+                </div>
+                @*<div class="col-md-offset-5 col-md-1">
+                        <h4>Status</h4>
+                    </div>
+
+                    <div class="col-md-1">
+                        <h4>Owner</h4>
+                    </div>*@
+
+            </div>
+
+            <div class="col-md-offset-9 col-md-5">
+
+                <div class="col-md-2 myaction" id="Lost">
+                    <i class="fa  fa-thumbs-down" style="font-size:25px;"></i>
+                </div>
+                <div class="col-md-2" id="Won">
+                    <i class="fa  fa-thumbs-up" style="font-size:25px;"></i>
+                </div>
+                <div class="col-md-2 myaction" id="revertlead">
+                    <i class="fa  fa-backward" style="font-size:25px;color:#000; "></i>
+                </div>
+                <div class="col-md-2 myaction" id="dropped">
+                    <i class="fa  fa-trash-o" style="font-size:25px;"></i>
+                </div>
+            </div>
+        </div>
+
+        <br />
+
+        <ul id="breadcrumbs-one">
+
+            @foreach (var item in DealStages)
+            {
+
+                <li id="@item.Id" value="@i"><a href="" class="stage" id="@item.Id" value="@item.SortOrder" name="@i"><i class="fa fa-check-square-o"></i> @item.Name</a></li>
+                @*<li class="stage" id="@item.Id" value="@item.SortOrder"><a href=""><i class="fa fa-check-square-o"></i> @item.Name</a></li>*@
+                i = i + 1;
+
+                @*<li><a href="" class="current">Resolve</a></li>*@
+            }
+        </ul>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <br />
+                <fieldset>
+                    <legend>Person Info</legend>
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <td>Name:</td>
+                            <td>@Html.DisplayFor(model => model.Person.FirstName) @Html.DisplayFor(model => model.Person.LastName)</td>
+                        </tr>
+                        <tr>
+                            <td>Job Title:</td>
+                            <td>@Html.DisplayFor(model => model.Person.Occupation)</td>
+                        </tr>
+                        <tr>
+                            <td>Phone:</td>
+                            <td>@Html.DisplayFor(model => model.Person.Phone)</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile:</td>
+                            <td>@Html.DisplayFor(model => model.Person.Mobile)</td>
+                        </tr>
+                    </table>
+
+                </fieldset>
+                <br />
+
+                <fieldset>
+                    <legend>Product</legend>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Lead Products
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+
+                                <td>
+                                    @{
+                                        var prod = client.GetListOfProductsByLead(Login.OrganizationId, Model.Id);
+                                        <ol>
+                                            @foreach (var item in prod)
+                                            {
+                                                <li>@item.ProductName</li>
+
+
+                                            }
+                                        </ol>
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                </fieldset>
+               
+                
+            </div>
+            <div class="col-md-6">
+                <div class="tabbable-line">
+                    <div class="tabbable-line">
+
+
+                    </div>
+                    <ul class="nav nav-tabs ">
+                        <li class="active">
+                            <a href="#tab_1" data-toggle="tab">
+                                Attachment
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_2" data-toggle="tab">
+                                TimeLine
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_3" data-toggle="tab">
+                                Notes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tab_4" data-toggle="tab">
+                                Email
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <p align="justify"> <b>Note :-</b> To have a better understanging or look about the documents its mandatory to store the  documents in correnct name. e.g A passport document should be saved as passport.pdf or passport.docx (with the corresponding extention).</p>
+
+                            <div class="row">
+                                <br />
+
+                                <div class="col-md-12">
+                                    @{
+                                    int j = 1;
+                                    int z = 11;
+                                    var leadprod = client.GetListOfProductsByLead(Login.OrganizationId, Model.Id);
+                                    if (leadprod != null)
+                                    {
+
+                                <table class="table table-bordered" style="min-height:0px !important;">
+                                    <tbody>
+                                        @foreach (var items in leadprod)
+                                                {
+                                                    var prodDoc = client.GetListOfProductsdoc(Login.OrganizationId, items.CampaignProductId);
+                                                <tr>
+                                                    <td>@Html.Raw(j++)</td>
+                                                    <td>@items.ProductName</td>
+                                                    <td>
+                                                        <table class="table table-bordered" style="min-height:0px !important;">
+                                                            @foreach (var doc in prodDoc)
+                                                                {
+                                                                    z++;
+                                                                <tr><td>@doc.DocumentName</td><td><input type="file" name="files" id="@z" /></td></tr>
+                                                                }
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                }
+                                    </tbody>
+                                </table>
+                                    }
+                                    else
+                                    {
+                                <h2>Product Not Assigned</h2>
+                                    }
+
+                                    }
+
+
+
+
+
+
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <input class="btn green" type="submit" value="Upload" />
+                                    @*<button class="btn green" id="btnLeadProducts"><i class="fa fa fa-plus"></i> Upload</button>*@
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-pane" id="tab_2">
+
+                            <div class="timeline">
+                                <!-- TIMELINE ITEM -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_1.jpg">
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <a href="#" class="timeline-body-title font-blue-madison">Andres Iniesta</a>
+                                                <span class="timeline-body-time font-grey-cascade">Replied at 7:45 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-circle green-haze btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                        Actions <i class="fa fa-angle-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a href="#">Action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Another action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Something else here </a>
+                                                        </li>
+                                                        <li class="divider">
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Separated link </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <span class="font-grey-cascade">
+                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM -->
+                                <!-- TIMELINE ITEM -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_2.jpg">
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <a href="#" class="timeline-body-title font-blue-madison">Vanessa Bond</a>
+                                                <span class="timeline-body-time font-grey-cascade">Posted new post at 5:10 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <span class="font-grey-cascade">
+                                                <p>
+                                                    <img class="timeline-body-img pull-right" src="../../assets/admin/pages/media/blog/4.jpg" alt="">
+                                                    Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard.
+                                                </p>
+                                                <p>
+                                                    Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                                </p>
+                                                <p>
+                                                    <img class="timeline-body-img pull-left" src="../../assets/admin/pages/media/blog/6.jpg" alt=""> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil.
+                                                </p>
+                                                <p>
+                                                    Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                                </p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM -->
+                                <!-- TIMELINE ITEM WITH GOOGLE MAP -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_3.jpg">
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <a href="#" class="timeline-body-title font-blue-madison">Carles Puyol</a>
+                                                <span class="timeline-body-time font-grey-cascade">Added office location at 2:50 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-circle btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                        Actions <i class="fa fa-angle-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a href="#">Action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Another action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Something else here </a>
+                                                        </li>
+                                                        <li class="divider">
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Separated link </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <div style="position: relative; background-color: rgb(229, 227, 223); overflow: hidden;" id="gmap_polygons" class="gmaps"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; position: absolute; left: 280px; top: -202px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 280px; top: 54px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 24px; top: -202px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 24px; top: 54px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 536px; top: -202px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 536px; top: 54px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -232px; top: -202px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -232px; top: 54px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 792px; top: -202px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 792px; top: 54px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 30;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 280px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 280px; top: 54px;"><canvas draggable="false" style="width: 256px; height: 256px; -moz-user-select: none; position: absolute; left: 0px; top: 0px;" height="256" width="256"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 24px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 24px; top: 54px;"><canvas draggable="false" style="width: 256px; height: 256px; -moz-user-select: none; position: absolute; left: 0px; top: 0px;" height="256" width="256"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 536px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 536px; top: 54px;"><canvas draggable="false" style="width: 256px; height: 256px; -moz-user-select: none; position: absolute; left: 0px; top: 0px;" height="256" width="256"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -232px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -232px; top: 54px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 792px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 792px; top: 54px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 280px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 280px; top: 54px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 24px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 24px; top: 54px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 536px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 536px; top: 54px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -232px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -232px; top: 54px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 792px; top: -202px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 792px; top: 54px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="position: absolute; left: 536px; top: -202px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9373!3i17487!2m3!1e0!2sm!3i318306171!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 280px; top: -202px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9372!3i17487!2m3!1e0!2sm!3i318306171!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 280px; top: 54px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9372!3i17488!2m3!1e0!2sm!3i318306171!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 24px; top: -202px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9371!3i17487!2m3!1e0!2sm!3i318306171!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 24px; top: 54px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9371!3i17488!2m3!1e0!2sm!3i318306171!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: -232px; top: 54px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9370!3i17488!2m3!1e0!2sm!3i318312647!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: -232px; top: -202px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9370!3i17487!2m3!1e0!2sm!3i318304008!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 536px; top: 54px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt1.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9373!3i17488!2m3!1e0!2sm!3i318306171!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 792px; top: -202px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9374!3i17487!2m3!1e0!2sm!3i318304728!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div style="position: absolute; left: 792px; top: 54px; width: 256px; height: 256px; transition: opacity 200ms ease-out 0s;"><img draggable="false" src="http://mt0.googleapis.com/vt?pb=!1m4!1m3!1i15!2i9374!3i17488!2m3!1e0!2sm!3i318304728!3m9!2sen-US!3sUS!5e18!12m1!1e47!12m3!1e37!2m1!1ssmartmaps!4e0" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"><div style="z-index: -202; cursor: pointer; display: none;"><div style="width: 30px; height: 27px; overflow: hidden; position: absolute;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/undo_poly.png" style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 90px; height: 27px;"></div></div></div></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a title="Click to see this area on Google Maps" href="https://maps.google.com/maps?ll=-12.043333,-77.028333&amp;z=15&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" target="_blank" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 62px; height: 26px; cursor: pointer;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/google_white2.png" style="position: absolute; left: 0px; top: 0px; width: 62px; height: 26px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto,Arial,sans-serif; color: rgb(34, 34, 34); box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 312px; top: 60px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data ©2015 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div><div style="z-index: 1000001; position: absolute; right: 270px; bottom: 0px; width: 121px;" class="gmnoprint"><div class="gm-style-cc" style="-moz-user-select: none;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="">Map data ©2015 Google</span></div></div></div><div style="position: absolute; right: 0px; bottom: 0px;" class="gmnoscreen"><div style="font-family: Roboto,Arial,sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2015 Google</div></div><div draggable="false" style="z-index: 1000001; -moz-user-select: none; position: absolute; right: 113px; bottom: 0px;" class="gmnoprint gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a target="_blank" href="https://www.google.com/intl/en-US_US/help/terms_maps.html" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><div class="gm-style-cc" style="-moz-user-select: none; position: absolute; right: 18px; bottom: 0px;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><a href="https://www.google.com/maps/-12.043333,-77.028333,15z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;" title="Report errors in the road map or imagery to Google" target="_new">Report a map error</a></div></div><div style="-moz-user-select: none; margin-left: 5px; margin-top: 5px; position: absolute; width: 13px; height: 13px; right: 0px; bottom: 0px;" draggable="false" class="gmnoprint"><div style="background-color: rgb(255, 255, 255); overflow: hidden; width: 120px; height: 120px; display: none;"><div style="position: absolute; left: 3px; top: 3px; width: 117px; height: 117px; background-color: rgb(229, 227, 223); overflow: hidden;"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; position: absolute; left: -203px; top: -6px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"></div><div style="position: absolute; z-index: 0; left: 0px; top: 0px;"><div style="overflow: hidden;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; width: 100%; height: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div style="border: 1px solid rgb(255, 255, 255); outline: 1px solid rgb(0, 0, 0); opacity: 0.35; position: absolute; margin-top: -9px; margin-left: -29px; width: 58px; height: 19px; left: 0px; top: 0px;"><div style="position: absolute; background: none repeat scroll 0% 0% rgb(0, 0, 0); opacity: 0.7; width: 58px; height: 19px;"></div></div><div style="border: 1px solid rgb(255, 255, 255); outline: 1px solid rgb(0, 0, 0); opacity: 0.35; position: absolute; cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; margin-top: -9px; margin-left: -29px; width: 58px; height: 19px; left: 0px; top: 0px;"><div style="position: absolute; width: 58px; height: 19px;"></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div></div></div></div><div style="width: 13px; height: 13px; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div title="Open the overview map" style="width: 13px; height: 13px; overflow: hidden; position: absolute;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" style="position: absolute; left: -2px; top: -364px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div></div><div controlheight="169" controlwidth="78" draggable="false" style="margin: 5px; -moz-user-select: none; position: absolute; left: 0px; top: 0px;" class="gmnoprint"><div style="cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; width: 78px; height: 78px; position: absolute; left: 0px; top: 0px;" controlheight="80" controlwidth="78" class="gmnoprint"><div style="width: 78px; height: 78px; position: absolute; left: 0px; top: 0px;" controlheight="80" controlwidth="78" class="gmnoprint"><div style="visibility: hidden;"><svg viewBox="0 0 78 78" height="78px" width="78px" overflow="hidden" version="1.1" style="position: absolute; left: 0px; top: 0px;"><circle stroke="#f2f4f6" fill="#f2f4f6" fill-opacity="0.2" stroke-width="3" r="35" cy="39" cx="39"></circle><g transform="rotate(0 39 39)"><rect fill="#f2f4f6" stroke-width="1" stroke="#a6a6a6" height="11" width="12" ry="4" rx="4" y="0" x="33"></rect><polyline stroke="#000" fill="#f2f4f6" stroke-width="1.5" stroke-linejoin="bevel" points="36.5,8.5 36.5,2.5 41.5,8.5 41.5,2.5"></polyline></g></svg></div></div><div style="position: absolute; left: 10px; top: 11px;" controlheight="59" controlwidth="59" class="gmnoprint"><div style="width: 59px; height: 59px; overflow: hidden; position: relative;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" style="position: absolute; left: 0px; top: 0px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"><div title="Pan left" style="position: absolute; left: 0px; top: 20px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div><div title="Pan right" style="position: absolute; left: 39px; top: 20px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div><div title="Pan up" style="position: absolute; left: 20px; top: 0px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div><div title="Pan down" style="position: absolute; left: 20px; top: 39px; width: 19.6667px; height: 19.6667px; cursor: pointer;"></div></div></div></div><div style="cursor: url(&quot;http://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; position: absolute; left: 23px; top: 85px;" controlheight="40" controlwidth="32"><div aria-label="Street View Pegman Control" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" style="position: absolute; left: -9px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div aria-label="Pegman is disabled" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" style="position: absolute; left: -107px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div aria-label="Pegman is on top of the Map" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" style="position: absolute; left: -58px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div aria-label="Street View Pegman Control" style="width: 32px; height: 40px; overflow: hidden; position: absolute; left: 0px; top: 0px; visibility: hidden;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/cb_scout2.png" style="position: absolute; left: -205px; top: -102px; width: 1028px; height: 214px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div><div controlheight="0" controlwidth="0" style="opacity: 0.6; display: none; position: absolute;" class="gmnoprint"><div title="Rotate map 90 degrees" style="width: 22px; height: 22px; overflow: hidden; position: absolute; cursor: pointer;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" style="position: absolute; left: -38px; top: -360px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></div><div style="position: absolute; left: 29px; top: 130px;" controlheight="39" controlwidth="20" class="gmnoprint"><div style="width: 20px; height: 39px; overflow: hidden; position: absolute;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png" style="position: absolute; left: -39px; top: -401px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div title="Zoom in" style="position: absolute; left: 0px; top: 2px; width: 20px; height: 17px; cursor: pointer;"></div><div title="Zoom out" style="position: absolute; left: 0px; top: 19px; width: 20px; height: 17px; cursor: pointer;"></div></div></div><div style="margin: 5px; z-index: 0; position: absolute; cursor: pointer; right: 0px; top: 0px;" class="gmnoprint"><div class="gm-style-mtc" style="float: left;"><div title="Show street map" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 1px 6px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; background-clip: padding-box; border: 1px solid rgba(0, 0, 0, 0.15); box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); min-width: 22px; font-weight: 500;">Map</div><div style="background-color: white; z-index: -1; padding-top: 2px; background-clip: padding-box; border-width: 0px 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; left: 0px; top: 20px; text-align: left; display: none;"><div title="Show street map with terrain" draggable="false" style="color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap;"><span style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;" role="checkbox"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Terrain</label></div></div></div><div class="gm-style-mtc" style="float: left;"><div title="Show satellite imagery" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; position: relative; color: rgb(86, 86, 86); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 1px 6px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; background-clip: padding-box; border-width: 1px 1px 1px 0px; border-style: solid solid solid none; border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) -moz-use-text-color; -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); min-width: 38px;">Satellite</div><div style="background-color: white; z-index: -1; padding-top: 2px; background-clip: padding-box; border-width: 0px 1px 1px; border-style: none solid solid; border-color: -moz-use-text-color rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); position: absolute; right: 0px; top: 20px; text-align: left; display: none;"><div title="Zoom in to show 45 degree view" draggable="false" style="color: rgb(184, 184, 184); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap; display: none;"><span style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(241, 241, 241); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;" role="checkbox"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden; display: none;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">45°</label></div><div title="Show imagery with street names" draggable="false" style="color: rgb(0, 0, 0); font-family: Roboto,Arial,sans-serif; -moz-user-select: none; font-size: 11px; background-color: rgb(255, 255, 255); padding: 3px 8px 3px 3px; direction: ltr; text-align: left; white-space: nowrap;"><span style="box-sizing: border-box; position: relative; line-height: 0; font-size: 0px; margin: 0px 5px 0px 0px; display: inline-block; background-color: rgb(255, 255, 255); border: 1px solid rgb(198, 198, 198); border-radius: 1px; width: 13px; height: 13px; vertical-align: middle;" role="checkbox"><div style="position: absolute; left: 1px; top: -2px; width: 13px; height: 11px; overflow: hidden;"><img draggable="false" src="http://maps.gstatic.com/mapfiles/mv/imgs8.png" style="position: absolute; left: -52px; top: -44px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; width: 68px; height: 67px;"></div></span><label style="vertical-align: middle; cursor: pointer;">Labels</label></div></div></div></div><div class="gm-style-cc" draggable="false" style="position: absolute; -moz-user-select: none; right: 184px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right;"><span>200 m&nbsp;</span><div style="position: relative; display: inline-block; height: 8px; bottom: -1px; width: 43px;"><div style="width: 100%; height: 4px; position: absolute; background-color: rgb(255, 255, 255); left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; left: 0px; top: 0px; background-color: rgb(255, 255, 255);"></div><div style="width: 4px; height: 8px; position: absolute; background-color: rgb(255, 255, 255); left: 0px; bottom: 0px;"></div><div style="position: absolute; background-color: rgb(102, 102, 102); height: 2px; left: 1px; bottom: 1px; right: 1px;"></div><div style="position: absolute; width: 2px; height: 6px; left: 1px; top: 1px; background-color: rgb(102, 102, 102);"></div><div style="width: 2px; height: 6px; position: absolute; background-color: rgb(102, 102, 102); bottom: 1px; right: 1px;"></div></div></div></div></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM WITH GOOGLE MAP -->
+                                <!-- TIMELINE ITEM -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <div class="timeline-icon">
+                                            <i class="icon-user-following font-green-haze"></i>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <span class="timeline-body-alerttitle font-red-intense">You have new follower</span>
+                                                <span class="timeline-body-time font-grey-cascade">at 11:00 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-circle grey-salsa btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                        Actions <i class="fa fa-angle-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a href="#">Action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Another action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Something else here </a>
+                                                        </li>
+                                                        <li class="divider">
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Separated link </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <span class="font-grey-cascade">
+                                                You have new follower <a href="#">Ivan Rakitic</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM -->
+                                <!-- TIMELINE ITEM -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <img class="timeline-badge-userpic" src="../../assets/admin/pages/media/users/avatar80_1.jpg">
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <a href="#" class="timeline-body-title font-blue-madison">Andres Iniesta</a>
+                                                <span class="timeline-body-time font-grey-cascade">Replied at 7:45 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <span class="font-grey-cascade">
+                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM -->
+                                <!-- TIMELINE ITEM -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <img class="timeline-badge-userpic img-circle" src="../../assets/admin/pages/media/users/avatar80_2.jpg">
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <a href="#" class="timeline-body-title font-blue-madison">Vanessa Bond</a>
+                                                <span class="timeline-body-time font-grey-cascade">Posted new post at 5:10 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <span class="font-grey-cascade">
+                                                <p>
+                                                    <img class="timeline-body-img pull-right" src="../../assets/admin/pages/media/blog/4.jpg" alt="">
+                                                    Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi. coriander bitterleaf epazote radicchio shallot winter purslane collard.
+                                                </p>
+                                                <p>
+                                                    Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                                </p>
+                                                <p>
+                                                    <img class="timeline-body-img pull-left" src="../../assets/admin/pages/media/blog/6.jpg" alt=""> Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi radicchio shallot winter purslane collard greens spring onion squash lentil.
+                                                </p>
+                                                <p>
+                                                    Coriander bitterleaf epazote radicchio shallot winter purslane collard. Caulie dandelion maize lentil collard greens radish arugula sweet pepper water spinach kombu courgette lettuce. Celery coriander bitterleaf epazote radicchio shallot winter purslane collard greens spring onion squash lentil. Artichoke salad bamboo shoot black-eyed pea brussels sprout garlic kohlrabi.
+                                                </p>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM -->
+                                <!-- TIMELINE ITEM -->
+                                <div class="timeline-item">
+                                    <div class="timeline-badge">
+                                        <div class="timeline-icon">
+                                            <i class="icon-docs font-red-intense"></i>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-body">
+                                        <div class="timeline-body-arrow">
+                                        </div>
+                                        <div class="timeline-body-head">
+                                            <div class="timeline-body-head-caption">
+                                                <span class="timeline-body-alerttitle font-green-haze">Server Report</span>
+                                                <span class="timeline-body-time font-grey-cascade">Yesterday at 11:00 PM</span>
+                                            </div>
+                                            <div class="timeline-body-head-actions">
+                                                <div class="btn-group dropup">
+                                                    <button class="btn btn-circle green-haze btn-sm dropdown-toggle" type="button" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                                        Actions <i class="fa fa-angle-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right" role="menu">
+                                                        <li>
+                                                            <a href="#">Action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Another action </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Something else here </a>
+                                                        </li>
+                                                        <li class="divider">
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Separated link </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="timeline-body-content">
+                                            <span class="font-grey-cascade">
+                                                Lorem ipsum dolore sit amet <a href="#">Ispect</a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TIMELINE ITEM -->
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="tab_3">
+                            @using (Html.BeginForm("AddNote", "SalesManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                        <div class="horizontal-form">
+                            <div class="form-body ">
+                                <br />
+                                <div class="row">
+                                    <input type="hidden" class="PersonLeadId" name="PersonLeadId" value=@Model.Id id=@Model.Id />
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+
+                                            @Html.TextArea("txtNotes", new { @Style = "width:100%;", @placeholder = " Note", @Class = "form-control ", })
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <!--/row-->
+                                <br />
+                                <div class="row">
+                                    <div class="modal-footer">
+
+                                        <button class="btn green" id="btnLeadProducts">Save </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        }
+                        </div>
+                        <div class="tab-pane" id="tab_4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Email</label>
+                                        <div class="col-md-9">
+                                            @*<input type="text" class="form-control" value="@Model.PersonLead.Person.Email" placeholder=" Email Address">*@
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Subject</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" placeholder=" Email Subject">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Select Tempelate</label>
+                                        <div class="col-md-9">
+                                            <select id="ddlTempelate" style="text-align:center;" class="form-control">
+                                                <option value="">--Select--</option>
+                                                <option value="data/Etemplate/Cards.html">Car Loans</option>
+                                                <option value="data/Etemplate/homeloan.html">Home Loan</option>
+                                                <option value="data/Etemplate/sadas.html">About Finance</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span id="emaltext">
+
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="modal-footer">
+
+                                    <button class="btn green" id="btnLeadProducts">Sent <i class="fa fa-arrow-circle-right"></i> </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <table class="table table-bordered table-striped">
+                    <tr><th>Expected Value</th></tr>
+                    <tr>
+                        <td>   @Html.DisplayFor(model => model.ExpectedValue)</td>
+                    </tr>
+                </table>
+                <table class="table table-bordered table-striped">
+
+                    <tr><th>Expected Closing Date</th></tr>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.ExpectedClosingDate)</td>
+                    </tr>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>Company:</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Person.Person_Company.Name)</td>
+                    </tr>
+                </table>
+
+
+                @* Chat *@
+                @*<section class='chat-container' style="height:400px;width:100%;">
+
+                    <header class='top-header'>
+
+                        <div class='left'>
+
+                            <span class='icon typicons-message'></span>
+
+                            <span class='top-header-tit'>Call and Chat</span>
+
+                        </div>
+
+                        <div class='right'>
+
+                            <span class='icon typicons-minus'></span>
+
+                            <span class='icon typicons-times'></span>
+
+                        </div>
+
+                    </header>
+
+
+
+                    <div class="setting">
+
+                        <div class='left'>
+
+                            <span class='fontawesome-facetime-video'></span>
+
+                            <span class='iconicstroke-user'></span>
+
+                        </div>
+
+                        <div class='right'>
+
+                            <span class='typicons-cog'></span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <ol class='chat-box' style="width:100%;">
+
+                        <li class='another'>
+
+                            <div class='avatar-icon'>
+
+                                <img src='icon1.png'>
+
+                            </div>
+
+                            <div class='messages'>
+
+                                <p>hi how are you. When you come to home.</p>
+
+                                <time datetime='2009-11-13T20:00'>Timothy • 51 min</time>
+
+                            </div>
+
+                        </li>
+
+                        <li class='me'>
+
+                            <div class='avatar-icon'>
+
+                                <img src='icon2.png'>
+
+                            </div>
+
+                            <div class='messages'>
+
+                                <p>Hi fine bro.</p>
+
+                                <p>Tomorrow morning i will rech.</p>
+
+                                <time datetime='2009-11-13T20:14'>37 mins</time>
+
+                            </div>
+
+                        </li>
+
+                        <li class='another'>
+
+                            <div class='avatar-icon'>
+
+                                <img src='icon3.png'>
+
+                            </div>
+
+                            <div class='messages'>
+
+                                <p>hi happy to welcome you.</p>
+
+                                <p>I bring some dress for you.</p>
+
+                            </div>
+
+                        </li>
+
+
+
+                        <li class='me'>
+
+                            <div class='avatar-icon'>
+
+                                <img src='icon2.png'>
+
+                            </div>
+
+                            <div class='messages'>
+
+                                <p>I will come and pickup you.</p>
+
+                                <p>what the time you will reach.</p>
+
+                                <time datetime='2009-11-13T20:14'>37 mins</time>
+
+                            </div>
+
+                        </li>
+
+                        <li class='another'>
+
+                            <div class='avatar-icon'>
+
+                                <img src='icon1.png'>
+
+                            </div>
+
+                            <div class='messages'>
+
+                                <p>i will not know exact time i come arround 8'O colock </p>
+
+                                <time datetime='2009-11-13T20:00'>Timothy • 51 min</time>
+
+                            </div>
+
+                        </li>
+
+                        <li class='another'>
+
+                            <div class='avatar-icon'>
+
+                                <img src='icon3.png'>
+
+                            </div>
+
+                            <div class='messages'>
+
+                                <p>Ok buy Bro....</p>
+
+                                <p>See you tomorrow Morning.</p>
+
+                            </div>
+
+                        </li>
+
+                    </ol>
+
+                </section>*@
+            </div>
+        </div>
+
+        <input type="hidden" value="@stagewidth" id="hdnstagewidth" />
+
+
+
+        <!-- /.modal-dialog for questions-->
+        <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+            <div class="modal-dialog" style="width:80%;" id="modalquestions">
+
+            </div>
+        </div>
+
+
+        @* WON CONFIRM MODAL START *@
+        <div class="modal fade" id="WonModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog " style="width: 30%">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="font-weight:bold;">Won </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Actual Value</label>
+                                    <input type="text" class="currenciesOnly form-control validate[required]" name="txtactualvalue" id="txtactualvalue" style="text-align:right;" placeholder="(e.g:- QAR 1,00000.00)" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Sanctioned Value</label>
+                                    <input type="text" class="currenciesOnly form-control validate[required]" name="txtsantionedvalue" id="txtsantionedvalue" style="text-align:right;" placeholder="(e.g:- QAR 1,00000.00)" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Closed Date</label>
+                                    <input type="text" class="form-control date-picker validate[required]" name="txtCloseDate" id="txtCloseDate" placeholder="MM/DD/YYYY" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn blue" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn green" id="btndealwon">Save</button>
+
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            var LeadId = $('.PersonLeadId').attr("id");
+            var CurrentDealStage = $('.CurrentDealStage').attr("id");
+            var CurrentSortOrder = $('.CurrentSortOrder').attr("id");
+            var activevalue;
+            var disable;
+            var list = [];
+            var Leastvalue;
+            var activeli;
+
+            $('.date-picker').datepicker({
+                format: 'mm/dd/yyyy',
+                rtl: Metronic.isRTL(),
+                orientation: "left",
+                autoclose: true
+
+            });
+
+            $('.stage').each(function () {
+                var tofindleast = $(this).attr("name");
+                list.push(tofindleast);
+            });
+
+            $("#breadcrumbs-one li").width($('#hdnstagewidth').val() + "%");
+            var listItems = $('#breadcrumbs-one li');
+            listItems.each(function (index, li) {
+                var value = $(this).attr("value");
+                var PersonDealStage = $(this).attr("id");
+                if (PersonDealStage == CurrentDealStage) {
+                    $(this).addClass('active');
+                    activeli = $(this).attr("value");
+
+                    //activevalue = $(this).attr("value");
+                    disable = value + 2;
+
+                }
+                if (value >= disable) {
+                    $(this).addClass('disabled');
+                }
+
+            });
+
+            Leastvalue = Math.min.apply(Math, list);
+            if (Leastvalue == activeli) {
+                $("#Lost").hide();
+                $("#Won").show();
+                $("#dropped").show();
+                $("#revertlead").show();
+            }
+
+            else {
+
+                $("#Lost").show();
+                $("#dropped").hide();
+                $("#revertlead").hide();
+            }
+
+
+            $('#Won').click(function () {
+                $('#WonModal').modal();
+            });
+
+            $('#btndealwon').click(function () {
+                var datarow = { ActualValue: $('#txtactualvalue').val(), SanctionedValue: $('#txtsantionedvalue').val(), ClosedDate: $('#txtCloseDate').val(), PersonLeadId: LeadId };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~/")' + "SalesManagement/DealWon",
+                    data: datarow,
+                    success: function (response) {
+                        if (response == 'True') {
+                            bootbox.alert("Action completed successfully!", function () {
+                                window.location.href = '@Url.Content("~/")' + "SalesManagement/SalesAgentView";
+                            });
+                            $('#WonModal').modal('hide');
+                        }
+                        else {
+                            bootbox.alert("Error", function () {
+                            });
+                        }
+                    }
+
+                });
+
+            });
+
+            $('.myaction').click(function () {
+                var Movement = $(this).attr("id");
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~/")' + "SalesManagement/LeadStageQuestions",
+                    data: { personLeadId: LeadId, DealStageNameId: CurrentDealStage, movementMode: Movement },
+                    success: function (data) {
+                        $('#modalquestions').html(data);
+                        $('#basic').modal();
+                    },
+                    traditional: true
+                });
+                return false;
+
+            });
+
+
+            $('.stage').click(function () {
+                var DealStageId = $(this).attr("id");
+                var SelectedSortOrder = $(this).attr("value");
+                if (SelectedSortOrder >= CurrentSortOrder) {
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Content("~/")' + "SalesManagement/LeadStageQuestions",
+                        data: { personLeadId: LeadId, DealStageNameId: CurrentDealStage, movementMode: "Forward" },
+                        success: function (data) {
+                            $('#modalquestions').html(data);
+                            $('#basic').modal();
+                        },
+                        traditional: true
+
+                    });
+                    return false;
+                }
+
+                else {
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Content("~/")' + "SalesManagement/LeadStageQuestions",
+                        data: { personLeadId: LeadId, DealStageNameId: CurrentDealStage, movementMode: "backward" },
+                        success: function (data) {
+                            $('#modalquestions').html(data);
+                            $('#basic').modal();
+                        }, traditional: true
+                    });
+                    return false;
+                }
+
+            });
+
+            $("input[type=text].currenciesOnly").live('keydown', currenciesOnly)
+                                               .live('blur', function () { $(this).formatCurrency(); });
+        });
+
+
+        function currenciesOnly(event) {
+            var legalKeyCode =
+                (!event.shiftKey && !event.ctrlKey && !event.altKey)
+                    &&
+                (jQuery.inArray(event.keyCode, allowedSpecialCharKeyCodes) >= 0
+                    ||
+                jQuery.inArray(event.keyCode, numberKeyCodes) >= 0
+                    ||
+                jQuery.inArray(event.keyCode, commaKeyCode) >= 0
+                    ||
+                jQuery.inArray(event.keyCode, decimalKeyCode) >= 0);
+
+            // Allow for $
+            if (!legalKeyCode && event.shiftKey && event.keyCode == 52)
+                legalKeyCode = true;
+
+            if (legalKeyCode === false)
+                event.preventDefault();
+        }
+
+
+        // jQuery formatCurrency plugin... see http://code.google.com/p/jquery-formatcurrency/
+        (function ($) {
+            $.formatCurrency = {}; $.formatCurrency.regions = []; $.formatCurrency.regions[""] = { symbol: "QAR ", positiveFormat: "%s%n", negativeFormat: "(%s%n)", decimalSymbol: ".", digitGroupSymbol: ",", groupDigits: true };
+            $.fn.formatCurrency = function (destination, settings) {
+                if (arguments.length == 1 && typeof destination !== "string") {
+                    settings = destination; destination = false
+                } var defaults = { name: "formatCurrency", colorize: false, region: "", global: true, roundToDecimalPlace: 2, eventOnDecimalsEntered: false }; defaults = $.extend(defaults, $.formatCurrency.regions[""]);
+                settings = $.extend(defaults, settings); if (settings.region.length > 0) { settings = $.extend(settings, getRegionOrCulture(settings.region)) } settings.regex = generateRegex(settings);
+                return this.each(function () {
+                    $this = $(this); var num = "0"; num = $this[$this.is("input, select, textarea") ? "val" : "html"](); if (num.search("\\(") >= 0) {
+                        num = "-" + num
+                    } if (num === "" || (num === "-" && settings.roundToDecimalPlace === -1)) { return } if (isNaN(num)) {
+                        num = num.replace(settings.regex, ""); if (num === "" || (num === "-" && settings.roundToDecimalPlace === -1)) {
+                            return
+                        } if (settings.decimalSymbol != ".") { num = num.replace(settings.decimalSymbol, ".") } if (isNaN(num)) { num = "0" }
+                    } var numParts = String(num).split("."); var isPositive = (num == Math.abs(num));
+                    var hasDecimals = (numParts.length > 1); var decimals = (hasDecimals ? numParts[1].toString() : "0"); var originalDecimals = decimals; num = Math.abs(numParts[0]);
+                    num = isNaN(num) ? 0 : num; if (settings.roundToDecimalPlace >= 0) {
+                        decimals = parseFloat("1." + decimals); decimals = decimals.toFixed(settings.roundToDecimalPlace);
+                        if (decimals.substring(0, 1) == "2") { num = Number(num) + 1 } decimals = decimals.substring(2)
+                    } num = String(num); if (settings.groupDigits) {
+                        for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3) ;
+                        i++) { num = num.substring(0, num.length - (4 * i + 3)) + settings.digitGroupSymbol + num.substring(num.length - (4 * i + 3)) }
+                    } if ((hasDecimals && settings.roundToDecimalPlace == -1) || settings.roundToDecimalPlace > 0) {
+                        num += settings.decimalSymbol + decimals
+                    } var format = isPositive ? settings.positiveFormat : settings.negativeFormat; var money = format.replace(/%s/g, settings.symbol); money = money.replace(/%n/g, num);
+                    var $destination = $([]); if (!destination) { $destination = $this } else { $destination = $(destination) } $destination[$destination.is("input, select, textarea") ? "val" : "html"](money);
+                    if (hasDecimals && settings.eventOnDecimalsEntered && originalDecimals.length > settings.roundToDecimalPlace) {
+                        $destination.trigger("decimalsEntered", originalDecimals)
+                    } if (settings.colorize) { $destination.css("color", isPositive ? "black" : "red") }
+                })
+            }; $.fn.toNumber = function (settings) {
+                var defaults = $.extend({ name: "toNumber", region: "", global: true }, $.formatCurrency.regions[""]);
+                settings = jQuery.extend(defaults, settings); if (settings.region.length > 0) { settings = $.extend(settings, getRegionOrCulture(settings.region)) } settings.regex = generateRegex(settings);
+                return this.each(function () {
+                    var method = $(this).is("input, select, textarea") ? "val" : "html"; $(this)[method]($(this)[method]().replace("(", "(-").replace(settings.regex, ""))
+                })
+            }; $.fn.asNumber = function (settings) {
+                var defaults = $.extend({ name: "asNumber", region: "", parse: true, parseType: "Float", global: true }, $.formatCurrency.regions[""]);
+                settings = jQuery.extend(defaults, settings); if (settings.region.length > 0) { settings = $.extend(settings, getRegionOrCulture(settings.region)) } settings.regex = generateRegex(settings);
+                settings.parseType = validateParseType(settings.parseType); var method = $(this).is("input, select, textarea") ? "val" : "html"; var num = $(this)[method]();
+                num = num ? num : ""; num = num.replace("(", "(-"); num = num.replace(settings.regex, ""); if (!settings.parse) { return num } if (num.length == 0) { num = "0" } if (settings.decimalSymbol != ".") {
+                    num = num.replace(settings.decimalSymbol, ".")
+                } return window["parse" + settings.parseType](num)
+            }; function getRegionOrCulture(region) {
+                var regionInfo = $.formatCurrency.regions[region]; if (regionInfo) {
+                    return regionInfo
+                } else { if (/(\w+)-(\w+)/g.test(region)) { var culture = region.replace(/(\w+)-(\w+)/g, "$1"); return $.formatCurrency.regions[culture] } } return null
+            } function validateParseType(parseType) {
+                switch (parseType.toLowerCase()) {
+                    case "int": return "Int";
+                    case "float": return "Float"; default: throw "invalid parseType"
+                }
+            } function generateRegex(settings) {
+                if (settings.symbol === "") {
+                    return new RegExp("[^\\d" + settings.decimalSymbol + "-]", "g")
+                } else { var symbol = settings.symbol.replace("$", "\\$").replace(".", "\\."); return new RegExp(symbol + "|[^\\d" + settings.decimalSymbol + "-]", "g") }
+            }
+        })(jQuery);
+
+
+
+    </script>
+}

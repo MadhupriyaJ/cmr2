@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FramWork.Models.ABB_Company>
+@using FramWork.Models;
+@using Core;
+    @{
+    ViewBag.Title = "Company";
+    Layout = "~/Views/Shared/_ABB_LayoutHome.cshtml";
+    FrameworkEntities dc=new FrameworkEntities();
+    
+    }
+    @section Css{
+        <style>
+            .sh-ss {
+                box-shadow: 10px 10px 5px #888888;
+                border: solid 1px #ddd;
+                cursor: pointer;
+            }
+
+                .sh-ss:hover {
+                    box-shadow: 0px 0px 0px #888888;
+                    border: solid 1px #ddd;
+                }
+        </style>
+    }
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~")BB_Company/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("Company", "BB_Company_Doc_folder")">Documents</a>
+    </li>
+   
+    </ul>
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-bank font-blue-hoki"></i>
+                <span class="caption-subject bold font-blue-hoki uppercase">
+                    List Of Companies
+                </span>
+                <span class="caption-helper">more samples...</span>
+            </div>
+            <div class="actions">
+                <div class="portlet-input input-inline input-small">
+                    <div class="input-icon right">
+                        <i class="icon-magnifier"></i>
+                        <input type="text" class="form-control input-circle" placeholder="search...">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="row margin-top-10">
+                @foreach (var item in Model)
+                {
+                    var docs = dc.ABB_Company_Doc_folder.Where(a => a.CompanyId == item.Id);
+                    <a href="@Url.Content("~")BB_Company_Doc_folder/Index?id=@item.Id">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                            <div class="dashboard-stat2 sh-ss">
+                                <div class="display">
+                                    <div class="number">
+                                        <h3 class="font-green-sharp">@docs.Count()<small class="font-green-sharp"></small></h3>
+                                        <small><i class="fa fa-folder" style="color:yellow;font-size:20px;"></i> Folders</small>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="fa fa-plus-circle " style="color:green;"></i>
+                                    </div>
+                                </div>
+                                <div class="progress-info">
+                                    <div class="progress">
+                                        <span style="width: 100%;" class="progress-bar progress-bar-success green-sharp">
+                                            <span class="sr-only"></span>
+                                        </span>
+                                    </div>
+                                    <div class="status">
+                                        <div class="status-title">
+                                            @item.EnglishName
+                                        </div>
+                                        <div class="status-number">
+                                            <i class="fa fa-folder"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                }
+
+
+            </div>
+        </div>
+    </div>
+

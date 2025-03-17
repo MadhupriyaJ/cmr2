@@ -1,0 +1,219 @@
+﻿@using FramWork.Models
+@{
+    ViewBag.Title = "Lead2Deal | Calendar";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FramWork.Models.FrameworkEntities Db = new FramWork.Models.FrameworkEntities();
+    var Appoinment = Db.CompanyCustomerAppoinment.OrderByDescending(a => a.FromDate_time);
+}
+
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Services</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Activity</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Appointment Diary</a>
+    </li>
+</ul>
+
+@section    Css{
+
+<link href="@Url.Content("~/")assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/lib/cupertino/jquery-ui.min.css" rel="stylesheet" />
+<link href="@Url.Content("~/")assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/fullcalendar.css" rel="stylesheet" />
+    <style>
+        #top {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            padding: 0 10px;
+            line-height: 40px;
+            font-size: 12px;
+        }
+
+        #calendar {
+            /*max-width: 900px;*/
+            max-width: 100%;
+            margin: 40px auto;
+            padding: 0 10px;
+        }
+    </style>
+}
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-calendar font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Appointment Diary</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-9">
+                <div id='top'>
+                    Language:
+                    <select id='lang-selector'></select>
+                </div>
+
+                <div id='calendar'></div>
+            </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <!-- BEGIN Portlet PORTLET-->
+                    <div class="portlet light bordered shadow">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-calendar"></i>  Details
+                            </div>
+                            <div class="actions">
+                                @*<a href="#" class="btn btn-default btn-sm">
+                                    <i class="fa fa-pencil"></i> Edit
+                                </a>
+                                <a href="#" class="btn btn-default btn-sm">
+                                    <i class="fa fa-plus"></i> Add
+                                </a>*@
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <a id="addanewAppoinment" class="" href="~/Calendar/AddCustomerApp">
+                                <i class="icon-plus"></i> Appoinment
+                            </a>
+                            <br /><br />
+                            <strong><i class="fa fa-calendar"></i> Pending Appoinment</strong><br />
+                            <br />
+                            <ul>
+                                @foreach (var item in Appoinment)
+                                {
+                                    //if(@item.FromDate_time.Date>=DateTime.Now.Date)
+                                    <li>@item.Title</li>
+                                }
+                            </ul>
+
+                            <strong><i class="fa fa-calendar"></i> Future Appoinment</strong><br />
+                            <br />
+                            <ul>
+                                @foreach (var item in Appoinment)
+                                {
+                                    //if(@item.FromDate_time.Date>=DateTime.Now.Date)
+                                    <li>@item.Title</li>
+                                }
+                            </ul>
+
+
+                        </div>
+                    </div>
+                    <!-- END Portlet PORTLET-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        
+
+
+
+
+
+
+@section   Scripts{
+
+<script src="@Url.Content("~/")assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/lib/moment.min.js"></script>
+<script src="@Url.Content("~/")assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/fullcalendar.min.js"></script>
+<script src="@Url.Content("~/")assets/Programmer/Scripts/Campaign/fullcalendar-2.3.1/lang-all.js"></script>
+    <script>
+
+    $(document).ready(function () {
+        var currentLangCode = 'en';
+        // build the language selector's options
+        $.each($.fullCalendar.langs, function (langCode) {
+            $('#lang-selector').append(
+                $('<option/>')
+                    .attr('value', langCode)
+                    .prop('selected', langCode == currentLangCode)
+                    .text(langCode)
+            );
+        });
+
+        // rerender the calendar when the selected option changes
+        $('#lang-selector').on('change', function () {
+            if (this.value) {
+                currentLangCode = this.value;
+                $('#calendar').fullCalendar('destroy');
+                renderCalendar();
+            }
+        });
+
+        //var repeatingEvents = [];
+
+        var repeatingEvents = [
+             //{
+             //    id: 7,
+             //    title: 'All day',
+             //    start: '2015-06-16',
+             //    dow: null,
+             //    ranges: "NO",
+             //}
+        ];
+        $.get('@Url.Content("~")Calendar/getcompanyappoinments/', function (data, status) {
+            $.each(data, function (index, item) {
+                repeatingEvents.push({
+                    title: item.title,
+                    id: item.id,
+                    start: item.start,
+                    end: (item.repeating == true && item.start == item.end ? item.end + 1 : item.end),
+                    color: item.color,
+                    dow: (item.repeating == true ? item.dow : null),
+                    ranges: (item.repeating == true ? [{ start: item.ranges.start, end: item.ranges.end, }] : 'NO'),
+                })
+            })
+            $('#calendar').fullCalendar('refetchEvents');
+            console.log(repeatingEvents);
+        });
+
+
+        function renderCalendar() {
+            $('#calendar').fullCalendar({
+                defaultDate: moment(),
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                defaultView: 'month',
+                eventRender: function (event, element, view) {
+                    if (event.ranges != 'NO' && event.ranges != null && event.ranges != "" && event.start != null && event.end != null) {
+                        return (event.ranges.filter(function (range) {
+                            return (event.start.isBefore(range.end) &&
+                                    event.end.isAfter(range.start));
+                        }).length) > 0;
+                    }
+                },
+                events: function (start, end, timezone, callback) {
+                    var events = repeatingEvents; // getEvents(start, end); //this should be a JSON request
+                    callback(events);
+                },
+            });
+        }
+
+        renderCalendar();
+    });
+
+    </script>
+
+
+}
+
+
+
+

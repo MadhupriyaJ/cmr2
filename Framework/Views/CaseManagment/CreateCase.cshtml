@@ -1,0 +1,578 @@
+﻿@using Core;
+@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Create A New Case";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Services</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Case Management</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Create New Case</a>
+    </li>
+</ul>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered" id="form_wizard_1">
+            <div class="portlet-title">
+                <div class="caption  bold uppercase font-red-sunglo">
+                    <i class="fa fa-mobile-phone font-red-sunglo"></i>
+                    Create Case  - <span class="step-title">
+                        Step 1 of 2
+                    </span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            1
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Case Information
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            2
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Confirm
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">Provide Case information</h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">
+                                                    Title <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-9">
+                                                    <input type="text" id="Title" class="form-control" name="Title" />
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Lead
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("PersonLeadId", new SelectList(client.GetPersonLeadLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.Person.FirstName + " " + a.Person.LastName }), "Id", "FullName"), "Select", new { @class = "form-control validate[required]", @id = "PersonLeadId", @name = "PersonLeadId" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Customer<span class="required"> *</span>
+
+
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="CustomerName" class="form-control" name="CustomerName" />
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Account Number<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="AccountNumber" class="form-control" name="AccountNumber" />
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Phone
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="PhoneNumber" class="form-control" name="PhoneNumber" />
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Email
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <input type="text" id="EmailAddress" class="form-control" name="EmailAddress" />
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Case Orgin<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("CaseOrgin", new SelectList(client.GetCMCaseOrginLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "CaseOrgin", @name = "CaseOrgin" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Type<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("Type", new SelectList(client.GetCMCaseTypeLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Type", @name = "Type" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Priority<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("Priority", new SelectList(client.GetCMCasePriorityLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Priority", @name = "Priority" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Case Owner<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("CaseOwner", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @class = "form-control validate[required]", @id = "CaseOwner", @name = "CaseOwner" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Case Status<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("CaseStatus", new SelectList(client.GetCMCaseStatusLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "CaseStatus", @name = "CaseStatus" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Stage<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("ddlCaseStage", new SelectList(client.GetCaseManagmentStageList(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "CaseOwner", @name = "CaseOwner" })
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">
+                                                    Description<span class="required"> *</span>
+                                                </label>
+                                                <div class="col-md-9">
+                                                    <textarea rows="2" id="Description" cols="100" class="form-control" name="Description"></textarea>
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">
+                                                    Notes
+                                                </label>
+                                                <div class="col-md-9">
+                                                    <textarea rows="2" id="Notes" cols="100" class="form-control" name="Notes"></textarea>
+                                                    <span class="help-block">
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="tab-pane" id="tab2">
+                                    <h3 class="block">Case information</h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">
+                                                    Title
+                                                </label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static" data-display="Title">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Lead
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="PersonLeadId">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Customer<span class="required"> *</span>
+
+
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="CustomerName">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Account Number
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="AccountNumber">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Phone
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="PhoneNumber">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Email
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="EmailAddress">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Case Orgin
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="CaseOrgin">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Type
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Type">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Priority
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Priority">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Case Owner
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="CaseOwner">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Case Status
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="CaseStatus">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">
+                                                    Description
+                                                </label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static" data-display="Description">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-2">
+                                                    Notes
+                                                </label>
+                                                <div class="col-md-9">
+                                                    <p class="form-control-static" data-display="Notes">
+                                                        <span class="help-block">
+
+                                                        </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <a href="javascript:;" class="btn default button-previous">
+                                                <i class="m-icon-swapleft"></i> Back
+                                            </a>
+                                            <a href="javascript:;" class="btn blue button-next">
+                                                Continue <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                            <a href="javascript:;" class="btn green button-submit">
+                                                Submit <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~")assets/global/plugins/select2/select2.css" />
+    <style>
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+    </style>
+}
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="@Url.Content("~")assets/Programmer/Scripts/CaseManagement/formwizardcasecreate.js"></script>
+    <script src="@Url.Content("~")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+            $("#PersonLeadId").change(function () {
+
+                var PersonLead = $("#PersonLeadId").val();
+               
+                if (PersonLead != null && PersonLead != '')
+                {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Content("~/")' + 'CaseManagment/GetPersonPhoneEmail',
+                        data: ({ PId: PersonLead }),
+                        success: function (response) {
+                            if (response !=null) {
+                                var PhoneData = response["Phone"];
+                                var EmailData = response["Email"];
+                                $("#PhoneNumber").val(PhoneData);
+                                $("#EmailAddress").val(EmailData);
+                            }
+                            else {
+                                bootbox.alert("Error, could not complete the action!", function () {
+                                    window.location.reload();
+                                });
+
+                            }
+                        }
+                    });
+                }
+
+            })
+
+        });
+    </script>
+}

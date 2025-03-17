@@ -1,0 +1,93 @@
+﻿@model FramWork.Models.TGoal_Goal
+@using FramWork.Models;
+@using Core;
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Goal and Commission</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Goals</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">New</a>
+    </li>
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-plus font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Add New Goal</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+           @Html.ActionLink("Back to List", "Index",null ,new {@Class="btn btn-primary",@Title="List View" })
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen btn-primary" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+      @using (Html.BeginForm())
+      {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.Label("Goal", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.GoalName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GoalName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Goal Level", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.GoalLevelId, new SelectList(dc.TGoal_GoalLevel.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.GoalLevel }), "Id", "Name"), "Select", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.GoalLevelId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Metric Type", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(model => model.MetricTypeId, new SelectList(dc.TGoal_MetricType.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsdelete == false).Select(a => new { Id = a.Id, Name = a.MetricType }), "Id", "Name"), "Select", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MetricTypeId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Target", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.Value, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Value, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+      }
+
+   
+    </div>
+</div>
+
+

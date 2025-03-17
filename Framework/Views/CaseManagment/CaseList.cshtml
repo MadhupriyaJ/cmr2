@@ -1,0 +1,36 @@
+﻿@using FramWork.HelloService;
+@model PagedList.IPagedList<CaseManagment>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+@{
+    <table class="table table-bordered">
+        @foreach (var p in Model.Select((x, i) => new { Data = x, Index = i }))
+        {
+        <tr><td>@(p.Index + ((Model.PageNumber - 1) * Model.PageSize) + 1)</td>
+        <td><a class="casetitle" id="@p.Data.Id" href="#" >@p.Data.Title</a></td>
+        </tr>
+
+
+        @*<div class="row">
+            <div class="col-md-12 col-sm-12 blog-item">
+                <h2><a class="casetitle" id="@p.Id" href="#" style="font-weight:bold;font-size:17px;">@p.Title</a></h2>
+                <p>@p.Description</p>
+                <ul class="blog-info">
+                    <li><i class="fa fa-user"></i> By admin</li>
+                    <li><i class="fa fa-calendar"></i>@Convert.ToDateTime(p.CreateDate).ToString("dd mm yyyy")  </li>
+                </ul>
+            </div>
+        </div>*@
+        }
+
+    </table>
+}
+        
+            <div id="contentPagerC">
+                @Html.PagedListPager(Model, page => Url.Action("CaseList", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+                <br />
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            </div>

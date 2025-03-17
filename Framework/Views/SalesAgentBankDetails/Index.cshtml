@@ -1,0 +1,92 @@
+﻿@model IEnumerable<FramWork.Models.Commision_AgentBankDetails>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-share font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Agent Bank Details</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-cloud-upload"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-wrench"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-trash"></i>
+            </a>
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <table class="table table-striped table-bordered table-advance table-hover">
+            <tr>
+            
+                <th>
+                    @Html.DisplayNameFor(model => model.Teams.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Users.Salutation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BankAccountNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.bankiban)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </th>
+             
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teams.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Users.Salutation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BankAccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bankiban)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreateDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedDate)
+                    </td>
+             
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+

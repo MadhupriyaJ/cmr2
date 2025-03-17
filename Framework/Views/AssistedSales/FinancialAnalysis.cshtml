@@ -1,0 +1,480 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | Financial Analysis";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Assisted Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Financial Analysis</a>
+    </li>
+
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo"> Financial Analysis</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-12">
+
+                <ul class="nav nav-pills">
+                    <li class="active">
+                        <a href="#tab_Company" data-toggle="tab">
+                            Company
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab_IFRS" data-toggle="tab" id="IFRS">
+                            IFRS
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab_Adjustments" data-toggle="tab">
+                            Adjustments
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab_Help" data-toggle="tab">
+                            Help
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="tab_Company">
+                        <div>
+                            <table class="table table-bordered" align="center" style="min-height:0px;">
+                                <thead>
+                                    <tr>
+                                        <th>Company</th>
+                                        <th>Annual/total statements</th>
+                                        <th>Last statement</th>
+                                        <th>Currencies of statement</th>
+                                        <th>Statement check</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="#" id="firm1610" class="ifrslink" data-stype="ifrs" data-firm-id="1610" data-period-id="3563">Symbiosis</a>
+                                        </td>
+                                        <td class="w-13-per">
+                                            <strong class="mark">2/2</strong>
+                                        </td>
+
+                                        <td class="w-10-per">
+                                            <strong class="mark">year 2015</strong>
+                                        </td>
+
+                                        <td class="w-10-per">
+                                            <strong>QAR</strong>
+                                        </td>
+
+                                        <td class="w-15-per">
+                                            <i class="ico-status-ok"></i>
+                                        </td>
+
+                                        <td class="w-15-per">
+                                            <div class="drop-action-box">
+                                                <a data-width="170" data-id-firma="1610" data-period-month="12" data-period-year="2015" data-func-currency="RUB" data-finyear-start="0" class="btn-gray-small btn-action" href="#"><i class="l"></i><i class="r"></i>Actions <i class="drop-action-arrow"></i></a>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab_IFRS">
+                        @Html.Partial("_IFRS")
+                        @*<p>
+                    Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+                </p>*@
+                    </div>
+                    <div class="tab-pane fade" id="tab_Adjustments">
+
+                        <div>
+                            <table class="table table-bordered" align="center" style="min-height:0px;">
+                                <thead>
+                                    <tr>
+                                        <th class="check-td">
+                                            <input type="checkbox" id="mark-all">
+                                        </th>
+                                        <th class="group-org filter-th filter-b hover">
+                                            <span class="l"></span>
+                                            <span class="r"></span>
+                                            <span class="text">Period <span class="arrows"><span class="arrow-t"></span><span class="arrow-b"></span></span></span>
+                                        </th>
+                                        <th class="name-org filter-th">
+                                            <span class="l"></span>
+                                            <span class="r"></span>
+                                            <span class="text">Name <span class="arrows"><span class="arrow-t"></span><span class="arrow-b"></span></span></span>
+
+                                        </th>
+                                        <th>Debit</th>
+                                        <th>Credit</th>
+                                        <th>Currency</th>
+                                        <th class="value-org filter-th">
+                                            <span class="l"></span>
+                                            <span class="r"></span>
+                                            <span class="text">Adjustment entry value <span class="arrows"><span class="arrow-t"></span><span class="arrow-b"></span></span></span>
+                                        </th>
+                                        <th>Active</th>
+                                        <th class="width-100" colspan="3">Actions</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td style="text-align:center;" colspan="11">
+                                            You have not created any adjustment entries yet. You can create an adjustment by pressing Add adjustment.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab_Help">
+
+                        <span>
+                            <h2><strong>Brief International Financial Reporting Tool (IFRT) instruction </strong></h2>
+                            <p>
+                                <a href="#r1">General principles </a><br />
+                                <a href="#r2">Consolidated Reporting</a><br />
+                                <a href="#p1">Annex 1. Sample consolidation entries </a>
+                            </p>
+                            <h3><a name="r1" id="r1"></a><strong>General Principles of Software Use</strong></h3>
+                            <p>The  steps for getting financial statements according to IFRS:</p>
+                            <ol start="1" type="1">
+                                <li>
+                                    Add       new firm. If this is the first firm, the dialog box related to its       addition will appear immediately after you log in. If it is not the first       firm - add through Settings - Firms and reporting periods.<br />
+                                    &nbsp;
+                                </li>
+                                <li>
+                                    Add       the period to be covered by the reporting. If this is the first IFRS       reporting, please note the following. For example, we make 2013 reporting.       It means that the first year is 2012, otherwise we won't have comparable       data for the past year in 2013 reporting. That is why, when creating a       period, check &quot;Create comparable previous year period&quot; - the       software will create two periods, 2012 and 2013. <br />
+                                    &nbsp;
+                                </li>
+                                <li>
+                                    If       you want to have your statements in the currency other than the functional       currency, after the period is specified you can add the exchange rate of       such currency to the functional currency (for each reporting period you       need 3 exchange rates: opening rates, closing rates and weighted average       for the period).<br />
+                                    &nbsp;
+                                </li>
+                                <li> Fill out the table with numerical data       (IFRS section) and text notes thereto. </li>
+                            </ol>
+                            <blockquote>
+                                <p>
+                                    <span style="color: #F00">Attention!</span> When  filling out the Balance Sheet, first enter data to the end of the past year  column, and then fill out the column as of the reporting date. By entering data  as of the earlier date you actually change balances for a later date. After the  form is filled out, don't forget to save it (see the button on the top of the  page). In order to switch the periods, use the current period selection list in  the upper part of the screen. There you can also choose the firm to work with  from the list.<br />
+                                    Fill out only those sections (tables,  line items), which represent data applicable to your firm. If you do not have  biological assets, simply omit the relevant section. Blank sections, tables and  line items/columns in the tables will not be printed out and will not  overburden your report.
+                                </p>
+                            </blockquote>
+                            <ol start="5" type="1">
+                                <li>When       filling out the tables, please pay attention to the following two issues:</li>
+                            </ol>
+                            <blockquote>
+                                <p>a)  Data input. You can enter data both starting with Total and in a regular way,  starting with amount components. If you enter data to Total line item, you will  not disturb the formula - this is our know-how. However, if your sum is inconsistent,  cells will turn red. </p>
+                                <p>	b)  Highlighted cells. If a cell turns red, it means that there is inconsistency of  amount in the formula, or you have entered various values for one and the same  indicator in different places. It is necessary to remedy it. If a cell turns  yellow - it means warning, which signifies that tables contain such indicator  breakdown and you need to fill it out (for instance, fixed assets breakdown by  their types).</p>
+                                <p>	<span style="color: #F00">Attention!</span> If a cell turns red or yellow, you can  understand where inconsistency is by right clicking &quot;troubled&quot; cell  and choosing &quot;Show by formulas&quot;. You will see, how the indicator is  made up of all formulas available for it, and if there is inconsistency, you  will see it. If a cell is red, i.e. formula doesn't match, but you are not  certain if the error is in the sum, rather than in its members, you can choose  &quot;-Recalculate&quot; in the menu - the number in the cell will be  automatically recomputed as a sum of members.</p>
+                            </blockquote>
+                            <ol start="6" type="1">
+                                <li>If       you need to make adjustment entry to reporting, go to &quot;Adjustments &quot;       section. Certainly, you can change any number manually, without addressing       adjustment entries mechanism. But when you make changes through       adjustments, it is guaranteed that you will not disturb the total and       tables consistency. Adjustment entries are made as it is common for       accounting software: Debit - Credit. At the same time, the software will       request from you necessary data as debit and credit analytics (similar to       sub-account), in order to record adjustment records not only to key       reporting forms, but also to notes, so that to keep all formulas intact.</li>
+                            </ol>
+                            <blockquote>
+                                <p>When  making adjustment entries, please note the following. If you make quarterly  reporting, rather than annual, the adjustment entry made in the 1st quarter  will not affect reporting for 6 months, 9 months and a year. I.e. within a  year, adjustment entries do not transfer from one quarter to another, they need  to be made again. At the same time, annual adjustments will affect not only the  current, but also all subsequent statements: assets or liabilities balances  will be recorded there subject to adjustment entries.</p>
+                                <p>		The  following line items of two key statements forms are used as account Debit and  Credit when adjustment entries are made: Statement of Financial Position and  Statement of Profit and Loss (Statement of Comprehensive Income). As a matter  of fact, we work with IFRS chart of accounts, which is minimum and sufficient  and, at the same time, very clear, so that it is obvious, where adjustment  entry goes in the reporting. For convenience, accounts (statements line items)  are preceded by form symbol in the list:</p>
+                                <ul>
+                                    <li>FP       – line item of Statement of Financial Position</li>
+                                    <li>PL       – line item of Statement of Profit and Loss </li>
+                                    <li>CI       – other comprehensive income.</li>
+                                </ul>
+                                <p>For  example, adjustment entry that reduces cost of sales and increases Inventories:  Dr FP: Inventories – Cr PL:Cost of sales</p>
+                            </blockquote>
+                            <ol start="8" type="1">
+                                <li>
+                                    IFRS       reporting includes not only a large number of figures, but also       descriptive part. The software has blocks specifying the information to be       disclosed. Fill them out, leaving out those that are not applicable to       your firm.<br />
+                                    &nbsp;
+                                </li>
+                                <li>The       reporting is ready. If you specify foreign currency exchange rates for the       relevant reporting periods, you can choose such currency in options. Statements       will be automatically displayed in foreign currency, and line items with translation       difference will appear. </li>
+                            </ol>
+                            <blockquote>
+                                <p><span style="color: #F00">Attention!</span> If  you wonder, what are the components the figure in the cell is made of, right  click this cell and choose &quot;Itemize  the number&quot;.</p>
+                            </blockquote>
+                            <ol start="10" type="1">
+                                <li>In       order to aggregate one report based on all the tables, press &quot;Ready report&quot;       button (located on options bar in the upper part of the page in IFRS       section).</li>
+                            </ol>
+                            <p align="right"><strong>&nbsp;</strong></p>
+                            <h3><strong><a name="r2" id="r2"></a></strong><strong>Consolidated Reporting</strong></h3>
+                            <p>IFRT  enables to prepare consolidated statements, significantly saving user's time.  The software is built based on the principle: to make technical work related to  reporting consolidation (summing up the line items of subsidiary reporting,  which need to be added to parent reporting based on IFRS rules) and at the same  time limit the essential interference in consolidation process (user is to  decide, whether goodwill arises, in what amount, whether to record non-controlling  interests etc.). I.e. calculator principle is used: to help user, but not to  try to be smarter than user. The program assumes two consolidation methods: equity  method and purchase method (full consolidation). The approach is the following:</p>
+                            <ul type="disc">
+                                <li>In       case of equity method, no data from associate reporting get to parent       reporting automatically. In parent company reporting the user records       changes in investments, profit share and other comprehensive income from       subsidiary through adjustment entries. In case of equity method, reporting       is not consolidated line by line, only some of consolidation entries are       necessary, which are made by user at his/her own discretion (for example,       see <a href="file:///C:\Users\User\www\ifrs\apps\help\ru\index.html#p1">below</a>).</li>
+                                <li>In       case of full consolidation, the software consolidates parent and       subsidiary reporting line by line, adding all indicators together, save       for equity, and thereafter it gives the user a chance to adjust consolidation       - to record goodwill, non-controlling interests, part of retained earnings       and other comprehensive income. I.e. the software doesn't force to accept       its computation, but rather does all technical work associated with       summing up multiple reporting indicators.</li>
+                            </ul>
+                            <p><a name="consolidsettings" id="consolidsettings">Now let us see in detail, how it  looks in the software step by step.</a> </p>
+                            <p>
+                                1.  First of all, in order to commence making consolidated reporting, eliminate all  the errors (inconsistencies in indicators), which the software shows (red and  yellow cells). Even &quot;yellow&quot; warning may result in errors in consolidated  reporting.<br />
+                            </p>
+                            <p>2.  Then you need to specify that A firm is subsidiary (or associate) for B firm in  period settings. Go to Settings - Firms and reporting periods, open the list of  reporting periods for A firm. Choose the period, in which the firm was (became  or ceased to be) subsidiary. Press to edit period. In the record we can see  Parent company field. Choose parent in the list, and thereafter there will be 3  additional fields: </p>
+                            <ul type="disc">
+                                <li>
+                                    consolidation method at year       beginning (choose, what consolidation method was used in the beginning of       the year, it always corresponds to the one used as of the end of the past       year);<br />
+                                    &nbsp;
+                                </li>
+                                <li>
+                                    consolidation       method at the period end (choose, which consolidation method is used as of       the end of the reporting period); <br />
+                                    &nbsp;
+                                </li>
+                                <li>number       of months of subsidiary possession in the reporting period (applicable to purchase       method, when subsidiary appeared or ceased to be in the current reporting       period; you need to specify the number of months it is in possession). The       software uses this value in order to compute the proportion for adding subsidiary       turnover indicators to parent data.</li>
+                            </ul>
+                            <p>
+                                3.  Now the program knows that B firm is a parent. It means that its reporting may  be reviewed in two modes: a) as individual reporting; b) as consolidated reporting.  The switch - Consolidated Statements checkbox – may be found on tool bar on all  IFRS reporting pages for the parent company.<br />
+                            </p>
+                            <p>
+                                4.  Open IFRS reporting. Check Consolidated Statements  checkbox. <br />
+                            </p>
+                            <p>
+                                If  you use<strong> equity method</strong>, you won't see any changes in the reporting  figures of the parent. In case of such consolidation, it is sufficient to make  several adjustment entries, which the software leaves for user’s discretion (see  the example of such entries below). Therewith, in Adjustments  section you make adjustment entries for the  parent with Adjustment Entry for Consolidation checkbox (that is why it is  reasonable to point out for the software that there is subsidiary). Such  adjustment entry can be only seen in consolidated reporting (i.e. when the box  is checked), and those are the adjustment entries for recording results for  consolidation.<br />
+                                <br />
+                                If you use <strong>purchase method (full consolidation)</strong>, then when you check Consolidated  Statements  checkbox, you will see that  parent reporting is supplemented with subsidiary reporting data based on the  following algorithm:
+                            </p>
+                            <blockquote>
+                                <p>	a)  All subsidiary monetary indicators, other than Equity section indicators are summed  up line by line. </p>
+                                <p>	b)  To avoid disturbing Total due to subsidiary Equity zeroing, all line items of  subsidiary Equity are collapsed to several indicators, which are added to such line  items in parent reporting. It can be seen in the Statement of Changes in  Equity, where the following takes place for subsidiary reporting data:</p>
+                                <ul>
+                                    <li>
+                                        Opening<em> retained earnings</em> aggregate the subsidiary’s entire Equity as of the beginning of the year       (A).<br />
+                                        &nbsp;
+                                    </li>
+                                    <li>
+                                        <em>Retained Earnings </em>indicatorin <em>Earnings (Loss)</em> and <em>Other       Comprehensive Income</em> line items for the period become equal to the       total of Earnings (Loss) (B) and Other Comprehensive Income respectively.       (C)<br />
+                                        &nbsp;
+                                    </li>
+                                    <li>
+                                        All       changes in subsidiary equity that occur within the reporting period, other       than Earnings (Loss) and Other Comprehensive Income recognized above are       recorded to the <em>Retained Earnings </em>inline items <em>Increase (Decrease) Through Other       Changes</em> (D). <br />
+                                        &nbsp;
+                                    </li>
+                                    <li>As       a result, closing <em>Retained Earnings</em> will be comprised of entire       subsidiary equity as of the end of the period (E).</li>
+                                </ul>
+                                <p>The  preparation of Statement of Changes in Equity clearly described above may be  delineated as follows for combining it with parent reporting:</p>
+                            </blockquote>
+                            <img src="imgs/consolid.jpg" width="806" height="510" align="middle" /><br />
+                            <blockquote>
+                                <p>Thereafter,  in correspondence with indicators B, C and D you need to record non-controlling  interests with goodwill entries, remove investments etc. in consolidated  reporting (see example below).</p>
+                                <p>		c)  When summing up all turnover indicators (revenue, profit, fixed assets receipts  and disposals etc.) the software multiplies source subsidiary data by ratio =  number of months of subsidiary possession / number of months in the reporting  period. For instance, if subsidiary is in possession for six months, the ratio in  annual reporting is 0.5. This is applicable, if subsidiary was purchased or  disposed of within such reporting period. Therewith, in order to retain  consistency in <em>Opening Balance + Turnover = Closing Balance</em>, the  difference that appears as a result of multiplying by ratio, is recorded to line  items of other receipts and disposals, property (liabilities).</p>
+                                <p>		d)  If subsidiary was purchased or disposed of in the current period, balances from  subsidiary reporting as of the end and the beginning of the period  respectively, are recorded to the turnover of the current period in the same  &quot;balancing&quot; line items as specified in cl. c).</p>
+                            </blockquote>
+                            <p>		The  steps described in cl. a through d are automatically performed by the software  when any reporting is opened that is consolidated by purchase method. Such  changes are not saved to the database, they are performed each time when consolidated  reporting is displayed. Knowing and understanding this you can bring  consolidated reporting to full compliance with IFRS using several adjustment  entries (depending on your specific circumstances) (cl. 5).</p>
+                            <p>		5.  The software &quot;technically&quot; aggregated reporting: retained accurate  bottom line and consistency of indicators. However, this consolidated reporting  is not final, you need to adjust key reporting indicators and make  consolidation entries. Such entries are made as the adjustment entries of  parent (Adjustment Entries section); do not forget to check Adjustment Entry  for Consolidation checkbox, otherwise, entries will not be displayed in  individual parent reporting thus misrepresenting it. Below see examples of such  adjustment entries in <a href="#p1">Annex 1</a>.</p>
+                            6. With the help of adjustment entries it is  necessary to eliminate intergroup turnovers. We also need to make such entries  by checking Adjustment Entry for Consolidation checkbox so that those be  displayed in consolidated reporting only.<strong> </strong>
+                            <p>&nbsp;</p>
+                            <p><strong><a name="p1" id="r3"></a>Annex 1. Sample Consolidation Entries</strong> </p>
+                            <p><strong>Equity method: consolidation entries</strong></p>
+                            <p>As in case of equity method the software doesn't  transfer any figures from associates reporting to parent reporting, the entire  consolidation is made with adjustment entries (they can be different in each individual  case, that is why user needs to make them with due consideration): </p>
+                            <table width="100%" border="1" cellpadding="4" cellspacing="0">
+                                <tr>
+                                    <td width="28%" align="center" valign="middle"><strong>Debit</strong></td>
+                                    <td width="36%" align="center" valign="middle"><p align="center"><strong>Credit</strong></p></td>
+                                    <td width="36%" align="center" valign="middle"><p align="center"><strong>Comment</strong></p></td>
+                                </tr>
+                                <tr>
+                                    <td width="28%" valign="top"><p><strong>FP: Investments accounted for using equity method</strong></p></td>
+                                    <td width="36%" valign="top">
+                                        <p>
+                                            <strong>FP: Retained earnings</strong><br />
+                                            Increase (decrease) through other changes, equity
+                                        </p>
+                                    </td>
+                                    <td valign="top"><p>If this is your first reporting in the software    and associate already existed as of the beginning of the year, you need to    record investments through <u>opening</u> balance (entry).</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable"><p style="font-weight:bold; margin-left:0cm">FP: Investments accounted for using equity method</p></td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Comprehensive income attributable to owners of parent</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Profit (loss)</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Profit (loss) attributable to owners of parent</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Profit (loss) from continuing operations</p>
+                                        <p style="font-weight:normal; margin-left:2cm">Profit (loss) before tax</p>
+                                        <p style="font-weight:normal; margin-left:2.5cm">Share of profit (loss) of associates and joint ventures accounted for using equity method</p>
+                                    </td>
+                                    <td valign="top"><p>Record the associate's share of profit for the    reporting period, which is referred to parent.</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable"><p style="font-weight:bold; margin-left:0cm">FP: Investments accounted for using equity method</p></td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Comprehensive income attributable to owners of parent</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Other comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Other comprehensive income that will not be reclassified to profit or loss, net of tax</p>
+                                        <p style="font-weight:normal; margin-left:2cm">Share of other comprehensive income of associates and joint ventures accounted for using equity method that will not be reclassified to profit or loss, net of tax</p>
+                                    </td>
+                                    <td valign="top"><p>Record the associate's share of comprehensive    income for the reporting period, which is referred to parent. </p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable"><p style="font-weight:bold; margin-left:0cm">FP: Investments accounted for using equity method</p></td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td><p>Changes in investments to the associate as a    result of other changes in equity (other than above).</p></td>
+                                </tr>
+                            </table>
+                            <p>&nbsp;</p>
+                            <p><strong>Purchase method: consolidation entries</strong>  </p>
+                            <p>In case of purchase method (full consolidation)  the software automatically consolidates parent and subsidiary reporting on a  technical level (i.e. using basic IFRS rules), as described above. User's goal  is to make adjustment entries that account for goodwill, non-controlling  interests, remove investments from the balance sheet. Such entries are made in  correspondence with equity indicators B, C, D (see the chart above). Below are  the sample entries (may be different in each individual case, that is why user  needs to make them with due consideration):</p>
+                            <table width="100%" border="1" cellpadding="4" cellspacing="0">
+                                <tr>
+                                    <td align="center" valign="middle"><strong>Debit</strong></td>
+                                    <td align="center" valign="middle"><p align="center"><strong>Credit</strong></p></td>
+                                    <td><p align="center"><strong>Comment </strong></p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Goodwill</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Additional recognition, goodwill</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Gross carrying amount, goodwill</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">[Goodwill from business combination]</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top"><p><em>Establish goodwill. Entry is made once, when    subsidiary is purchased. If the purchase took place before you started making    reporting in the software, amount is recorded as an opening balance. As you    can see in the entry, in Credit we use D indicator, which incurred a    balancing amount as a result of technical consolidation of reporting by the    software.</em></p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Investments in subsidiaries, joint ventures and associates</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Investments in subsidiaries</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top"><p>Reversing entry (negative entry amount). We need    to remove investments made to subsidiary from the balance sheet, which are    recoded to parent's non-current assets.</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top"><p>If the subsidiary is purchased within the period,    when no reporting has yet been made in the software, it is necessary to    specify minority interest in balances pursuant to ownership interest by making    incoming entry.</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Investments in subsidiaries, joint ventures and associates</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Investments in subsidiaries</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top"><p>If investment amount to subsidiary changed within    the reporting period in the parent's balance sheet (for example, increased    ownership interest), you need to add such difference to the consolidated    balance sheet.</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Comprehensive income attributable to owners of parent</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Profit (loss)</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Profit (loss) attributable to owners of parent</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Profit (loss) from discontinued operations</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Comprehensive income attributable to non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Profit (loss)</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Profit (loss) attributable to non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Profit (loss) from discontinued operations</p>
+                                    </td>
+                                    <td valign="top">
+                                        <p>Record the portion of retained earnings of the    current period to non-controlling interests. </p>
+                                        <p>		  Asterisk in the entries means that they are    reversing entries, which do not affect the essence (as they are used both in    debit and credit, amount will pass through), but they are required to be    selected when making entries pursuant to calculation dependencies.</p>
+                                        <p>			Please note that this one and the following entry    not only transfer amounts in Statement of Changes in Equity, but also ensure    that retained earnings and other comprehensive income are transferred from    owners to minority in Statement of Profit and Loss and Statement of    Comprehensive Income.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Comprehensive income attributable to owners of parent</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Other comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Other comprehensive income that will not be reclassified to profit or loss, net of tax</p>
+                                        <p style="font-weight:normal; margin-left:2cm">Share of other comprehensive income of associates and joint ventures accounted for using equity method that will not be reclassified to profit or loss, net of tax</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Comprehensive income attributable to non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:1cm">Other comprehensive income</p>
+                                        <p style="font-weight:normal; margin-left:1.5cm">Other comprehensive income that will not be reclassified to profit or loss, net of tax</p>
+                                        <p style="font-weight:normal; margin-left:2cm">Share of other comprehensive income of associates and joint ventures accounted for using equity method that will not be reclassified to profit or loss, net of tax</p>
+                                    </td>
+                                    <td valign="top"><p>Similarly to the previous entry, we just assign    the part of other comprehensive income to non-controlling interests.</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top"><p>If interest ownership was changed within the    reporting period, we need to assign minority interest to the special line item    in Statement of Changes in Equity.</p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through changes in ownership interests in subsidiaries that do not result in loss of control, equity</p>
+                                    </td>
+                                    <td valign="top"><p>Similar to the previous entry, but for parent    owners. </p></td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Retained earnings</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top" class="periods textlable">
+                                        <p style="font-weight:bold; margin-left:0cm">FP: Non-controlling interests</p>
+                                        <p style="font-weight:normal; margin-left:0.5cm">Increase (decrease) through other changes, equity</p>
+                                    </td>
+                                    <td valign="top"><p>Assign the remaining difference, which was not    included in the previous three entries, to non-controlling interests. </p></td>
+                                </tr>
+                            </table>
+                            <p>&nbsp;</p>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

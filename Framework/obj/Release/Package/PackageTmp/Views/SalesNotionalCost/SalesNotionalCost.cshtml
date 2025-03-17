@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "SalesNotionalCost";
+    Layout = "~/Views/Shared/_LayoutSales.cshtml";
+}
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-share font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Sales Notional Cost</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-cloud-upload"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-wrench"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-trash"></i>
+            </a>
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+
+            <div class="col-md-9">
+                <div class="row">
+                    <!-- BEGIN Portlet PORTLET-->
+                    <div class="portlet light forpadding">
+
+                        <div class="portlet-body">
+
+
+                            <form action="#" method="post" id="f1">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Select Employee</label>
+                                            <select class="form-control validate[required]" datatooltip="TeamId2" id="ddlemployee" name="ddlemployee">
+                                                <option value="">Select</option>
+                                                <option value="1">Khizar Adam</option>
+                                                <option value="12">Awwab  Ragheb </option>
+                                                <option value="14">Iyas  Kasim </option>
+                                                <option value="15">Ilias  Naifeh</option>
+                                                <option value="16">Suhayaa Abboud</option>
+                                                <option value="17">Gaber Ragheb </option>
+                                                <option value="18">Sabih Khatib </option>
+                                                <option value="19">Iyashh Kasim </option>
+                                                <option value="20">ziad Kasmani</option>
+                                                <option value="21">Khizar Ahmed</option>
+                                                <option value="22">Husseinss Said</option>
+                                                <option value="23">Thasneem Adam</option>
+                                                <option value="24">Nazib Syedu</option>
+                                                <option value="25">Mubarak Fudail </option>
+                                                <option value="26">Fadi  Karem</option>
+                                                <option value="27">Hamal Kaleem </option>
+                                                <option value="28">Fadi  Dabir</option>
+                                                <option value="29">Salib Ummer </option>
+                                                <option value="30">Haamid  Dabir</option>
+                                                <option value="31">Haani  Raza</option>
+                                                <option value="32">Abannah Raqib</option>
+                                                <option value="33">Salib Alamgir</option>
+                                                <option value="34">Nawfal Qaahir</option>
+                                                <option value="35">Ayyub Ummer </option>
+                                                <option value="36">Mubarak Abdullah</option>
+                                                <option value="37">Kaliq Qamar</option>
+                                                <option value="38">Isa Aashiq</option>
+                                                <option value="39">Nawfal Abdullah</option>
+                                                <option value="40">Suoud Sadiq</option>
+                                                <option value="41">Nawfal Qadeer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">From</label>
+                                            <input class="form-control date-picker validate[required]" id="txtfromdate" name="txtfromdate" type="text" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="control-label">To</label>
+                                            <input class="form-control date-picker validate[required]" id="txtToDate" name="txtToDate" type="text" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label class="control-label"></label>
+                                            <a href="#" id="btnloadaction" class="btn form-control btn-circle green-haze btn-sm" style="margin-top:3px;">
+                                                <i class="fa  fa-search"></i> GO
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                            <div class="row" id="divsalesnotional">
+
+                            </div>
+                            <div class="row">
+                                <div class="notionalcostdispaly">
+                                    <p id="paraerror"></p>
+                                    <br>
+                                    <h1 id="notionalvalue"></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END Portlet PORTLET-->
+                </div>
+
+            </div>
+            <div class="col-md-3" style="margin-top:90px;">
+                <div class="row">
+                    <!-- BEGIN Portlet PORTLET-->
+                    <div class="portlet light bordered shadow">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-users"></i>Sales Notional Cost
+                            </div>
+                            <div class="actions">
+
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <strong>Notional means</strong>  "existing only in theory or as a suggestion or idea."
+                            <br>
+                            <hr>
+                            <strong>What is Sales Notional Cost ?</strong><br><br>
+                            <p>Assume a staff Salary is 100 QAR. Divide by 24 days and 8 hours.</p>
+                            <p>
+                                You will get the cost of 1 hour.
+                                That is .5
+                            </p>
+
+                            <p> Agents fill their calendar with Activity.</p>
+                            <p>In short  Sales Notional Cost is a report by Activity Type and their cost.</p>
+                            <br>
+                            <hr>
+                            <div class="row">
+                                <strong>Formula Applied</strong>
+
+                                <p>
+                                    (100 QAR/24 days * 8 Hours) * Total appoinment time sheet
+                                </p>
+
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- END Portlet PORTLET-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

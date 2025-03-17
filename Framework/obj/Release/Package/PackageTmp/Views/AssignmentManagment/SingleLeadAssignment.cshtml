@@ -1,0 +1,208 @@
+﻿@using FramWork.HelloService;
+@using Core;
+@{
+    ViewBag.Title = "Lead2Deal | Single Lead Assignment";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Assignment</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Single Lead Assignment</a>
+    </li>
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Single Lead Assignment</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row" id="message">
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Person Lead</label>
+                            @Html.DropDownList("ddllead", new SelectList(client.GetListOfOpenOppurtunities(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.FullName }), "Id", "Name"), "--Select  --", new { @Name = "field", @class = " form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Team</label>
+                            @Html.DropDownList("ddlTeam", new SelectList(client.GetTeamLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "--Select  --", new { @Name = "field", @class = " form-control " })
+
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label class="control-label">Employee</label>
+                            <select id="DDLEMP" class="form-control "></select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+
+                            <button type="button" class="pedit btn yellow-crusta" style="margin-top:26px;" id="btnassignlead">
+                                Assign <i class="fa fa-child"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-puzzle font-grey-gallery"></i>
+                                    <span class="caption-subject bold font-green uppercase">
+                                        Lead information
+                                    </span>
+                                    <span class="caption-helper"></span>
+                                </div>
+                                <div class="tools">
+
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row" id="divleaddetails">
+                                    <div style="width:100%;height:200px;background-color:#d7d6d6;"><span style="margin-left: 210px; line-height: 190px; font-weight: bolder; ">NO DATA TO DISPLAY</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portlet light">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class="icon-puzzle font-grey-gallery"></i>
+                                    <span class="caption-subject bold font-green-haze uppercase">
+                                        Employee Information
+                                    </span>
+                                    <span class="caption-helper"></span>
+                                </div>
+                                <div class="tools">
+
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+
+                                <div class="row" id="divempdetails">
+                                    <div style="width:100%;height:200px;background-color:#d7d6d6;"><span style="margin-left: 210px; line-height: 190px; font-weight: bolder; ">NO DATA TO DISPLAY</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $('#ddllead').live('change', function () {
+            loadleaddetails();
+        });
+
+        $('#DDLEMP').live('change', function () {
+            loademployeedetails();
+        });
+
+        $('#ddlTeam').live('change', function () {
+            Loademployee();
+        });
+        $('#btnassignlead').live('click', function () {
+          
+            var employeeids = [];
+            employeeids.push($('#ddllead option:selected').val());
+            var datarow = { Empid: $('#DDLEMP option:selected').val(), LeadId: employeeids };
+            //alert("My favourite products are: " + employeeids.join(", "));
+                $.ajax({
+                    url: '@Url.Content("~/")' + "/AssignmentManagment/AssignLead_toemployee",
+                    type: 'POST',
+                    data: datarow,
+                    cache: false,
+                    success: function (result) {                      
+                            var tempelates = "<div class=\"portlet light\"><div class=\"portlet-title\"><div class=\"caption\">" +
+                          "<i class=\"icon-puzzle font-grey-gallery\"></i><span class=\"caption-subject bold  font-grey-gallery uppercase\">" +
+                            result + " </span><span class=\"caption-helper\"></span></div><div class=\"tools\"><a href=\"\" class=\"remove\" data-original-title=\"\" title=\"\">" +
+                         "</a> </div></div></div>"
+                            $('#message').html(tempelates);
+                            $('#ddlTeam').val('')
+                            $('#ddllead').val('')
+                            $('#DDLEMP').val('')
+                            $('#divleaddetails').html('');
+                            $('#divleaddetails').html('');
+                    }
+                });
+            return false;
+        });
+    });
+
+    /**/
+    function Loademployee() {     
+        var datarows = { teamid: $('#ddlTeam option:selected').val() };
+        $.getJSON("@Url.Action("LoadEmployeedropdown", "AssignmentManagment")", datarows,
+        function (data) {
+            $("#DDLEMP").empty();
+            $("#DDLEMP").append('<option value="0" >Select</option>');
+            $.each(data, function () {
+                $("#DDLEMP").append($("<option />").val(this.Id).text(this.Name));
+            });
+        });
+    }
+    function loadleaddetails()
+    {
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Content("~/")' + "/AssignmentManagment/getPersonLeadDetails",
+            data: ({ LeadId: $('#ddllead option:selected').val() }),
+            success: function (response) {
+                $('#divleaddetails').html(response);
+            }
+        });
+    }
+    function loademployeedetails() {
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Content("~/")' + "/AssignmentManagment/getEmployee_Details",
+            data: ({ empid: $('#DDLEMP option:selected').val() }),
+            success: function (response) {
+                $('#divempdetails').html(response);
+            }
+        });
+    }
+</script>
+
+}
+
+
+

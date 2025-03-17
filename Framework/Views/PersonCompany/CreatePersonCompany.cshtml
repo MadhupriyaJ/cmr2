@@ -1,0 +1,359 @@
+﻿@using Core;
+@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead2Deal | Create Company";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Company</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">New</a>
+    </li>
+</ul>
+<div class="portlet light bordered" id="form_wizard_1">
+    <div class="portlet-title">
+        <div class="caption caption-subject bold uppercase font-red-sunglo">
+            <i class="fa fa-plus-circle bold uppercase font-red-sunglo"></i>Add Company - <span class="step-title">
+                Step 1 of 2
+            </span>
+        </div>
+
+        <div class="actions">
+            @*<a href="@Url.Action("Index", "PersonCompany")" title="List Of Companies" class="btn btn-circle  btn-default">
+                <i class="fa fa-list"></i> List
+            </a>*@
+
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form action="#" class="form-horizontal" id="submit_form" method="POST">
+            <div class="form-wizard">
+                <div class="form-body">
+                    <ul class="nav nav-pills nav-justified steps">
+                        <li>
+                            <a href="#tab1" data-toggle="tab" class="step">
+                                <span class="number">
+                                    1
+                                </span>
+                                <span class="desc">
+                                    <i class="fa fa-check"></i> Company Information
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#tab2" data-toggle="tab" class="step">
+                                <span class="number">
+                                    2
+                                </span>
+                                <span class="desc">
+                                    <i class="fa fa-check"></i> Confirm
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="bar" class="progress progress-striped" role="progressbar">
+                        <div class="progress-bar progress-bar-success">
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="alert alert-danger display-none">
+                            <button class="close" data-dismiss="alert"></button>
+                            You have some form errors. Please check below.
+                        </div>
+                        <div class="alert alert-success display-none">
+                            <button class="close" data-dismiss="alert"></button>
+                            Your form validation is successful!
+                        </div>
+                        <div class="tab-pane active" id="tab1">
+                            <h3 class="block">Provide location information</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Name <span class="required">
+                                                *
+                                            </span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="company" class="form-control" name="company" />
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Company Mode
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("CompanyMode", @ViewBag.LstCompanyMode as SelectList,  new { @class = "form-control validate[required]", @id = "CompanyMode", @name = "CompanyMode", disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Country<span class="required"> *</span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("Country", new SelectList(client.GetCountryLst(Login.OrganizationId).Select(a => new { Id = a.Id, CountyName = a.CountyName }), "Id", "CountyName"), "Select", new { @class = "form-control validate[required]", @id = "Country", @name = "Country" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            State<span class="required"> *</span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("State", new SelectList(Enumerable.Empty<SelectListItem>()), "Select", new { @class = "form-control validate[required]", @id = "State", @name = "State" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            City<span class="required"> *</span>
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownList("City", new SelectList(Enumerable.Empty<SelectListItem>()), "Select", new { @class = "form-control validate[required]", @id = "City", @name = "City" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Street
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="Street" class="form-control" name="Street" />
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-4">
+                                            Zip Code
+                                        </label>
+                                        <div class="col-md-5">
+                                            <input type="text" id="ZipCode" class="form-control" name="ZipCode" />
+                                            <span class="help-block">
+
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="tab-pane" id="tab2">
+                            <h3 class="block">Location information</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Name
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="Name">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Company Mode
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="CompanyMode">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Country
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="Country">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            State
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="State">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            City
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="City">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Street
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="Street">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-5">
+                                            Zip Code
+                                        </label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="ZipCode">
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="javascript:;" class="btn default button-previous">
+                                        <i class="m-icon-swapleft"></i> Back
+                                    </a>
+                                    <a href="javascript:;" class="btn blue button-next">
+                                        Continue <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                    <a href="javascript:;" class="btn green button-submit">
+                                        Submit <i class="m-icon-swapright m-icon-white"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+  
+
+<!-- END PAGE CONTENT-->
+@section Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/select2/select2.css" />
+
+}
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/Programmer/Scripts/PersonCompany/formwizardpersoncompany.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+            $("#Country").change(function () {
+                var postdata = { ID: $("#Country option:selected").val() }
+                $.ajax({
+                    type: "GET",
+                    url:  '@Url.Content("~")StateManagement/LoadState',
+                    data: postdata,
+                    success: function (data) {
+                        $("#State").empty();
+                        $("#State").append("<option value=\"\">Select</option>");
+                        $.each(data, function (key, val) {
+                            $("#State").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                        });
+                    },
+                    traditional: true
+                });
+            });
+
+            $("#State").change(function () {
+
+                var postdata = { ID: $("#State option:selected").val() }
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Content("~")CityManagement/LoadCity',
+                    data: postdata,
+                success: function (data) {
+                    $("#City").empty();
+                    $("#City").append("<option value=\"\">Select</option>");
+                    $.each(data, function (key, val) {
+                        $("#City").append("<option value=" + val.Id + ">" + val.Name + "</option>");
+                    });
+                },
+                traditional: true
+            });
+        });
+
+
+
+        });
+    </script>
+}

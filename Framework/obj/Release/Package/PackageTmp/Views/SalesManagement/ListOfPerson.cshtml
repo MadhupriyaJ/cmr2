@@ -1,0 +1,55 @@
+﻿@using FramWork.HelloService;
+@model PagedList.IPagedList<Person>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+<div class="table-scrollable">
+    <table class="table table-striped table-bordered table-advance table-hover">
+        <thead>
+            <tr>
+                <th><i class="fa fa-child"></i> Name</th>
+                @*<th><i class="fa fa-mobile-phone"></i> Mobile</th>*@
+                <th><i class="fa fa-envelope-square"></i> Email</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+                    <td class="highlight">
+                        <div class="success">
+                        </div>
+                        <a href="~/SalesManagement/ManagePerson?id=@item.Id" class="personname" id="@item.Id">@item.FirstName @item.LastName</a>
+                        <input type="hidden" id="@item.Id">
+                    </td>
+                    @*<td class="hidden-xs">
+                        @item.Mobile
+                       
+                    
+                    </td>*@
+                    <td>
+                        @item.Email
+                    </td>
+
+                </tr>
+
+            }
+
+
+        </tbody>
+    </table>
+</div>
+<br />
+<div id="listofpersonviewtable">
+    @Html.PagedListPager(Model, page => Url.Action("ListOfPerson", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>
+
+

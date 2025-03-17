@@ -1,0 +1,211 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | Automated Lead Assignment";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Assignment</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Automated Lead Assignment</a>
+    </li>
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Automated Lead Assignment</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="portlet-body">
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <div class="vticker">
+                                <ul style="width:100%;" id="leaddiv"></ul>
+                            </div>
+                            <p id="msg"></p>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portlet light bg-inverse">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <h4>Automated Lead Assignment</h4>
+                                    </div>
+
+                                </div>
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <div class="form-horizontal">
+                                        <div class="form-body">
+
+                                            <p>
+                                                Automated lead assignment is based on first in first out [FIFO] or its kind of queue system.
+
+                                            </p>
+                                            <p>The employees will be in a queue and the lead will be assigne in that manner</p>
+
+                                        </div>
+                                        <div class="form-actions">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <button id="btnplay" type="button" class="btn green"><i class="fa fa-play"></i> Assign</button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button id="btnpause" type="submit" class="btn green-jungle-stripe"><i class="fa fa-pause"></i> Pause</button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button id="btnstop" type="submit" class="btn red"><i class="fa fa-stop"></i> Stop</button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button id="btnrevert" type="submit" class="btn"> <i class="fa fa-mail-reply"></i> revert</button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Css{
+    <style>
+        .vticker {
+            width: 100%;
+        }
+
+            .vticker ul {
+                padding: 0;
+            }
+
+            .vticker li {
+                list-style: none;
+                border-bottom: 1px solid #e6e9ec;
+                padding: 10px;
+            }
+
+        .et-run {
+            background: red;
+        }
+    </style>
+}
+
+@section Scripts{
+<script src="@Url.Content("~/")assets/Programmer/Scripts/AutomatedAssignment/jquery.easing.min.js"></script>
+<script src="@Url.Content("~/")assets/Programmer/Scripts/AutomatedAssignment/jquery.easy-ticker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#loading')
+            .hide()
+            .ajaxStart(function () {
+                $(this).show();
+                $('#btnplay').attr('disabled', 'disabled');
+            })
+            .ajaxStop(function () {
+                $(this).hide();
+                $('#btnplay').removeAttr('disabled');
+            });
+            $("#btnplay").live('click', function () {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Content("~/")' + "AssignmentManagment/Automatedleadassign",
+                    success: function (result) {                     
+                        if (result != '') {
+                            $('#leaddiv').html("");
+                            $.each(result, function (i, item) {
+                                $('#leaddiv').append("<li><p> the lead  '" + result[i].name + " ' is successfuly assigned to employee </p></li>")
+                            });
+                            movingdiv('yes');
+                            setTimeout(
+                                   function () {
+                                              movingdiv('no');
+                                                 $('#msg').html("<div class=\"alert alert-success\"><strong>Success</strong> Action executed.<button aria-hidden=\"true\" data-dismiss=\"alert\" class=\"close\" type=\"button\"></button></div>");
+                            }, 10000);
+                        }
+                        if (result == '' || result == null)
+                        {
+                            $('#msg').html("<div class=\"alert alert-danger\"><strong>No lead to assign</strong> Action Failed.<button aria-hidden=\"true\" data-dismiss=\"alert\" class=\"close\" type=\"button\"></button></div>")
+                        }
+                    },
+                    traditional: true
+                });
+                $('#site').html("<div id=\"snowZone\"></div>");
+
+                //$('#leadprogress').show();
+            });
+
+            $('#btnstop,#btnrevert').live('click', function () {
+
+            });
+
+            $('#btnpause').live('click', function () {
+                movingdiv('no');
+            });
+
+            function movingdiv(start) {
+                var dd = $('.vticker').easyTicker({
+                    direction: 'up',
+                    easing: 'easeInOutBack',
+                    speed: 'slow',
+                    interval: 1000,
+                    height: 'auto',
+                    visible: 0,
+                    mousePause: 0,
+                    controls: {
+                        up: '.up',
+                        down: '.down',
+                        toggle: '.toggle',
+                        stopText: 'Stop !!!'
+                    }
+                }).data('easyTicker');
+                if (start == 'no') {
+                    dd.stop();
+                }
+                if (start == 'yes') {
+                    dd.stop();
+                    dd.options['visible'] = 0;
+                    dd.start();
+                }
+                //dd.stop();
+                //dd.options['visible'] = 0;
+                //dd.start();
+            }
+        });
+    </script>
+}

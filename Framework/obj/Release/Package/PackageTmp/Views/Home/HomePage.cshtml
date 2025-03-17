@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | Home";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+@section Css{
+
+    <style>
+        .icon-btn {
+            width: 100% !important;
+            height: 83px !important;
+            -webkit-border-radius: 99px 10px 99px 10px !important;
+            -moz-border-radius: 99px 10px 99px 10px !important;
+            border-radius: 26px 10px 26px 10px !important;
+            border-width: 2px !important;
+            -webkit-box-shadow: #B3B3B3 15px 15px 15px !important;
+            -moz-box-shadow: #B3B3B3 15px 15px 15px !important;
+            box-shadow: #B3B3B3 15px 15px 15px !important;
+        }
+
+            .icon-btn:hover {
+                width: 100% !important;
+                height: 83px !important;
+                width: 100% !important;
+                height: 83px !important;
+                -webkit-border-radius: 99px 10px 99px 10px !important;
+                -moz-border-radius: 99px 10px 99px 10px !important;
+                border-radius: 26px 10px 26px 10px !important;
+                border-width: 2px !important;
+                -webkit-box-shadow: #B3B3B3 0px 0px 0px !important;
+                -moz-box-shadow: #B3B3B3 0px 0px 0px !important;
+                box-shadow: #B3B3B3 0px 0px 0px !important;
+            }
+
+        .shadow {
+            width: 100% !important;
+            -webkit-border-radius: 99px 10px 99px 10px;
+            -moz-border-radius: 99px 10px 99px 10px;
+            border-radius: 26px 26px 26px 26px !important;
+            border-width: 2px;
+            -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+            -moz-box-shadow: #B3B3B3 5px 5px 5px;
+            box-shadow: #B3B3B3 5px 5px 5px;
+        }
+    </style>
+
+
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bg-inverse">
+
+            <div class="caption col-md-offset-3">
+                <h1>Sales Pipeline Management</h1>
+
+            </div>
+            <div class="portlet-body">
+
+                <p style="font-size: 21px; line-height: 1.4em;text-align: center;">
+                    Sales pipeline is a great indicator of a company’s health. It can literally show you the money (that you are going to make in the coming months). Manage your pipeline well and you’ll stay well organized and feel more in control of your sales figures.
+                </p>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 ">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light">
+
+            <div class="portlet-body">
+                <h4>Heading text goes here...</h4>
+                <p>
+                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.
+                </p>
+            </div>
+        </div>
+        <!-- END GRID PORTLET-->
+    </div>
+
+    <div class="col-md-6 ">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light">
+
+            <div class="portlet-body">
+                <h2>What is a sales pipeline?</h2>
+                <p style="font-size: 15px; line-height: 1.4em;">
+                    The sales pipeline is a systematic and visual approach to selling a product or service. The sales pipeline is helpful in showing you exactly where the money is in your sales process.
+                    <br />
+                    <br />You’ll be able to understand at which stage any deal is, whether you have enough deals on the board to achieve your goals and quota, as well as understand whether certain deals need special attention.
+                </p>
+            </div>
+        </div>
+        <!-- END GRID PORTLET-->
+    </div>
+
+
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bg-inverse">
+            <div class="portlet-title">
+                <div class="caption">
+                    <h1>Sales Pipeline Management</h1>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        @*<a href="@Url.Action("OppurtunityList", "Oppurtunity")" class="icon-btn">*@
+                        <i class="fa fa-users"></i>
+                        <div style="font-weight:bold;">
+                            Contact
+                        </div>
+                        <span class="badge badge-success">
+                            @*@{
+                                    using (LeadManagment.Models.FrameworkEntities db = new LeadManagment.Models.FrameworkEntities())
+                                    {
+                                        @Html.Raw(db.PersonLeads.Where(a => a.OrgId == CoreFunctions.Login.OrganizationId && a.Status == true).Count())
+
+                                    }
+                                }*@
+                        </span>
+                        @*</a>*@
+                    </div>
+                    <div class="col-md-2">
+                        @*<a href="@Url.Action("Index", "Calendar")" class="icon-btn">*@
+                        <i class="fa fa-calendar"></i>
+                        <div style="font-weight:bold;">
+                            Tasks
+                        </div>
+                        <span class="badge badge-danger">
+                            @* @{
+                                   using (LeadManagment.Models.FrameworkEntities db = new LeadManagment.Models.FrameworkEntities())
+                                    {
+                                        @Html.Raw(db.AppointmentDiaries.Where(a => a.PersonLeadActivity.OrgId == CoreFunctions.Login.OrganizationId && a.PersonLeadActivity.AssignedTo == CoreFunctions.Login.Id && a.PersonLeadActivity.IsDone == false).Count())
+                                    }
+                                }*@
+                        </span>
+                        @*</a>*@
+                    </div>
+                    <div class="col-md-2">
+                        @*<a href="@Url.Action("Index", "Deals")" class="icon-btn">*@
+                        <i class="fa fa-money"></i>
+                        <div style="font-weight:bold;">
+                            Pipeline
+                        </div>
+                        <span class="badge badge-success">
+                            @*@{
+                                    using (LeadManagment.Models.FrameworkEntities db = new LeadManagment.Models.FrameworkEntities())
+                                    {
+                                        @Html.Raw(db.PersonLeadStatus.Where(a => a.OrgId == CoreFunctions.Login.OrganizationId && a.AssignedToEmployee == CoreFunctions.Login.Id).Count())
+
+                                    }
+                                }*@
+                        </span>
+                        @*</a>*@
+                    </div>
+                    <div class="col-md-2">
+                        @*<a href="@Url.Action("Index", "Campaigns")" class="icon-btn">*@
+                        <i class="fa fa-rebel"></i>
+                        <div style="font-weight:bold;">
+                            Campaigns
+                        </div>
+                        <span class="badge badge-success">
+                            @*@{
+                                    using (LeadManagment.Models.FrameworkEntities db = new LeadManagment.Models.FrameworkEntities())
+                                    {
+                                        @Html.Raw(db.Campaigns.Where(a => a.OrgId == CoreFunctions.Login.OrganizationId && a.CampaignOwner == CoreFunctions.Login.Id).Count())
+
+                                    }
+                                }*@
+                        </span>
+                        @*</a>*@
+                    </div>
+                    <div class="col-md-2">
+                        @*<a href="@Url.Action("Index", "Timeline")" class="icon-btn">*@
+                        <i class="fa fa-code-fork"></i>
+                        <div style="font-weight:bold;">
+                            TimeLine
+                        </div>
+
+                        @*</a>*@
+                    </div>
+                    <div class="col-md-2">
+                        @*<a href="@Url.Action("Index", "AdminSettings")" class="icon-btn">*@
+                        <i class="fa fa-wrench"></i>
+                        <div style="font-weight:bold;">
+                            Settings
+                        </div>
+
+                        @*</a>*@
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+</div>

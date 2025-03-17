@@ -1,0 +1,149 @@
+﻿@model PagedList.IPagedList<FramWork.Models.TGoal_Goal>
+@using PagedList.Mvc;
+@using FramWork.Models;
+@using Core;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Goal Config</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Rule Configuration (List)</a>
+
+    </li>
+
+</ul>
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="glyphicon-list-alt font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> Goal Configuration List</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <a class="btn green" href="@Url.Content("~")/GoalDetails/GoalRuleConfiguration">
+                <i class="icon-plus"></i> Add Configuration
+            </a>
+            
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <ol>
+            @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+            {
+                <li>
+                    <h4>@item.Data.GoalName</h4>
+
+                    @{
+                var goalrconfig = dc.TGoal_GoalRuleConfiguration.OrderByDescending(a=>a.ModifiedDate).Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false && a.GoalId == item.Data.Id);
+                foreach (var gcc in goalrconfig)
+                {
+                    var products = dc.TGoal_GoalProductDetails.OrderByDescending(a => a.ModifiedDate).Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false && a.GoalRuleConfigId == gcc.Id);
+                    var organizations = dc.TGoal_GoalOrganisationDetails.OrderByDescending(a => a.ModifiedDate).Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false && a.GoalRuleConfigId == gcc.Id);
+                    var teams = dc.TGoal_GoalTeamDetails.OrderByDescending(a => a.ModifiedDate).Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false && a.GoalRuleConfigId == gcc.Id);
+                    var agents = dc.TGoal_GoalAgentDetails.OrderByDescending(a => a.ModifiedDate).Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false && a.GoalRuleConfigId == gcc.Id);
+                    <table class="table table-striped table-bordered  table-hover">
+                        <thead>
+                            <tr>
+                                <th> Finincial Period </th>
+                                <th>Products</th>
+                                @if (organizations.Count() != 0)
+                                {
+                                    <th>Organization</th>
+                                }
+                                @if (teams.Count() != 0)
+                                {
+                                    <th>Team</th>
+                                }
+                                @if (agents.Count() != 0)
+                                {
+                                    <th>Agents</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@gcc.TGoal_FinancialPeriod.FromDate.ToShortDateString()  TO @gcc.TGoal_FinancialPeriod.ToDate.ToShortDateString()</td>
+                                <td>
+                                    <ul>
+                                        @if (products.Count() != 0)
+                                        {
+
+                                            foreach (var prod in products)
+                                            {
+
+                                                <li>
+                                                    @prod.CampaignProducts.ProductName
+                                                </li>
+                                            }
+                                        }
+                                    </ul>
+
+                                </td>
+                                @if (organizations.Count() != 0)
+                                {
+                                    <td>
+                                        <ul>
+                                            @foreach (var orgs in organizations)
+                                            {
+                                                <li>
+                                                    @orgs.TGoal_Organization.Name
+                                                </li>
+                                            }
+                                        </ul>
+                                    </td>
+                                }
+                                @if (teams.Count() != 0)
+                                {
+                                    <td>
+                                        <ul>
+                                            @foreach (var orgs in teams)
+                                            {
+                                                <li>
+                                                    @orgs.Teams.Name
+                                                </li>
+                                            }
+                                        </ul>
+                                    </td>
+                                }
+                                @if (agents.Count() != 0)
+                                {
+                                    <td>
+                                        <ul>
+                                            @foreach (var orgs in agents)
+                                            {
+
+                                                <li>
+                                                    @orgs.Users1.FirstName @orgs.Users1.LastName
+                                                </li>
+                                            }
+                                        </ul>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                }
+                    }
+
+                </li>
+            }
+        </ol>
+    </div>
+</div>

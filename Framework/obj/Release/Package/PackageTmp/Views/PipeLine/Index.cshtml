@@ -1,0 +1,282 @@
+﻿@using Core;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+    var DealStages = client.GetListOfDealStageName(Login.OrganizationId);
+    var first = DealStages.First();
+    var last = DealStages.Last();
+
+}
+
+
+
+<h3 class="page-title">
+    Pipe Line<small></small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">PipeLine</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <a href="~/PipeLine/AddProspect" class="btn green">
+                <i class="fa fa-plus"></i> Prospect
+            </a>
+        </div>
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-12">
+        <input type="hidden" id="hdnOrgId" value="@Login.OrganizationId" />
+        <input type="hidden" id="HDNPLSID" />
+
+        <table class="table">
+
+            <tr>
+                @foreach (var item in DealStages)
+                {
+                    <td>
+                        
+                        <div class="portlet box blue-hoki">
+                            <div class="portlet-title tabbable-line" style="background-color:#428bca; ">
+                                <div class="caption">
+                                    @*<i class="fa fa-child  font-yellow-lemon"></i>*@
+                                    <span class="caption-subject " style="color: white; padding: 10px; margin-top: 0 !important; font-family: Georgia,serif; font-variant: small-caps; text-transform: none; font-weight: 100; margin-bottom: 0; text-align: center; position: static; font-size: 17px;">
+                                        @item.Name
+                                    </span>
+                                    <span class="caption-helper"></span>
+                                </div>
+
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @*<a href="/PipeLine/PipeLineQuestions?DealStageNameId=beccd493-2c49-478b-93d6-3a8bb074ff39">sadfsdafs</a>*@
+                                        @{
+                    var Personleads = client.GetListOfDealStagePersonLead(Login.OrganizationId, item.Id);
+                    foreach (var l in Personleads)
+                    {
+                        <div id="@item.Id" class="todo-task">
+
+                            <div class="task-header"><a href="@Url.Action("LeadProfile/" + item.Id, "Deals")" style="">@l.Person.FirstName @l.Person.LastName</a></div>
+                            <div class="task-date">@Html.Raw(l.ExpectedClosingDate == null ? "Date: Not Given" : "Date: " + Convert.ToDateTime(l.ExpectedClosingDate).ToShortDateString())</div>
+                            <div class="task-description">@Html.Raw(String.Format("Expected Value:{0:C}", l.ExpectedValue).Replace("$", "")) </div>
+                            <br />
+                            <input type="hidden" id="hdndealstagenameId" value="@l.DealStageNameId" />
+                            @if (item.Id == first.Id)
+                            {
+                                <a href="#" id="@string.Format("{0}{1}",l.Id,"RR")" class="revertlead" title="Already Full with Leads?Click to Revert them back!"><i class="fa    fa-angle-double-left" style="color:#000; "></i></a>
+                            }
+                            else
+                            {
+                                <a href="#" id="@string.Format("{0}{1}",l.Id,"R")" class="Movebackwordstage" title="Exception sent back!"><i class="fa   fa-arrow-circle-o-left" style="color:#000; "></i></a>
+                            }
+                            @if (item.Id != last.Id)
+                            {
+                                <a href="#" id="@string.Format("{0}{1}",l.Id,"F")" class="Moveforwardstage" title="Move to next stage"> <i class="fa   fa-arrow-circle-o-right" style="color:#000;float:right;padding-left:4px;"></i></a>
+                            }
+                            <a href="#" id="@string.Format("{0}{1}",l.Id,"D")" class="drop_lead" title="Click here to Drop Lead"> <i class="fa  fa-trash-o" style="color:#000;float:right;padding-left:4px;"></i></a>
+                            <a href="#" id="@string.Format("{0}{1}",l.Id,"W")" class="won_deal" title=" Won  deal ? Click here."> <i class="fa  fa-thumbs-o-up" style="color:#000;float:right;padding-left:4px;"></i></a>
+
+                            <a href="#" id="@string.Format("{0}{1}",l.Id,"L")" class="Lost_deal" title="lost  deal ? Click here."> <i class="fa  fa-thumbs-o-down" style=" color:#000;float:right;padding-left:4px; "></i></a>
+                            <br />
+                        </div>
+                    }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </td>
+                }
+
+            </tr>
+        </table>
+
+        <input type="hidden" id="hdnmovingmode" name="stageMovingMode" />
+    </div>
+</div>
+
+
+<div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog" style="width:80%;" id="modalquestions">
+
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- END PAGE CONTENT-->
+@section Css{
+    <style>
+        .todo-task {
+            border-radius: 5px;
+            background-color: #fff;
+            margin: 5px;
+            padding: 5px;
+            border-bottom: dashed 1px gray;
+            cursor: default;
+            width: 91%;
+            z-index: 1000;
+        }
+
+            .todo-task > .task-header {
+                font-weight: bold;
+            }
+    </style>
+}
+
+@section   Scripts{
+    <script>
+        /*Deal Stage Move forward*/
+        $("body").delegate(".Moveforwardstage", "click", function (e) {
+            var PLSID = $(this).attr("id");
+            PLSID = PLSID.replace("F", "");
+            $('#HDNPLSID').val(PLSID);
+            $('#hdnmovingmode').val("forward");  //set the deal stage moving mode
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/PipeLineQuestions",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    $('#modalquestions').html(data);
+                    $('#basic').modal();
+                },
+                traditional: true
+            })
+            return false;
+        });
+        /*Deal Stage Move Exception backword*/
+        $("body").delegate(".Movebackwordstage", "click", function (e) {
+            var PLSID = $(this).attr("id");
+            PLSID = PLSID.replace("R", "");
+            $('#HDNPLSID').val(PLSID);
+            $('#hdnmovingmode').val("backward");  //set the deal stage moving mode
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/PipeLineQuestions",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    $('#modalquestions').html(data);
+                    $('#basic').modal();
+                },
+                traditional: true
+            })
+            return false;
+        });
+        /*Deal Stage Move won*/
+        $("body").delegate(".won_deal", "click", function (e) {
+            var PLSID = $(this).attr("id");
+            PLSID = PLSID.replace("W", "");
+            $('#HDNPLSID').val(PLSID);
+            $('#hdnmovingmode').val("won");  //set the deal stage moving mode
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/PipeLineQuestions",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    $('#modalquestions').html(data);
+                    $('#basic').modal();
+                },
+                traditional: true
+            })
+            return false;
+        });
+        /*Deal Stage Move  lost*/
+        $("body").delegate(".Lost_deal", "click", function (e) {
+            var PLSID = $(this).attr("id");
+            PLSID = PLSID.replace("L", "");
+            $('#HDNPLSID').val(PLSID);
+            $('#hdnmovingmode').val("lost");  //set the deal stage moving mode
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/PipeLineQuestions",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    $('#modalquestions').html(data);
+                    $('#basic').modal();
+                },
+                traditional: true
+            })
+            return false;
+        });
+        /*Deal Stage Move  dropped*/
+        $("body").delegate(".drop_lead", "click", function (e) {
+            var PLSID = $(this).attr("id");
+            PLSID = PLSID.replace("D", "");
+            $('#HDNPLSID').val(PLSID);
+            $('#hdnmovingmode').val("dropped");  //set the deal stage moving mode
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/PipeLineQuestions",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    $('#modalquestions').html(data);
+                    $('#basic').modal();
+                },
+                traditional: true
+            })
+            return false;
+        });
+        /*Deal Stage Revert assigned*/
+        $("body").delegate(".revertlead", "click", function (e) {
+            var PLSID = $(this).attr("id");
+            PLSID = PLSID.replace("RR", "");
+            $('#HDNPLSID').val(PLSID);
+            $('#hdnmovingmode').val("revertlead");  //set the deal stage moving mode
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/PipeLineQuestions",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    $('#modalquestions').html(data);
+                    $('#basic').modal();
+                },
+                traditional: true
+            })
+            return false;
+        });
+
+
+        /*Deal Stage Win Lost drop revert */
+        /*  $("body").delegate("#btnrevertlead,#btnwon,#btnloose,#btndrop", "click", function (e) {
+            var PLSID = $('#HDNPLSID').val();
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/Won_Lost_Dropped_revert_back",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    window.location.reload();
+                },
+                traditional: true
+            })
+            return false;
+        });
+
+        /*Deal Stage Win Lost drop revert */
+        /* $("body").delegate("#btnback", "click", function (e) {
+            var PLSID = $('#HDNPLSID').val();
+            $.ajax({
+                type: "POST",
+                url: "../../PipeLine/Won_Lost_Dropped_revert_back",
+                data: { personLeadId: PLSID, DealStageNameId: $('#hdndealstagenameId').val(), movementMode: $('#hdnmovingmode').val() },
+                success: function (data) {
+                    window.location.reload();
+                },
+                traditional: true
+            })
+            return false;
+        });*/
+    </script>
+}

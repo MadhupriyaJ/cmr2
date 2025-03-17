@@ -1,0 +1,5 @@
+Exception Found:
+Type: System.NullReferenceException
+Message: Object reference not set to an instance of an object.
+Source: FramWork
+Stacktrace:    at FramWork.Controllers.BB_DealsController.Pipeline(Nullable`1 Id) in e:\Projects\CRM Version 2.0\FinalProjectBackup\Sherin_16-8-2015\FramWork\FramWork\FramWork\Controllers\BB_DealsController.cs:line 58

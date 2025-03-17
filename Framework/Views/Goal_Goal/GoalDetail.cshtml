@@ -1,0 +1,291 @@
+﻿@using FramWork.Models;
+@using Core;
+@{
+    ViewBag.Title = "GoalDetail";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    FrameworkEntities dc = new FrameworkEntities();
+    var products = dc.CampaignProducts.Where(a => a.OrgId == Login.OrganizationId && a.MarkAsDelete == false);
+}
+
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-share font-yellow-crusta"></i>
+            <span class="caption-subject bold uppercase"> GoalDetail</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-cloud-upload"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-wrench"></i>
+            </a>
+            <a class="btn btn-circle btn-icon-only btn-default" href="#">
+                <i class="icon-trash"></i>
+            </a>
+            <a href="#" class="btn btn-circle btn-default btn-icon-only fullscreen" data-original-title="" title=""></a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Goal <span class="required">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("GoalId", new SelectList(dc.TGoal_Goal.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.GoalName }), "Id", "Name"), new { @class = "form-control"})
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Financial Period <span class="required">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("PeriodID", new SelectList(dc.TGoal_FinancialPeriod.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.PeriodCode }), "Id", "Name"), "Select", new { @class = "form-control" })
+                    <span class="help-block">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Products <span class="required">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddlproducts", new SelectList(dc.CampaignProducts.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.ProductName }), "Id", "Name"),  new { @class = "form-control", @multiple = "multiple" })
+                    <span class="help-block">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Organization <span class="required">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddlGoalOrgID", new SelectList(dc.TGoal_Organization.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), new { @class = "form-control", @multiple = "multiple" })
+                    <span class="help-block">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Team <span class="required">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddlteam", new SelectList(dc.Teams.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), new { @class = "form-control", @multiple = "multiple" })
+                    <span class="help-block">
+                    </span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-3">
+                    Agent <span class="required">
+                        *
+                    </span>
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddlagents", new SelectList(dc.Employees.Where(A => A.OrgId == Login.OrganizationId && A.MarkAsDelete == false).Select(a => new { Id = a.Users.Id, Name = a.Users.FirstName+" "+a.Users.LastName }), "Id", "Name"), new { @class = "form-control", @multiple = "multiple" })
+                    <span class="help-block">
+                    </span>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-9">
+                       
+                        <a href="javascript:;" class="btn green button-submit">
+                            Submit <i class="m-icon-swapright m-icon-white"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Css{
+    <link href="@Url.Content("~")assets/global/css/bootstrap-multiselect.css" rel="stylesheet" />
+}
+@section Scripts{
+    <script type="text/javascript" src="@Url.Content("~")assets/global/plugins/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script>
+        var teamCount = 0;
+        var agentCount = 0;
+        var productCount = 0;
+        var orgCount = 0;
+        $('#ddlGoalOrgID').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 300,
+            onChange: function (option, checked) {
+                if (checked) {
+                    orgCount++;
+                    $(option).data('order', orgCount);
+                }
+                else {
+                    $(option).data('order', '');
+                }
+            },
+            buttonText: function (options) {
+                if (options.length === 0) {
+                    return 'None selected';
+                }
+                else if (options.length > 3) {
+                    return options.length + ' selected';
+                }
+                else {
+                    var selected = [];
+                    options.each(function () {
+                        selected.push([$(this).text(), $(this).data('order')]);
+                    });
+
+                    selected.sort(function (a, b) {
+                        return a[1] - b[1];
+                    });
+
+                    var text = '';
+                    for (var i = 0; i < selected.length; i++) {
+                        text += selected[i][0] + ', ';
+                    }
+
+                    return text.substr(0, text.length - 2);
+                }
+            },
+        });
+
+        $('#ddlproducts').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 300,
+            onChange: function (option, checked) {
+                if (checked) {
+                    orgCount++;
+                    $(option).data('order', orgCount);
+                }
+                else {
+                    $(option).data('order', '');
+                }
+            },
+            buttonText: function (options) {
+                if (options.length === 0) {
+                    return 'None selected';
+                }
+                else if (options.length > 3) {
+                    return options.length + ' selected';
+                }
+                else {
+                    var selected = [];
+                    options.each(function () {
+                        selected.push([$(this).text(), $(this).data('order')]);
+                    });
+
+                    selected.sort(function (a, b) {
+                        return a[1] - b[1];
+                    });
+
+                    var text = '';
+                    for (var i = 0; i < selected.length; i++) {
+                        text += selected[i][0] + ', ';
+                    }
+
+                    return text.substr(0, text.length - 2);
+                }
+            },
+        });
+        $('#ddlteam').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 300,
+            onChange: function (option, checked) {
+                if (checked) {
+                    orgCount++;
+                    $(option).data('order', orgCount);
+                }
+                else {
+                    $(option).data('order', '');
+                }
+            },
+            buttonText: function (options) {
+                if (options.length === 0) {
+                    return 'None selected';
+                }
+                else if (options.length > 3) {
+                    return options.length + ' selected';
+                }
+                else {
+                    var selected = [];
+                    options.each(function () {
+                        selected.push([$(this).text(), $(this).data('order')]);
+                    });
+
+                    selected.sort(function (a, b) {
+                        return a[1] - b[1];
+                    });
+
+                    var text = '';
+                    for (var i = 0; i < selected.length; i++) {
+                        text += selected[i][0] + ', ';
+                    }
+
+                    return text.substr(0, text.length - 2);
+                }
+            },
+        });
+
+        $('#ddlagents').multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            enableCaseInsensitiveFiltering: true,
+            maxHeight: 300,
+            onChange: function (option, checked) {
+                if (checked) {
+                    orgCount++;
+                    $(option).data('order', orgCount);
+                }
+                else {
+                    $(option).data('order', '');
+                }
+            },
+            buttonText: function (options) {
+                if (options.length === 0) {
+                    return 'None selected';
+                }
+                else if (options.length > 3) {
+                    return options.length + ' selected';
+                }
+                else {
+                    var selected = [];
+                    options.each(function () {
+                        selected.push([$(this).text(), $(this).data('order')]);
+                    });
+
+                    selected.sort(function (a, b) {
+                        return a[1] - b[1];
+                    });
+
+                    var text = '';
+                    for (var i = 0; i < selected.length; i++) {
+                        text += selected[i][0] + ', ';
+                    }
+
+                    return text.substr(0, text.length - 2);
+                }
+            },
+        });
+    </script>
+}

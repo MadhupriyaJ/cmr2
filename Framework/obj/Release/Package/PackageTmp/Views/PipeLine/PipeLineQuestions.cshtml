@@ -1,0 +1,103 @@
+﻿@using FramWork.Controllers;
+@model IEnumerable<FramWork.Controllers.Pipelineq>
+
+@{
+    ViewBag.Title = "PipeLineQuestions";
+    Layout = null;
+    FramWork.HelloService.HelloServiceClient client = new FramWork.HelloService.HelloServiceClient("BasicHttpBinding_IHelloService");
+    var i = 0;
+}
+<div class="modal-content">
+
+    <form method="post" action="/PipeLine/Move_Next_Stage">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">Modal Title</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-wizard">
+                <div class="form-body">
+                    <div class="tab-content form-horizontal">
+                        <div class="tab-pane active" id="tab1">
+                            @foreach (var item in Model)
+                            {
+                            <div class="form-group">
+                                <label class="control-label col-md-3">
+                                    @item.Questions <span class="required">
+                                        *
+                                    </span>
+                                </label>
+                                <div class="col-md-4">
+                                    @{
+
+                                switch (item.questType)
+                                {
+                                    case FramWork.Controllers.EnumQuestionType.None:
+                                        break;
+                                    case FramWork.Controllers.EnumQuestionType.Select:
+                                        var list = client.GetListOfDealStageQuestionsText_Values(new Guid(Core.Login.OrganizationId.ToString()), new Guid(item.Id));
+                                        <input type="hidden" name="[@i].QuestionId" value="@item.Id" />
+                                        <input type="hidden" name="[@i].PersonId" value="@item.PersonLeadId" />
+                                        <input type="hidden" name="[@i].DealStageId" value="@item.DealStageNameId" />
+                                       
+                                        <select id="@item.Id" class="form-control" name="[@i].Answer">
+                                            @foreach (var cs in list)
+                                            {
+                                            <option value="@cs.Value">@cs.Text</option>
+                                            }
+                                        </select>
+
+                                            break;
+                                    case FramWork.Controllers.EnumQuestionType.Text:
+                                        <input type="hidden" name="[@i].QuestionId" value="@item.Id" />
+                                        <input type="hidden" name="[@i].PersonId" value="@item.PersonLeadId" />
+                                        <input type="hidden" name="[@i].DealStageId" value="@item.DealStageNameId" />
+                                        <input type="text" id="@item.Id" class="form-control" name="[@i].Answer" />
+
+                                            break;
+                                    case FramWork.Controllers.EnumQuestionType.TextArea:
+                                    <input type="hidden" name="[@i].QuestionId" value="@item.Id" />
+                                    <input type="hidden" name="[@i].PersonId" value="@item.PersonLeadId" />
+                                    <input type="hidden" name="[@i].DealStageId" value="@item.DealStageNameId" />
+                                     <textarea id="@item.Id" class="form-control" name="[@i].Answer" rows="4"></textarea>
+                                    
+
+                                            break;
+                                    default:
+                                            break;
+
+                                }
+
+}
+
+
+                                    <span class="help-block">
+                                        Provide  @item.Title
+                                    </span>
+                                </div>
+                            </div>
+                                i = i + 1;
+                            }
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn default" data-dismiss="modal">Close</button>
+           
+            <input class="btn blue" type="submit" value="Move" />
+           
+        </div>
+    </form>
+
+</div>
+<!-- /.modal-content -->

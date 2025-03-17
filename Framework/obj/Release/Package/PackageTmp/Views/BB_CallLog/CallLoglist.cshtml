@@ -1,0 +1,38 @@
+﻿@model PagedList.IPagedList<FramWork.Models.ABB_CallLog>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+<div class="table-scrollable">
+    <table class="table table-striped table-bordered table-advance table-hover">
+        <thead>
+            <tr>
+                <th>
+                    <i class="fa fa-briefcase"></i> Subject
+                </th>
+                <th class="hidden-xs">
+                    <i class="fa fa-question"></i> Interaction Type
+                </th>
+                <th>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+@foreach (var item in Model.Select((x, i) => new { Data = x, Index = i })) { 
+            <tr>
+                <td>
+                    <p>@item.Data.Subject</p>
+                </td>
+                <td class="hidden-xs">@item.Data.ABB_InteractionType.Type</td>
+
+                <td>
+                    <a href="#" class="btn default btn-xs green-stripe">
+                        View
+                    </a>
+                </td>
+            </tr>
+}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://PragimTech.com/ServiceVersion1" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://PragimTech.com/ServiceVersion1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://PragimTech.com/ServiceVersion1/Imports">
+      <xsd:import namespace="http://PragimTech.com/ServiceVersion1" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/DataAccess" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IHelloService_GetDeptLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDeptLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDeptLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDesignLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDesignLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDesignLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDesignLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetGenderLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenderLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetGenderLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenderLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLanguageLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguageLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLanguageLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLanguageLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLocLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLocLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLocLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetSalutLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalutLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetSalutLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSalutLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetTeamLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetTeamLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTeamLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetEmployeeLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetEmployeeLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetUserLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetUserLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonModeLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonModeLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonModeLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonModeLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonCompany" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCompanyMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyMode" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCompanyMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompanyModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDealStageLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDealStageLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDealStageLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDealStageLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLstPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLstPerson" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLstPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLstPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLstCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLstCampaign" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetLstCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLstCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignProductLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignProductLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignProductLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignProductLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDSQuesModeLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDSQuesModeLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDSQuesModeLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDSQuesModeLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetOnePerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnePerson" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetOnePerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnePersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignPersonLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignPersonLead" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignPersonLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignPersonLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMTask" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMFollowers_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMFollowers" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMFollowers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMFollowersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMNote" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMNoteFollowers_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMNoteFollowers" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCMNoteFollowers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCMNoteFollowersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMFollowers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMFollowers" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMFollowers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMFollowersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMTaskCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMTaskCategory" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMTaskCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMTaskCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMTaskLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMTaskLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMTaskLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMTaskLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMNoteLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMNoteLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMNoteLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMNoteLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetNoteComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNoteComments" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetNoteComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNoteCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCaseMnagementLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseMnagementLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCaseMnagementLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseMnagementLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCaseOrginLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCaseOrginLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCaseOrginLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCaseOrginLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCasePriorityLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCasePriorityLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCasePriorityLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCasePriorityLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCaseStatusLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCaseStatusLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCaseStatusLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCaseStatusLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCaseTypeLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCaseTypeLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCMCaseTypeLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCMCaseTypeLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonLeadLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonLeadLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonLeadLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonLeadLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCase_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCase" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCase_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfOpenOppurtunities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfOpenOppurtunities" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfOpenOppurtunities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfOpenOppurtunitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetOnePersonLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnePersonLead" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetOnePersonLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOnePersonLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_EditPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditPerson" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_EditPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfProductsByLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfProductsByLead" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfProductsByLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfProductsByLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfProductsdoc_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfProductsdoc" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfProductsdoc_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfProductsdocResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddLeadNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLeadNote" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddLeadNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLeadNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_WonStage_InputMessage">
+    <wsdl:part name="parameters" element="tns:WonStage" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_WonStage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WonStageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Lost_Revert_Drop_InputMessage">
+    <wsdl:part name="parameters" element="tns:Lost_Revert_Drop" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Lost_Revert_Drop_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Lost_Revert_DropResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetEmployeeQueueLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeQueueLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetEmployeeQueueLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmployeeQueueLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddemployeeQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddemployeeQueue" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddemployeeQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddemployeeQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_EditemployeeQueue_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditemployeeQueue" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_EditemployeeQueue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditemployeeQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_SaveAssignedToPersonLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAssignedToPersonLead" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_SaveAssignedToPersonLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAssignedToPersonLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddOrganization_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganization" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddOrganization_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrganizationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Addemployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:Addemployee" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Addemployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddemployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Addrole_InputMessage">
+    <wsdl:part name="parameters" element="tns:Addrole" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Addrole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddroleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_ListRoles_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListRoles" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_ListRoles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_role_InputMessage">
+    <wsdl:part name="parameters" element="tns:role" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_role_OutputMessage">
+    <wsdl:part name="parameters" element="tns:roleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignRoleTo_User_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignRoleTo_User" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignRoleTo_User_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignRoleTo_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Listofusers_InputMessage">
+    <wsdl:part name="parameters" element="tns:Listofusers" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Listofusers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListofusersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetModuleList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleList" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetModuleList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignModuleTo_Role_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignModuleTo_Role" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignModuleTo_Role_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignModuleTo_RoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddModule_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddModule" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddModule_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddModuleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetModuleIdBasedOnRole_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleIdBasedOnRole" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetModuleIdBasedOnRole_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModuleIdBasedOnRoleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStageName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStageName" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStageName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStageNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStageQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStageQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStageQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStageQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStageQuestionsText_Values_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStageQuestionsText_Values" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStageQuestionsText_Values_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStageQuestionsText_ValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDYnamicQuestions_answer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDYnamicQuestions_answer" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDYnamicQuestions_answer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDYnamicQuestions_answerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStagePersonLead_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStagePersonLead" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfDealStagePersonLead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfDealStagePersonLeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_MovetoNextDealStage_InputMessage">
+    <wsdl:part name="parameters" element="tns:MovetoNextDealStage" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_MovetoNextDealStage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MovetoNextDealStageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_MovetoPreviousDealStage_InputMessage">
+    <wsdl:part name="parameters" element="tns:MovetoPreviousDealStage" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_MovetoPreviousDealStage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MovetoPreviousDealStageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_won_lost_dropped_Revert_InputMessage">
+    <wsdl:part name="parameters" element="tns:won_lost_dropped_Revert" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_won_lost_dropped_Revert_OutputMessage">
+    <wsdl:part name="parameters" element="tns:won_lost_dropped_RevertResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_ListCampaignBankType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListCampaignBankType" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_ListCampaignBankType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCampaignBankTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_ListCampaignType_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListCampaignType" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_ListCampaignType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListCampaignTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetMediasourceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMediasourceList" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetMediasourceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMediasourceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCampaign_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampaign" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCampaign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampaignResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCampaignProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampaignProduct" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCampaignProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampaignProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCampaignMedia_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampaignMedia" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCampaignMedia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCampaignMediaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignList" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignProductList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignProductList" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignProductList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignMediaList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignMediaList" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCampaignMediaList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampaignMediaListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_getcampaignappoinments_InputMessage">
+    <wsdl:part name="parameters" element="tns:getcampaignappoinments" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_getcampaignappoinments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getcampaignappoinmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Getexception_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getexception" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Getexception_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetexceptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfPersonLead_ONA_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPersonLead_ONA" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetListOfPersonLead_ONA_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfPersonLead_ONAResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonleaddetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonleaddetails" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPersonleaddetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPersonleaddetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Getemployeedetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getemployeedetails" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_Getemployeedetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetemployeedetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_getempbasedonteam_InputMessage">
+    <wsdl:part name="parameters" element="tns:getempbasedonteam" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_getempbasedonteam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getempbasedonteamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignLeadToEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:AssignLeadToEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AssignLeadToEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AssignLeadToEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddsurveyMaster_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddsurveyMaster" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddsurveyMaster_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddsurveyMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCaseManagmentStageList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseManagmentStageList" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCaseManagmentStageList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseManagmentStageListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCaseDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDetails" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCaseDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCaseDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_changeCaseManagmentStage_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeCaseManagmentStage" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_changeCaseManagmentStage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeCaseManagmentStageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddPerson_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPerson" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddPerson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDepartment_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDepartment" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDepartment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDepartmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDesignation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDesignation" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDesignation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDesignationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddGender_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGender" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddGender_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddLanguage_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLanguage" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddLanguage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddLocation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLocation" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddLocation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLocationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddSalutation_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSalutation" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddSalutation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSalutationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddTeam_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeam" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddTeam_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCountry" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCountryLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCountryLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddState_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddState" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetStateLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetStateLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDSQuesLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDSQuesLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDSQuesLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDSQuesLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDSQuesTypeLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDSQuesTypeLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetDSQuesTypeLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDSQuesTypeLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetHtmlControlNameLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHtmlControlNameLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetHtmlControlNameLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHtmlControlNameLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCity" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddPersonCompany_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonCompany" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddPersonCompany_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPersonCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDealStageName_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDealStageName" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDealStageName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDealStageNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDSQuesMode_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDSQuesMode" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDSQuesMode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDSQuesModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddPipeLine_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPipeLine" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddPipeLine_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPipeLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDealStageQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDealStageQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDealStageQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDealStageQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDSQuestionValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDSQuestionValues" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_AddDSQuestionValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDSQuestionValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPipeLineLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPipeLineLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetPipeLineLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPipeLineLstResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCityLst_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityLst" />
+  </wsdl:message>
+  <wsdl:message name="IHelloService_GetCityLst_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCityLstResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IHelloService">
+    <wsdl:operation name="GetDeptLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDeptLst" message="tns:IHelloService_GetDeptLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDeptLstResponse" message="tns:IHelloService_GetDeptLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDesignLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDesignLst" message="tns:IHelloService_GetDesignLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDesignLstResponse" message="tns:IHelloService_GetDesignLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenderLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetGenderLst" message="tns:IHelloService_GetGenderLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetGenderLstResponse" message="tns:IHelloService_GetGenderLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguageLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLanguageLst" message="tns:IHelloService_GetLanguageLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLanguageLstResponse" message="tns:IHelloService_GetLanguageLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLocLst" message="tns:IHelloService_GetLocLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLocLstResponse" message="tns:IHelloService_GetLocLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSalutLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetSalutLst" message="tns:IHelloService_GetSalutLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetSalutLstResponse" message="tns:IHelloService_GetSalutLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetTeamLst" message="tns:IHelloService_GetTeamLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetTeamLstResponse" message="tns:IHelloService_GetTeamLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetEmployeeLst" message="tns:IHelloService_GetEmployeeLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetEmployeeLstResponse" message="tns:IHelloService_GetEmployeeLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetUserLst" message="tns:IHelloService_GetUserLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetUserLstResponse" message="tns:IHelloService_GetUserLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonModeLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonModeLst" message="tns:IHelloService_GetPersonModeLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonModeLstResponse" message="tns:IHelloService_GetPersonModeLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonCompany">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonCompany" message="tns:IHelloService_GetPersonCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonCompanyResponse" message="tns:IHelloService_GetPersonCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyMode">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCompanyMode" message="tns:IHelloService_GetCompanyMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCompanyModeResponse" message="tns:IHelloService_GetCompanyMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDealStageLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDealStageLst" message="tns:IHelloService_GetDealStageLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDealStageLstResponse" message="tns:IHelloService_GetDealStageLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLstPerson">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLstPerson" message="tns:IHelloService_GetLstPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLstPersonResponse" message="tns:IHelloService_GetLstPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLstCampaign">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLstCampaign" message="tns:IHelloService_GetLstCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetLstCampaignResponse" message="tns:IHelloService_GetLstCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignProductLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignProductLst" message="tns:IHelloService_GetCampaignProductLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignProductLstResponse" message="tns:IHelloService_GetCampaignProductLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDSQuesModeLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesModeLst" message="tns:IHelloService_GetDSQuesModeLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesModeLstResponse" message="tns:IHelloService_GetDSQuesModeLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePerson">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetOnePerson" message="tns:IHelloService_GetOnePerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetOnePersonResponse" message="tns:IHelloService_GetOnePerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignPersonLead">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignPersonLead" message="tns:IHelloService_AssignPersonLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignPersonLeadResponse" message="tns:IHelloService_AssignPersonLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCMTask">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMTask" message="tns:IHelloService_AddCMTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMTaskResponse" message="tns:IHelloService_AddCMTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCMFollowers">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMFollowers" message="tns:IHelloService_AddCMFollowers_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMFollowersResponse" message="tns:IHelloService_AddCMFollowers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCMNote">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMNote" message="tns:IHelloService_AddCMNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMNoteResponse" message="tns:IHelloService_AddCMNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCMNoteFollowers">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMNoteFollowers" message="tns:IHelloService_AddCMNoteFollowers_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCMNoteFollowersResponse" message="tns:IHelloService_AddCMNoteFollowers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMFollowers">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMFollowers" message="tns:IHelloService_GetCMFollowers_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMFollowersResponse" message="tns:IHelloService_GetCMFollowers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMTaskCategory">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMTaskCategory" message="tns:IHelloService_GetCMTaskCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMTaskCategoryResponse" message="tns:IHelloService_GetCMTaskCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMTaskLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMTaskLst" message="tns:IHelloService_GetCMTaskLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMTaskLstResponse" message="tns:IHelloService_GetCMTaskLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMNoteLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMNoteLst" message="tns:IHelloService_GetCMNoteLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMNoteLstResponse" message="tns:IHelloService_GetCMNoteLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNoteComments">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetNoteComments" message="tns:IHelloService_GetNoteComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetNoteCommentsResponse" message="tns:IHelloService_GetNoteComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseMnagementLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseMnagementLst" message="tns:IHelloService_GetCaseMnagementLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseMnagementLstResponse" message="tns:IHelloService_GetCaseMnagementLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCaseOrginLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseOrginLst" message="tns:IHelloService_GetCMCaseOrginLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseOrginLstResponse" message="tns:IHelloService_GetCMCaseOrginLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCasePriorityLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCasePriorityLst" message="tns:IHelloService_GetCMCasePriorityLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCasePriorityLstResponse" message="tns:IHelloService_GetCMCasePriorityLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCaseStatusLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseStatusLst" message="tns:IHelloService_GetCMCaseStatusLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseStatusLstResponse" message="tns:IHelloService_GetCMCaseStatusLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCMCaseTypeLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseTypeLst" message="tns:IHelloService_GetCMCaseTypeLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCMCaseTypeLstResponse" message="tns:IHelloService_GetCMCaseTypeLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonLeadLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonLeadLst" message="tns:IHelloService_GetPersonLeadLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonLeadLstResponse" message="tns:IHelloService_GetPersonLeadLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCase">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCase" message="tns:IHelloService_AddCase_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCaseResponse" message="tns:IHelloService_AddCase_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfOpenOppurtunities">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfOpenOppurtunities" message="tns:IHelloService_GetListOfOpenOppurtunities_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfOpenOppurtunitiesResponse" message="tns:IHelloService_GetListOfOpenOppurtunities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnePersonLead">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetOnePersonLead" message="tns:IHelloService_GetOnePersonLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetOnePersonLeadResponse" message="tns:IHelloService_GetOnePersonLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPerson">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/EditPerson" message="tns:IHelloService_EditPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/EditPersonResponse" message="tns:IHelloService_EditPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfProductsByLead">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfProductsByLead" message="tns:IHelloService_GetListOfProductsByLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfProductsByLeadResponse" message="tns:IHelloService_GetListOfProductsByLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfProductsdoc">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfProductsdoc" message="tns:IHelloService_GetListOfProductsdoc_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfProductsdocResponse" message="tns:IHelloService_GetListOfProductsdoc_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLeadNote">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddLeadNote" message="tns:IHelloService_AddLeadNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddLeadNoteResponse" message="tns:IHelloService_AddLeadNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WonStage">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/WonStage" message="tns:IHelloService_WonStage_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/WonStageResponse" message="tns:IHelloService_WonStage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Lost_Revert_Drop">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Lost_Revert_Drop" message="tns:IHelloService_Lost_Revert_Drop_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Lost_Revert_DropResponse" message="tns:IHelloService_Lost_Revert_Drop_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeQueueLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetEmployeeQueueLst" message="tns:IHelloService_GetEmployeeQueueLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetEmployeeQueueLstResponse" message="tns:IHelloService_GetEmployeeQueueLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddemployeeQueue">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddemployeeQueue" message="tns:IHelloService_AddemployeeQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddemployeeQueueResponse" message="tns:IHelloService_AddemployeeQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditemployeeQueue">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/EditemployeeQueue" message="tns:IHelloService_EditemployeeQueue_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/EditemployeeQueueResponse" message="tns:IHelloService_EditemployeeQueue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAssignedToPersonLead">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/SaveAssignedToPersonLead" message="tns:IHelloService_SaveAssignedToPersonLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/SaveAssignedToPersonLeadResponse" message="tns:IHelloService_SaveAssignedToPersonLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrganization">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddOrganization" message="tns:IHelloService_AddOrganization_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddOrganizationResponse" message="tns:IHelloService_AddOrganization_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddUser" message="tns:IHelloService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddUserResponse" message="tns:IHelloService_AddUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Addemployee">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Addemployee" message="tns:IHelloService_Addemployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddemployeeResponse" message="tns:IHelloService_Addemployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Addrole">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Addrole" message="tns:IHelloService_Addrole_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddroleResponse" message="tns:IHelloService_Addrole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListRoles">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListRoles" message="tns:IHelloService_ListRoles_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListRolesResponse" message="tns:IHelloService_ListRoles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="role">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/role" message="tns:IHelloService_role_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/roleResponse" message="tns:IHelloService_role_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignRoleTo_User">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignRoleTo_User" message="tns:IHelloService_AssignRoleTo_User_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignRoleTo_UserResponse" message="tns:IHelloService_AssignRoleTo_User_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Listofusers">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Listofusers" message="tns:IHelloService_Listofusers_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListofusersResponse" message="tns:IHelloService_Listofusers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleList">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetModuleList" message="tns:IHelloService_GetModuleList_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetModuleListResponse" message="tns:IHelloService_GetModuleList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignModuleTo_Role">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignModuleTo_Role" message="tns:IHelloService_AssignModuleTo_Role_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignModuleTo_RoleResponse" message="tns:IHelloService_AssignModuleTo_Role_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddModule">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddModule" message="tns:IHelloService_AddModule_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddModuleResponse" message="tns:IHelloService_AddModule_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModuleIdBasedOnRole">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetModuleIdBasedOnRole" message="tns:IHelloService_GetModuleIdBasedOnRole_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetModuleIdBasedOnRoleResponse" message="tns:IHelloService_GetModuleIdBasedOnRole_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStageName">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageName" message="tns:IHelloService_GetListOfDealStageName_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageNameResponse" message="tns:IHelloService_GetListOfDealStageName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStageQuestions">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageQuestions" message="tns:IHelloService_GetListOfDealStageQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageQuestionsResponse" message="tns:IHelloService_GetListOfDealStageQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStageQuestionsText_Values">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageQuestionsText_Values" message="tns:IHelloService_GetListOfDealStageQuestionsText_Values_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStageQuestionsText_ValuesResponse" message="tns:IHelloService_GetListOfDealStageQuestionsText_Values_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDYnamicQuestions_answer">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDYnamicQuestions_answer" message="tns:IHelloService_AddDYnamicQuestions_answer_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDYnamicQuestions_answerResponse" message="tns:IHelloService_AddDYnamicQuestions_answer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfDealStagePersonLead">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStagePersonLead" message="tns:IHelloService_GetListOfDealStagePersonLead_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfDealStagePersonLeadResponse" message="tns:IHelloService_GetListOfDealStagePersonLead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MovetoNextDealStage">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/MovetoNextDealStage" message="tns:IHelloService_MovetoNextDealStage_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/MovetoNextDealStageResponse" message="tns:IHelloService_MovetoNextDealStage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MovetoPreviousDealStage">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/MovetoPreviousDealStage" message="tns:IHelloService_MovetoPreviousDealStage_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/MovetoPreviousDealStageResponse" message="tns:IHelloService_MovetoPreviousDealStage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="won_lost_dropped_Revert">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/won_lost_dropped_Revert" message="tns:IHelloService_won_lost_dropped_Revert_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/won_lost_dropped_RevertResponse" message="tns:IHelloService_won_lost_dropped_Revert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCampaignBankType">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListCampaignBankType" message="tns:IHelloService_ListCampaignBankType_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListCampaignBankTypeResponse" message="tns:IHelloService_ListCampaignBankType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListCampaignType">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListCampaignType" message="tns:IHelloService_ListCampaignType_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/ListCampaignTypeResponse" message="tns:IHelloService_ListCampaignType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMediasourceList">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetMediasourceList" message="tns:IHelloService_GetMediasourceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetMediasourceListResponse" message="tns:IHelloService_GetMediasourceList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCampaign">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaign" message="tns:IHelloService_AddCampaign_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignResponse" message="tns:IHelloService_AddCampaign_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCampaignProduct">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignProduct" message="tns:IHelloService_AddCampaignProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignProductResponse" message="tns:IHelloService_AddCampaignProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCampaignMedia">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignMedia" message="tns:IHelloService_AddCampaignMedia_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCampaignMediaResponse" message="tns:IHelloService_AddCampaignMedia_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignList">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignList" message="tns:IHelloService_GetCampaignList_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignListResponse" message="tns:IHelloService_GetCampaignList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignProductList">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignProductList" message="tns:IHelloService_GetCampaignProductList_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignProductListResponse" message="tns:IHelloService_GetCampaignProductList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampaignMediaList">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignMediaList" message="tns:IHelloService_GetCampaignMediaList_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCampaignMediaListResponse" message="tns:IHelloService_GetCampaignMediaList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getcampaignappoinments">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/getcampaignappoinments" message="tns:IHelloService_getcampaignappoinments_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/getcampaignappoinmentsResponse" message="tns:IHelloService_getcampaignappoinments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getexception">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Getexception" message="tns:IHelloService_Getexception_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetexceptionResponse" message="tns:IHelloService_Getexception_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfPersonLead_ONA">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfPersonLead_ONA" message="tns:IHelloService_GetListOfPersonLead_ONA_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetListOfPersonLead_ONAResponse" message="tns:IHelloService_GetListOfPersonLead_ONA_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPersonleaddetails">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonleaddetails" message="tns:IHelloService_GetPersonleaddetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPersonleaddetailsResponse" message="tns:IHelloService_GetPersonleaddetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getemployeedetails">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/Getemployeedetails" message="tns:IHelloService_Getemployeedetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetemployeedetailsResponse" message="tns:IHelloService_Getemployeedetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getempbasedonteam">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/getempbasedonteam" message="tns:IHelloService_getempbasedonteam_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/getempbasedonteamResponse" message="tns:IHelloService_getempbasedonteam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AssignLeadToEmployee">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignLeadToEmployee" message="tns:IHelloService_AssignLeadToEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AssignLeadToEmployeeResponse" message="tns:IHelloService_AssignLeadToEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddsurveyMaster">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddsurveyMaster" message="tns:IHelloService_AddsurveyMaster_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddsurveyMasterResponse" message="tns:IHelloService_AddsurveyMaster_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseManagmentStageList">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseManagmentStageList" message="tns:IHelloService_GetCaseManagmentStageList_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseManagmentStageListResponse" message="tns:IHelloService_GetCaseManagmentStageList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCaseDetails">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseDetails" message="tns:IHelloService_GetCaseDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCaseDetailsResponse" message="tns:IHelloService_GetCaseDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changeCaseManagmentStage">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/changeCaseManagmentStage" message="tns:IHelloService_changeCaseManagmentStage_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/changeCaseManagmentStageResponse" message="tns:IHelloService_changeCaseManagmentStage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPerson">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddPerson" message="tns:IHelloService_AddPerson_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddPersonResponse" message="tns:IHelloService_AddPerson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDepartment">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDepartment" message="tns:IHelloService_AddDepartment_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDepartmentResponse" message="tns:IHelloService_AddDepartment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDesignation">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDesignation" message="tns:IHelloService_AddDesignation_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDesignationResponse" message="tns:IHelloService_AddDesignation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddGender">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddGender" message="tns:IHelloService_AddGender_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddGenderResponse" message="tns:IHelloService_AddGender_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLanguage">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddLanguage" message="tns:IHelloService_AddLanguage_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddLanguageResponse" message="tns:IHelloService_AddLanguage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLocation">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddLocation" message="tns:IHelloService_AddLocation_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddLocationResponse" message="tns:IHelloService_AddLocation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSalutation">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddSalutation" message="tns:IHelloService_AddSalutation_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddSalutationResponse" message="tns:IHelloService_AddSalutation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddTeam" message="tns:IHelloService_AddTeam_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddTeamResponse" message="tns:IHelloService_AddTeam_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCountry">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCountry" message="tns:IHelloService_AddCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCountryResponse" message="tns:IHelloService_AddCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCountryLst" message="tns:IHelloService_GetCountryLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCountryLstResponse" message="tns:IHelloService_GetCountryLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddState">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddState" message="tns:IHelloService_AddState_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddStateResponse" message="tns:IHelloService_AddState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStateLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetStateLst" message="tns:IHelloService_GetStateLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetStateLstResponse" message="tns:IHelloService_GetStateLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDSQuesLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesLst" message="tns:IHelloService_GetDSQuesLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesLstResponse" message="tns:IHelloService_GetDSQuesLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDSQuesTypeLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesTypeLst" message="tns:IHelloService_GetDSQuesTypeLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetDSQuesTypeLstResponse" message="tns:IHelloService_GetDSQuesTypeLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHtmlControlNameLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetHtmlControlNameLst" message="tns:IHelloService_GetHtmlControlNameLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetHtmlControlNameLstResponse" message="tns:IHelloService_GetHtmlControlNameLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCity">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCity" message="tns:IHelloService_AddCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddCityResponse" message="tns:IHelloService_AddCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPersonCompany">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddPersonCompany" message="tns:IHelloService_AddPersonCompany_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddPersonCompanyResponse" message="tns:IHelloService_AddPersonCompany_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDealStageName">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDealStageName" message="tns:IHelloService_AddDealStageName_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDealStageNameResponse" message="tns:IHelloService_AddDealStageName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDSQuesMode">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDSQuesMode" message="tns:IHelloService_AddDSQuesMode_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDSQuesModeResponse" message="tns:IHelloService_AddDSQuesMode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPipeLine">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddPipeLine" message="tns:IHelloService_AddPipeLine_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddPipeLineResponse" message="tns:IHelloService_AddPipeLine_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDealStageQuestions">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDealStageQuestions" message="tns:IHelloService_AddDealStageQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDealStageQuestionsResponse" message="tns:IHelloService_AddDealStageQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDSQuestionValues">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDSQuestionValues" message="tns:IHelloService_AddDSQuestionValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/AddDSQuestionValuesResponse" message="tns:IHelloService_AddDSQuestionValues_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPipeLineLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPipeLineLst" message="tns:IHelloService_GetPipeLineLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetPipeLineLstResponse" message="tns:IHelloService_GetPipeLineLst_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCityLst">
+      <wsdl:input wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCityLst" message="tns:IHelloService_GetCityLst_InputMessage" />
+      <wsdl:output wsaw:Action="http://PragimTech.com/ServiceVersion1/IHelloService/GetCityLstResponse" message="tns:IHelloService_GetCityLst_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

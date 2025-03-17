@@ -1,0 +1,428 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">Statement of changes in net assets available for benefits</span>
+    </h4>
+    <div class="portlet-body">
+
+        <div>
+            <div id="movablebar" style="position: relative; top: auto; width: auto;">
+                <aside id="small-toolbar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+
+                    <ul class="pag-breadcrumb">
+                        <!-- st-(small-toolbar) -->
+                        <li class="st-save first-child">
+                            <a href="#" id="saveButton">Save</a>
+                        </li>
+                        <li class="st-monitor">
+                            <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a>
+                        </li>
+                        <li class="st-return-standart">
+                            <a href="javascript:reloadList()">Reload</a>
+                        </li>
+                        <li>
+                            <span class="asideTitle">Currency:</span>
+                            <select id="report_currency" style="vertical-align:midle; width:140px">
+                                <option value="RUB" selected="selected">Russian Ruble</option>
+                                <option value="0">[Add new exchange rate]</option>
+                            </select>
+                        </li>
+                        <li class="st-print">
+                            <div class="drop-action-box">
+                                <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <h4 class="bold" align="center">Statement of changes in net assets available for benefits</h4>
+           
+            <br />
+        </div>
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Reconciliation of changes in net assets available for benefits</span>
+            </h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_1" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="NetAssetsAvailableForBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s6689" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-2">
+                                <span style="color:black;font-weight:normal">
+                                    Assets (liabilities) of benefit plan at beginning of period
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col1" id="NetAssetsAvailableForBenefits__1_1_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ChangesInNetAssetsAvailableForBenefitsAbstract" class="conceptbox vert_cell   col0" data-id="s1855" data-concept-type="string" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-13">
+                                <span style="color:black;font-weight:normal">
+                                    Changes in net assets available for benefits
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="EmployerContributions" class="conceptbox vert_cell  hie_leaf col0" data-id="s1856" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-14">
+                                <span style="color:green;font-weight:normal">
+                                    Employer contributions
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="EmployerContributions__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="EmployeeContributions" class="conceptbox vert_cell  hie_leaf col0" data-id="s1857" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-15">
+                                <span style="color:green;font-weight:normal">
+                                    Employee contributions
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="EmployeeContributions__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="InvestmentIncome" class="conceptbox vert_cell  hie_leaf col0" data-id="s1858" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-16">
+                                <span style="color:green;font-weight:normal">
+                                    Investment income
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="InvestmentIncome__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherIncome" class="conceptbox vert_cell  hie_leaf col0" data-id="s1859" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-17">
+                                <span style="color:green;font-weight:normal">
+                                    Other income
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherIncome__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="BenefitsPaidOrPayable" class="conceptbox vert_cell  hie_leaf col0" data-id="s1860" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-18">
+                                <span style="color:red;font-weight:normal">
+                                    Benefits paid or payable
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="BenefitsPaidOrPayable__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="AdministrativeExpense" class="conceptbox vert_cell  hie_leaf col0" data-id="s1861" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-19">
+                                <span style="color:red;font-weight:normal">
+                                    Administrative expenses
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AdministrativeExpense__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherExpenseByFunction" class="conceptbox vert_cell  hie_leaf col0" data-id="s1862" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-20">
+                                <span style="color:red;font-weight:normal">
+                                    Other expense, by function
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherExpenseByFunction__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>
+                                    ( )
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="IncomeTaxExpenseContinuingOperations" class="conceptbox vert_cell  hie_leaf col0" data-id="s1863" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-21">
+                                <span style="color:red;font-weight:normal">
+                                    Tax expense (income) from continuing operations
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncomeTaxExpenseContinuingOperations__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 305px;">
+                                <div>( )</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitsLossesOnDisposalOfInvestmentsAndChangesInValueOfInvestments" class="conceptbox vert_cell  hie_leaf col0" data-id="s1864" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-22">
+                                <span style="color:green;font-weight:normal">
+                                    Profit (loss) on disposal of investments and changes in value of investments
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitsLossesOnDisposalOfInvestmentsAndChangesInValueOfInvestments__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="TransfersFromToOtherRetirementBenefitPlans" class="conceptbox vert_cell  hie_leaf col0" data-id="s1865" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-23">
+                                <span style="color:green;font-weight:normal">
+                                    Transfers from (to) other retirement benefit plans
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="TransfersFromToOtherRetirementBenefitPlans__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ExchangeDifferencesOnTranslationNAB" class="conceptbox vert_cell  hie_leaf col0" data-id="s6767" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-24">
+                                <span style="color:green;font-weight:normal">
+                                    Exchange differences on translation
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ExchangeDifferencesOnTranslationNAB__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="NetAssetsAvailableForBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s1866" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-25">
+                                <span style="color:green;font-weight:bold">
+                                    Total increase (decrease) in net assets available for benefits
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NetAssetsAvailableForBenefits__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="NetAssetsAvailableForBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s6688" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-26">
+                                <span style="color:black;font-weight:normal">
+                                    Assets (liabilities) of benefit plan at end of period
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NetAssetsAvailableForBenefits__1_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+        <br>
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Retirement benefit plan</span>
+            </h4>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_2"  class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4" >
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="NumberOfParticipantsOfRetirementBenefitPlanReceivingBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s1873" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-27">
+                                <span style="color:black;font-weight:normal">
+                                    Number of participants of retirement benefit plan receiving benefits
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NumberOfParticipantsOfRetirementBenefitPlanReceivingBenefits__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="NumberOfOtherParticipantsOfRetirementBenefitPlan" class="conceptbox vert_cell  hie_leaf col0" data-id="s1874" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-28">
+                                <span style="color:black;font-weight:normal">
+                                    Number of other participants of retirement benefit plan
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NumberOfOtherParticipantsOfRetirementBenefitPlan__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="sblock_1" style="margin-left: 10px">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="NamesOfEmployersAndEmployeeGroupsCovered" data-id="s4926">
+                        Names of employers and employee groups covered
+                    </span>
+                </div>
+                <div id="NamesOfEmployersAndEmployeeGroupsCovered_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfTypeOfRetirementBenefitPlan" data-id="s4927">
+                        Description of type of retirement benefit plan
+                    </span>
+                </div>
+                <div id="DescriptionOfTypeOfRetirementBenefitPlan_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="ExplanationOfWhetherParticipantsContributeToRetirementBenefitPlan" data-id="s4928">
+                        Explanation of whether participants contribute to retirement benefit plan
+                    </span>
+                </div>
+                <div id="ExplanationOfWhetherParticipantsContributeToRetirementBenefitPlan_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfRetirementBenefitsPromisedToParticipants" data-id="s4929">
+                        Description of retirement benefits promised to participants
+                    </span>
+                </div>
+                <div id="DescriptionOfRetirementBenefitsPromisedToParticipants_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfAnyRetirementBenefitPlanTerminationTerms" data-id="s4930">
+                        Description of any retirement benefit plan termination terms
+                    </span>
+                </div>
+                <div id="DescriptionOfAnyRetirementBenefitPlanTerminationTerms_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="ExplanationOfChangesInDescriptionOfRetirementBenefitPlan" data-id="s4931">
+                        Explanation of changes in description of retirement benefit plan
+                    </span>
+                </div>
+                <div id="ExplanationOfChangesInDescriptionOfRetirementBenefitPlan_data" class="editableTextItemData"></div>
+            </div>
+            <br/>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_3" style="margin: 20px 0px 5px 0px" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">At 31.12.2015</td>
+                            <td style="text-align: center" class="col2">At 31.12.2014</td>
+                        </tr>
+                        <tr>
+                            <td title="AssetsOfBenefitPlan" class="conceptbox vert_cell  hie_leaf col0" data-id="s1848" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-29">
+                                <span style="color:black;font-weight:normal">
+                                    Assets of benefit plan
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AssetsOfBenefitPlan__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="AssetsOfBenefitPlan__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="LiabilitiesOtherThanActuarialPresentValueOfPromisedRetirementBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s1852" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-30">
+                                <span style="color:black;font-weight:normal">
+                                    Liabilities other than actuarial present value of promised retirement benefits
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="LiabilitiesOtherThanActuarialPresentValueOfPromisedRetirementBenefits__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="LiabilitiesOtherThanActuarialPresentValueOfPromisedRetirementBenefits__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ActuarialPresentValueOfPromisedRetirementBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s1869" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-31">
+                                <span style="color:black;font-weight:normal">
+                                    Actuarial present value of promised retirement benefits
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ActuarialPresentValueOfPromisedRetirementBenefits__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="ActuarialPresentValueOfPromisedRetirementBenefits__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="sblock_2" style="margin-left: 10px">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfBasisOfValuationOfAssetsAvailableForBenefits" data-id="s4921">
+                        Basis of valuation of assets available for benefits
+                    </span>
+                </div>
+                <div id="DescriptionOfBasisOfValuationOfAssetsAvailableForBenefits_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="ExplanationOfDetailsOfInvestmentExceedingEitherFivePerCentOfNetAssetsAvailableForBenefitsOrFivePerCentOfAnyClassOrTypeOfSecurity" data-id="s4922">
+                        Explanation of details of investment exceeding either five per cent of net assets available for benefits or five per cent of any class or type of security
+                    </span>
+                </div>
+                <div id="ExplanationOfDetailsOfInvestmentExceedingEitherFivePerCentOfNetAssetsAvailableForBenefitsOrFivePerCentOfAnyClassOrTypeOfSecurity_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="ExplanationOfDetailsOfAnyInvestmentInEmployer" data-id="s4923">
+                        Explanation of details of any investment in employer
+                    </span>
+                </div>
+                <div id="ExplanationOfDetailsOfAnyInvestmentInEmployer_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfFundingPolicy" data-id="s4924">
+                        Funding policy
+                    </span>
+                </div>
+                <div id="DescriptionOfFundingPolicy_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfSignificantActuarialAssumptionsMadeAndMethodUsedToCalculateActuarialPresentValueOfPromisedRetirementBenefits" data-id="s4925">
+                        Significant actuarial assumptions made and method used to calculate actuarial present value of promised retirement benefits
+                    </span>
+                </div>
+                <div id="DescriptionOfSignificantActuarialAssumptionsMadeAndMethodUsedToCalculateActuarialPresentValueOfPromisedRetirementBenefits_data" class="editableTextItemData"></div>
+            </div>
+            <br />
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".addFirmParams").click(function () {
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+            })
+        });
+        $(".editableCell div").empty();
+        $(".editableCell div").append("<input type='text' />")
+
+    });
+
+
+
+</script>

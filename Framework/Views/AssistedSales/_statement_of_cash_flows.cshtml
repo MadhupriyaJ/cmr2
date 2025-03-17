@@ -1,0 +1,882 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">Statement of cash flows</span>
+    </h4>
+    <div class="portlet-body">
+        <div>
+            <div id="movablebar" style="position: relative; top: auto; width: auto;">
+                <aside id="small-toolbar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+
+                    <ul class="pag-breadcrumb">
+                        <!-- st-(small-toolbar) -->
+                        <li class="st-save first-child">
+                            <a href="#" id="saveButton">Save</a>
+                        </li>
+                        <li class="st-monitor">
+                            <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a>
+                        </li>
+                        <li class="st-return-standart">
+                            <a href="javascript:reloadList()">Reload</a>
+                        </li>
+                        <li>
+                            <span class="asideTitle">Currency:</span>
+                            <select id="report_currency" style="vertical-align:midle; width:140px">
+                                <option value="RUB" selected="selected">Russian Ruble</option>
+                                <option value="0">[Add new exchange rate]</option>
+                            </select>
+                        </li>
+                        <li class="st-print">
+                            <div class="drop-action-box">
+                                <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <h4 class="bold" align="center">Statement of cash flows</h4>
+            <h5 class="bold" align="center">(direct method)</h5>
+            <br />
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_1" class="table table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInOperatingActivitiesAbstract" class="conceptbox vert_cell   col0" data-id="s2415" data-concept-type="string" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-2">
+                                <span style="color:black;font-weight:normal">
+                                    Cash flows from (used in) operating activities
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="ClassesOfCashReceiptsFromOperatingActivitiesAbstract" class="conceptbox vert_cell   col0" data-id="s2416" data-concept-type="string" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-13">
+                                <span style="color:black;font-weight:normal">
+                                    Classes of cash receipts from operating activities
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="ReceiptsFromSalesOfGoodsAndRenderingOfServices" class="conceptbox vert_cell  hie_leaf col0" data-id="s2417" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-14">
+                                <span style="color:green;font-weight:normal">
+                                    sales of goods and rendering of services
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReceiptsFromSalesOfGoodsAndRenderingOfServices__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReceiptsFromRoyaltiesFeesCommissionsAndOtherRevenue" class="conceptbox vert_cell  hie_leaf col0" data-id="s2418" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-15">
+                                <span style="color:green;font-weight:normal">
+                                    royalties, fees, commissions and other revenue
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReceiptsFromRoyaltiesFeesCommissionsAndOtherRevenue__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReceiptsFromContractsHeldForDealingOrTradingPurpose" class="conceptbox vert_cell  hie_leaf col0" data-id="s2419" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-16">
+                                <span style="color:green;font-weight:normal">
+                                    contracts held for dealing or trading purposes
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReceiptsFromContractsHeldForDealingOrTradingPurpose__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReceiptsFromPremiumsAndClaimsAnnuitiesAndOtherPolicyBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s2420" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-17">
+                                <span style="color:green;font-weight:normal">
+                                    premiums and claims, annuities and other policy benefits
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReceiptsFromPremiumsAndClaimsAnnuitiesAndOtherPolicyBenefits__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReceiptsFromRentsAndSubsequentSalesOfSuchAssets" class="conceptbox vert_cell  hie_leaf col0" data-id="s2421" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-18">
+                                <span style="color:green;font-weight:normal">
+                                    receipts from rents and subsequent sales of assets held for rental to others and subsequently held for sale
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReceiptsFromRentsAndSubsequentSalesOfSuchAssets__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherCashReceiptsFromOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2422" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-19">
+                                <span style="color:green;font-weight:normal">
+                                    other cash receipts from operating activities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherCashReceiptsFromOperatingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ClassesOfCashPaymentsAbstract" class="conceptbox vert_cell   col0" data-id="s2423" data-concept-type="string" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-20">
+                                <span style="color:black;font-weight:normal">
+                                    Classes of cash payments from operating activities
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsToSuppliersForGoodsAndServices" class="conceptbox vert_cell  hie_leaf col0" data-id="s2424" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-21">
+                                <span style="color:red;font-weight:normal">
+                                    payments to suppliers for goods and services
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsToSuppliersForGoodsAndServices__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsFromContractsHeldForDealingOrTradingPurpose" class="conceptbox vert_cell  hie_leaf col0" data-id="s2425" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-22">
+                                <span style="color:red;font-weight:normal">
+                                    payments from contracts held for dealing or trading purpose
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsFromContractsHeldForDealingOrTradingPurpose__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsToAndOnBehalfOfEmployees" class="conceptbox vert_cell  hie_leaf col0" data-id="s2426" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-23">
+                                <span style="color:red;font-weight:normal">
+                                    payments to and on behalf of employees
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsToAndOnBehalfOfEmployees__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsForPremiumsAndClaimsAnnuitiesAndOtherPolicyBenefits" class="conceptbox vert_cell  hie_leaf col0" data-id="s2427" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-24">
+                                <span style="color:red;font-weight:normal">
+                                    payments for premiums and claims, annuities and other policy benefits
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsForPremiumsAndClaimsAnnuitiesAndOtherPolicyBenefits__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsToManufactureOrAcquireAssetsHeldForRentalToOthersAndSubsequentlyHeldForSale" class="conceptbox vert_cell  hie_leaf col0" data-id="s2428" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-25">
+                                <span style="color:red;font-weight:normal">
+                                    payments to manufacture or acquire assets held for rental to others and subsequently held for sale
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsToManufactureOrAcquireAssetsHeldForRentalToOthersAndSubsequentlyHeldForSale__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherCashPaymentsFromOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2429" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-26">
+                                <span style="color:red;font-weight:normal">
+                                    other cash payments from operating activities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherCashPaymentsFromOperatingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInOperations" class="conceptbox vert_cell  hie_leaf col0" data-id="s2430" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-27">
+                                <span style="color:green;font-weight:bold">
+                                    Total cash flows from (used in) operations
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashFlowsFromUsedInOperations__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsPaidClassifiedAsOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2431" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-28">
+                                <span style="color:red;font-weight:normal">
+                                    dividends paid
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaidClassifiedAsOperatingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsReceivedClassifiedAsOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2432" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-29">
+                                <span style="color:green;font-weight:normal">
+                                    dividends received
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsReceivedClassifiedAsOperatingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text"  />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="InterestPaidClassifiedAsOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2433" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-30">
+                                <span style="color:red;font-weight:normal">
+                                    interest paid
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="InterestPaidClassifiedAsOperatingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="InterestReceivedClassifiedAsOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2434" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-31">
+                                <span style="color:green;font-weight:normal">
+                                    interest received
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="InterestReceivedClassifiedAsOperatingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text"  />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="IncomeTaxesPaidRefundClassifiedAsOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2435" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-32">
+                                <span style="color:red;font-weight:normal">
+                                    income taxes paid (refund)
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncomeTaxesPaidRefundClassifiedAsOperatingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherInflowsOutflowsOfCashClassifiedAsOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2436" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-33">
+                                <span style="color:green;font-weight:normal">
+                                    other inflows (outflows) of cash classified as operating activities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherInflowsOutflowsOfCashClassifiedAsOperatingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInOperatingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2437" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-34">
+                                <span style="color:green;font-weight:bold">
+                                    Total cash flows from (used in) operating activities
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashFlowsFromUsedInOperatingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInInvestingActivitiesAbstract" class="conceptbox vert_cell   col0" data-id="s2438" data-concept-type="string" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-35">
+                                <span style="color:black;font-weight:normal">
+                                    Cash flows from (used in) investing activities
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromLosingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2439" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-36">
+                                <span style="color:green;font-weight:normal">
+                                    cash flows from losing control of subsidiaries or other businesses
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashFlowsFromLosingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2440" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-37">
+                                <span style="color:red;font-weight:normal">
+                                    cash flows used in obtaining control of subsidiaries or other businesses
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashFlowsUsedInObtainingControlOfSubsidiariesOrOtherBusinessesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2441" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-38">
+                                <span style="color:green;font-weight:normal">
+                                    other cash receipts from sales of equity or debt instruments of other entities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherCashReceiptsFromSalesOfEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherCashPaymentsToAcquireEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2442" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-39">
+                                <span style="color:red;font-weight:normal">
+                                    other cash payments to acquire equity or debt instruments of other entities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherCashPaymentsToAcquireEquityOrDebtInstrumentsOfOtherEntitiesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherCashReceiptsFromSalesOfInterestsInJointVenturesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2443" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-40">
+                                <span style="color:green;font-weight:normal">
+                                    other cash receipts from sales of interests in joint ventures
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherCashReceiptsFromSalesOfInterestsInJointVenturesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherCashPaymentsToAcquireInterestsInJointVenturesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2444" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-41">
+                                <span style="color:red;font-weight:normal">
+                                    other cash payments to acquire interests in joint ventures
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherCashPaymentsToAcquireInterestsInJointVenturesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromSalesOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2445" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-42">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from sales of property, plant and equipment
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromSalesOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text"  />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2446" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-43">
+                                <span style="color:red;font-weight:normal">
+                                    purchase of property, plant and equipment
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromSalesOfIntangibleAssetsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2447" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-44">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from sales of intangible assets
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromSalesOfIntangibleAssetsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2448" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-45">
+                                <span style="color:red;font-weight:normal">
+                                    purchase of intangible assets
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PurchaseOfIntangibleAssetsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromOtherLongtermAssetsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2449" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-46">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from sales of other long-term assets
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromOtherLongtermAssetsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text"  />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PurchaseOfOtherLongtermAssetsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2450" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-47">
+                                <span style="color:red;font-weight:normal">
+                                    purchase of other long-term assets
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PurchaseOfOtherLongtermAssetsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromGovernmentGrantsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2451" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-48">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from government grants
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromGovernmentGrantsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashAdvancesAndLoansMadeToOtherPartiesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2452" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-49">
+                                <span style="color:red;font-weight:normal">
+                                    cash advances and loans made to other parties
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashAdvancesAndLoansMadeToOtherPartiesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashReceiptsFromRepaymentOfAdvancesAndLoansMadeToOtherPartiesClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2453" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-50">
+                                <span style="color:green;font-weight:normal">
+                                    cash receipts from repayment of advances and loans made to other parties
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashReceiptsFromRepaymentOfAdvancesAndLoansMadeToOtherPartiesClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashPaymentsForFutureContractsForwardContractsOptionContractsAndSwapContractsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2454" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-51">
+                                <span style="color:red;font-weight:normal">
+                                    cash payments for future contracts, forward contracts, option contracts and swap contracts
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashPaymentsForFutureContractsForwardContractsOptionContractsAndSwapContractsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashReceiptsFromFutureContractsForwardContractsOptionContractsAndSwapContractsClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2455" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-52">
+                                <span style="color:green;font-weight:normal">
+                                    cash receipts from future contracts, forward contracts, option contracts and swap contracts
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashReceiptsFromFutureContractsForwardContractsOptionContractsAndSwapContractsClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsReceivedClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2456" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-53">
+                                <span style="color:green;font-weight:normal">
+                                    dividends received
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsReceivedClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="InterestPaidClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2457" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-54">
+                                <span style="color:red;font-weight:normal">
+                                    interest paid
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="InterestPaidClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="InterestReceivedClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2458" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-55">
+                                <span style="color:green;font-weight:normal">
+                                    interest received
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="InterestReceivedClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="IncomeTaxesPaidRefundClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2459" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-56">
+                                <span style="color:red;font-weight:normal">
+                                    income taxes paid (refund)
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncomeTaxesPaidRefundClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherInflowsOutflowsOfCashClassifiedAsInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2460" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-57">
+                                <span style="color:green;font-weight:normal">
+                                    other inflows (outflows) of cash classified as investing activities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherInflowsOutflowsOfCashClassifiedAsInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInInvestingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2461" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-58">
+                                <span style="color:green;font-weight:bold">
+                                    Total cash flows from (used in) investing activities
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashFlowsFromUsedInInvestingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInFinancingActivitiesAbstract" class="conceptbox vert_cell   col0" data-id="s2462" data-concept-type="string" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-59">
+                                <span style="color:black;font-weight:normal">
+                                    Cash flows from (used in) financing activities
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromChangesInOwnershipInterestsInSubsidiaries" class="conceptbox vert_cell  hie_leaf col0" data-id="s2463" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-60">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from changes in ownership interests in subsidiaries that do not result in loss of control
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromChangesInOwnershipInterestsInSubsidiaries__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsFromChangesInOwnershipInterestsInSubsidiaries" class="conceptbox vert_cell  hie_leaf col0" data-id="s2464" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-61">
+                                <span style="color:red;font-weight:normal">
+                                    payments from changes in ownership interests in subsidiaries that do not result in loss of control
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsFromChangesInOwnershipInterestsInSubsidiaries__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromIssuingShares" class="conceptbox vert_cell  hie_leaf col0" data-id="s2465" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-62">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from issuing shares
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromIssuingShares__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromIssuingOtherEquityInstruments" class="conceptbox vert_cell  hie_leaf col0" data-id="s2466" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-63">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from issuing other equity instruments
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromIssuingOtherEquityInstruments__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsToAcquireOrRedeemEntitysShares" class="conceptbox vert_cell  hie_leaf col0" data-id="s2467" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-64">
+                                <span style="color:red;font-weight:normal">
+                                    payments to acquire or redeem entity's shares
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsToAcquireOrRedeemEntitysShares__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsOfOtherEquityInstruments" class="conceptbox vert_cell  hie_leaf col0" data-id="s2468" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-65">
+                                <span style="color:red;font-weight:normal">
+                                    payments of other equity instruments
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsOfOtherEquityInstruments__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromBorrowingsClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2469" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-66">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from borrowings
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromBorrowingsClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="RepaymentsOfBorrowingsClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2470" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-67">
+                                <span style="color:red;font-weight:normal">
+                                    repayments of borrowings
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="RepaymentsOfBorrowingsClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="PaymentsOfFinanceLeaseLiabilitiesClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2471" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-68">
+                                <span style="color:red;font-weight:normal">
+                                    payments of finance lease liabilities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="PaymentsOfFinanceLeaseLiabilitiesClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ProceedsFromGovernmentGrantsClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2472" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-69">
+                                <span style="color:green;font-weight:normal">
+                                    proceeds from government grants
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProceedsFromGovernmentGrantsClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text"  />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="DividendsPaidClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2473" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-70">
+                                <span style="color:red;font-weight:normal">
+                                    dividends paid
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="DividendsPaidClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="InterestPaidClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2474" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-71">
+                                <span style="color:red;font-weight:normal">
+                                    interest paid
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="InterestPaidClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="IncomeTaxesPaidRefundClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2475" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-72">
+                                <span style="color:red;font-weight:normal">
+                                    income taxes paid (refund)
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="IncomeTaxesPaidRefundClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" value="( )" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherInflowsOutflowsOfCashClassifiedAsFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2476" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-73">
+                                <span style="color:green;font-weight:normal">
+                                    other inflows (outflows) of cash classified as financing activities
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherInflowsOutflowsOfCashClassifiedAsFinancingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowsFromUsedInFinancingActivities" class="conceptbox vert_cell  hie_leaf col0" data-id="s2477" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-74">
+                                <span style="color:green;font-weight:bold">
+                                    Total cash flows from (used in) financing activities
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashFlowsFromUsedInFinancingActivities__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                   
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashAndCashEquivalentsBeforeEffectOfExchangeRateChanges" class="conceptbox vert_cell  hie_leaf col0" data-id="s2478" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-75">
+                                <span style="color:green;font-weight:bold">
+                                    Total increase (decrease) in cash and cash equivalents before effect of exchange rate changes
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashAndCashEquivalentsBeforeEffectOfExchangeRateChanges__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="EffectOfExchangeRateChangesOnCashAndCashEquivalents" class="conceptbox vert_cell  hie_leaf col0" data-id="s2480" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-76">
+                                <span style="color:green;font-weight:normal">
+                                    Effect of exchange rate changes on cash and cash equivalents
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="EffectOfExchangeRateChangesOnCashAndCashEquivalents__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashAndCashEquivalents" class="conceptbox vert_cell  hie_leaf col0" data-id="s2481" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-77">
+                                <span style="color:green;font-weight:bold">
+                                    Total increase (decrease) in cash and cash equivalents
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashAndCashEquivalents__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashAndCashEquivalents" class="conceptbox vert_cell  hie_leaf col0" data-id="s2482" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-78">
+                                <span style="color:green;font-weight:normal">
+                                    Cash and cash equivalents at beginning of period
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col1" id="CashAndCashEquivalents__1_1_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashAndCashEquivalents" class="conceptbox vert_cell  hie_leaf col0" data-id="s2483" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-79">
+                                <span style="color:green;font-weight:normal">
+                                    Cash and cash equivalents at end of period
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="CashAndCashEquivalents__1_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+     
+        $(".addFirmParams").click(function () {
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+
+
+            })
+        });
+
+    });
+
+
+</script>

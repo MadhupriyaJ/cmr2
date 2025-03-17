@@ -1,0 +1,230 @@
+﻿@{
+    ViewBag.Title = "Lead2Deal | EmailCampaign";
+    //Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+@section Css{
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/")assets/global/plugins/bootstrap-summernote/summernote.css">
+    <style>
+        .shadow {
+            width: 100% !important;
+            -webkit-border-radius: 99px 10px 99px 10px;
+            -moz-border-radius: 99px 10px 99px 10px;
+            border-radius: 26px 26px 26px 26px !important;
+            border-width: 2px;
+            -webkit-box-shadow: #B3B3B3 5px 5px 5px;
+            -moz-box-shadow: #B3B3B3 5px 5px 5px;
+            box-shadow: #B3B3B3 5px 5px 5px;
+        }
+
+        .forpadding {
+            margin-left: 10px;
+        }
+
+        .icon-btn {
+            min-width: 55px !important;
+            height: 50px;
+        }
+
+        .note-editable {
+            background-color: #FFF;
+        }
+    </style>
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Campaigns</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Email Campaign</a>
+    </li>
+
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="icon-envelope-letter font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Email Campaign</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body ">
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Personalize and customize email templates for every scenario in the sales cycle. Make sure you send a great looking email every single time.
+
+                    You can create custom email template for every sales scenario.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-horizontal well">
+                    <div class="form-body">
+                        <h2>New Email Template</h2>
+                        <hr style="border-color:#FFF;" />
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Template Name</label>
+                                    <input id="txttempelatename" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Description</label>
+                                    <input id="txtdescription" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Subject</label>
+                                    <input id="txtsubject" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Header</label>
+                                    <input id="txtheader" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left:2%;">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label class="control-label">Is Html Upload</label>
+                                    <select id="ishtmlupload" class="form-control">
+                                        <option value="0">Select</option>
+                                        <option value="1">Html file upload</option>
+                                        <option value="2">Text Editor</option>
+                                    </select>
+                                    <span class="help-block">
+                                        Select whether you are uploading or editing the tempelete.
+                                    </span>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-2">
+
+                            </div>
+
+                            <div class="col-md-6" id="fileuploaddiv" style="display:none;">
+                                <div class="form-group">
+                                    <br />
+                                    <br />
+                                    <input type="file" name="pic">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row" style="margin-left:2%;margin-right:2%;display:none;" id="emailbodydiv">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Body</label>
+                                    <div name="summernote" id="summernote_1">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row" style="margin-left:2%;margin-right:2%;">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Footer</label>
+                                    <input id="txtfooter" type="text" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <hr style="border-color:#FFF;" />
+                    <div class="form-actions right" style="float:right;margin-right:2%;">
+                        <button id="saveemailtempelate" type="button" class="btn blue"><i class="fa fa-check"></i> Save</button>
+
+                    </div>
+                    <br /><br />
+                    <div id="showbank">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End: life time stats -->
+    </div>
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+    <script src="@Url.Content("~/")assets/admin/pages/scripts/components-editors.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            ComponentsEditors.init();
+            $('iframe').contents().find('.wysihtml5-editor').html();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#ishtmlupload').live('change', function () {
+                if($('#ishtmlupload option:selected').val()=="1")
+                {
+                    $('#fileuploaddiv').show();
+                    $('#emailbodydiv').hide();
+                }
+                else if ($('#ishtmlupload option:selected').val() == "2") {
+                    $('#emailbodydiv').show();
+                    $('#fileuploaddiv').hide();
+               }
+               else {
+                    $('#emailbodydiv').hide();
+                    $('#fileuploaddiv').hide();
+               }
+            });
+
+            $('#saveemailtempelate').live('click', function () {
+
+                var datarow = {
+                    Editable: "false",
+                    Isupload: $('#ishtmlupload option:selected').val() == 1 ? "true" : false,
+                    UploadPath_filename: "-",
+                    TemplateName: $('#txttempelatename').val(),
+                    Description: $('#txtdescription').val(),
+                    Subject: $('#txtsubject').val(),
+                    Header: $('#txtheader').val(),
+                    Body: $('.note-editable').html(),
+                    Footer: $('#txtfooter').val(),
+
+                };
+
+                alert($('.note-editable').html());
+
+                $('#showbank').html($('.note-editable').html());
+            });
+        });
+    </script>
+}

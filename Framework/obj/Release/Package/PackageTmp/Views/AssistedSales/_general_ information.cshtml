@@ -1,0 +1,394 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">General information</span>
+    </h4>
+    <div class="portlet-body">
+
+        <div>
+            <div id="movablebar" style="position: relative; top: auto; width: auto;">
+                <aside id="small-toolbar">
+                    <div class="l"></div>
+                    <div class="r"></div>
+
+                    <ul class="pag-breadcrumb">
+                        <!-- st-(small-toolbar) -->
+                        <li class="st-save first-child">
+                            <a href="#" id="saveButton">Save</a>
+                        </li>
+                        <li class="st-monitor">
+                            <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a>
+                        </li>
+                        <li class="st-return-standart">
+                            <a href="javascript:reloadList()">Reload</a>
+                        </li>
+                        <li>
+                            <span class="asideTitle">Currency:</span>
+                            <select id="report_currency" style="vertical-align:midle; width:140px">
+                                <option value="RUB" selected="selected">Russian Ruble</option>
+                                <option value="0">[Add new exchange rate]</option>
+                            </select>
+                        </li>
+                        <li class="st-print">
+                            <div class="drop-action-box">
+                                <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                            </div>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="portlet-title">
+            <h4 class="bold" align="center">General information</h4>
+
+            <br />
+        </div>
+       
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Reporting entity</span>
+            </h4>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="NameOfReportingEntityOrOtherMeansOfIdentification" data-id="s4577">
+                        Name of reporting entity
+                    </span>
+                </div>
+                <div id="NameOfReportingEntityOrOtherMeansOfIdentification_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DomicileOfEntity" data-id="s4800">
+                        Domicile of entity
+                    </span>
+                </div>
+                <div id="DomicileOfEntity_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="LegalFormOfEntity" data-id="s4801">
+                        Legal form of entity
+                    </span>
+                </div>
+                <div id="LegalFormOfEntity_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="CountryOfIncorporation" data-id="s4802">
+                        Country of incorporation
+                    </span>
+                </div>
+                <div id="CountryOfIncorporation_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="AddressOfRegisteredOfficeOfEntity" data-id="s4803">
+                        Address of entity's registered office
+                    </span>
+                </div>
+                <div id="AddressOfRegisteredOfficeOfEntity_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="PrincipalPlaceOfBusiness" data-id="s4804">
+                        Principal place of business
+                    </span>
+                </div>
+                <div id="PrincipalPlaceOfBusiness_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="NameOfParentEntity" data-id="s4806">
+                        Name of parent entity
+                    </span>
+                </div>
+                <div id="NameOfParentEntity_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="NameOfUltimateParentOfGroup" data-id="s4807">
+                        Name of ultimate parent of group
+                    </span>
+                </div>
+                <div id="NameOfUltimateParentOfGroup_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="LengthOfLifeOfLimitedLifeEntity" data-id="s4808">
+                        Length of life of limited life entity
+                    </span>
+                </div>
+                <div id="LengthOfLifeOfLimitedLifeEntity_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="NameOfMostSeniorParentEntityProducingPubliclyAvailableFinancialStatements" data-id="s4915">
+                        Name of most senior parent entity producing publicly available financial statements
+                    </span>
+                </div>
+                <div id="NameOfMostSeniorParentEntityProducingPubliclyAvailableFinancialStatements_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="ExplanationOfChangeInNameOfReportingEntityOrOtherMeansOfIdentificationFromEndOfPrecedingReportingPeriod" data-id="s4578">
+                        Explanation of change in name of reporting entity or other means of identification from end of preceding reporting period
+                    </span>
+                </div>
+                <div id="ExplanationOfChangeInNameOfReportingEntityOrOtherMeansOfIdentificationFromEndOfPrecedingReportingPeriod_data" class="editableTextItemData"></div>
+            </div>
+               <br>
+            </div>
+            <div style="margin-left: 0px;">
+                <h4 class="bold">
+                    <span style="font-size: 140%;">Reporting period</span>
+                </h4>
+            </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DateOfEndOfReportingPeriod" data-id="s4580">
+                        Date of end of reporting period
+                    </span>
+                </div>
+                <div id="DateOfEndOfReportingPeriod_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="PeriodCoveredByFinancialStatements" data-id="s4581">
+                        Period covered by financial statements
+                    </span>
+                </div>
+                <div id="PeriodCoveredByFinancialStatements_data" class="editableTextItemData"></div>
+                <br>
+                </div>
+            </div>
+                <div style="margin-left: 0px;">
+                    <h4 class="bold">
+                        <span style="font-size: 140%;">Entity's business</span>
+                    </h4>
+                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DisclosureOfNatureOfBusinessExplanatory" data-id="s5459">
+                        Nature of business
+                    </span>
+                </div>
+                <div id="DisclosureOfNatureOfBusinessExplanatory_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfNatureOfEntitysOperationsAndPrincipalActivities" data-id="s4805">
+                        Description of nature of entity's operations and principal activities
+                    </span>
+                </div>
+                <div id="DescriptionOfNatureOfEntitysOperationsAndPrincipalActivities_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DisclosureOfEntitysMostSignificantResourcesRisksAndRelationshipsExplanatory" data-id="s5461">
+                        Entity's most significant resources, risks and relationships
+                    </span>
+                </div>
+                <div id="DisclosureOfEntitysMostSignificantResourcesRisksAndRelationshipsExplanatory_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DisclosureOfResultsOfOperationsAndProspectsExplanatory" data-id="s5462">
+                        Results of operations and prospects
+                    </span>
+                </div>
+                <div id="DisclosureOfResultsOfOperationsAndProspectsExplanatory_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DisclosureOfManagementsObjectivesAndItsStrategiesForMeetingThoseObjectivesExplanatory" data-id="s5460">
+                        Management's objectives and its strategies for meeting those objectives
+                    </span>
+                </div>
+                <div id="DisclosureOfManagementsObjectivesAndItsStrategiesForMeetingThoseObjectivesExplanatory_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DisclosureOfCriticalPerformanceMeasuresAndIndicatorsThatManagementUsesToEvaluateEntitysPerformanceAgainstStatedObjectivesExplanatory" data-id="s5463">
+                        Critical performance measures and indicators that management uses to evaluate entity's performance against stated objectives
+                    </span>
+                </div>
+
+                <div id="DisclosureOfCriticalPerformanceMeasuresAndIndicatorsThatManagementUsesToEvaluateEntitysPerformanceAgainstStatedObjectivesExplanatory_data" class="editableTextItemData"></div>
+            </div>
+        </div>
+        <br>
+        
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_1" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">At 31.12.2015</td>
+                            <td style="text-align: center" class="col2">At 31.12.2014</td>
+                        </tr>
+                        <tr>
+                            <td title="NumberOfEmployees" class="conceptbox vert_cell  hie_leaf col0" data-id="s1278" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-2">
+                                <span style="color:black;font-weight:normal">
+                                    Number of employees
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="NumberOfEmployees__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="NumberOfEmployees__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+           
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_2" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="AverageNumberOfEmployees" class="conceptbox vert_cell  hie_leaf col0" data-id="s6731" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-13">
+                                <span style="color:black;font-weight:normal">
+                                    Average number of employees
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AverageNumberOfEmployees__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
+            <br />
+        </div>
+        <div style="margin-left: 0px;">
+            <h4 class="bold">
+                <span style="font-size: 140%;">Presentation and functional currency</span>
+            </h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfPresentationCurrency" data-id="s4582">
+                        Presentation currency
+                    </span>
+                </div>
+                <div id="DescriptionOfPresentationCurrency_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="LevelOfRoundingUsedInFinancialStatements" data-id="s4583">
+                        Level of rounding used in financial statements
+                    </span>
+                </div>
+                <div id="LevelOfRoundingUsedInFinancialStatements_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfFunctionalCurrency" data-id="s4902">
+                        Functional currency
+                    </span>
+                </div>
+                <div id="DescriptionOfFunctionalCurrency_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfReasonWhyPresentationCurrencyIsDifferentFromFunctionalCurrency" data-id="s4904">
+                        Reason why presentation currency is different from functional currency
+                    </span>
+                </div>
+                <div id="DescriptionOfReasonWhyPresentationCurrencyIsDifferentFromFunctionalCurrency_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfReasonForChangeInFunctionalCurrency" data-id="s4905">
+                        Reason for change in functional currency
+                    </span>
+                </div>
+                <div id="DescriptionOfReasonForChangeInFunctionalCurrency_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="DescriptionOfCurrencyInWhichSupplementaryInformationIsDisplayed" data-id="s4906">
+                        Currency in which supplementary information is displayed
+                    </span>
+                </div>
+                <div id="DescriptionOfCurrencyInWhichSupplementaryInformationIsDisplayed_data" class="editableTextItemData"></div>
+                <div style="margin-left: 10px" class="editableTextBox">
+                    <span class="editableTextItem" id="MethodsOfTranslationUsedToDetermineSupplementaryInformation" data-id="s4907">
+                        Methods of translation used to determine supplementary information
+                    </span>
+                </div>
+                <div id="MethodsOfTranslationUsedToDetermineSupplementaryInformation_data" class="editableTextItemData"></div>
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_3" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">At 31.12.2015</td>
+                            <td style="text-align: center" class="col2">At 31.12.2014</td>
+                        </tr>
+                        <tr>
+                            <td title="ClosingForeignExchangeRate" class="conceptbox vert_cell  hie_leaf col0" data-id="s1779" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-14">
+                                <span style="color:black;font-weight:normal">
+                                    Closing foreign exchange rate
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ClosingForeignExchangeRate__1_0_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 149px;">
+                                <div></div>
+                            </td>
+                            <td class="simpleCell editableCell inactiveCell  col2" id="ClosingForeignExchangeRate__1_1_0" data-type="monetary" data-weight="plus" width="12.5%" style="min-width: 148px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <br />
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <table id="tab_4" style="width:100%" class=" table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="AverageForeignExchangeRate" class="conceptbox vert_cell  hie_leaf col0" data-id="s6697" data-concept-type="decimal" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-15">
+                                <span style="color:black;font-weight:normal">
+                                    Average foreign exchange rate
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AverageForeignExchangeRate__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 305px;">
+                                <div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <br />
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".addFirmParams").click(function () {
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+            })
+        });
+        $(".editableCell div").empty();
+        $(".editableCell div").append("<input type='text' />")
+
+    });
+
+
+
+</script>

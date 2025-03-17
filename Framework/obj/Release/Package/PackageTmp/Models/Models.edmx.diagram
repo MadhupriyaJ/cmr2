@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ede0c7fb683e411fa06cb86fb21b051b" Name="Diagram1">
+        <EntityTypeShape EntityType="FrameworkModel.ABB_AccountTypes" Width="1.5" PointX="12" PointY="205.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_ActivityTypes" Width="1.5" PointX="14.25" PointY="191.875" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_Appoinment" Width="1.5" PointX="20.5" PointY="197.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_BusinessSector" Width="1.5" PointX="12" PointY="197.125" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CallLog" Width="1.5" PointX="14.25" PointY="196.625" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CallLogActionPoint" Width="1.5" PointX="23.5" PointY="198.875" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CallLogAttendees" Width="1.5" PointX="22.5" PointY="184" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CallLogGeneralDiscussion" Width="1.5" PointX="25.5" PointY="186" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_Company" Width="1.5" PointX="14.25" PointY="265.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_Company_Doc_folder" Width="1.5" PointX="34.5" PointY="219.625" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_Company_Doc_folder_file" Width="1.5" PointX="48.75" PointY="204.375" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyAccount" Width="1.5" PointX="31.5" PointY="229.75" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyAssets" Width="1.5" PointX="3" PointY="180" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyAssetType" Width="1.5" PointX="6" PointY="179.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyBoardMembers" Width="1.5" PointX="34.5" PointY="224.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyManagmentTeam_Staff" Width="1.5" PointX="31.5" PointY="218" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyManDateAssigned" Width="1.5" PointX="36.75" PointY="220.375" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_CompanyShareHolders" Width="1.5" PointX="34.5" PointY="230.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_DealStages" Width="1.5" PointX="17.25" PointY="195.75" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_InteractionType" Width="1.5" PointX="9" PointY="200" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_JobTitle" Width="1.5" PointX="15" PointY="188.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_JoinType" Width="1.5" PointX="18" PointY="183.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_MandateAuthentication" Width="1.5" PointX="3" PointY="184.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_MandateChannel" Width="1.5" PointX="20.25" PointY="185.875" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_MandateChannelType" Width="1.5" PointX="9" PointY="188.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_PipeLine" Width="1.5" PointX="3" PointY="200.25" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_Products" Width="1.5" PointX="15" PointY="184.125" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_RequestFinance" Width="1.5" PointX="31.5" PointY="223.875" />
+        <EntityTypeShape EntityType="FrameworkModel.ABB_TypeOfBusiness" Width="1.5" PointX="3" PointY="346" />
+        <EntityTypeShape EntityType="FrameworkModel.ActivityType" Width="1.5" PointX="17.25" PointY="191" />
+        <EntityTypeShape EntityType="FrameworkModel.AssignRoletoUsers" Width="1.5" PointX="34.5" PointY="277.125" />
+        <EntityTypeShape EntityType="FrameworkModel.Attendances" Width="1.5" PointX="6" PointY="183.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CampaignBankTypes" Width="1.5" PointX="9" PointY="196.25" />
+        <EntityTypeShape EntityType="FrameworkModel.CampaignMedias" Width="1.5" PointX="12" PointY="191.75" />
+        <EntityTypeShape EntityType="FrameworkModel.CampaignProductDocuments" Width="1.5" PointX="45.75" PointY="201.5" />
+        <EntityTypeShape EntityType="FrameworkModel.CampaignProducts" Width="1.5" PointX="34.5" PointY="206.125" />
+        <EntityTypeShape EntityType="FrameworkModel.Campaigns" Width="1.5" PointX="28.5" PointY="191.25" />
+        <EntityTypeShape EntityType="FrameworkModel.CampaignTypes" Width="1.5" PointX="3" PointY="192.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_CaseOrgin" Width="1.5" PointX="6" PointY="197.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Followers" Width="1.5" PointX="37.5" PointY="205.5" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Note" Width="1.5" PointX="37.5" PointY="200.25" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Note_Attachment" Width="1.5" PointX="48.75" PointY="199.5" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Note_Comment" Width="1.5" PointX="48.75" PointY="195.625" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Note_Followers" Width="1.5" PointX="48.75" PointY="209.5" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Priority" Width="1.5" PointX="9" PointY="192.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_SLA" Width="1.5" PointX="31.5" PointY="207.375" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_sla_responseName" Width="1.5" PointX="3" PointY="196.25" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Status" Width="1.5" PointX="12" PointY="179.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Task" Width="1.5" PointX="37.5" PointY="195.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_TaskCategory" Width="1.5" PointX="9" PointY="184.25" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagment_Type" Width="1.5" PointX="12" PointY="201.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagments" Width="1.5" PointX="28.5" PointY="183.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CaseManagmentStageNames" Width="1.5" PointX="18" PointY="187.125" />
+        <EntityTypeShape EntityType="FrameworkModel.Cities" Width="1.5" PointX="15" PointY="178.625" />
+        <EntityTypeShape EntityType="FrameworkModel.Commision_AgentBankDetails" Width="1.5" PointX="18" PointY="200.875" />
+        <EntityTypeShape EntityType="FrameworkModel.Commision_CommisionType" Width="1.5" PointX="6" PointY="205.25" />
+        <EntityTypeShape EntityType="FrameworkModel.Commision_ProductCommision" Width="1.5" PointX="45.75" PointY="194.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Commision_SalesAgentRules" Width="1.5" PointX="45.75" PointY="211.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CompanyCustomerAppoinment" Width="1.5" PointX="25.5" PointY="190.125" />
+        <EntityTypeShape EntityType="FrameworkModel.CompanyCustomerAppoinment_followers" Width="1.5" PointX="27.75" PointY="179.375" />
+        <EntityTypeShape EntityType="FrameworkModel.CompanyCustomerAppoinment_Notification" Width="1.5" PointX="30.75" PointY="188" />
+        <EntityTypeShape EntityType="FrameworkModel.CompanyCustomerAppoinment_NotificationType" Width="1.5" PointX="28.5" PointY="172" />
+        <EntityTypeShape EntityType="FrameworkModel.CompanyCustomerAppoinment_TimeType" Width="1.5" PointX="28.5" PointY="175.875" />
+        <EntityTypeShape EntityType="FrameworkModel.CompanyModes" Width="1.5" PointX="6" PointY="187.25" />
+        <EntityTypeShape EntityType="FrameworkModel.CoreSettings" Width="1.5" PointX="31.5" PointY="277.375" />
+        <EntityTypeShape EntityType="FrameworkModel.Countries" Width="1.5" PointX="15" PointY="203.375" />
+        <EntityTypeShape EntityType="FrameworkModel.DealStageAnswers" Width="1.5" PointX="42.75" PointY="191.625" />
+        <EntityTypeShape EntityType="FrameworkModel.DealStageNames" Width="1.5" PointX="6" PointY="191.625" />
+        <EntityTypeShape EntityType="FrameworkModel.DealStageQuestionModes" Width="1.5" PointX="9" PointY="180.125" />
+        <EntityTypeShape EntityType="FrameworkModel.DealStageQuestions" Width="1.5" PointX="20.25" PointY="178.75" />
+        <EntityTypeShape EntityType="FrameworkModel.DealStageQuestionTypes" Width="1.5" PointX="3" PointY="188.125" />
+        <EntityTypeShape EntityType="FrameworkModel.DealStageQuestionValues" Width="1.5" PointX="31.5" PointY="195.625" />
+        <EntityTypeShape EntityType="FrameworkModel.Departments" Width="1.5" PointX="3" PointY="204.25" />
+        <EntityTypeShape EntityType="FrameworkModel.Designations" Width="1.5" PointX="12" PointY="183.25" />
+        <EntityTypeShape EntityType="FrameworkModel.Documents" Width="1.5" PointX="6" PointY="201.25" />
+        <EntityTypeShape EntityType="FrameworkModel.EmployeeQueue" Width="1.5" PointX="31.5" PointY="192.5" />
+        <EntityTypeShape EntityType="FrameworkModel.Employees" Width="1.5" PointX="23.25" PointY="188.875" />
+        <EntityTypeShape EntityType="FrameworkModel.FavIcons" Width="1.5" PointX="12" PointY="186.875" />
+        <EntityTypeShape EntityType="FrameworkModel.Genders" Width="1.5" PointX="9" PointY="204.125" />
+        <EntityTypeShape EntityType="FrameworkModel.HtmlControlNames" Width="1.5" PointX="34.5" PointY="191.5" />
+        <EntityTypeShape EntityType="FrameworkModel.Languages" Width="1.5" PointX="37.5" PointY="213.625" />
+        <EntityTypeShape EntityType="FrameworkModel.Locations" Width="1.5" PointX="40.5" PointY="197.5" />
+        <EntityTypeShape EntityType="FrameworkModel.Logs" Width="1.5" PointX="31.5" PointY="274.5" />
+        <EntityTypeShape EntityType="FrameworkModel.MediaSources" Width="1.5" PointX="40.5" PointY="193.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Modules" Width="1.5" PointX="3" PointY="342" />
+        <EntityTypeShape EntityType="FrameworkModel.Notifications" Width="1.5" PointX="31.5" PointY="270.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Occupation" Width="1.5" PointX="37.5" PointY="209.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Organizations" Width="1.5" PointX="0.75" PointY="180.375" />
+        <EntityTypeShape EntityType="FrameworkModel.People" Width="1.5" PointX="34.5" PointY="195.625" />
+        <EntityTypeShape EntityType="FrameworkModel.Person_Company" Width="1.5" PointX="20.25" PointY="190.875" />
+        <EntityTypeShape EntityType="FrameworkModel.Person_Mode" Width="1.5" PointX="40.5" PointY="201.75" />
+        <EntityTypeShape EntityType="FrameworkModel.PersonLeadNotes" Width="1.5" PointX="42.75" PointY="206.625" />
+        <EntityTypeShape EntityType="FrameworkModel.PersonLeadProducts" Width="1.5" PointX="45.75" PointY="206.5" />
+        <EntityTypeShape EntityType="FrameworkModel.PersonLeads" Width="1.5" PointX="31.5" PointY="200.125" />
+        <EntityTypeShape EntityType="FrameworkModel.PipeLines" Width="1.5" PointX="31.5" PointY="212.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Portletclass" Width="1.5" PointX="3" PointY="353.375" />
+        <EntityTypeShape EntityType="FrameworkModel.RoleAssignedModules" Width="1.5" PointX="5.25" PointY="350.25" />
+        <EntityTypeShape EntityType="FrameworkModel.Roles" Width="1.5" PointX="3" PointY="349.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Salutations" Width="1.5" PointX="37.5" PointY="190.75" />
+        <EntityTypeShape EntityType="FrameworkModel.State_Provience_County" Width="1.5" PointX="26.25" PointY="198.25" />
+        <EntityTypeShape EntityType="FrameworkModel.SurveyMasters" Width="1.5" PointX="40.5" PointY="205.75" />
+        <EntityTypeShape EntityType="FrameworkModel.SurveyQuestions" Width="1.5" PointX="51.75" PointY="195.375" />
+        <EntityTypeShape EntityType="FrameworkModel.SurveyQuestionValues" Width="1.5" PointX="54" PointY="197.625" />
+        <EntityTypeShape EntityType="FrameworkModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FrameworkModel.Teams" Width="1.5" PointX="34.5" PointY="211.375" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_FinancialPeriod" Width="1.5" PointX="40.5" PointY="189.5" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_Goal" Width="1.5" PointX="42.75" PointY="201.25" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_GoalAgentDetails" Width="1.5" PointX="56.25" PointY="201.5" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_GoalLevel" Width="1.5" PointX="40.5" PointY="213.75" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_GoalOrganisationDetails" Width="1.5" PointX="53.25" PointY="206.5" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_GoalProductDetails" Width="1.5" PointX="42.75" PointY="210.5" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_GoalRuleConfiguration" Width="1.5" PointX="51" PointY="200.125" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_GoalTeamDetails" Width="1.5" PointX="53.25" PointY="201.5" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_MetricType" Width="1.5" PointX="40.5" PointY="209.75" />
+        <EntityTypeShape EntityType="FrameworkModel.TGoal_Organization" Width="1.5" PointX="43.5" PointY="196.75" />
+        <EntityTypeShape EntityType="FrameworkModel.UserPasswordHistories" Width="1.5" PointX="31.5" PointY="267.875" />
+        <EntityTypeShape EntityType="FrameworkModel.Users" Width="1.5" PointX="29.25" PointY="197.5" />
+        <EntityTypeShape EntityType="FrameworkModel.UserSessions" Width="1.5" PointX="31.5" PointY="250.375" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_AccountTypes_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_AccountTypes_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ActivityTypes_FavIcons" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ActivityTypes_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ActivityTypes_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Appoinment_ABB_ActivityTypes" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Appoinment_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Appoinment_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Appoinment_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Appoinment_Users1" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Appoinment_Users2" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_BusinessSector_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_BusinessSector_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_ABB_BusinessSector" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLog_ABB_InteractionType" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLog_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLog_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogActionPoint_ABB_CallLog" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogAttendees_ABB_CallLog" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogGeneralDiscussion_ABB_CallLog" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_RequestFinance_ABB_CallLog" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogActionPoint_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogActionPoint_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogAttendees_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogAttendees_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogAttendees_Users1" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogGeneralDiscussion_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CallLogGeneralDiscussion_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_BoardMembers_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_ABB_TypeOfBusiness" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Doc_folder_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Portletclass" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAccount_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ManagmentTeam_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_RequestFinance_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ShareHolders_ABB_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Doc_folder_file_ABB_Company_Doc_folder" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Doc_folder_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Doc_folder_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Doc_folder_file_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Company_Doc_folder_file_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAccount_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAccount_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_ABB_CompanyAccount" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAssets_ABB_CompanyAssetType" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAssets_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAssets_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_ABB_CompanyAssets" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAssetType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyAssetType_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_BoardMembers_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_BoardMembers_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_ABB_CompanyManagmentTeam" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ManagmentTeam_ABB_JobTitle" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ManagmentTeam_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ManagmentTeam_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_ABB_JoinType" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_ABB_MandateChannel" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_CompanyManDateAssigned_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ShareHolders_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_ShareHolders_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_DealStages_ABB_PipeLine" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_DealStages_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_DealStages_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_RequestFinance_ABB_DealStages" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_InteractionType_FavIcons" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_InteractionType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_InteractionType_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_JobTitle_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_JobTitle_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_JoinType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_JoinType_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateAuthentication_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateAuthentication_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateChannel_ABB_MandateAuthentication" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateChannel_ABB_MandateChannelType" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateChannel_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateChannel_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateChannelType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_MandateChannelType_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_PipeLine_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_PipeLine_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Products_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_Products_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_RequestFinance_ABB_Products" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_RequestFinance_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_RequestFinance_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_ABB_TypeOfBusiness_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_ActivityType_FavIcons1" />
+        <AssociationConnector Association="FrameworkModel.FK_ActivityType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_ActivityType" />
+        <AssociationConnector Association="FrameworkModel.FK_AssignRoletoUser_Role" />
+        <AssociationConnector Association="FrameworkModel.FK_AssignRoletoUser_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Attendance_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Attendance_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Attendance_User1" />
+        <AssociationConnector Association="FrameworkModel.FK_Campaign_CampaignBankType" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignBankType_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignBankType_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignMedia_MediaSource" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignMedia_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignMedia_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProductDocument_CampaignProduct" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProductDocument_Document" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProductDocument_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProductDocument_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProduct_Campaign" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProduct_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignProduct_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_ProductCommision_CampaignProducts" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_SalesAgentRules_CampaignProducts" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadProduct_CampaignProduct" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalProductDetails_CampaignProducts" />
+        <AssociationConnector Association="FrameworkModel.FK_Campaign_CampaignType" />
+        <AssociationConnector Association="FrameworkModel.FK_Campaign_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_Campaign_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Campaign_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignType_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CampaignType_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseManagment_CaseOrgin" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseOrgin_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseOrgin_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Followers_CaseManagment" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Followers_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Followers_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Followers_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Attachment_CaseManagment_Note" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_CaseManagment" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Comment_CaseManagment_Note" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Followers_CaseManagment_Note" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Attachment_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Attachment_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Comment_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Comment_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Followers_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Followers_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Note_Followers_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseManagment_Priority" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Priority_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Priority_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_SLA_CaseManagment" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_SLA_CaseManagment_sla_responseName" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_SLA_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_SLA_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_sla_responseName_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_sla_responseName_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseManagment_Status" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Status_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Status_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Task_CaseManagment" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Task_CaseManagment_TaskCategory" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Task_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Task_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Task_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_TaskCategory_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_TaskCategory_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseManagment_Type" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Type_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Type_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_CaseManagmentStageName" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_PersonLead" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagment_User" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagmentStageName_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CaseManagmentStageName_User" />
+        <AssociationConnector Association="FrameworkModel.FK_City_City" />
+        <AssociationConnector Association="FrameworkModel.FK_City_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_City_State_Provience_County" />
+        <AssociationConnector Association="FrameworkModel.FK_City_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_City" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Company_City" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Cities" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_AgentBankDetails_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_AgentBankDetails_Teams" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_AgentBankDetails_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_AgentBankDetails_Users1" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_ProductCommision_Commision_CommisionType" />
+        <AssociationConnector Association="FrameworkModel.FK_CommisionType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_CommisionType_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_ProductCommision_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_ProductCommision_Teams" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_ProductCommision_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_SalesAgentRules_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_SalesAgentRules_Teams" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_SalesAgentRules_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_Commision_SalesAgentRules_Users1" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_followers_CompanyCustomerAppoinment" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Notification_CompanyCustomerAppoinment" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_PersonLeads" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Users1" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Users2" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Notification_CompanyCustomerAppoinment_NotificationType" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyCustomerAppoinment_Notification_CompanyCustomerAppoinment_TimeType" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyMode_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_CompanyMode_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Person_Company_CompanyMode" />
+        <AssociationConnector Association="FrameworkModel.FK_CoreSettings_UserId" />
+        <AssociationConnector Association="FrameworkModel.FK_Country_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Country_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Company_Country" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Country" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Countries" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Countries1" />
+        <AssociationConnector Association="FrameworkModel.FK_State_Provience_County_Country" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageAnswers_DealStageQuestions" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageAnswers_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageAnswers_Person" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageAnswers_User" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageName_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageName_PipeLine" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageName_User" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestions_DealStageName" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLead_DealStageName" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionMode_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionMode_User" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestions_DealStageQuestionMode" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestions_DealStageQuestionType" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestions_HtmlControlName" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestions_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestions_User" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionValues_DealStageQuestions" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionType_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionType_User" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionValues_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_DealStageQuestionValues_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Department_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Department_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Department" />
+        <AssociationConnector Association="FrameworkModel.FK_Designation_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Designation_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Designation" />
+        <AssociationConnector Association="FrameworkModel.FK_Document_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Document_User" />
+        <AssociationConnector Association="FrameworkModel.FK_EmployeeQueue_Employees" />
+        <AssociationConnector Association="FrameworkModel.FK_EmployeeQueue_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Language" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Location" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_State_Provience_County" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Team" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_User1" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLead_Employee" />
+        <AssociationConnector Association="FrameworkModel.FK_FavIcons_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_FavIcons_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_Gender_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Gender_User" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Genders" />
+        <AssociationConnector Association="FrameworkModel.FK_User_Gender" />
+        <AssociationConnector Association="FrameworkModel.FK_HtmlControlName_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_HtmlControlName_User" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestion_HtmlControlName" />
+        <AssociationConnector Association="FrameworkModel.FK_Language_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Language_User" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Languages" />
+        <AssociationConnector Association="FrameworkModel.FK_Location_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Location_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Log_UserId" />
+        <AssociationConnector Association="FrameworkModel.FK_MediaSource_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_MediaSource_User" />
+        <AssociationConnector Association="FrameworkModel.FK_RoleAssignedModule_ModuleId" />
+        <AssociationConnector Association="FrameworkModel.FK_Notification_UserId" />
+        <AssociationConnector Association="FrameworkModel.FK_Occupation_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Occupation_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Occupation" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Company_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Person_Mode_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLead_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadNote_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadProduct_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_PipeLine_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Portletclass_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Role_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Salutation_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_State_Provience_County_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyMaster_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestion_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestionValues_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_Team_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_FinancialPeriod_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_Goal_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalAgentDetails_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalLevel_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalOrganisationDetails_Organizations1" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalProductDetails_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalRuleConfiguration_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalTeamDetails_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_MetricType_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_Tgoal_Organization_Organizations" />
+        <AssociationConnector Association="FrameworkModel.FK_User_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Person_Company" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Person_Mode" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Salutations" />
+        <AssociationConnector Association="FrameworkModel.FK_People_State_Provience_County" />
+        <AssociationConnector Association="FrameworkModel.FK_People_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLead_Person" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Company_State_Provience_County" />
+        <AssociationConnector Association="FrameworkModel.FK_Employee_Company_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Person_Mode_User" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadNote_PersonLead" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadNote_User" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadProduct_PersonLead" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLeadProduct_User" />
+        <AssociationConnector Association="FrameworkModel.FK_PersonLead_User" />
+        <AssociationConnector Association="FrameworkModel.FK_PipeLine_User" />
+        <AssociationConnector Association="FrameworkModel.FK_RoleAssignedModule_RoleId" />
+        <AssociationConnector Association="FrameworkModel.FK_Salutation_User" />
+        <AssociationConnector Association="FrameworkModel.FK_State_Provience_County_User" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyMaster_User" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestion_SurveyMaster" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestion_User" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestionValues_SurveyQuestion" />
+        <AssociationConnector Association="FrameworkModel.FK_SurveyQuestionValues_User" />
+        <AssociationConnector Association="FrameworkModel.FK_Team_User" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalTeamDetails_Teams" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_FinancialPeriod_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalRuleConfiguration_TGoal_FinancialPeriod" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_Goal_TGoal_GoalLevel" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_Goal_TGoal_MetricType" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_Goal_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalRuleConfiguration_TGoal_Goal" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalAgentDetails_TGoal_GoalRuleConfiguration" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalAgentDetails_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalAgentDetails_Users1" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalLevel_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalOrganisationDetails_TGoal_GoalRuleConfiguration" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalOrganisationDetails_Tgoal_Organization" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalOrganisationDetails_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalProductDetails_TGoal_GoalRuleConfiguration" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalProductDetails_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalRuleConfiguration_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalTeamDetails_TGoal_GoalRuleConfiguration" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_GoalTeamDetails_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_TGoal_MetricType_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_Tgoal_Organization_Users" />
+        <AssociationConnector Association="FrameworkModel.FK_UserPasswordHistory_UserId" />
+        <AssociationConnector Association="FrameworkModel.FK_UserSession_UserId" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

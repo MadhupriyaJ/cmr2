@@ -1,0 +1,281 @@
+﻿@{
+    ViewBag.Title = "Lead 2 Deal | Sales Management";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="container1" style="width: 350px; height: 250px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-4">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="container2" style="width: 350px; height: 250px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-4">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="container3" style="width: 350px; height: 250px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-4">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                <div id="container4" style="width: 350px; height: 250px;"></div>
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+    <div class="col-md-4">
+        <!-- BEGIN Portlet PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-body">
+                
+            </div>
+        </div>
+        <!-- END Portlet PORTLET-->
+    </div>
+
+</div>
+
+@section Css{
+    <style>
+    </style>
+}
+
+
+@section Scripts{
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    @*//Bar Chart Row2 Col1*@
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['bar']}]}"></script>
+    <script type="text/javascript">
+
+
+        // column bar row1 column 1
+
+
+        $('#container1').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Active Cases By Agent'
+            },
+            subtitle: {
+                text: 'Active Cases'
+            },
+            xAxis: {
+                categories: ['Akbar', 'Shemeer', 'Khizar', 'Rasheed'],
+
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Count All Cases'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} Cases</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Owner',
+                data: [60, 35, 28, 34]
+
+            }]
+        });
+
+        // pie chart row2 column 1
+       
+        Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+            return {
+                radialGradient: {
+                    cx: 0.5,
+                    cy: 0.3,
+                    r: 0.7
+                },
+                stops: [
+                    [0, color],
+                    [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+                ]
+            };
+        });
+
+        // Build the chart
+        $('#container3').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Cases By Queues'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: "Brands",
+                data: [
+                    { name: "In Clarification", y: 56.33 },
+                    {
+                        name: "Open",
+                        y: 24.03,
+                        sliced: true,
+                        selected: true
+                    },
+                    { name: "In Progress", y: 10.38 },
+                    { name: "Closed", y: 4.77 }, { name: "Succeeded", y: 0.91 },
+                    { name: "Blank", y: 0.2 }
+                ]
+            }]
+        });
+
+        //Stacked column chart
+      
+        $('#container2').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Cases by SLA Status Over Week(All)'
+            },
+            xAxis: {
+                categories: ['8/09/2014', '8/10/2014', '8/11/2014', '8/12/2014', '8/1/2015']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Count All Cases'
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                shared: true
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+            series: [{
+                name: 'Alpha',
+                data: [5, 3, 4, 7, 2]
+            }, {
+                name: 'Beta',
+                data: [2, 2, 3, 2, 1]
+            }, {
+                name: 'Gamma',
+                data: [3, 4, 4, 2, 5]
+            }]
+        });
+
+
+
+        //Row 2 Column 2 bar cahrt
+        $('#container4').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Case Mix(By Priority)'
+            },
+            subtitle: {
+                text: 'Active Cases'
+            },
+            xAxis: {
+                categories: [
+                    'Email', 'Call', 'Letter'
+                ],
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Case Title'
+                }
+            },
+            tooltip: {
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} Cases</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                name: 'Cases',
+                data: [48.9, 38.8, 39.3]
+
+            }]
+        });
+
+    </script>
+}
+

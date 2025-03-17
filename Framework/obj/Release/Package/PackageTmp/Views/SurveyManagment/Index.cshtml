@@ -1,0 +1,159 @@
+﻿@using FramWork.HelloService;
+@using Core;
+@{
+    ViewBag.Title = "Lead2Deal | Survey";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Survey</a>
+        <i class="fa fa-circle"></i>
+    </li>
+</ul>
+
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-yellow-crusta">
+            <i class="fa fa-mobile-phone font-red-sunglo"></i>
+            <span class="caption caption-subject bold uppercase font-red-sunglo">Survey</span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 blog-sidebar">
+                <div class="wizard">
+                    <aside>
+                        <h2 class="h5">THE SETUP</h2>
+                        <p>How do you want to get started?</p>
+                    </aside>
+
+
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9 form-horizontal">
+                <div style="background: #FFF !important;
+  border-color: #ccc !important;
+  cursor: default !important;
+  color: #000 !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);margin-left:5%;">
+                    <br />
+                    <b style="margin-left:2%;">Build a New Survey from Scratch</b>
+                    <br /><br />
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+                            Title <span class="required">
+                                *
+                            </span>
+                        </label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" name="SurveyTitle" id="SurveyTitle" />
+                            <span class="help-block">
+                                Provide  Survey Title
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+
+                        </label>
+                        <div class="col-md-4">
+                            <button class=" btn" id="btnaddsurveytitle">Let's Go!</button>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <br />
+                <div style="background: #FFF !important;
+  border-color: #ccc !important;
+  cursor: default !important;
+  color: #000 !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);margin-left:5%;">
+                    <br />
+                    <b style="margin-left:2%;">Edit a Copy of an Existing Survey</b>
+                    <br /><br />
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+                            Which survey?
+                        </label>
+                        <div class="col-md-4">
+                            <select class="form-control" name="Campaign_Name" id="Campaign_Name">
+                                <option>sacsa</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+
+                        </label>
+                        <div class="col-md-4">
+                            <button class=" btn">Let's Go!</button>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Css{
+<style>
+.wizard aside h2
+{
+background: #817F70;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px;
+  line-height: 20px;
+  margin: 0 0 10px 0;
+  border-radius: 5px;
+  background-clip: padding-box;
+  position: relative;
+}
+.wizard aside h2:after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin: 0 0 0 -3px;
+  border-top: 22px solid transparent;
+  border-left: 22px solid #817F70;
+  border-bottom: 22px solid transparent;
+}
+
+</style>
+}
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $('#btnaddsurveytitle').live('click', function () {
+            var dataRow = { SurveyTitle: $('#SurveyTitle').val() };
+            $.ajax({
+                type: 'POST',
+                url: '../SurveyManagment/AddSurveyMaster',
+                data: dataRow,
+                success: function (response) {
+                    var url = "@Url.Content("~")SurveyManagment/createsurvey?NestId=" + response;
+                    window.location.href = url;
+                    alert(response);
+                }
+            });
+        });
+    });
+</script>
+}

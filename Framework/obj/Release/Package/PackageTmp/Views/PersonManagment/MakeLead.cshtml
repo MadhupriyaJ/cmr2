@@ -1,0 +1,956 @@
+﻿@model FramWork.HelloService.Person
+@using Core;
+@using FramWork.HelloService;
+@{
+    ViewBag.Title = "Lead 2 Deal | Create New Oppurtunity/ Contact";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    HelloServiceClient client = new HelloServiceClient("BasicHttpBinding_IHelloService");
+}
+
+<!-- BEGIN PAGE HEADER-->
+<h3 class="page-title">
+    Create New <small>Oppurtunity/ Contact</small>
+</h3>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html">Home</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+        <li>
+            <a href="#">Create New Oppurtunity/ Contact</a>
+            <i class="fa fa-angle-right"></i>
+        </li>
+
+    </ul>
+    @*<div class="page-toolbar">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                    Actions <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li>
+                        <a href="@Url.Action("CreateEmployee", "PersonManagment")"><i class="fa fa-plus"></i> Create New  </a>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>*@
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <a class="btn grey-salsa" href="/PersonManagment/Index">
+                <i class="fa fa-plus"></i>  List Oppurtunity
+            </a>
+
+        </div>
+    </div>
+</div>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+    <div class="col-md-3 col-sm-3 blog-sidebar">
+        <div class="portlet light bg-inverse">
+
+            <div class="portlet-body">
+                @Html.Partial("~/Views/Shared/_PartialPageMarketingMenu.cshtml")
+            </div>
+        </div>
+
+
+    </div>
+    <div class="col-md-9">
+        <div class="portlet light" id="form_wizard_1">
+            <div class="portlet-title">
+                <div class="caption">
+                 Contact Create Wizard - <span class="step-title">
+                        Step 1 of 3
+                    </span>
+                </div>
+
+            </div>
+            <div class="portlet-body form">
+                <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            1
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Basic Information
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step active">
+                                        <span class="number">
+                                            2
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>  Contact details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab3" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            3
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Assign As Lead
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab4" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            4
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Product Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab5" data-toggle="tab" class="step">
+                                        <span class="number">
+                                            4
+                                        </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Confirm
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success">
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    You have some form errors. Please check below.
+                                </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button>
+                                    Your form validation is successful!
+                                </div>
+                                <div class="tab-pane active" id="tab1">
+                                    <h3 class="block">Provide your basic information</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @id = "Id", @name = "Id" } })
+                                            @Html.HiddenFor(model => model.CreateDate, new { htmlAttributes = new { @id = "CreateDate", @name = "CreateDate" } })
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    RP Number <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.RPnumber, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "RPnumber", @name = "RPnumber" } })
+                                                    <span class="help-block">
+                                                        Provide  RP Number
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Passport Number <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Passport, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Passport", @name = "Passport" } })
+                                                    <span class="help-block">
+                                                        Provide  Passport Number
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Salutation <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @* @Html.DropDownList("Salutation", @ViewBag.LstSalutation as SelectList, "Select", new { @class = "form-control validate[required]", @id = "Salutation", @name = "Salutation" })*@
+                                                    @Html.DropDownListFor(model => model.SalutationId, new SelectList(client.GetSalutLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "SalutationId", @name = "SalutationId" })
+                                                    <span class="help-block">
+                                                        Provide  saluation
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    First Name <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "FirstName", @name = "FirstName" } })
+                                                    <span class="help-block">
+                                                        Provide  First Name
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Middle Name <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "MiddleName", @name = "MiddleName" } })
+                                                    <span class="help-block">
+                                                        Provide  Middle Name
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Last Name <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "LastName", @name = "LastName" } })
+                                                    <span class="help-block">
+                                                        Provide Last Name
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Nick Name
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.NickName, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "NickName", @name = "NickName" } })
+                                                    <span class="help-block">
+                                                        Provide Nick Name
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Gender
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @*@Html.DropDownList("Gender", @ViewBag.LstGender as SelectList, "Select", new { @class = "form-control validate[required]", @id = "Gender", @name = "Gender" })*@
+                                                    @Html.DropDownListFor(model => model.GenderId, new SelectList(client.GetGenderLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "Gender", @name = "Gender" })
+
+                                                    <span class="help-block">
+                                                        Provide  Gender
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    DOB
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Dob, new { htmlAttributes = new { @class = "form-control validate[required] date-picker", @id = "Dob", @name = "Dob" } })
+
+                                                    <span class="help-block">
+                                                        Provide  DOB
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="block">Profile Picture</h3>
+                                    <div class="form-group">
+                                        <div class="control-label col-md-4">
+                                            <input id="uploadFile" class="form-control" placeholder="Choose File" disabled="disabled" />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="fileUpload btn btn-primary">
+                                                <span>Click to select profile picture</span>
+                                                <input id="uploadBtn" type="file" class="upload" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <img id="blah" src="#" alt="your image" style="width:100%;display:none;" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <h3 class="block">Provide  contact details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Email <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Email", @name = "Email" } })
+                                                    <span class="help-block">
+                                                        Provide Email
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Mobile <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Mobile", @name = "Mobile" } })
+                                                    <span class="help-block">
+                                                        Provide your Mobile number
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Phone
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Phone", @name = "Phone" } })
+                                                    <span class="help-block">
+                                                        Provide your Phone number
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="block">Provide  Address details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Country
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownListFor(model => model.Country, new SelectList(client.GetCountryLst(Login.OrganizationId).Select(a => new { Id = a.Id, CountyName = a.CountyName }), "Id", "CountyName"), "Select", new { @class = "form-control validate[required]", @id = "Country", @name = "Country" })
+                                                    <span class="help-block">
+                                                        Provide  Country
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    State
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownListFor(model => model.State_province, new SelectList(client.GetStateLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "State", @name = "State" })
+                                                    <span class="help-block">
+                                                        Provide  state
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    City
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownListFor(model => model.City, new SelectList(client.GetCityLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "City", @name = "City" })
+                                                    <span class="help-block">
+                                                        Provide  City
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Location Latitude
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.LocationLatitude, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "LocationLatitude", @name = "LocationLatitude" } })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Location Longitude
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Locationlongitude, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Locationlongitude", @name = "Locationlongitude" } })
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Street
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Street, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Street", @name = "Street" } })
+                                                    <span class="help-block">
+                                                        Provide  Street
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Zip / Postal code
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.ZipPostalcode, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "ZipPostalcode", @name = "ZipPostalcode" } })
+                                                    <span class="help-block">
+                                                        Provide   Zip / Postal code
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Occupation
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Occupation, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Occupation", @name = "Occupation" } })
+                                                    <span class="help-block">
+                                                        Provide  Occupation
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Company
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control validate[required]", @id = "Company", @name = "Company" } })
+                                                    <span class="help-block">
+                                                        Provide   Company
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="tab-pane" id="tab3">
+                                    <h3 class="block">Provide your Financial Details</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Salary <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.TextBox("Salary", null, new { @Value = ViewBag.txtsalary, @Placeholder = "(e.g:- QAR 2,334.00)", @Style = "text-align:right;", @Class = "currenciesOnly form-control validate[required]", @id = "Salary", @name = "Salary" })
+                                                    <span class="help-block">
+                                                        Provide Salary
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Current Liablility <span class="required">
+                                                        *
+                                                    </span>
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.TextBox("CurrentLiablility", null, new { @Value = ViewBag.txtCurrentLiablility, @Placeholder = "(e.g:- QAR 2,334.00)", @Style = "text-align:right;", @Class = "currenciesOnly form-control validate[required]", @id = "CurrentLiablility", @name = "CurrentLiablility" })
+                                                    <span class="help-block">
+                                                        Provide Your Current Liablility
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Monthly Installment
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.TextBox("MonthlyInstallment", null, new { @Value = ViewBag.txtCurrentLiablility, @Placeholder = "(e.g:- QAR 2,334.00)", @Style = "text-align:right;", @Class = "currenciesOnly form-control validate[required]", @id = "MonthlyInstallment", @name = "MonthlyInstallment" })
+                                                    <span class="help-block">
+                                                        Provide your Monthly Installment
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Expected Financial Value
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.TextBox("ExpectedValue", null, new { @Value = ViewBag.txtExpectedValue, @Placeholder = "(e.g:- QAR 2,334.00)", @Style = "text-align:right;", @Class = "currenciesOnly form-control validate[required]", @id = "ExpectedValue", @name = "ExpectedValue" })
+                                                    <span class="help-block">
+                                                        Provide your Expected Financial Value
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Assign Lead to Team
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("ddlassignedtoteam", new SelectList(client.GetTeamLst(Login.OrganizationId).Select(a => new { Id = a.Id, Name = a.Name }), "Id", "Name"), "Select", new { @class = "form-control validate[required]", @id = "ddlassignedtoteam", @name = "ddlassignedtoteam" })
+                                                    <span class="help-block">
+                                                        Provide your Team
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Assign Lead To
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("ddlassignedtoemployee", new SelectList(client.GetEmployeeLst(Login.OrganizationId).Select(a => new { Id = a.Id, FullName = a.User.FirstName + " " + a.User.LastName }), "Id", "FullName"), "Select", new { @class = "form-control validate[required]", @id = "ddlassignedtoemployee", @name = "ddlassignedtoemployee" })
+                                                    <span class="help-block">
+                                                        Select your Employee/Agent
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="block">Provide  Other details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Expected Closing Date
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @*@Html.DropDownList("Nationality", @ViewBag.LstCountry as SelectList, "Select", new { @class = "form-control validate[required]", @id = "Nationality", @name = "Nationality" })*@
+                                                    @Html.TextBox("ExpectedClosingDate", null, new { @maxlength = "21", @placeholder = "MM/DD/YYYY", @Class = "form-control date-picker validate[required]", @id = "ExpectedClosingDate", @name = "ExpectedClosingDate" })
+                                                    <span class="help-block">
+                                                        Provide  Nationality
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Special Comments
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @*@Html.DropDownList("Language", @ViewBag.LstLanguage as SelectList, "Select", new { @class = "form-control validate[required]", @id = "Language", @name = "Language" })*@
+                                                    @Html.TextArea("txtdesc", null, new { @Value = ViewBag.txtActualValue, @Placeholder = "Description", @Class = "currenciesOnly form-control validate[required]", })
+                                                    <span class="help-block">
+                                                        Provide  Language
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab4">
+                                    <h3 class="block">Provide  Product details</h3>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Campaign
+                                                </label>
+                                                <div class="col-md-5">
+                                                    @Html.DropDownList("Campaign", new SelectList(client.GetLstCampaign(Login.OrganizationId).Select(a => new { Id = a.Id, Description = a.Description }), "Id", "Description"), "Select", new { @class = "form-control validate[required]", @id = "Campaign", @name = "Campaign" })
+                                                    <span class="help-block">
+                                                        Provide your Campaign
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row" id="productrow">
+                                        <div class="col-md-6">
+                                            <!-- BEGIN Portlet PORTLET-->
+                                            <div class="portlet light">
+                                                <div class="portlet-title">
+                                                    <div class="caption">
+                                                        Select Product
+
+                                                    </div>
+                                                </div>
+                                                <div class="portlet-body">
+                                                    <div id="product" style="border-radius:7px;">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END Portlet PORTLET-->
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tab5">
+                                    <h3 class="block">Basic information</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Salutation
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Salutation">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    First Name
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="FirstName">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Middle Name
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="MiddleName">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Last Name
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="LastName">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Nick Name
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="NickName">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Gender
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Gender">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <img id="profilepic" src="#" alt="your image" style="width:200px;" />
+                                    </div>
+
+
+                                    <h3 class="block">Provide  contact details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Email
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Email">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Mobile
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Mobile">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Phone
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Phone">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h3 class="block">Provide  Address details</h3>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Country
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Country">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    State
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="State">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    City
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="City">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Occupation
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Occupation">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Zip / Postal code
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="ZipPostalcode">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">
+                                                    Company
+                                                </label>
+                                                <div class="col-md-5">
+                                                    <p class="form-control-static" data-display="Company">
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <a href="javascript:;" class="btn default button-previous">
+                                            <i class="m-icon-swapleft"></i> Back
+                                        </a>
+                                        <a href="javascript:;" class="btn blue button-next">
+                                            Continue <i class="m-icon-swapright m-icon-white"></i>
+                                        </a>
+                                        <a href="javascript:;" class="btn green button-submit">
+                                            Submit <i class="m-icon-swapright m-icon-white"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    
+   
+</div>
+
+
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script type="text/javascript" src="../../assets/Programmer/Scripts/MakeLead/formwizardmakelead.js"></script>
+    <script src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            FormWizard.init();
+
+            $('#productrow').hide();
+
+            $('#Campaign').change(function () {
+                $('#productrow').show();
+
+                var Cid = $('select[name="Campaign"] option:selected').val();
+
+                var dataRow = ({ CampaignId: Cid });
+
+                $.ajax({
+                    type: 'POST',
+                    url: '../../PersonManagment/GetProductList',
+                    data: dataRow,
+                    success: function (result) {
+                        if (result != null) {
+                            var prodcutlst = result["CampaignProdcutLst"];
+                            $("#product").html('');
+
+                            $(prodcutlst).each(function (index, element) {
+
+                                $("#product").append('<input type="checkbox" id="product' + index + '" name="product' + index + '"  value="' + prodcutlst[index].ProductName + '" >' + prodcutlst[index].ProductName + '<br/ >');
+                            });
+
+
+                        }
+                        else {
+                            bootbox.alert("Error, could not complete the action!", function () {
+                                window.location.reload();
+                            });
+                        }
+
+                    }
+                });
+
+
+            });
+
+
+        });
+    </script>
+}
+

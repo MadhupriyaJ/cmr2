@@ -1,0 +1,349 @@
+﻿@using FramWork.HelloService;
+@model FramWork.HelloService.Person
+@{
+    ViewBag.Title = "Lead2Deal | Open Oppurtunities";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+    Session["managepersonId"] = ViewBag.managepersonId = Request.Params["id"];
+}
+
+@section    Css{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="@Url.Content("~")assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~")assets/admin/pages/css/profile.css" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~")assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+}
+
+
+@Html.HiddenFor(model => model.Id)
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Sales</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">PipeLine</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Action("SalesAgentView", "SalesManagement")">Sales Agent View</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="@Url.Content("~/")SalesManagement/ManagePerson/?id=@ViewBag.managepersonId">Manage Person</a>
+    </li>
+
+</ul>
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="row ">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="@Url.Content("~")assets/admin/pages/media/profile/avatar1.jpg" class="img-responsive" alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                    </div>
+                    <div class="profile-usertitle-job">
+                        
+                        @Html.DisplayFor(model => model.Occupation1.Name)
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button type="button" id="Editbtn" class="btn btn-circle green-haze btn-sm">Edit</button>
+                    <button type="button" id="MakeLeadbtn" class="btn btn-circle btn-danger btn-sm">Make Lead</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li>
+                            <a href="page_todo.html" target="_blank">
+                                <i class="icon-check"></i>
+                                Tasks
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="extra_profile_help.html">
+                                <i class="icon-info"></i>
+                                Help
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <div class="portlet light">
+                <!-- STAT -->
+                <div class="row list-separated profile-stat">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            37
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Appointments
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            51
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Tasks
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="uppercase profile-stat-title">
+                            61
+                        </div>
+                        <div class="uppercase profile-stat-text">
+                            Uploads
+                        </div>
+                    </div>
+                </div>
+                <!-- END STAT -->
+
+            </div>
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase"></span>
+                            </div>
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_1_1" data-toggle="tab">Person Info</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_2" data-toggle="tab">Appointments</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_3" data-toggle="tab">Files</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="portlet-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab_1_1">
+                                    <!-- GENERAL QUESTION TAB -->
+
+                                    <div class="portlet light ">
+                                        <div class="portlet-body">
+
+
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-body">
+                                                    <h3 class="form-section">Basic Info</h3>
+                                                    <table class="table table-bordered table-striped">
+                                                        <tr>
+                                                            <td>Salutation:</td>
+                                                            <td>@Html.DisplayFor(model => model.Salutation.Name)</td>
+                                                           
+                                                        </tr>
+                                                        <tr><td>First Name:</td>
+<td>@Html.DisplayFor(model => model.FirstName)</td></tr>
+                                                        <tr>
+                                                            <td>Middle Name:</td>
+                                                            <td>@Html.DisplayFor(model => model.MiddleName)</td>
+                                                            
+                                                        </tr>
+                                                        <tr><td>Last Name:</td>
+<td>@Html.DisplayFor(model => model.LastName)</td></tr>
+                                                        <tr>
+                                                            <td>Gender:</td>
+                                                            <td>@Html.DisplayFor(model => model.Gender.Name)</td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Nick Name:</td>
+                                                            <td>@Html.DisplayFor(model => model.NickName)</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Dob:</td>
+                                                            <td>@Convert.ToDateTime(Model.Dob).ToShortDateString()</td>
+                                                          
+                                                        </tr>
+                                                        <tr><td>Occupation:</td>
+                                                          <td>@Html.DisplayFor(model => model.Occupation)</td></tr>
+                                                        <tr>
+                                                            <td>Nationality:</td>
+                                                            <td>@Html.DisplayFor(model => model.Country1.CountyName)</td>
+                                                          
+                                                        </tr>
+                                                        <tr><td>Language:</td>
+<td>@Html.DisplayFor(model => model.Language.Name)</td></tr>
+                                                    </table>
+                                                   
+                                                    <hr />
+                                                    <h3 class="form-section">Contact</h3>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">Phone:</label>
+                                                                <div class="col-md-9">
+                                                                    <p class="form-control-static">
+                                                                        @Html.DisplayFor(model => model.Phone)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">Mobile:</label>
+                                                                <div class="col-md-9">
+                                                                    <p class="form-control-static">
+                                                                        @Html.DisplayFor(model => model.Mobile)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">Email:</label>
+                                                                <div class="col-md-9">
+                                                                    <p class="form-control-static">
+                                                                        @Html.DisplayFor(model => model.Email)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--/span-->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">Country:</label>
+                                                                <div class="col-md-9">
+                                                                    <p class="form-control-static">
+                                                                        @Html.DisplayFor(model => model.Country2.CountyName)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--/span-->
+                                                    </div>
+                                                    <!--/row-->
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">State:</label>
+                                                                <div class="col-md-9">
+                                                                    <p class="form-control-static">
+                                                                        @Html.DisplayFor(model => model.State_Provience_County.Name)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--/span-->
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">City:</label>
+                                                                <div class="col-md-9">
+                                                                    <p class="form-control-static">
+                                                                        @Html.DisplayFor(model => model.City1.Name)
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--/span-->
+                                                    </div>
+                                                </div>
+
+                                            </form>
+
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END GENERAL QUESTION TAB -->
+                                <!-- MEMBERSHIP TAB -->
+                                <div class="tab-pane" id="tab_1_2">
+                                    <div class="portlet light ">
+                                        <div class="portlet-body">
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END MEMBERSHIP TAB -->
+                                <!-- TERMS OF USE TAB -->
+                                <div class="tab-pane" id="tab_1_3">
+                                    <div class="portlet light ">
+                                        <div class="portlet-body">
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- END TERMS OF USE TAB -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END PROFILE CONTENT -->
+        </div>
+    </div>
+    <!-- END PAGE CONTENT-->
+</div>
+
+
+@section Scripts{
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="@Url.Content("~")assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+    <script src="@Url.Content("~")assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+    $(document).ready(function () {
+        var PersonId = $('#Id').val();
+
+        $('#Editbtn').click(function () {
+            var url = "@Url.Content("~")SalesManagement/EditPerson?ID=" + PersonId;
+                window.location.href = url;
+            });
+
+            $('#MakeLeadbtn').click(function () {
+                var url = "@Url.Content("~")SalesManagement/MakeLead?ID=" + PersonId;
+                window.location.href = url;
+            });
+
+
+        });
+    </script>
+}
+

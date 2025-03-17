@@ -1,0 +1,61 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Multiple Choice Single select Question</p>
+        <input type="text" class="form-control" id="htmlradioquestion" placeholder="Enter Your Question" />
+        <hr />
+        <div class="row" style="margin-left:5%;">
+            <div class="col-md-12">
+                <b>Answer Choices</b>
+                <div id='TextBoxesGroup'>
+
+                    <div id="TextBoxDiv1">
+
+                        <input type="text" class="form-control" id='txtproduct1' name="txtproduct" placeholder="Enter an answer Choice" /><br />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2" style="font-size:30px;cursor:pointer;" id='addButton'>
+                        <i class="fa fa-plus-square" style="font-size:30px;color:green;"></i>
+                    </div>
+                    <div class="col-md-2" style="font-size:30px;cursor:pointer;" id='removeButton'>
+                        <i class="fa fa-minus-square" style="font-size:30px;color:red;"></i>
+                    </div>
+                </div>
+                @*<div class="form-group">
+                        <div class="col-md-6">
+
+                        </div>
+
+
+                        <input type='button' value='Get TextBox Value' id='getButtonValue'>
+                    </div>*@
+
+            </div>
+        </div>
+        <div class="row" style="margin-left:5%;">
+            <div class="col-md-12">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="radio" id="rdo_singlechoice" style="-webkit-appearance: radio !important; opacity: inherit !important;margin-left:-9px;"  name="rdohtmlattrtypes" value="Single" /> Single Choice
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="rdo_Multiplechoice" style="-webkit-appearance: radio !important; opacity: inherit !important;margin-left:-9px;" name="rdohtmlattrtypes" value="Multiple" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="rdo_dropdown" style="-webkit-appearance: radio !important; opacity: inherit !important;margin-left:-9px;" name="rdohtmlattrtypes" value="Dropdown" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

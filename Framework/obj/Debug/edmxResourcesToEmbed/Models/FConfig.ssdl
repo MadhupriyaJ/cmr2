@@ -1,0 +1,4088 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FCONFIGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="FAssignRoletoUsers">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="userId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FAttendances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCampaignBankTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCampaignMedias">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="MediaName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MediaSourceId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FilePath" Type="varchar" MaxLength="250" />
+    <Property Name="Narration" Type="varchar(max)" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCampaignProductDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignProductId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DocumentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Ismandatory" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCampaignProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCampaigns">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignBankTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Budget" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CampaignOwner" Type="uniqueidentifier" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCampaignTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnumId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelate" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_CaseOrgin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnumId" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Followers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseFollowers" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Note">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseNote" Type="varchar(max)" Nullable="false" />
+    <Property Name="when_it_happened" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Note_Attachment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseManagment_NoteId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FileName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Path" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Note_Comment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseManagment_NoteId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Comments" Type="varchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Note_Followers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseManagment_NoteId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Follower" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Priority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnumId" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_SLA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ResponseNameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ResponseStartDate" Type="datetime" Nullable="false" />
+    <Property Name="ResponseEnddate" Type="datetime" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_sla_responseName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnumId" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Task">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CaseId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TaskTitle" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="WhoisResponsible" Type="uniqueidentifier" />
+    <Property Name="TaskDueDate" Type="datetime" Nullable="false" />
+    <Property Name="TaskCategory" Type="uniqueidentifier" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_TaskCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagment_Type">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnumId" Type="tinyint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonLeadId" Type="uniqueidentifier" />
+    <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+    <Property Name="AccountNumber" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" />
+    <Property Name="CaseOrgin" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Type" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Priority" Type="uniqueidentifier" />
+    <Property Name="CaseOwner" Type="uniqueidentifier" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Notes" Type="varchar(max)" />
+    <Property Name="CaseStatus" Type="uniqueidentifier" />
+    <Property Name="CaseManagmentStageId" Type="uniqueidentifier" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCaseManagmentStageNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SortEnum" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="State_provience_county_ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FCompanyModes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Mode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FConfigInsertStatus">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FCoreSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AutoLogoutTime" Type="int" />
+    <Property Name="SessionExpireTime" Type="int" />
+    <Property Name="IsMultiLanguage" Type="bit" />
+    <Property Name="LoginType" Type="tinyint" />
+    <Property Name="IsSessionSignOffWithUser" Type="bit" />
+    <Property Name="IsIpBaseLock" Type="bit" />
+    <Property Name="IsMultiLogin" Type="bit" />
+    <Property Name="IsSessionExpire" Type="bit" />
+    <Property Name="NoOfPasswordHistroy" Type="int" />
+    <Property Name="SmtpType" Type="tinyint" />
+    <Property Name="SmtpUsername" Type="varchar" MaxLength="150" />
+    <Property Name="SmtpPassword" Type="varchar(max)" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="IsSuperAdmin" Type="bit" />
+    <Property Name="PasswordExpiry" Type="int" />
+  </EntityType>
+  <EntityType Name="FCountries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsoCode" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="CountyName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsoCurrency" Type="varchar" MaxLength="50" />
+    <Property Name="GMT" Type="int" />
+    <Property Name="Locale" Type="varchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDealStageAnswers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="QuestionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Ans" Type="varchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDealStageNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PipeLineId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealQuestionTitle" Type="varchar" MaxLength="50" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDealStageQuestionModes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ModeIndex" Type="tinyint" Nullable="false" />
+    <Property Name="QuestonMode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDealStageQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealStageNameId" Type="uniqueidentifier" />
+    <Property Name="Title" Type="varchar" MaxLength="50" />
+    <Property Name="Question" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="ControlTypeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ControlId" Type="varchar" MaxLength="50" />
+    <Property Name="ControlName" Type="varchar" MaxLength="50" />
+    <Property Name="Ismandatory" Type="bit" Nullable="false" />
+    <Property Name="SortOrder" Type="int" Nullable="false" />
+    <Property Name="QuestionTypeId" Type="uniqueidentifier" />
+    <Property Name="DealstageQuestionModeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDealStageQuestionTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnumIds" Type="tinyint" Nullable="false" />
+    <Property Name="questionTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDealStageQuestionValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealStageQuestionsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Text" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDepartments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDesignations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FEmployeeQueues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EmpId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FEmployees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="DepartmentId" Type="uniqueidentifier" />
+    <Property Name="DesignationId" Type="uniqueidentifier" />
+    <Property Name="CountryId" Type="uniqueidentifier" />
+    <Property Name="State_province_county_Id" Type="uniqueidentifier" />
+    <Property Name="CityId" Type="uniqueidentifier" />
+    <Property Name="Street" Type="varchar" MaxLength="100" />
+    <Property Name="LocationId" Type="uniqueidentifier" />
+    <Property Name="ZipPostalcode" Type="varchar" MaxLength="50" />
+    <Property Name="LanguageId" Type="uniqueidentifier" />
+    <Property Name="ReportSto" Type="varchar" MaxLength="50" />
+    <Property Name="ParentEmployee" Type="uniqueidentifier" />
+    <Property Name="SalesAfffliateId" Type="int" />
+    <Property Name="TeamId" Type="uniqueidentifier" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FGenders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FHtmlControlNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="enumnameId" Type="int" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FLanguages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FLocations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Latittude" Type="varchar" MaxLength="50" />
+    <Property Name="Longitude" Type="varchar" MaxLength="50" />
+    <Property Name="GeoLocation" Type="varchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="10" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="FMediaSources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FModules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FNotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="10" />
+    <Property Name="ShortMsg" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="tinyint" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="Url" Type="varchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ReadDate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="FOrganizations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Alias" Type="varchar" MaxLength="50" />
+    <Property Name="OrgCrName" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="TypeOfBussiness" Type="varchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="Phone1" Type="varchar" MaxLength="15" />
+    <Property Name="Phone2" Type="varchar" MaxLength="15" />
+    <Property Name="Fax1" Type="varchar" MaxLength="15" />
+    <Property Name="Fax2" Type="varchar" MaxLength="15" />
+    <Property Name="PointOfContactName" Type="varchar" MaxLength="50" />
+    <Property Name="PointOfContactPhone" Type="varchar" MaxLength="15" />
+    <Property Name="PointOfContactEmail" Type="varchar" MaxLength="35" />
+    <Property Name="Website" Type="varchar" MaxLength="50" />
+    <Property Name="Street" Type="varchar" MaxLength="50" />
+    <Property Name="Zip" Type="varchar" MaxLength="25" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="int" />
+    <Property Name="Geolocation" Type="varchar" MaxLength="50" />
+    <Property Name="NoOfEmployees" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="ParentCompany" Type="varchar" MaxLength="50" />
+    <Property Name="CurrencyLocale" Type="int" />
+    <Property Name="CountryLocale" Type="int" />
+    <Property Name="IsRegistered" Type="bit" Nullable="false" />
+    <Property Name="ActivationCode" Type="varchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPeoples">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RPnumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Passport" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="PersonModeId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SalutationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GenderId" Type="uniqueidentifier" />
+    <Property Name="NickName" Type="varchar" MaxLength="50" />
+    <Property Name="Dob" Type="datetime" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Nationality" Type="uniqueidentifier" />
+    <Property Name="LanguageId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Country" Type="uniqueidentifier" />
+    <Property Name="State_province" Type="uniqueidentifier" />
+    <Property Name="City" Type="uniqueidentifier" />
+    <Property Name="Street" Type="varchar" MaxLength="100" />
+    <Property Name="LocationLatitude" Type="varchar" MaxLength="50" />
+    <Property Name="Locationlongitude" Type="varchar" MaxLength="50" />
+    <Property Name="ZipPostalcode" Type="varchar" MaxLength="10" />
+    <Property Name="Occupation" Type="varchar" MaxLength="50" />
+    <Property Name="Company" Type="uniqueidentifier" />
+    <Property Name="Profilepicture" Type="varchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="int" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPerson_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompanyMode" Type="uniqueidentifier" />
+    <Property Name="CountryId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StateId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Street" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ZipCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPerson_Mode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Mode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPersonLeadNotes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonLeadId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Note" Type="varchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPersonLeadProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonLeadId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CampaignProductId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPersonLeads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PersonId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DealStageNameId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="CurrentLiablility" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="MonthlyInstallment" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ExpectedValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SanctionedValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ActualValue" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ExpectedClosingDate" Type="datetime" />
+    <Property Name="ClosedDate" Type="datetime" />
+    <Property Name="Assignedto" Type="uniqueidentifier" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FPipeLines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FRoleAssignedModules">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="ModuleId" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" />
+    <Property Name="Name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FSalutations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FState_Provience_County">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FSurveyMasters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FSurveyQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SurveyMasterId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="HtmlControlId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Question" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FSurveyQuestionValues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SurveyQuestionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FTeams">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUserPasswordHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="Salt" Type="varchar" MaxLength="50" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgId" Type="uniqueidentifier" />
+    <Property Name="Salutation" Type="varchar" MaxLength="20" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" />
+    <Property Name="NickName" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="uniqueidentifier" />
+    <Property Name="Dob" Type="datetime" />
+    <Property Name="UserName" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="OfficeEmail" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="PasswordExpiry" Type="int" />
+    <Property Name="LastPasswordChanged" Type="datetime" />
+    <Property Name="Salt" Type="varchar" MaxLength="50" />
+    <Property Name="SessionExpireTime" Type="int" />
+    <Property Name="MaxNoOfAttempts" Type="int" />
+    <Property Name="Avatar" Type="varchar" MaxLength="250" />
+    <Property Name="Attempts" Type="int" />
+    <Property Name="PhotoPath" Type="varchar" MaxLength="250" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="MarkAsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FUserSessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="SessionInfo" Type="varchar(max)" />
+    <Property Name="SessionCode" Type="varchar(max)" />
+    <Property Name="SessionActiveDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_AssignRoletoUser_Role">
+    <End Role="FRoles" Type="Self.FRoles" Multiplicity="1" />
+    <End Role="FAssignRoletoUsers" Type="Self.FAssignRoletoUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAssignRoletoUsers">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AssignRoletoUser_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FAssignRoletoUsers" Type="Self.FAssignRoletoUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAssignRoletoUsers">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FAttendances" Type="Self.FAttendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAttendances">
+        <PropertyRef Name="OgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FAttendances" Type="Self.FAttendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAttendances">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Attendance_User1">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FAttendances" Type="Self.FAttendances" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FAttendances">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Campaign_CampaignBankType">
+    <End Role="FCampaignBankTypes" Type="Self.FCampaignBankTypes" Multiplicity="1" />
+    <End Role="FCampaigns" Type="Self.FCampaigns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCampaignBankTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaigns">
+        <PropertyRef Name="CampaignBankTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Campaign_CampaignType">
+    <End Role="FCampaignTypes" Type="Self.FCampaignTypes" Multiplicity="1" />
+    <End Role="FCampaigns" Type="Self.FCampaigns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCampaignTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaigns">
+        <PropertyRef Name="CampaignTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Campaign_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="0..1" />
+    <End Role="FCampaigns" Type="Self.FCampaigns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaigns">
+        <PropertyRef Name="CampaignOwner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Campaign_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCampaigns" Type="Self.FCampaigns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaigns">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Campaign_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FCampaigns" Type="Self.FCampaigns" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaigns">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignBankType_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCampaignBankTypes" Type="Self.FCampaignBankTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignBankTypes">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignBankType_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCampaignBankTypes" Type="Self.FCampaignBankTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignBankTypes">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignMedia_MediaSource">
+    <End Role="FMediaSources" Type="Self.FMediaSources" Multiplicity="1" />
+    <End Role="FCampaignMedias" Type="Self.FCampaignMedias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FMediaSources">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignMedias">
+        <PropertyRef Name="MediaSourceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignMedia_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCampaignMedias" Type="Self.FCampaignMedias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignMedias">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignMedia_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCampaignMedias" Type="Self.FCampaignMedias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignMedias">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProduct_Campaign">
+    <End Role="FCampaigns" Type="Self.FCampaigns" Multiplicity="1" />
+    <End Role="FCampaignProducts" Type="Self.FCampaignProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCampaigns">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProducts">
+        <PropertyRef Name="CampaignId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProduct_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCampaignProducts" Type="Self.FCampaignProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProducts">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProduct_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCampaignProducts" Type="Self.FCampaignProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProducts">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProductDocument_CampaignProduct">
+    <End Role="FCampaignProducts" Type="Self.FCampaignProducts" Multiplicity="1" />
+    <End Role="FCampaignProductDocuments" Type="Self.FCampaignProductDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCampaignProducts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProductDocuments">
+        <PropertyRef Name="CampaignProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProductDocument_Document">
+    <End Role="FDocuments" Type="Self.FDocuments" Multiplicity="1" />
+    <End Role="FCampaignProductDocuments" Type="Self.FCampaignProductDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDocuments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProductDocuments">
+        <PropertyRef Name="DocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProductDocument_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCampaignProductDocuments" Type="Self.FCampaignProductDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProductDocuments">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignProductDocument_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCampaignProductDocuments" Type="Self.FCampaignProductDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignProductDocuments">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignType_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCampaignTypes" Type="Self.FCampaignTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignTypes">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CampaignType_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCampaignTypes" Type="Self.FCampaignTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCampaignTypes">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseManagment_CaseOrgin">
+    <End Role="FCaseManagment_CaseOrgin" Type="Self.FCaseManagment_CaseOrgin" Multiplicity="1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_CaseOrgin">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="CaseOrgin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseManagment_Priority">
+    <End Role="FCaseManagment_Priority" Type="Self.FCaseManagment_Priority" Multiplicity="0..1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_Priority">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="Priority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseManagment_Status">
+    <End Role="FCaseManagment_Status" Type="Self.FCaseManagment_Status" Multiplicity="0..1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="CaseStatus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseManagment_Type">
+    <End Role="FCaseManagment_Type" Type="Self.FCaseManagment_Type" Multiplicity="1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_Type">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseManagmentStageName">
+    <End Role="FCaseManagmentStageNames" Type="Self.FCaseManagmentStageNames" Multiplicity="0..1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagmentStageNames">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="CaseManagmentStageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseOrgin_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_CaseOrgin" Type="Self.FCaseManagment_CaseOrgin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_CaseOrgin">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_CaseOrgin_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_CaseOrgin" Type="Self.FCaseManagment_CaseOrgin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_CaseOrgin">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="0..1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="CaseOwner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Followers_CaseManagment">
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="1" />
+    <End Role="FCaseManagment_Followers" Type="Self.FCaseManagment_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Followers">
+        <PropertyRef Name="CaseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Followers_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="1" />
+    <End Role="FCaseManagment_Followers" Type="Self.FCaseManagment_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Followers">
+        <PropertyRef Name="CaseFollowers" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Followers_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Followers" Type="Self.FCaseManagment_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Followers">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Followers_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Followers" Type="Self.FCaseManagment_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Followers">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Attachment_CaseManagment_Note">
+    <End Role="FCaseManagment_Note" Type="Self.FCaseManagment_Note" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Attachment" Type="Self.FCaseManagment_Note_Attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_Note">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Attachment">
+        <PropertyRef Name="CaseManagment_NoteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Attachment_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Attachment" Type="Self.FCaseManagment_Note_Attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Attachment">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Attachment_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Attachment" Type="Self.FCaseManagment_Note_Attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Attachment">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_CaseManagment">
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="1" />
+    <End Role="FCaseManagment_Note" Type="Self.FCaseManagment_Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Comment_CaseManagment_Note">
+    <End Role="FCaseManagment_Note" Type="Self.FCaseManagment_Note" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Comment" Type="Self.FCaseManagment_Note_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_Note">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Comment">
+        <PropertyRef Name="CaseManagment_NoteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Comment_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Comment" Type="Self.FCaseManagment_Note_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Comment">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Comment_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Comment" Type="Self.FCaseManagment_Note_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Comment">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Followers_CaseManagment_Note">
+    <End Role="FCaseManagment_Note" Type="Self.FCaseManagment_Note" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Followers" Type="Self.FCaseManagment_Note_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_Note">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Followers">
+        <PropertyRef Name="CaseManagment_NoteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Followers_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Followers" Type="Self.FCaseManagment_Note_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Followers">
+        <PropertyRef Name="Follower" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Followers_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Followers" Type="Self.FCaseManagment_Note_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Followers">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Followers_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Note_Followers" Type="Self.FCaseManagment_Note_Followers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note_Followers">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Note" Type="Self.FCaseManagment_Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Note_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Note" Type="Self.FCaseManagment_Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Note">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_PersonLead">
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="0..1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPersonLeads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="PersonLeadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Priority_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Priority" Type="Self.FCaseManagment_Priority" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Priority">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Priority_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Priority" Type="Self.FCaseManagment_Priority" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Priority">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_SLA_CaseManagment">
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="1" />
+    <End Role="FCaseManagment_SLA" Type="Self.FCaseManagment_SLA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_SLA">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_SLA_CaseManagment_sla_responseName">
+    <End Role="FCaseManagment_sla_responseName" Type="Self.FCaseManagment_sla_responseName" Multiplicity="1" />
+    <End Role="FCaseManagment_SLA" Type="Self.FCaseManagment_SLA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_sla_responseName">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_SLA">
+        <PropertyRef Name="ResponseNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_SLA_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_SLA" Type="Self.FCaseManagment_SLA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_SLA">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_sla_responseName_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_sla_responseName" Type="Self.FCaseManagment_sla_responseName" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_sla_responseName">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_sla_responseName_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_sla_responseName" Type="Self.FCaseManagment_sla_responseName" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_sla_responseName">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_SLA_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_SLA" Type="Self.FCaseManagment_SLA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_SLA">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Status_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Status" Type="Self.FCaseManagment_Status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Status">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Status_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Status" Type="Self.FCaseManagment_Status" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Status">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Task_CaseManagment">
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="1" />
+    <End Role="FCaseManagment_Task" Type="Self.FCaseManagment_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Task">
+        <PropertyRef Name="CaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Task_CaseManagment_TaskCategory">
+    <End Role="FCaseManagment_TaskCategory" Type="Self.FCaseManagment_TaskCategory" Multiplicity="0..1" />
+    <End Role="FCaseManagment_Task" Type="Self.FCaseManagment_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCaseManagment_TaskCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Task">
+        <PropertyRef Name="TaskCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Task_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="0..1" />
+    <End Role="FCaseManagment_Task" Type="Self.FCaseManagment_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Task">
+        <PropertyRef Name="WhoisResponsible" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Task_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Task" Type="Self.FCaseManagment_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Task">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Task_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Task" Type="Self.FCaseManagment_Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Task">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_TaskCategory_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_TaskCategory" Type="Self.FCaseManagment_TaskCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_TaskCategory">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_TaskCategory_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_TaskCategory" Type="Self.FCaseManagment_TaskCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_TaskCategory">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Type_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagment_Type" Type="Self.FCaseManagment_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Type">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_Type_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagment_Type" Type="Self.FCaseManagment_Type" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagment_Type">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagment_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagments" Type="Self.FCaseManagments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagments">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagmentStageName_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCaseManagmentStageNames" Type="Self.FCaseManagmentStageNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagmentStageNames">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CaseManagmentStageName_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCaseManagmentStageNames" Type="Self.FCaseManagmentStageNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCaseManagmentStageNames">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_City">
+    <End Role="FCities" Type="Self.FCities" Multiplicity="1" />
+    <End Role="FCities1" Type="Self.FCities" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="FCities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCities1">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCities" Type="Self.FCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCities">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_State_Provience_County">
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="1" />
+    <End Role="FCities" Type="Self.FCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FState_Provience_County">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCities">
+        <PropertyRef Name="State_provience_county_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_City_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCities" Type="Self.FCities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCities">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyMode_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCompanyModes" Type="Self.FCompanyModes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCompanyModes">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyMode_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCompanyModes" Type="Self.FCompanyModes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCompanyModes">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConfigInsertStatus_Users">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FConfigInsertStatus" Type="Self.FConfigInsertStatus" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FConfigInsertStatus">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoreSettings_UserId">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FCoreSettings" Type="Self.FCoreSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCoreSettings">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Country_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCountries">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Country_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FCountries">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageAnswers_DealStageQuestions">
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="1" />
+    <End Role="FDealStageAnswers" Type="Self.FDealStageAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDealStageQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageAnswers">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageAnswers_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDealStageAnswers" Type="Self.FDealStageAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageAnswers">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageAnswers_Person">
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="1" />
+    <End Role="FDealStageAnswers" Type="Self.FDealStageAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPersonLeads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageAnswers">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageAnswers_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDealStageAnswers" Type="Self.FDealStageAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageAnswers">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageName_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDealStageNames" Type="Self.FDealStageNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageNames">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageName_PipeLine">
+    <End Role="FPipeLines" Type="Self.FPipeLines" Multiplicity="1" />
+    <End Role="FDealStageNames" Type="Self.FDealStageNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPipeLines">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageNames">
+        <PropertyRef Name="PipeLineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageName_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDealStageNames" Type="Self.FDealStageNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageNames">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionMode_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDealStageQuestionModes" Type="Self.FDealStageQuestionModes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionModes">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionMode_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDealStageQuestionModes" Type="Self.FDealStageQuestionModes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionModes">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestions_DealStageName">
+    <End Role="FDealStageNames" Type="Self.FDealStageNames" Multiplicity="0..1" />
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDealStageNames">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestions">
+        <PropertyRef Name="DealStageNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestions_DealStageQuestionMode">
+    <End Role="FDealStageQuestionModes" Type="Self.FDealStageQuestionModes" Multiplicity="1" />
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDealStageQuestionModes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestions">
+        <PropertyRef Name="DealstageQuestionModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestions_DealStageQuestionType">
+    <End Role="FDealStageQuestionTypes" Type="Self.FDealStageQuestionTypes" Multiplicity="0..1" />
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDealStageQuestionTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestions">
+        <PropertyRef Name="QuestionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestions_HtmlControlName">
+    <End Role="FHtmlControlNames" Type="Self.FHtmlControlNames" Multiplicity="1" />
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FHtmlControlNames">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestions">
+        <PropertyRef Name="ControlTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestions_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestions">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestions_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestions">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionType_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDealStageQuestionTypes" Type="Self.FDealStageQuestionTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionTypes">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionType_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDealStageQuestionTypes" Type="Self.FDealStageQuestionTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionTypes">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionValues_DealStageQuestions">
+    <End Role="FDealStageQuestions" Type="Self.FDealStageQuestions" Multiplicity="1" />
+    <End Role="FDealStageQuestionValues" Type="Self.FDealStageQuestionValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDealStageQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionValues">
+        <PropertyRef Name="DealStageQuestionsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionValues_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDealStageQuestionValues" Type="Self.FDealStageQuestionValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionValues">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DealStageQuestionValues_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDealStageQuestionValues" Type="Self.FDealStageQuestionValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDealStageQuestionValues">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDepartments" Type="Self.FDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDepartments">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDepartments" Type="Self.FDepartments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDepartments">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Designation_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDesignations" Type="Self.FDesignations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDesignations">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Designation_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDesignations" Type="Self.FDesignations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDesignations">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FDocuments" Type="Self.FDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDocuments">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Document_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FDocuments" Type="Self.FDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FDocuments">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_City">
+    <End Role="FCities" Type="Self.FCities" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Company_City">
+    <End Role="FCities" Type="Self.FCities" Multiplicity="1" />
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Company">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Company_Country">
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="1" />
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCountries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Company">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Company_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Company">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Company_State_Provience_County">
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="1" />
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FState_Provience_County">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Company">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Company_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Company">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Country">
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCountries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Department">
+    <End Role="FDepartments" Type="Self.FDepartments" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDepartments">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Designation">
+    <End Role="FDesignations" Type="Self.FDesignations" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDesignations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="DesignationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="0..1" />
+    <End Role="FEmployees1" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees1">
+        <PropertyRef Name="ParentEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Language">
+    <End Role="FLanguages" Type="Self.FLanguages" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FLanguages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Location">
+    <End Role="FLocations" Type="Self.FLocations" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FLocations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_State_Provience_County">
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FState_Provience_County">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="State_province_county_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Team">
+    <End Role="FTeams" Type="Self.FTeams" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FTeams">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_User1">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployees">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeQueue_Employees">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="1" />
+    <End Role="FEmployeeQueues" Type="Self.FEmployeeQueues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployeeQueues">
+        <PropertyRef Name="EmpId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeQueue_Organizations">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FEmployeeQueues" Type="Self.FEmployeeQueues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FEmployeeQueues">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gender_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FGenders" Type="Self.FGenders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FGenders">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gender_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FGenders" Type="Self.FGenders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FGenders">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HtmlControlName_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FHtmlControlNames" Type="Self.FHtmlControlNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FHtmlControlNames">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HtmlControlName_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FHtmlControlNames" Type="Self.FHtmlControlNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FHtmlControlNames">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FLanguages" Type="Self.FLanguages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FLanguages">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Language_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FLanguages" Type="Self.FLanguages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FLanguages">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FLocations" Type="Self.FLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FLocations">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Location_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FLocations" Type="Self.FLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FLocations">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Log_UserId">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FLogs" Type="Self.FLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FLogs">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaSource_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FMediaSources" Type="Self.FMediaSources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FMediaSources">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MediaSource_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FMediaSources" Type="Self.FMediaSources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FMediaSources">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_UserId">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FNotifications" Type="Self.FNotifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FNotifications">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_City">
+    <End Role="FCities" Type="Self.FCities" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="City" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Company_CompanyMode">
+    <End Role="FCompanyModes" Type="Self.FCompanyModes" Multiplicity="0..1" />
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCompanyModes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Company">
+        <PropertyRef Name="CompanyMode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Country">
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCountries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="Nationality" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Country1">
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCountries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Gender">
+    <End Role="FGenders" Type="Self.FGenders" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FGenders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="GenderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Language">
+    <End Role="FLanguages" Type="Self.FLanguages" Multiplicity="1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FLanguages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Mode_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPerson_Mode" Type="Self.FPerson_Mode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Mode">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Mode_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FPerson_Mode" Type="Self.FPerson_Mode" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPerson_Mode">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Person_Company">
+    <End Role="FPerson_Company" Type="Self.FPerson_Company" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPerson_Company">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="Company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Person_Mode">
+    <End Role="FPerson_Mode" Type="Self.FPerson_Mode" Multiplicity="1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPerson_Mode">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="PersonModeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_Salutation">
+    <End Role="FSalutations" Type="Self.FSalutations" Multiplicity="1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FSalutations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="SalutationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_State_Provience_County">
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FState_Provience_County">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="State_province" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPeoples">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLead_DealStageName">
+    <End Role="FDealStageNames" Type="Self.FDealStageNames" Multiplicity="1" />
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FDealStageNames">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeads">
+        <PropertyRef Name="DealStageNameId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLead_Employee">
+    <End Role="FEmployees" Type="Self.FEmployees" Multiplicity="0..1" />
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FEmployees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeads">
+        <PropertyRef Name="Assignedto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLead_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeads">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLead_Person">
+    <End Role="FPeoples" Type="Self.FPeoples" Multiplicity="1" />
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPeoples">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeads">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLead_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeads">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadNote_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPersonLeadNotes" Type="Self.FPersonLeadNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadNotes">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadNote_PersonLead">
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="1" />
+    <End Role="FPersonLeadNotes" Type="Self.FPersonLeadNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPersonLeads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadNotes">
+        <PropertyRef Name="PersonLeadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadNote_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FPersonLeadNotes" Type="Self.FPersonLeadNotes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadNotes">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadProduct_CampaignProduct">
+    <End Role="FCampaignProducts" Type="Self.FCampaignProducts" Multiplicity="1" />
+    <End Role="FPersonLeadProducts" Type="Self.FPersonLeadProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCampaignProducts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadProducts">
+        <PropertyRef Name="CampaignProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadProduct_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPersonLeadProducts" Type="Self.FPersonLeadProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadProducts">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadProduct_PersonLead">
+    <End Role="FPersonLeads" Type="Self.FPersonLeads" Multiplicity="1" />
+    <End Role="FPersonLeadProducts" Type="Self.FPersonLeadProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FPersonLeads">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadProducts">
+        <PropertyRef Name="PersonLeadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonLeadProduct_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FPersonLeadProducts" Type="Self.FPersonLeadProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPersonLeadProducts">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PipeLine_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FPipeLines" Type="Self.FPipeLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPipeLines">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PipeLine_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FPipeLines" Type="Self.FPipeLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FPipeLines">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Role_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="0..1" />
+    <End Role="FRoles" Type="Self.FRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FRoles">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleAssignedModule_ModuleId">
+    <End Role="FModules" Type="Self.FModules" Multiplicity="1" />
+    <End Role="FRoleAssignedModules" Type="Self.FRoleAssignedModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FModules">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FRoleAssignedModules">
+        <PropertyRef Name="ModuleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleAssignedModule_RoleId">
+    <End Role="FRoles" Type="Self.FRoles" Multiplicity="1" />
+    <End Role="FRoleAssignedModules" Type="Self.FRoleAssignedModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FRoleAssignedModules">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salutation_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FSalutations" Type="Self.FSalutations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSalutations">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Salutation_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FSalutations" Type="Self.FSalutations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSalutations">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Provience_County_Country">
+    <End Role="FCountries" Type="Self.FCountries" Multiplicity="1" />
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FCountries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FState_Provience_County">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Provience_County_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FState_Provience_County">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Provience_County_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FState_Provience_County" Type="Self.FState_Provience_County" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FState_Provience_County">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyMaster_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FSurveyMasters" Type="Self.FSurveyMasters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyMasters">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyMaster_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FSurveyMasters" Type="Self.FSurveyMasters" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyMasters">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestion_HtmlControlName">
+    <End Role="FHtmlControlNames" Type="Self.FHtmlControlNames" Multiplicity="1" />
+    <End Role="FSurveyQuestions" Type="Self.FSurveyQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FHtmlControlNames">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestions">
+        <PropertyRef Name="HtmlControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestion_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FSurveyQuestions" Type="Self.FSurveyQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestions">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestion_SurveyMaster">
+    <End Role="FSurveyMasters" Type="Self.FSurveyMasters" Multiplicity="1" />
+    <End Role="FSurveyQuestions" Type="Self.FSurveyQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FSurveyMasters">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestions">
+        <PropertyRef Name="SurveyMasterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestion_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FSurveyQuestions" Type="Self.FSurveyQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestions">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestionValues_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FSurveyQuestionValues" Type="Self.FSurveyQuestionValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestionValues">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestionValues_SurveyQuestion">
+    <End Role="FSurveyQuestions" Type="Self.FSurveyQuestions" Multiplicity="1" />
+    <End Role="FSurveyQuestionValues" Type="Self.FSurveyQuestionValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FSurveyQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestionValues">
+        <PropertyRef Name="SurveyQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SurveyQuestionValues_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FSurveyQuestionValues" Type="Self.FSurveyQuestionValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FSurveyQuestionValues">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="1" />
+    <End Role="FTeams" Type="Self.FTeams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FTeams">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_User">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="1" />
+    <End Role="FTeams" Type="Self.FTeams" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FTeams">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Gender">
+    <End Role="FGenders" Type="Self.FGenders" Multiplicity="0..1" />
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FGenders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FUsers">
+        <PropertyRef Name="Gender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Organization">
+    <End Role="FOrganizations" Type="Self.FOrganizations" Multiplicity="0..1" />
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOrganizations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FUsers">
+        <PropertyRef Name="OrgId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPasswordHistory_UserId">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FUserPasswordHistories" Type="Self.FUserPasswordHistories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FUserPasswordHistories">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserSession_UserId">
+    <End Role="FUsers" Type="Self.FUsers" Multiplicity="0..1" />
+    <End Role="FUserSessions" Type="Self.FUserSessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FUserSessions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FCONFIGModelStoreContainer">
+    <EntitySet Name="FAssignRoletoUsers" EntityType="Self.FAssignRoletoUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAttendances" EntityType="Self.FAttendances" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCampaignBankTypes" EntityType="Self.FCampaignBankTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCampaignMedias" EntityType="Self.FCampaignMedias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCampaignProductDocuments" EntityType="Self.FCampaignProductDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCampaignProducts" EntityType="Self.FCampaignProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCampaigns" EntityType="Self.FCampaigns" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCampaignTypes" EntityType="Self.FCampaignTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_CaseOrgin" EntityType="Self.FCaseManagment_CaseOrgin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Followers" EntityType="Self.FCaseManagment_Followers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Note" EntityType="Self.FCaseManagment_Note" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Note_Attachment" EntityType="Self.FCaseManagment_Note_Attachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Note_Comment" EntityType="Self.FCaseManagment_Note_Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Note_Followers" EntityType="Self.FCaseManagment_Note_Followers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Priority" EntityType="Self.FCaseManagment_Priority" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_SLA" EntityType="Self.FCaseManagment_SLA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_sla_responseName" EntityType="Self.FCaseManagment_sla_responseName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Status" EntityType="Self.FCaseManagment_Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Task" EntityType="Self.FCaseManagment_Task" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_TaskCategory" EntityType="Self.FCaseManagment_TaskCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagment_Type" EntityType="Self.FCaseManagment_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagments" EntityType="Self.FCaseManagments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCaseManagmentStageNames" EntityType="Self.FCaseManagmentStageNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCities" EntityType="Self.FCities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCompanyModes" EntityType="Self.FCompanyModes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FConfigInsertStatus" EntityType="Self.FConfigInsertStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCoreSettings" EntityType="Self.FCoreSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FCountries" EntityType="Self.FCountries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDealStageAnswers" EntityType="Self.FDealStageAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDealStageNames" EntityType="Self.FDealStageNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDealStageQuestionModes" EntityType="Self.FDealStageQuestionModes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDealStageQuestions" EntityType="Self.FDealStageQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDealStageQuestionTypes" EntityType="Self.FDealStageQuestionTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDealStageQuestionValues" EntityType="Self.FDealStageQuestionValues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDepartments" EntityType="Self.FDepartments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDesignations" EntityType="Self.FDesignations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FDocuments" EntityType="Self.FDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FEmployeeQueues" EntityType="Self.FEmployeeQueues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FEmployees" EntityType="Self.FEmployees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FGenders" EntityType="Self.FGenders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FHtmlControlNames" EntityType="Self.FHtmlControlNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FLanguages" EntityType="Self.FLanguages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FLocations" EntityType="Self.FLocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FLogs" EntityType="Self.FLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FMediaSources" EntityType="Self.FMediaSources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FModules" EntityType="Self.FModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FNotifications" EntityType="Self.FNotifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FOrganizations" EntityType="Self.FOrganizations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPeoples" EntityType="Self.FPeoples" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPerson_Company" EntityType="Self.FPerson_Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPerson_Mode" EntityType="Self.FPerson_Mode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPersonLeadNotes" EntityType="Self.FPersonLeadNotes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPersonLeadProducts" EntityType="Self.FPersonLeadProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPersonLeads" EntityType="Self.FPersonLeads" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FPipeLines" EntityType="Self.FPipeLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FRoleAssignedModules" EntityType="Self.FRoleAssignedModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FRoles" EntityType="Self.FRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FSalutations" EntityType="Self.FSalutations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FState_Provience_County" EntityType="Self.FState_Provience_County" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FSurveyMasters" EntityType="Self.FSurveyMasters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FSurveyQuestions" EntityType="Self.FSurveyQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FSurveyQuestionValues" EntityType="Self.FSurveyQuestionValues" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FTeams" EntityType="Self.FTeams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FUserPasswordHistories" EntityType="Self.FUserPasswordHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FUsers" EntityType="Self.FUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FUserSessions" EntityType="Self.FUserSessions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AssignRoletoUser_Role" Association="Self.FK_AssignRoletoUser_Role">
+      <End Role="FRoles" EntitySet="FRoles" />
+      <End Role="FAssignRoletoUsers" EntitySet="FAssignRoletoUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AssignRoletoUser_User" Association="Self.FK_AssignRoletoUser_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FAssignRoletoUsers" EntitySet="FAssignRoletoUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_Organization" Association="Self.FK_Attendance_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FAttendances" EntitySet="FAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_User" Association="Self.FK_Attendance_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FAttendances" EntitySet="FAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Attendance_User1" Association="Self.FK_Attendance_User1">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FAttendances" EntitySet="FAttendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Campaign_CampaignBankType" Association="Self.FK_Campaign_CampaignBankType">
+      <End Role="FCampaignBankTypes" EntitySet="FCampaignBankTypes" />
+      <End Role="FCampaigns" EntitySet="FCampaigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Campaign_CampaignType" Association="Self.FK_Campaign_CampaignType">
+      <End Role="FCampaignTypes" EntitySet="FCampaignTypes" />
+      <End Role="FCampaigns" EntitySet="FCampaigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Campaign_Employee" Association="Self.FK_Campaign_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FCampaigns" EntitySet="FCampaigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Campaign_Organization" Association="Self.FK_Campaign_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCampaigns" EntitySet="FCampaigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Campaign_User" Association="Self.FK_Campaign_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCampaigns" EntitySet="FCampaigns" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignBankType_Organization" Association="Self.FK_CampaignBankType_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCampaignBankTypes" EntitySet="FCampaignBankTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignBankType_User" Association="Self.FK_CampaignBankType_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCampaignBankTypes" EntitySet="FCampaignBankTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignMedia_MediaSource" Association="Self.FK_CampaignMedia_MediaSource">
+      <End Role="FMediaSources" EntitySet="FMediaSources" />
+      <End Role="FCampaignMedias" EntitySet="FCampaignMedias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignMedia_Organization" Association="Self.FK_CampaignMedia_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCampaignMedias" EntitySet="FCampaignMedias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignMedia_User" Association="Self.FK_CampaignMedia_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCampaignMedias" EntitySet="FCampaignMedias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProduct_Campaign" Association="Self.FK_CampaignProduct_Campaign">
+      <End Role="FCampaigns" EntitySet="FCampaigns" />
+      <End Role="FCampaignProducts" EntitySet="FCampaignProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProduct_Organization" Association="Self.FK_CampaignProduct_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCampaignProducts" EntitySet="FCampaignProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProduct_User" Association="Self.FK_CampaignProduct_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCampaignProducts" EntitySet="FCampaignProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProductDocument_CampaignProduct" Association="Self.FK_CampaignProductDocument_CampaignProduct">
+      <End Role="FCampaignProducts" EntitySet="FCampaignProducts" />
+      <End Role="FCampaignProductDocuments" EntitySet="FCampaignProductDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProductDocument_Document" Association="Self.FK_CampaignProductDocument_Document">
+      <End Role="FDocuments" EntitySet="FDocuments" />
+      <End Role="FCampaignProductDocuments" EntitySet="FCampaignProductDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProductDocument_Organization" Association="Self.FK_CampaignProductDocument_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCampaignProductDocuments" EntitySet="FCampaignProductDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignProductDocument_User" Association="Self.FK_CampaignProductDocument_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCampaignProductDocuments" EntitySet="FCampaignProductDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignType_Organization" Association="Self.FK_CampaignType_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCampaignTypes" EntitySet="FCampaignTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CampaignType_User" Association="Self.FK_CampaignType_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCampaignTypes" EntitySet="FCampaignTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseManagment_CaseOrgin" Association="Self.FK_CaseManagment_CaseManagment_CaseOrgin">
+      <End Role="FCaseManagment_CaseOrgin" EntitySet="FCaseManagment_CaseOrgin" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseManagment_Priority" Association="Self.FK_CaseManagment_CaseManagment_Priority">
+      <End Role="FCaseManagment_Priority" EntitySet="FCaseManagment_Priority" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseManagment_Status" Association="Self.FK_CaseManagment_CaseManagment_Status">
+      <End Role="FCaseManagment_Status" EntitySet="FCaseManagment_Status" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseManagment_Type" Association="Self.FK_CaseManagment_CaseManagment_Type">
+      <End Role="FCaseManagment_Type" EntitySet="FCaseManagment_Type" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseManagmentStageName" Association="Self.FK_CaseManagment_CaseManagmentStageName">
+      <End Role="FCaseManagmentStageNames" EntitySet="FCaseManagmentStageNames" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseOrgin_Organization" Association="Self.FK_CaseManagment_CaseOrgin_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_CaseOrgin" EntitySet="FCaseManagment_CaseOrgin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_CaseOrgin_User" Association="Self.FK_CaseManagment_CaseOrgin_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_CaseOrgin" EntitySet="FCaseManagment_CaseOrgin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Employee" Association="Self.FK_CaseManagment_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Followers_CaseManagment" Association="Self.FK_CaseManagment_Followers_CaseManagment">
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+      <End Role="FCaseManagment_Followers" EntitySet="FCaseManagment_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Followers_Employee" Association="Self.FK_CaseManagment_Followers_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FCaseManagment_Followers" EntitySet="FCaseManagment_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Followers_Organization" Association="Self.FK_CaseManagment_Followers_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Followers" EntitySet="FCaseManagment_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Followers_User" Association="Self.FK_CaseManagment_Followers_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Followers" EntitySet="FCaseManagment_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Attachment_CaseManagment_Note" Association="Self.FK_CaseManagment_Note_Attachment_CaseManagment_Note">
+      <End Role="FCaseManagment_Note" EntitySet="FCaseManagment_Note" />
+      <End Role="FCaseManagment_Note_Attachment" EntitySet="FCaseManagment_Note_Attachment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Attachment_Organization" Association="Self.FK_CaseManagment_Note_Attachment_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Note_Attachment" EntitySet="FCaseManagment_Note_Attachment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Attachment_User" Association="Self.FK_CaseManagment_Note_Attachment_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Note_Attachment" EntitySet="FCaseManagment_Note_Attachment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_CaseManagment" Association="Self.FK_CaseManagment_Note_CaseManagment">
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+      <End Role="FCaseManagment_Note" EntitySet="FCaseManagment_Note" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Comment_CaseManagment_Note" Association="Self.FK_CaseManagment_Note_Comment_CaseManagment_Note">
+      <End Role="FCaseManagment_Note" EntitySet="FCaseManagment_Note" />
+      <End Role="FCaseManagment_Note_Comment" EntitySet="FCaseManagment_Note_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Comment_Organization" Association="Self.FK_CaseManagment_Note_Comment_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Note_Comment" EntitySet="FCaseManagment_Note_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Comment_User" Association="Self.FK_CaseManagment_Note_Comment_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Note_Comment" EntitySet="FCaseManagment_Note_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Followers_CaseManagment_Note" Association="Self.FK_CaseManagment_Note_Followers_CaseManagment_Note">
+      <End Role="FCaseManagment_Note" EntitySet="FCaseManagment_Note" />
+      <End Role="FCaseManagment_Note_Followers" EntitySet="FCaseManagment_Note_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Followers_Employee" Association="Self.FK_CaseManagment_Note_Followers_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FCaseManagment_Note_Followers" EntitySet="FCaseManagment_Note_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Followers_Organization" Association="Self.FK_CaseManagment_Note_Followers_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Note_Followers" EntitySet="FCaseManagment_Note_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Followers_User" Association="Self.FK_CaseManagment_Note_Followers_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Note_Followers" EntitySet="FCaseManagment_Note_Followers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_Organization" Association="Self.FK_CaseManagment_Note_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Note" EntitySet="FCaseManagment_Note" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Note_User" Association="Self.FK_CaseManagment_Note_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Note" EntitySet="FCaseManagment_Note" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_PersonLead" Association="Self.FK_CaseManagment_PersonLead">
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Priority_Organization" Association="Self.FK_CaseManagment_Priority_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Priority" EntitySet="FCaseManagment_Priority" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Priority_User" Association="Self.FK_CaseManagment_Priority_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Priority" EntitySet="FCaseManagment_Priority" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_SLA_CaseManagment" Association="Self.FK_CaseManagment_SLA_CaseManagment">
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+      <End Role="FCaseManagment_SLA" EntitySet="FCaseManagment_SLA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_SLA_CaseManagment_sla_responseName" Association="Self.FK_CaseManagment_SLA_CaseManagment_sla_responseName">
+      <End Role="FCaseManagment_sla_responseName" EntitySet="FCaseManagment_sla_responseName" />
+      <End Role="FCaseManagment_SLA" EntitySet="FCaseManagment_SLA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_SLA_Organization" Association="Self.FK_CaseManagment_SLA_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_SLA" EntitySet="FCaseManagment_SLA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_sla_responseName_Organization" Association="Self.FK_CaseManagment_sla_responseName_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_sla_responseName" EntitySet="FCaseManagment_sla_responseName" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_sla_responseName_User" Association="Self.FK_CaseManagment_sla_responseName_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_sla_responseName" EntitySet="FCaseManagment_sla_responseName" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_SLA_User" Association="Self.FK_CaseManagment_SLA_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_SLA" EntitySet="FCaseManagment_SLA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Status_Organization" Association="Self.FK_CaseManagment_Status_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Status" EntitySet="FCaseManagment_Status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Status_User" Association="Self.FK_CaseManagment_Status_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Status" EntitySet="FCaseManagment_Status" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Task_CaseManagment" Association="Self.FK_CaseManagment_Task_CaseManagment">
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+      <End Role="FCaseManagment_Task" EntitySet="FCaseManagment_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Task_CaseManagment_TaskCategory" Association="Self.FK_CaseManagment_Task_CaseManagment_TaskCategory">
+      <End Role="FCaseManagment_TaskCategory" EntitySet="FCaseManagment_TaskCategory" />
+      <End Role="FCaseManagment_Task" EntitySet="FCaseManagment_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Task_Employee" Association="Self.FK_CaseManagment_Task_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FCaseManagment_Task" EntitySet="FCaseManagment_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Task_Organization" Association="Self.FK_CaseManagment_Task_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Task" EntitySet="FCaseManagment_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Task_User" Association="Self.FK_CaseManagment_Task_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Task" EntitySet="FCaseManagment_Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_TaskCategory_Organization" Association="Self.FK_CaseManagment_TaskCategory_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_TaskCategory" EntitySet="FCaseManagment_TaskCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_TaskCategory_User" Association="Self.FK_CaseManagment_TaskCategory_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_TaskCategory" EntitySet="FCaseManagment_TaskCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Type_Organization" Association="Self.FK_CaseManagment_Type_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagment_Type" EntitySet="FCaseManagment_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_Type_User" Association="Self.FK_CaseManagment_Type_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagment_Type" EntitySet="FCaseManagment_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagment_User" Association="Self.FK_CaseManagment_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagments" EntitySet="FCaseManagments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagmentStageName_Organization" Association="Self.FK_CaseManagmentStageName_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCaseManagmentStageNames" EntitySet="FCaseManagmentStageNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CaseManagmentStageName_User" Association="Self.FK_CaseManagmentStageName_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCaseManagmentStageNames" EntitySet="FCaseManagmentStageNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_City" Association="Self.FK_City_City">
+      <End Role="FCities" EntitySet="FCities" />
+      <End Role="FCities1" EntitySet="FCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_Organization" Association="Self.FK_City_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCities" EntitySet="FCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_State_Provience_County" Association="Self.FK_City_State_Provience_County">
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+      <End Role="FCities" EntitySet="FCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_City_User" Association="Self.FK_City_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCities" EntitySet="FCities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyMode_Organization" Association="Self.FK_CompanyMode_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCompanyModes" EntitySet="FCompanyModes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyMode_User" Association="Self.FK_CompanyMode_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCompanyModes" EntitySet="FCompanyModes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConfigInsertStatus_Users" Association="Self.FK_ConfigInsertStatus_Users">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FConfigInsertStatus" EntitySet="FConfigInsertStatus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoreSettings_UserId" Association="Self.FK_CoreSettings_UserId">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCoreSettings" EntitySet="FCoreSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Country_Organization" Association="Self.FK_Country_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FCountries" EntitySet="FCountries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Country_User" Association="Self.FK_Country_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FCountries" EntitySet="FCountries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageAnswers_DealStageQuestions" Association="Self.FK_DealStageAnswers_DealStageQuestions">
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+      <End Role="FDealStageAnswers" EntitySet="FDealStageAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageAnswers_Organization" Association="Self.FK_DealStageAnswers_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDealStageAnswers" EntitySet="FDealStageAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageAnswers_Person" Association="Self.FK_DealStageAnswers_Person">
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+      <End Role="FDealStageAnswers" EntitySet="FDealStageAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageAnswers_User" Association="Self.FK_DealStageAnswers_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDealStageAnswers" EntitySet="FDealStageAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageName_Organization" Association="Self.FK_DealStageName_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDealStageNames" EntitySet="FDealStageNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageName_PipeLine" Association="Self.FK_DealStageName_PipeLine">
+      <End Role="FPipeLines" EntitySet="FPipeLines" />
+      <End Role="FDealStageNames" EntitySet="FDealStageNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageName_User" Association="Self.FK_DealStageName_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDealStageNames" EntitySet="FDealStageNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionMode_Organization" Association="Self.FK_DealStageQuestionMode_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDealStageQuestionModes" EntitySet="FDealStageQuestionModes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionMode_User" Association="Self.FK_DealStageQuestionMode_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDealStageQuestionModes" EntitySet="FDealStageQuestionModes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestions_DealStageName" Association="Self.FK_DealStageQuestions_DealStageName">
+      <End Role="FDealStageNames" EntitySet="FDealStageNames" />
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestions_DealStageQuestionMode" Association="Self.FK_DealStageQuestions_DealStageQuestionMode">
+      <End Role="FDealStageQuestionModes" EntitySet="FDealStageQuestionModes" />
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestions_DealStageQuestionType" Association="Self.FK_DealStageQuestions_DealStageQuestionType">
+      <End Role="FDealStageQuestionTypes" EntitySet="FDealStageQuestionTypes" />
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestions_HtmlControlName" Association="Self.FK_DealStageQuestions_HtmlControlName">
+      <End Role="FHtmlControlNames" EntitySet="FHtmlControlNames" />
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestions_Organization" Association="Self.FK_DealStageQuestions_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestions_User" Association="Self.FK_DealStageQuestions_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionType_Organization" Association="Self.FK_DealStageQuestionType_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDealStageQuestionTypes" EntitySet="FDealStageQuestionTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionType_User" Association="Self.FK_DealStageQuestionType_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDealStageQuestionTypes" EntitySet="FDealStageQuestionTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionValues_DealStageQuestions" Association="Self.FK_DealStageQuestionValues_DealStageQuestions">
+      <End Role="FDealStageQuestions" EntitySet="FDealStageQuestions" />
+      <End Role="FDealStageQuestionValues" EntitySet="FDealStageQuestionValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionValues_Organization" Association="Self.FK_DealStageQuestionValues_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDealStageQuestionValues" EntitySet="FDealStageQuestionValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DealStageQuestionValues_User" Association="Self.FK_DealStageQuestionValues_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDealStageQuestionValues" EntitySet="FDealStageQuestionValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Organization" Association="Self.FK_Department_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDepartments" EntitySet="FDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_User" Association="Self.FK_Department_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDepartments" EntitySet="FDepartments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Designation_Organization" Association="Self.FK_Designation_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDesignations" EntitySet="FDesignations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Designation_User" Association="Self.FK_Designation_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDesignations" EntitySet="FDesignations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_Organization" Association="Self.FK_Document_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FDocuments" EntitySet="FDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Document_User" Association="Self.FK_Document_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FDocuments" EntitySet="FDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_City" Association="Self.FK_Employee_City">
+      <End Role="FCities" EntitySet="FCities" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Company_City" Association="Self.FK_Employee_Company_City">
+      <End Role="FCities" EntitySet="FCities" />
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Company_Country" Association="Self.FK_Employee_Company_Country">
+      <End Role="FCountries" EntitySet="FCountries" />
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Company_Organization" Association="Self.FK_Employee_Company_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Company_State_Provience_County" Association="Self.FK_Employee_Company_State_Provience_County">
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Company_User" Association="Self.FK_Employee_Company_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Country" Association="Self.FK_Employee_Country">
+      <End Role="FCountries" EntitySet="FCountries" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+      <End Role="FDepartments" EntitySet="FDepartments" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Designation" Association="Self.FK_Employee_Designation">
+      <End Role="FDesignations" EntitySet="FDesignations" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Employee" Association="Self.FK_Employee_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FEmployees1" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Language" Association="Self.FK_Employee_Language">
+      <End Role="FLanguages" EntitySet="FLanguages" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Location" Association="Self.FK_Employee_Location">
+      <End Role="FLocations" EntitySet="FLocations" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Organization" Association="Self.FK_Employee_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_State_Provience_County" Association="Self.FK_Employee_State_Provience_County">
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Team" Association="Self.FK_Employee_Team">
+      <End Role="FTeams" EntitySet="FTeams" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_User" Association="Self.FK_Employee_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_User1" Association="Self.FK_Employee_User1">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FEmployees" EntitySet="FEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeQueue_Employees" Association="Self.FK_EmployeeQueue_Employees">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FEmployeeQueues" EntitySet="FEmployeeQueues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeQueue_Organizations" Association="Self.FK_EmployeeQueue_Organizations">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FEmployeeQueues" EntitySet="FEmployeeQueues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gender_Organization" Association="Self.FK_Gender_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FGenders" EntitySet="FGenders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gender_User" Association="Self.FK_Gender_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FGenders" EntitySet="FGenders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HtmlControlName_Organization" Association="Self.FK_HtmlControlName_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FHtmlControlNames" EntitySet="FHtmlControlNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HtmlControlName_User" Association="Self.FK_HtmlControlName_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FHtmlControlNames" EntitySet="FHtmlControlNames" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_Organization" Association="Self.FK_Language_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FLanguages" EntitySet="FLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Language_User" Association="Self.FK_Language_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FLanguages" EntitySet="FLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_Organization" Association="Self.FK_Location_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FLocations" EntitySet="FLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Location_User" Association="Self.FK_Location_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FLocations" EntitySet="FLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Log_UserId" Association="Self.FK_Log_UserId">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FLogs" EntitySet="FLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaSource_Organization" Association="Self.FK_MediaSource_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FMediaSources" EntitySet="FMediaSources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MediaSource_User" Association="Self.FK_MediaSource_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FMediaSources" EntitySet="FMediaSources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_UserId" Association="Self.FK_Notification_UserId">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FNotifications" EntitySet="FNotifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_City" Association="Self.FK_Person_City">
+      <End Role="FCities" EntitySet="FCities" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Company_CompanyMode" Association="Self.FK_Person_Company_CompanyMode">
+      <End Role="FCompanyModes" EntitySet="FCompanyModes" />
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Country" Association="Self.FK_Person_Country">
+      <End Role="FCountries" EntitySet="FCountries" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Country1" Association="Self.FK_Person_Country1">
+      <End Role="FCountries" EntitySet="FCountries" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Gender" Association="Self.FK_Person_Gender">
+      <End Role="FGenders" EntitySet="FGenders" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Language" Association="Self.FK_Person_Language">
+      <End Role="FLanguages" EntitySet="FLanguages" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Mode_Organization" Association="Self.FK_Person_Mode_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPerson_Mode" EntitySet="FPerson_Mode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Mode_User" Association="Self.FK_Person_Mode_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPerson_Mode" EntitySet="FPerson_Mode" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Organization" Association="Self.FK_Person_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Person_Company" Association="Self.FK_Person_Person_Company">
+      <End Role="FPerson_Company" EntitySet="FPerson_Company" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Person_Mode" Association="Self.FK_Person_Person_Mode">
+      <End Role="FPerson_Mode" EntitySet="FPerson_Mode" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_Salutation" Association="Self.FK_Person_Salutation">
+      <End Role="FSalutations" EntitySet="FSalutations" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_State_Provience_County" Association="Self.FK_Person_State_Provience_County">
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person_User" Association="Self.FK_Person_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPeoples" EntitySet="FPeoples" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLead_DealStageName" Association="Self.FK_PersonLead_DealStageName">
+      <End Role="FDealStageNames" EntitySet="FDealStageNames" />
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLead_Employee" Association="Self.FK_PersonLead_Employee">
+      <End Role="FEmployees" EntitySet="FEmployees" />
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLead_Organization" Association="Self.FK_PersonLead_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLead_Person" Association="Self.FK_PersonLead_Person">
+      <End Role="FPeoples" EntitySet="FPeoples" />
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLead_User" Association="Self.FK_PersonLead_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadNote_Organization" Association="Self.FK_PersonLeadNote_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPersonLeadNotes" EntitySet="FPersonLeadNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadNote_PersonLead" Association="Self.FK_PersonLeadNote_PersonLead">
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+      <End Role="FPersonLeadNotes" EntitySet="FPersonLeadNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadNote_User" Association="Self.FK_PersonLeadNote_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPersonLeadNotes" EntitySet="FPersonLeadNotes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadProduct_CampaignProduct" Association="Self.FK_PersonLeadProduct_CampaignProduct">
+      <End Role="FCampaignProducts" EntitySet="FCampaignProducts" />
+      <End Role="FPersonLeadProducts" EntitySet="FPersonLeadProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadProduct_Organization" Association="Self.FK_PersonLeadProduct_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPersonLeadProducts" EntitySet="FPersonLeadProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadProduct_PersonLead" Association="Self.FK_PersonLeadProduct_PersonLead">
+      <End Role="FPersonLeads" EntitySet="FPersonLeads" />
+      <End Role="FPersonLeadProducts" EntitySet="FPersonLeadProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonLeadProduct_User" Association="Self.FK_PersonLeadProduct_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPersonLeadProducts" EntitySet="FPersonLeadProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PipeLine_Organization" Association="Self.FK_PipeLine_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FPipeLines" EntitySet="FPipeLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PipeLine_User" Association="Self.FK_PipeLine_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FPipeLines" EntitySet="FPipeLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Role_Organization" Association="Self.FK_Role_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FRoles" EntitySet="FRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleAssignedModule_ModuleId" Association="Self.FK_RoleAssignedModule_ModuleId">
+      <End Role="FModules" EntitySet="FModules" />
+      <End Role="FRoleAssignedModules" EntitySet="FRoleAssignedModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleAssignedModule_RoleId" Association="Self.FK_RoleAssignedModule_RoleId">
+      <End Role="FRoles" EntitySet="FRoles" />
+      <End Role="FRoleAssignedModules" EntitySet="FRoleAssignedModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salutation_Organization" Association="Self.FK_Salutation_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FSalutations" EntitySet="FSalutations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Salutation_User" Association="Self.FK_Salutation_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FSalutations" EntitySet="FSalutations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Provience_County_Country" Association="Self.FK_State_Provience_County_Country">
+      <End Role="FCountries" EntitySet="FCountries" />
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Provience_County_Organization" Association="Self.FK_State_Provience_County_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Provience_County_User" Association="Self.FK_State_Provience_County_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FState_Provience_County" EntitySet="FState_Provience_County" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyMaster_Organization" Association="Self.FK_SurveyMaster_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FSurveyMasters" EntitySet="FSurveyMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyMaster_User" Association="Self.FK_SurveyMaster_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FSurveyMasters" EntitySet="FSurveyMasters" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestion_HtmlControlName" Association="Self.FK_SurveyQuestion_HtmlControlName">
+      <End Role="FHtmlControlNames" EntitySet="FHtmlControlNames" />
+      <End Role="FSurveyQuestions" EntitySet="FSurveyQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestion_Organization" Association="Self.FK_SurveyQuestion_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FSurveyQuestions" EntitySet="FSurveyQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestion_SurveyMaster" Association="Self.FK_SurveyQuestion_SurveyMaster">
+      <End Role="FSurveyMasters" EntitySet="FSurveyMasters" />
+      <End Role="FSurveyQuestions" EntitySet="FSurveyQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestion_User" Association="Self.FK_SurveyQuestion_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FSurveyQuestions" EntitySet="FSurveyQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestionValues_Organization" Association="Self.FK_SurveyQuestionValues_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FSurveyQuestionValues" EntitySet="FSurveyQuestionValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestionValues_SurveyQuestion" Association="Self.FK_SurveyQuestionValues_SurveyQuestion">
+      <End Role="FSurveyQuestions" EntitySet="FSurveyQuestions" />
+      <End Role="FSurveyQuestionValues" EntitySet="FSurveyQuestionValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SurveyQuestionValues_User" Association="Self.FK_SurveyQuestionValues_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FSurveyQuestionValues" EntitySet="FSurveyQuestionValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_Organization" Association="Self.FK_Team_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FTeams" EntitySet="FTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_User" Association="Self.FK_Team_User">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FTeams" EntitySet="FTeams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
+      <End Role="FGenders" EntitySet="FGenders" />
+      <End Role="FUsers" EntitySet="FUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Organization" Association="Self.FK_User_Organization">
+      <End Role="FOrganizations" EntitySet="FOrganizations" />
+      <End Role="FUsers" EntitySet="FUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPasswordHistory_UserId" Association="Self.FK_UserPasswordHistory_UserId">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FUserPasswordHistories" EntitySet="FUserPasswordHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserSession_UserId" Association="Self.FK_UserSession_UserId">
+      <End Role="FUsers" EntitySet="FUsers" />
+      <End Role="FUserSessions" EntitySet="FUserSessions" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

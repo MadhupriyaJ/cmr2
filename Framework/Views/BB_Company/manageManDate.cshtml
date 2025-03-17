@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+
+<div class="col-md-10">
+    <div class="portlet light ">
+        <div class="portlet-title">
+
+            <div class="actions">
+                <a class="btn btn-primary" href="#" id="btnmandate">
+                    <i class="fa fa-plus"></i> Mandates
+                </a>
+
+            </div>
+        </div>
+        <div class="portlet-body">
+           <div id="divmandate">
+               @Html.Action("ListofMandates", "BB_Company")
+           </div>
+        </div>
+    </div>
+</div>

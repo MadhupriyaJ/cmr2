@@ -1,0 +1,172 @@
+﻿@{
+    ViewBag.Title = "Pipeline";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";        
+}
+<ul class="page-breadcrumb breadcrumb">
+    <li>
+        <a href="@Url.Content("~/")Home/Index">Home</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">Administrator</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">DealStage</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">PipeLine</a>
+    </li>
+</ul>
+<div class="row">
+    <div class="col-md-7">
+        <div class="portlet light " style="min-height:500px;">
+            <div class="portlet-title">
+             
+                <div class="caption font-red-sunglo">
+                    <i class="icon-list font-red-sunglo"></i>
+                    <span class="caption-subject bold uppercase"> List Of PipeLines</span>
+                    <span class="caption-helper"></span>
+                </div>
+                <div class="actions">
+
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="tiles">
+
+                    @{
+
+                        foreach (var p in ViewBag.Pipelines)
+                        {
+                            <div class="item" id="@p.Id">
+                                <div class="tile bg-red-intense">
+                                    <div class="tile-body">
+                                        <i class="fa  fa-chevron-circle-up"></i>
+                                    </div>
+                                    <div class="tile-object">
+                                        <div class="name" align="center">
+                                            @p.Name
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-md-5">
+        <div class="portlet light bg-inverse" style="min-height:500px;">
+            <div class="portlet-title">
+                <div class="caption font-red-sunglo">
+                    <i class="icon-plus-sign font-red-sunglo"></i>
+                    <span class="caption-subject bold uppercase"> Add PipeLines</span>
+                    <span class="caption-helper"></span>
+                </div>
+                <div class="actions">
+
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <div class="form-horizontal">
+                    <form action="#" class="form-horizontal" id="submit_form" method="POST">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Name<span class="required"> *</span></label>
+                                <div class="col-md-6">
+                                    <input type="text" id="PipelineName" class="form-control" name="PipelineName" />
+                                    <span class="help-block">
+                                        Provide PipeLine Name
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-actions ">
+                                <div class="row">
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <button type="submit" id="btnPipelinesave" class="btn green">Save</button>
+                                        <button type="button" id="btnclear" class="btn default">Clear</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>      
+@section Scripts {
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/select2/select2.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/")assets/global/plugins/bootbox/bootbox.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#submit_form").validate({
+            errorElement: 'span',
+            errorClass: 'help-block help-block-error',
+            rules: {
+                PipelineName: "required"
+            },
+            highlight: function (element) { // hightlight error inputs
+                $(element)
+                    .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+            },
+
+            submitHandler: function (form) {
+                form.submit();
+            }
+
+        });
+
+        $(".item").live("click", function () {
+            var ID = $(this).attr("id");
+            var url = "@Url.Content("~/")DealStageManagement/DealStage?ID=" + ID;
+         window.location.href = url;
+     });
+
+
+     $('#btnPipelinesave').click(function () {
+         var isValid = $("#submit_form").valid();
+         if (!isValid)
+             return false;
+         var PipelineName = { 'Name': $('#PipelineName').val() };
+         var dataRow = ({ PiplineTbl: PipelineName });
+
+         $.ajax({
+             type: 'POST',
+             url: '@Url.Content("~/")' + "DealStageManagement/AddPipeLine",
+             data: dataRow,
+             success: function (response) {
+                 if (response == 'True') {                  
+                     bootbox.alert("Pipeline Added Successfully!", function () {
+                         window.location.reload();
+                     });
+                 }
+                 else {
+                     bootbox.alert("Error, could not complete the action!", function () {
+                         window.location.reload();
+                     });
+                 }
+
+             }
+         });
+
+     });
+
+     $('#btnclear').click(function () {
+         $(':input').val('');
+     });
+ }); </script>
+}

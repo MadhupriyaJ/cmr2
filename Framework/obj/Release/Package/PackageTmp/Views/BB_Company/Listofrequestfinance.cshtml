@@ -1,0 +1,48 @@
+﻿@model PagedList.IPagedList<FramWork.Models.ABB_RequestFinance>
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+<table class="table table-striped table-bordered table-advance table-hover">
+    <thead>
+        <tr>
+            <th>
+                SINO
+            </th>
+            <th>
+                <i class="fa fa-user"></i> Product
+            </th>
+            <th class="hidden-xs">
+                <i class="fa fa-anchor"></i> Amount
+            </th>
+
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Select((x, i) => new { Data = x, Index = i }))
+        {
+            <tr>
+                <td>@(item.Index + ((Model.PageNumber - 1) * Model.PageSize) + 1)</td>
+                <td>
+                    <a href="@Url.Content("~")BB_Deals/Pipeline/@item.Data.Id">
+                        @item.Data.ABB_Products.ProductName
+                    </a>
+                </td>
+                <td class="hidden-xs">
+                    @item.Data.Amount
+                </td>
+
+                <td>
+                    <a class="btn btn-primary" href="#">
+                        <i class="fa fa-pencil"></i> Edit
+                    </a>
+                    <a class="btn btn-primary red" href="#">
+                        <i class="fa fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

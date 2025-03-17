@@ -1,0 +1,446 @@
+﻿@{
+    Layout = null;
+}
+<div>
+    @Html.Partial("_SideLink")
+</div>
+
+<div class="portlet">
+    <h4 class="bold">
+
+        <a href="#" class="addFirmParams" id="statmentBtn" data-target="_IFRS">
+            <i class="l"></i>
+            <i class="r"></i>
+            Statements: IFRS
+        </a>
+        / <span id="curent_roles">Statement of comprehensive income</span>
+    </h4>
+    <div class="portlet-body">
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <!-- st-(small-toolbar) -->
+                <li class="st-save first-child">
+                    <a href="#" id="saveButton">Save</a> |
+                </li>
+                <li class="st-monitor">
+                    <a href="#" class="functional-link" id="showHidden"><span id="showHiddenTitle">Show hidden</span></a> |
+                </li>
+                <li class="st-return-standart">
+                    <a href="javascript:reloadList()">Reload</a> |
+                </li>
+                <li>
+                    <span class="asideTitle">Currency:</span>
+                    <select id="report_currency" style="vertical-align:midle; width:140px">
+                        <option value="RUB" selected="selected">QAR</option>
+                        <option value="0">[Add new exchange rate]</option>
+                    </select> |
+                </li>
+                <li class="st-print">
+                    <div class="drop-action-box">
+                        <a href="" data-target-block="details-st-report-ifrs" id="reportButton" class="btn-action">Ready report ...</a>
+                    </div> 
+                </li>
+            </ul>
+          
+        </div>
+     
+        <div class="portlet-title">
+            <h4 class="bold" align="center">Statement of comprehensive income</h4>
+            <h5 class="bold" align="center">(other comprehensive income components presented net of tax)</h5>
+            <br />
+        </div>
+       
+
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tab_1" class="table table-bordered tbl_editable">
+                    <tbody>
+                        <tr style="background-color: #E7E4E4">
+                            <td width="75%" class="col0"></td>
+                            <td style="text-align: center" class="col1">For year 2015</td>
+                        </tr>
+                        <tr>
+                            <td title="ProfitLoss" class="conceptbox vert_cell  hie_leaf col0" data-id="s203" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-2">
+                                <span style="color:green;font-weight:normal">
+                                    Profit (loss)
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ProfitLoss__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeAbstract" class="conceptbox vert_cell   col0" data-id="s204" data-concept-type="string" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-13">
+                                <span style="color:black;font-weight:normal">
+                                    Other comprehensive income
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="ComponentsOfOtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLossNetOfTaxAbstract" class="conceptbox vert_cell   col0" data-id="s205" data-concept-type="string" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-14">
+                                <span style="color:black;font-weight:normal">
+                                    Components of other comprehensive income that will not be reclassified to profit or loss (net of tax)
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxGainsLossesFromInvestmentsInEquityInstruments" class="conceptbox vert_cell  hie_leaf col0" data-id="s206" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-15">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) from investments in equity instruments
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxGainsLossesFromInvestmentsInEquityInstruments__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxGainsLossesOnRevaluation" class="conceptbox vert_cell  hie_leaf col0" data-id="s207" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-16">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) on revaluation
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxGainsLossesOnRevaluation__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxGainsLossesOnRemeasurementsOfDefinedBenefitPlans" class="conceptbox vert_cell  hie_leaf col0" data-id="s208" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-17">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) on remeasurements of defined benefit plans
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxGainsLossesOnRemeasurementsOfDefinedBenefitPlans__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxChangeInFairValueOfFinancialLiabilityAttributableToChangeInCreditRiskOfLiability" class="conceptbox vert_cell  hie_leaf col0" data-id="s209" data-concept-type="monetary" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-18">
+                                <span style="color:green;font-weight:normal">
+                                    change in fair value of financial liability attributable to change in credit risk of liability
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxChangeInFairValueOfFinancialLiabilityAttributableToChangeInCreditRiskOfLiability__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ShareOfOtherComprehensiveIncomeOfAssociatesAndJointVenturesAccountedForUsingEquityMethodThatWillNotBeReclassifiedToProfitOrLossNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s210" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-19">
+                                <span style="color:green;font-weight:normal">
+                                    Share of other comprehensive income of associates and joint ventures accounted for using equity method that will not be reclassified to profit or loss
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ShareOfOtherComprehensiveIncomeOfAssociatesAndJointVenturesAccountedForUsingEquityMethodThatWillNotBeReclassifiedToProfitOrLossNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLossNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s211" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-20">
+                                <span style="color:green;font-weight:bold">
+                                    Total other comprehensive income that will not be reclassified to profit or loss
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeThatWillNotBeReclassifiedToProfitOrLossNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ComponentsOfOtherComprehensiveIncomeThatWillBeReclassifiedToProfitOrLossNetOfTaxAbstract" class="conceptbox vert_cell   col0" data-id="s212" data-concept-type="string" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-21">
+                                <span style="color:black;font-weight:normal">
+                                    Components of other comprehensive income that will be reclassified to profit or loss (net of tax)
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="ExchangeDifferencesOnTranslationAbstract" class="conceptbox vert_cell   col0" data-id="s213" data-concept-type="string" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-22">
+                                <span style="color:black;font-weight:normal">
+                                    Exchange differences on translation
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="GainsLossesOnExchangeDifferencesOnTranslationNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s214" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-23">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) on exchange differences on translation
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainsLossesOnExchangeDifferencesOnTranslationNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReclassificationAdjustmentsOnExchangeDifferencesOnTranslationNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s215" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-24">
+                                <span style="color:red;font-weight:normal">
+                                    reclassification adjustments on exchange differences on translation
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReclassificationAdjustmentsOnExchangeDifferencesOnTranslationNetOfTax__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxExchangeDifferencesOnTranslation" class="conceptbox vert_cell  hie_leaf col0" data-id="s216" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-25">
+                                <span style="color:green;font-weight:bold">
+                                    Total exchange differences on translation
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxExchangeDifferencesOnTranslation__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                  
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="AvailableforsaleFinancialAssetsAbstract" class="conceptbox vert_cell   col0" data-id="s217" data-concept-type="string" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-26">
+                                <span style="color:black;font-weight:normal">
+                                    Available-for-sale financial assets
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="GainsLossesOnRemeasuringAvailableforsaleFinancialAssetsNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s218" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-27">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) on remeasuring available-for-sale financial assets
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainsLossesOnRemeasuringAvailableforsaleFinancialAssetsNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReclassificationAdjustmentsOnAvailableforsaleFinancialAssetsNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s219" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-28">
+                                <span style="color:red;font-weight:normal">
+                                    reclassification adjustments on available-for-sale financial assets
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReclassificationAdjustmentsOnAvailableforsaleFinancialAssetsNetOfTax__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxAvailableforsaleFinancialAssets" class="conceptbox vert_cell  hie_leaf col0" data-id="s220" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-29">
+                                <span style="color:green;font-weight:bold">
+                                    Total other comprehensive income from available-for-sale financial assets
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxAvailableforsaleFinancialAssets__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="CashFlowHedgesAbstract" class="conceptbox vert_cell   col0" data-id="s221" data-concept-type="string" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-30">
+                                <span style="color:black;font-weight:normal">
+                                    Cash flow hedges
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="GainsLossesOnCashFlowHedgesNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s222" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-31">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) on cash flow hedges
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainsLossesOnCashFlowHedgesNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReclassificationAdjustmentsOnCashFlowHedgesNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s223" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-32">
+                                <span style="color:red;font-weight:normal">
+                                    reclassification adjustments on cash flow hedges
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReclassificationAdjustmentsOnCashFlowHedgesNetOfTax__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="AdjustmentsForAmountsTransferredToInitialCarryingAmountOfHedgedItems" class="conceptbox vert_cell  hie_leaf col0" data-id="s224" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-33">
+                                <span style="color:red;font-weight:normal">
+                                    amounts removed from equity and included in carrying amount of non-financial asset (liability) whose acquisition or incurrence was hedged highly probable forecast transaction
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="AdjustmentsForAmountsTransferredToInitialCarryingAmountOfHedgedItems__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxCashFlowHedges" class="conceptbox vert_cell  hie_leaf col0" data-id="s225" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-34">
+                                <span style="color:green;font-weight:bold">
+                                    Total other comprehensive income from cash flow hedges
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxCashFlowHedges__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="HedgesOfNetInvestmentsInForeignOperationsAbstract" class="conceptbox vert_cell   col0" data-id="s226" data-concept-type="string" style="padding-left:25px;background-color: #E7E4E4" id="ui-id-35">
+                                <span style="color:black;font-weight:normal">
+                                    Hedges of net investment in foreign operations
+                                </span>
+                            </td>
+                            <td style="background-color: #E7E4E4;" colspan="1" class="col1">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td title="GainsLossesOnHedgesOfNetInvestmentsInForeignOperationsNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s227" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-36">
+                                <span style="color:green;font-weight:normal">
+                                    gains (losses) on hedges of net investments in foreign operations
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="GainsLossesOnHedgesOfNetInvestmentsInForeignOperationsNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ReclassificationAdjustmentsOnHedgesOfNetInvestmentsInForeignOperationsNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s228" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-37">
+                                <span style="color:red;font-weight:normal">
+                                    reclassification adjustments on hedges of net investments in foreign operations
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ReclassificationAdjustmentsOnHedgesOfNetInvestmentsInForeignOperationsNetOfTax__0_0_0" data-type="monetary" data-weight="minus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeNetOfTaxHedgesOfNetInvestmentsInForeignOperations" class="conceptbox vert_cell  hie_leaf col0" data-id="s229" data-concept-type="monetary" style="padding-left:35px;background-color: #E7E4E4" id="ui-id-38">
+                                <span style="color:green;font-weight:bold">
+                                    Total other comprehensive income from hedges of net investments in foreign operations
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeNetOfTaxHedgesOfNetInvestmentsInForeignOperations__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ShareOfOtherComprehensiveIncomeOfAssociatesAndJointVenturesAccountedForUsingEquityMethodThatWillBeReclassifiedToProfitOrLossNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s230" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-39">
+                                <span style="color:green;font-weight:normal">
+                                    Share of other comprehensive income of associates and joint ventures accounted for using equity method that will be reclassified to profit or loss
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ShareOfOtherComprehensiveIncomeOfAssociatesAndJointVenturesAccountedForUsingEquityMethodThatWillBeReclassifiedToProfitOrLossNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncomeThatWillBeReclassifiedToProfitOrLossNetOfTax" class="conceptbox vert_cell  hie_leaf col0" data-id="s231" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-40">
+                                <span style="color:green;font-weight:bold">
+                                    Total other comprehensive income that will be reclassified to profit or loss
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncomeThatWillBeReclassifiedToProfitOrLossNetOfTax__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="OtherComprehensiveIncome" class="conceptbox vert_cell  hie_leaf col0" data-id="s232" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-41">
+                                <span style="color:green;font-weight:bold">
+                                    Total other comprehensive income
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="OtherComprehensiveIncome__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ComprehensiveIncome" class="conceptbox vert_cell   col0" data-id="s233" data-concept-type="monetary" style="padding-left:5px;background-color: #E7E4E4" id="ui-id-42">
+                                <span style="color:green;font-weight:bold">
+                                    Total comprehensive income
+                                </span>
+                            </td>
+                            <td class="totalCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncome__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ComprehensiveIncomeAttributableToOwnersOfParent" class="conceptbox vert_cell  hie_leaf col0" data-id="s235" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-43">
+                                <span style="color:green;font-weight:normal">
+                                    comprehensive income attributable to owners of parent
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncomeAttributableToOwnersOfParent__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td title="ComprehensiveIncomeAttributableToNoncontrollingInterests" class="conceptbox vert_cell  hie_leaf col0" data-id="s236" data-concept-type="monetary" style="padding-left:15px;background-color: #E7E4E4" id="ui-id-44">
+                                <span style="color:green;font-weight:normal">
+                                    comprehensive income attributable to non-controlling interests
+                                </span>
+                            </td>
+                            <td class="simpleCell editableCell  col1 ui-droppable ui-draggable ui-draggable-handle" id="ComprehensiveIncomeAttributableToNoncontrollingInterests__0_0_0" data-type="monetary" data-weight="plus" width="25%" style="min-width: 308px;">
+                                <div>
+                                    <input type="text" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+      
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+    
+        $(".addFirmParams").click(function () {
+
+            $.get('@Url.Action("GetView","financialanalysis")', { url: $(this).data("target") }, function (data) {
+                $("#tab_IFRS").html(data);
+
+
+            })
+        });
+
+    });
+
+
+</script>
